@@ -1,0 +1,4 @@
+appmap_dir: tmp\appmap
+language: python
+name: Brillius_Skill_Practice
+packages: []

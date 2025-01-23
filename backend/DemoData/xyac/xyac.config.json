@@ -1,0 +1,70 @@
+[{
+  "agentId": "A1",
+  "serviceName": "STT",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "agentId": "A1",
+  "serviceName": "RAG",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0",
+  "RagRetrivalDeployId": "3952"
+},
+{
+  "serviceName": "STT",
+  "agentId": "A2",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "serviceName": "RAG",
+  "agentId": "A2",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0",
+  "RagRetrivalDeployId": "5207"
+},
+{
+  "serviceName": "STT",
+  "agentId": "A3",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "serviceName": "RAG",
+  "agentId": "A3",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0",
+  "RagRetrivalDeployId": "0974"
+},
+{
+  "serviceName": "RAG",
+  "agentId": "A4",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0",
+  "RagRetrivalDeployId": "6575"
+},
+{
+  "serviceName": "STT",
+  "agentId": "A4",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "serviceName": "STT",
+  "agentId": "A5",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "serviceName": "RAG",
+  "agentId": "A5",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0",
+  "RagRetrivalDeployId": "6246"
+}]

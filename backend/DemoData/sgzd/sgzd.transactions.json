@@ -1,0 +1,120 @@
+[{
+  "userId": "4UXI",
+  "sessionId": 1720878156,
+  "question": "How can you terminate a running process in Linux?",
+  "questionId": "668780983a5174edaa51187b",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": null
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720878156,
+  "question": "How can you display the contents of a file in Linux?",
+  "questionId": "668780983a5174edaa511875",
+  "videoFlag": 0,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": null
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720878156,
+  "question": "How can you terminate a running process in Linux?",
+  "questionId": "668780983a5174edaa51187b",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 0,
+  "result": null
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720878156,
+  "question": "How can you display the contents of a file in Linux?",
+  "questionId": "668780983a5174edaa511875",
+  "videoFlag": 0,
+  "promptFlag": 0,
+  "llmFlag": 0,
+  "result": null
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720879311,
+  "question": "What command can be used to search for a specific string within files in Linux?",
+  "questionId": "668780983a5174edaa51187a",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": "0"
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720879311,
+  "question": "What is the command to find files and directories based on their names in Linux?",
+  "questionId": "668780983a5174edaa511876",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": null
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720879532,
+  "question": "What command is used to create a new directory in Linux?",
+  "questionId": "668780983a5174edaa511874",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": "0"
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720879532,
+  "question": "How do you change the permissions of a file in Linux?",
+  "questionId": "668780983a5174edaa511879",
+  "videoFlag": 0,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": null
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720879979,
+  "question": "What command can be used to search for a specific string within files in Linux?",
+  "questionId": "668780983a5174edaa51187a",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": "0"
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720879979,
+  "question": "How can you terminate a running process in Linux?",
+  "questionId": "668780983a5174edaa51187b",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": "100"
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720882954,
+  "question": "How can you terminate a running process in Linux?",
+  "questionId": "668780983a5174edaa51187b",
+  "videoFlag": 1,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": null
+},
+{
+  "userId": "4UXI",
+  "sessionId": 1720882954,
+  "question": "What command can be used to search for a specific string within files in Linux?",
+  "questionId": "668780983a5174edaa51187a",
+  "videoFlag": 0,
+  "promptFlag": 0,
+  "llmFlag": 1,
+  "result": null
+}]

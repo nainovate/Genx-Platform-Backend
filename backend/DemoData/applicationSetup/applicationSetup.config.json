@@ -1,0 +1,11 @@
+[{
+  "maxOtpSendAttempts": 3,
+  "otpLockDurationMinutes": 2,
+  "maxOtpAttempts": 3,
+  "otpAttemptsDurationMinutes": 2,
+  "accessTokenExpireMinutes": 1,
+  "refreshTokenExpireDays": 7,
+  "secretKey": "BrilliusAI",
+  "userIdLength": 4,
+  "userIdChunkSize": 4
+}]

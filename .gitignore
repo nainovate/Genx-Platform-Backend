@@ -1,0 +1,19 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+AIMangment/__pycache__
+ApplicationManagment/__pycache__
+ApplicationRoutes/__pycache__
+Database/__pycache__
+UserMangment/__pycache__
+
+backend/__pycache__
+
+backend/SkillPracticeBackend
+
+backend/ChatBotBackend
+
+logs/backend

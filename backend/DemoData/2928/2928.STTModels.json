@@ -1,0 +1,8 @@
+[{
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "modelId": "2157",
+  "modelType": "OpenAI",
+  "modelName": "medium",
+  "engine": "openai/whisper-medium",
+  "timestamp": 1715270416
+}]

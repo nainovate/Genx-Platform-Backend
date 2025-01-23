@@ -1,0 +1,20 @@
+[{
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "modelId": "6117",
+  "mode": "Cloud",
+  "modelType": "OpenAI",
+  "modelName": "GPT-4",
+  "engine": "gpt-4",
+  "cloudAPIKey": "OPENAI_API_KEY",
+  "timestamp": 1715173973
+},
+{
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "modelId": "6977",
+  "mode": "Private",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-7b-Chat-GGUF",
+  "engine": "llama-2-7b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "timestamp": 1715174014
+}]

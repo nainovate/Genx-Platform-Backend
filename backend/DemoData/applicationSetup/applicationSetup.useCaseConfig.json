@@ -1,0 +1,74 @@
+[{
+  "useCaseId": "GT1",
+  "useCaseName": "SkillPractice",
+  "agents": {
+    "A1": "Assessment",
+    "A2": "Feedback",
+    "A3": "PracticeScore"
+  },
+  "useCaseConfig": {
+    "Audio": [
+      "Assessment",
+      "Practice"
+    ],
+    "Video": [
+      "Assessment",
+      "Practice"
+    ]
+  },
+  "useCaseRoles": {
+    "R1": "Trainer",
+    "R2": "Trainee"
+  }
+},
+{
+  "useCaseId": "CB1",
+  "useCaseName": "ChatBot",
+  "agents": {
+    "A1": {
+      "Name": "Recruitment - Candidate Select",
+      "org": "Brillius",
+      "Description": "",
+      "position": [
+        "Recruiter",
+        "Client Manager"
+      ]
+    },
+    "A2": {
+      "org": "Bakers Fun",
+      "Name": "Bakers Fun - Sales Insights",
+      "Description": "",
+      "position": [
+        "Sales Manager"
+      ]
+    },
+    "A3": {
+      "org": "Bakers Fun",
+      "Name": "Bakers Fun - Customer Support",
+      "Description": "",
+      "position": [
+        "Customer Support"
+      ]
+    },
+    "A4": {
+      "org": "Brillius",
+      "Name": "Recruitment - Job Insights",
+      "Description": "",
+      "position": [
+        "Client Manager"
+      ]
+    },
+    "A5": {
+      "org": "Brillius",
+      "Name": "Recruitment - Candidate Explore",
+      "Description": "",
+      "position": [
+        "Recruiter",
+        "Client Manager"
+      ]
+    }
+  },
+  "useCaseRoles": {
+    "R1": "User"
+  }
+}]

@@ -1,0 +1,8 @@
+[{
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "splitterType": "RecursiveCharacterTextSplitter",
+  "chunkSize": 1000,
+  "chunkOverlap": 200,
+  "timestamp": 1715166121,
+  "ingestId": "7770"
+}]

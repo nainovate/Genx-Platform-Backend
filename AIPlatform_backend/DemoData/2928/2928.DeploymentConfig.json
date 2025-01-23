@@ -1,0 +1,135 @@
+[{
+  "tagName": "assessment",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "deployId": "5268",
+  "modelId": "6117",
+  "promptId": "8466",
+  "service": "LLM",
+  "timestamp": 1715270988,
+  "serviceApi": "6002/llm/server"
+},
+{
+  "tagName": "stt demo",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "deployId": "6643",
+  "modelId": "2157",
+  "sttId": "7134",
+  "service": "STT",
+  "timestamp": 1715270508,
+  "serviceApi": "5005/stt/server"
+},
+{
+  "tagName": "feedback",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "deployId": "1868",
+  "modelId": "6117",
+  "promptId": "0571",
+  "service": "LLM",
+  "timestamp": 1715270963,
+  "serviceApi": "6002/llm/server"
+},
+{
+  "tagName": "demo",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "modelId": "9758",
+  "ingestId": "7770",
+  "deployId": "1857",
+  "timestamp": 1715166160,
+  "service": "ragIngest",
+  "serviceApi": "7001/rag/ingest"
+},
+{
+  "tagName": "assessment rag",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "deployId": "8266",
+  "modelId": "6117",
+  "promptId": "3032",
+  "service": "LLM",
+  "timestamp": 1715271014,
+  "serviceApi": "6002/llm/server"
+},
+{
+  "tagName": "feedback",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "deployId": "1868",
+  "modelId": "6117",
+  "promptId": "0571",
+  "service": "LLM",
+  "timestamp": 1715270963,
+  "serviceApi": "6002/llm/server"
+},
+{
+  "tagName": "evalution",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "deployId": "7097",
+  "modelId": "6117",
+  "promptId": "1612",
+  "serviceApi": "6002/llm/server",
+  "service": "LLM",
+  "timestamp": 1718877930
+},
+{
+  "tagName": "BakersFun",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "persistDirectory": "Z3QR/demo/BakersFun",
+  "retrievalId": "2004",
+  "embeddingModelId": "9758",
+  "deployId": "0974",
+  "timestamp": 1719311743,
+  "service": "ragRetrieval",
+  "serviceApi": "7001/rag/inference"
+},
+{
+  "tagName": "resumes",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "persistDirectory": "Z3QR/demo/resumes",
+  "retrievalId": "2004",
+  "embeddingModelId": "9758",
+  "deployId": "3952",
+  "timestamp": 1717070717,
+  "service": "ragRetrieval",
+  "serviceApi": "7001/rag/inference"
+},
+{
+  "tagName": "excel",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "persistDirectory": "Z3QR/demo/excel",
+  "retrievalId": "2004",
+  "embeddingModelId": "9758",
+  "deployId": "5207",
+  "timestamp": 1717070728,
+  "service": "ragRetrieval",
+  "serviceApi": "7001/rag/inference"
+},
+{
+  "tagName": "fine tune evaluation",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "deployId": "6466",
+  "modelId": "6117",
+  "promptId": "6124",
+  "serviceApi": "6002/llm/server",
+  "service": "LLM",
+  "timestamp": 1720524297
+},
+{
+  "tagName": "Recruiters",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "persistDirectory": "Z3QR/demo/recruiters",
+  "retrievalId": "2415",
+  "embeddingModelId": "9758",
+  "deployId": "6575",
+  "timestamp": 1720770223,
+  "service": "ragRetrieval",
+  "serviceApi": "7001/rag/inference"
+},
+{
+  "tagName": "jds",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL",
+  "persistDirectory": "Z3QR/demo/jds",
+  "retrievalId": "5912",
+  "embeddingModelId": "9758",
+  "deployId": "6246",
+  "timestamp": 1720847619,
+  "service": "ragRetrieval",
+  "serviceApi": "7001/rag/inference"
+}]

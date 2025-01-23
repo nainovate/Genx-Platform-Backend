@@ -1,0 +1,21 @@
+[{
+  "hierarchyName": "Chatbot",
+  "hierarchyId": "xyac",
+  "spaceId": "iknf",
+  "useCaseId": "CB1",
+  "useCaseRoles": {
+    "R1": "User"
+  },
+  "createdBy": "27J4"
+},
+{
+  "hierarchyName": "Skill Development",
+  "hierarchyId": "sgzd",
+  "spaceId": "iknf",
+  "useCaseId": "GT1",
+  "useCaseRoles": {
+    "R1": "Traineer",
+    "R2": "Trainee"
+  },
+  "createdBy": "27J4"
+}]
