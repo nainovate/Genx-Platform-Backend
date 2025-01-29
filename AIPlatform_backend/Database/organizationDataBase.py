@@ -146,10 +146,12 @@ class OrganizationDataBase:
             # Log and handle unexpected errors
             logging.error(f"Error while checking space for spaceId {spaceId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
-        
+    
+
+
     def updateSpaceName(self, spaceId: str, spaceName: str):
         try:
-           
+            
             existing_space_name = self.organizationDB["spaces"].find_one({"spaceName": spaceName})
             if existing_space_name:
                 logging.error("Space Name Already Exists")
@@ -280,11 +282,10 @@ class OrganizationDataBase:
         
     def checkRole(self, roleId: str):
         try:
-            # Check if spaceId is a string
             if not isinstance(roleId, str):
                 return status.HTTP_400_BAD_REQUEST
 
-            role = self.organizationDB["roles"].find_one({"roleId": roleId})
+            role = self.organizationDB["roles"].find_one({"_id": ObjectId(roleId)})
             if role:
                 return status.HTTP_200_OK
             else:
@@ -293,6 +294,24 @@ class OrganizationDataBase:
             # Log and handle unexpected errors
             logging.error(f"Error while checking space for roleId {roleId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+
+    def checkRoleAccess(self, roleId: str, spaceId: str):
+        try:
+            # Check if spaceId is a string
+            if not isinstance(roleId, str):
+                return status.HTTP_400_BAD_REQUEST
+
+            role = self.organizationDB["roles"].find_one({"_id":ObjectId(roleId) , "spaceIds": {"$elemMatch": {"$eq": spaceId}}})
+            if role:
+                return status.HTTP_200_OK
+            else:
+                return status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            # Log and handle unexpected errors
+            logging.error(f"Error while checking space for roleId {roleId}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
         
     def updateRole(self, data:dict):
         try:
@@ -363,6 +382,38 @@ class OrganizationDataBase:
                 "detail": "Internal server error."
             }
         
+
+
+    def createTask(self, taskInfo: dict):
+        try:
+            # Validate input types
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return status.HTTP_500_INTERNAL_SERVER_ERROR
+            
+            # Check if taskName already exists
+            existing_task_name = self.organizationDB["tasks"].find_one({"taskName": taskInfo["taskName"]})
+            if existing_task_name:
+                logging.error("Task Name Already Exists")
+                return status.HTTP_409_CONFLICT
+
+            # Insert the new task data into the database
+            try:
+                self.organizationDB["tasks"].insert_one(taskInfo)
+                logging.info(f"Task {taskInfo['taskName']} created successfully")
+                return status.HTTP_200_OK
+            except Exception as e:
+                logging.error(f"Error inserting task into database: {e}")
+                return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+        except Exception as e:
+            logging.error(f"Error while creating Task: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+            
+        
+
+    
+
     def getRolesInfo(self,spaceId):
         try:
             if self.organizationDB is None:
@@ -379,3 +430,4 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving spaces: {e}")
             return [], status.HTTP_500_INTERNAL_SERVER_ERROR
+

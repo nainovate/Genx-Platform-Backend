@@ -75,6 +75,15 @@ async def getAgents(request_data: dict = Body(...)):
         return task.getAgents(request_data["data"])
     except KeyError as e:
        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/api/createTask")
+async def createTask(request_data: dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.createTask(request_data["data"])
+    except KeyError as e:
+       raise HTTPException(status_code=500, detail=str(e))
+
     
 @router.post("/api/getAnalystRoles")
 async def getAnalystRoles(request_data: dict = Body(...)):
@@ -83,3 +92,4 @@ async def getAnalystRoles(request_data: dict = Body(...)):
         return  role.getAnalystRoles()
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e)) 
+
