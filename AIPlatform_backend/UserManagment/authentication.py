@@ -210,7 +210,6 @@ class Authentication:
                 status_code, UserCredentials = self.applicationDB.checkUserCredentials(
                     username=username, password=password
                 )
-                print("response",UserCredentials,status_code)
                 status_code = status_code["status_code"]
                 if status_code == status.HTTP_401_UNAUTHORIZED:
                     # Incorrect password
