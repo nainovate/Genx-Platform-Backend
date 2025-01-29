@@ -227,7 +227,7 @@ class Role:
             if status_code == 404:
                 return {
                     "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": f"Role Not Found for roleId: {data["roleId"]}",
+                    "detail": f"Role Not Found for roleId: {data['roleId']}",
                 }
             
             if not status_code == 200:

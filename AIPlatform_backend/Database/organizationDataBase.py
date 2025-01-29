@@ -325,3 +325,40 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while removing Space: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
+    
+    def getRoleTasks(self, roleId: str):
+        try:
+            if not isinstance(roleId, str):
+                return status.HTTP_400_BAD_REQUEST
+            tasks = self.organizationDB["tasks"].find({"roleIds": {"$elemMatch": {"$eq": roleId}}}, {"roleIds": 0})
+            tasks_list = list(tasks)
+            
+            if tasks_list:
+                result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"taskDescription":str(task["description"])} for task in tasks_list]
+                return result, status.HTTP_200_OK
+            else:
+                return {"detail": "No tasks found for the given roleId."}, status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+    
+
+    def getAgents(self,tagName: str):
+        try:
+            agents = self.organizationDB["agents"].find({"tagName":tagName,"status": "deploy"})
+            agents_list = list(agents)
+            if not agents_list:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "No agents found in OrgId."
+                }
+            else:
+                result = [{"agentName": agents["agent"], "agentId": str(agents["_id"])} for agents in agents_list]
+                return result, status.HTTP_200_OK
+                
+        except Exception as e:
+            logging.error(f"Error while fetching agents: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error."
+            }

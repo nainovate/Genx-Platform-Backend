@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
-from ApplicationRoutes.authenticationRoutes import authorization_instance, space_instance, organization_instance, role_instance
+from ApplicationRoutes.authenticationRoutes import authorization_instance, space_instance, organization_instance, role_instance,task_instance
 
 router = APIRouter()
 
@@ -58,4 +58,21 @@ async def getSpacesInOrg(request_data: dict = Body(...)):
         return  space.getSpacesInOrg(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
+    
+@router.post("/api/getRoleTasks")
+async def getRoleTasks(request_data: dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.getRoleTasks(request_data["data"])
+    except KeyError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+
+@router.post("/api/getAgents")
+async def getAgents(request_data: dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.getAgents(request_data["data"])
+    except KeyError as e:
+       raise HTTPException(status_code=500, detail=str(e))
     

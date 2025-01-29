@@ -1,4 +1,3 @@
-
 import logging
 import random
 import string
@@ -435,4 +434,10 @@ class Organization:
             return {
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"{e}"
-            }     
+            }
+
+    
+            
+            
+
+            
