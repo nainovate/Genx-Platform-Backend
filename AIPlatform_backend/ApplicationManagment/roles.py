@@ -320,6 +320,44 @@ class Role:
             return {
                 "status_code":status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"{e}"
+            }
+
+    def getAnalystRoles(self):
+        try:
+            if not "analyst" in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access",
+                }
+            spaceids = self.spaceIds
+            roles_data = []
+            for orgId,spaceIds in spaceids.items():
+                applicationDB = ApplicationDataBase()
+                org_list,status = applicationDB.getOrgInfo(orgId=orgId)
+                roleInfo= org_list
+                spaces=[]
+                for spaceId in spaceIds:
+                    organizationDB = OrganizationDataBase(orgId)
+                    space, status_code = organizationDB.getSpaceInfo(spaceId=spaceId)
+                    roles, status_code = organizationDB.getRolesInfo(spaceId=space.get("spaceId"))
+                    space["roles"] = roles
+                    spaces.append(space)
+                roleInfo["spaces"] = spaces
+                roles_data.append(roleInfo)
+            if len(roles_data) == 0:
+                return {
+                        "status_code": status.HTTP_404_NOT_FOUND,
+                        "detail": "No spaces found for the Analyst."
+                }
+            return {
+                "status_code": status_code,
+                "roles": roles_data
+            }
+        except Exception as e:
+            logging.error(f"Error while retrieving spaces: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"{e}"
             }  
     
     def assignHierarchy(self, data: dict):

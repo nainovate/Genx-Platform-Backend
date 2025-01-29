@@ -896,7 +896,6 @@ class ApplicationDataBase:
                 {"username": username}
             )
             
-            print("user id --",user)
             # Check if the user exists
             if not user:
                 logging.info("User not found.")
