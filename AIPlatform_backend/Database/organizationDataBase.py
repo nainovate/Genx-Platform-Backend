@@ -413,3 +413,21 @@ class OrganizationDataBase:
         
 
     
+
+    def getRolesInfo(self,spaceId):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+            roles = self.organizationDB["roles"].find({"spaceIds": {"$elemMatch": {"$eq": spaceId}}}, {"createdBy":0})
+            roles_list = list(roles)
+            if roles_list:
+                result = [{"roleName": role["roleName"], "roleId": str(role["_id"]),"description":role["description"]} for role in roles_list]
+                return result, status.HTTP_200_OK
+            else:
+                logging.info("roles not found.")
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving spaces: {e}")
+            return [], status.HTTP_500_INTERNAL_SERVER_ERROR
+

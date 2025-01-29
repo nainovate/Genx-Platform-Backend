@@ -75,6 +75,7 @@
 2025-01-29 09:32:54,158 - root - INFO - User mani4 authenticated successfully.
 2025-01-29 09:36:04,158 - root - INFO - User mani4 authenticated successfully.
 2025-01-29 09:38:56,596 - root - INFO - User mani4 authenticated successfully.
+
 2025-01-29 10:13:06,187 - root - INFO - User Manju4 authenticated successfully.
 2025-01-29 10:13:29,196 - root - INFO - Database 'buup' already exists.
 2025-01-29 10:53:19,288 - root - INFO - User Manju4 authenticated successfully.
@@ -211,3 +212,33 @@
 2025-01-29 19:32:14,107 - root - ERROR - Task Name Already Exists
 2025-01-29 19:32:30,238 - root - INFO - Database 'buup' already exists.
 2025-01-29 19:32:30,238 - root - INFO - Checking space with ID: jpm
+
+2025-01-29 10:23:33,450 - root - INFO - User Manju4 authenticated successfully.
+2025-01-29 10:23:34,776 - root - INFO - Database 'buup' already exists.
+2025-01-29 10:23:34,787 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:07:36,304 - root - INFO - Invalid Credentials: Incorrect password.
+2025-01-29 12:08:44,329 - root - INFO - Invalid Credentials: Incorrect password.
+2025-01-29 12:09:07,209 - root - INFO - User Manju4 authenticated successfully.
+2025-01-29 12:09:24,479 - root - ERROR - Error while retrieving spaces: cannot access local variable 'spaceIds' where it is not associated with a value
+2025-01-29 12:10:54,981 - root - INFO - User Manju4 authenticated successfully.
+2025-01-29 12:11:07,094 - root - ERROR - Error while retrieving spaces: cannot access local variable 'spaceIds' where it is not associated with a value
+2025-01-29 12:12:43,885 - root - INFO - User Manju4 authenticated successfully.
+2025-01-29 12:12:46,325 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:12:46,338 - root - INFO - roles not found.
+2025-01-29 12:12:46,350 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:12:46,356 - root - ERROR - Error while retrieving spaces: '_id'
+2025-01-29 12:15:46,989 - root - INFO - User Manju4 authenticated successfully.
+2025-01-29 12:15:49,860 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:15:49,867 - root - INFO - roles not found.
+2025-01-29 12:15:49,888 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:15:49,895 - root - ERROR - Error while retrieving spaces: '_id'
+2025-01-29 12:23:22,315 - root - INFO - User Manju4 authenticated successfully.
+2025-01-29 12:24:01,306 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:24:01,318 - root - INFO - roles not found.
+2025-01-29 12:24:01,369 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:24:01,380 - root - ERROR - Error while retrieving spaces: '_id'
+2025-01-29 12:26:13,782 - root - INFO - User Manju4 authenticated successfully.
+2025-01-29 12:26:17,635 - root - INFO - Database 'buup' already exists.
+2025-01-29 12:26:17,642 - root - INFO - roles not found.
+2025-01-29 12:26:17,671 - root - INFO - Database 'buup' already exists.
+
