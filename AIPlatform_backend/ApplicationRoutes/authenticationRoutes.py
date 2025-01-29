@@ -4,6 +4,7 @@ from UserManagment.authentication import *
 from ApplicationManagment.usecases import *
 from ApplicationManagment.spaces import *
 from ApplicationManagment.roles import *
+from ApplicationManagment.tasks import *
 from ApplicationManagment.organization import *
 from ApplicationManagment.evaluation import *
 from AiManagement.prompts import *
@@ -19,6 +20,7 @@ usecase_instance = {}
 space_instance = {}
 organization_instance = {}
 role_instance = {}
+task_instance = {}
 prompts_instance = {}
 payload_instance = {}
 model_instance = {}
@@ -65,6 +67,7 @@ async def login(request_data: dict = Body(...)):
                     spaceIds = role["analyst"]
                     space_instance[sessionId] = Spaces(userId=userId, role=role, orgIds=orgIds)
                     role_instance[sessionId] = Role(userId=userId, orgIds=orgIds, role=role, spaceIds=spaceIds)
+                    task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
                 if "aiengineer" in role:
                     orgIds = data["orgIds"]
                     organization_instance[sessionId] = Organization(userId=userId, role=role)

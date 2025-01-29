@@ -156,7 +156,6 @@ class ApplicationDataBase:
             # Check if spaceId is a string
             if not isinstance(orgId, str):
                 return status.HTTP_400_BAD_REQUEST
-
             org = self.applicationDB["organizations"].find_one({"orgId": orgId})
             if org:
                 return status.HTTP_200_OK
