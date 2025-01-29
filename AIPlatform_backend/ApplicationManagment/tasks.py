@@ -149,8 +149,8 @@ class Task:
                 status_code = self.applicationDB.checkOrg(orgId)
                 if status_code == 404:
                     return {
-                        "status_code": status.HTTP_404_NOT_FOUND,
-                        "detail": "Organization not found."
+                        "detail": "Organization not found.",
+                         "status_code": status.HTTP_404_NOT_FOUND,
                     }
                 if status_code != 200:
                     return {
@@ -179,6 +179,134 @@ class Task:
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
                 }
-    
+            
 
+    def createTask(self, data: dict):
+        try:
+            # Validate input data
+            if not isinstance(data, dict) or "orgId" not in data or "taskName" not in data or "description" not in data or "roleIds" not in data or "spaceId" not in data:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with 'taskName', 'description', 'orgId', 'roleIds', and 'spaceId' keys."
+                }
+
+            if data["orgId"] == '' or data["taskName"] == '' or not data["roleIds"]:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "OrgId, taskName, and roleIds are required fields."
+                }
+            
+            # Add type validation in createTask
+            if not all(isinstance(id, str) for id in data["roleIds"]):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "roleIds must be strings"
+                }
+
+            if len(data["taskName"]) > 255:  # example max length
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "taskName too long"
+                }
+
+            # Check if user has authorization to create a task
+            if "analyst" not in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access"
+                }
+
+            # Ensure the organization ID is valid for the user
+            if data["orgId"] not in self.orgIds:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access"
+                }
+
+            # Check if organization exists
+            status_code = self.applicationDB.checkOrg(data["orgId"])
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Organization not found."
+                }
+            elif status_code != 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Invalid or Incorrect orgId."
+                }
+
+            # Initialize the organization database
+            organizationDB = OrganizationDataBase(data["orgId"])
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+
+            # Check if the space exists
+            spaceId = data["spaceId"]
+            logging.info(f"Checking space with ID: {spaceId}")  # Log the spaceId for debugging
+            status_code = organizationDB.checkSpace(spaceId=spaceId)
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,  # Correct status code for "Not Found"
+                    "detail": f"Space with ID {spaceId} not found."
+                }
+            elif status_code != 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Internal server error while checking space."
+                }
+            roleIds = data["roleIds"]
+            print(f"roleIds: {roleIds}")
+            for roleId in roleIds:
+                status_code = organizationDB.checkRole(roleId=roleId)
+                if status_code != 200:
+                    return {
+                        "status_code": status.HTTP_404_NOT_FOUND,
+                        "detail": f"Role Not Found for roleId: {roleId}",
+                    }
+                # Check if the role is associated with the space
+                status_code = organizationDB.checkRoleAccess(roleId, spaceId)
+                if status_code != 200:
+                    return {
+                        "status_code": status.HTTP_404_NOT_FOUND,
+                        "detail": f"Role doesn't have access for spaceId: {spaceId}"
+                    }
+
+            # Create the task in the organization database
+            taskInfo = {
+                "taskName": data["taskName"],
+                "description": data["description"],
+                "roleIds": roleIds,
+                "createdBy": self.userId,
+            }
+            status_code = organizationDB.createTask(taskInfo=taskInfo)
+
+
+            if status_code == status.HTTP_409_CONFLICT:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Task Name Already Exists."
+                }
+            elif status_code == status.HTTP_200_OK:
+                return {
+                    "status_code": status.HTTP_200_OK,
+                    "detail": "Task Created Successfully."
+                }
+
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error occurred."
+            }
+        except Exception as e:
+            logging.error(f"Error while creating Task: {e}", exc_info=True)
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": str(e)
+            }
+
+
+   
                     

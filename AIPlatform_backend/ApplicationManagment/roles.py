@@ -457,6 +457,7 @@ class Role:
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
                 }
+            
             hierarchys, status_code = self.applicationDB.getCreatedHierarchy(userId= self.userId,spaceId=spaceId)
             if status_code == status.HTTP_404_NOT_FOUND:
                 return{
