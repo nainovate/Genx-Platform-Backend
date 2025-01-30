@@ -18,20 +18,16 @@ router = APIRouter()
 @router.post("/api/evaluation")
 async def get_evaluation_results(request_data: dict = Body(...)):
     try:
-        print("request_data", request_data)
         evaluation = evaluation_instance[request_data["sessionId"]]
-        print("111")
-        print("evaluation", evaluation)
         return await evaluation.get_evaluation_results(request_data["data"])
     except Exception as e:
-        print("error ", e)
         return HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/metrics")
 async def calculate_metrics(request_data: dict, background_tasks: BackgroundTasks):
     try:
         evaluation = evaluation_instance[request_data["sessionId"]]
-        return  await evaluation.calculate_metrics(request_data["data"], background_tasks)
+        return   evaluation.calculate_metrics(request_data["data"], background_tasks)
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))    
     
@@ -56,7 +52,6 @@ async def check_process_status(request_data: dict = Body(...)):
 async def check_process_results(request_data: dict = Body(...)):
     try:
         evaluation = evaluation_instance[request_data["sessionId"]]
-        print("evaluation", evaluation)
         return await evaluation.check_process_results(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))         
@@ -64,7 +59,6 @@ async def check_process_results(request_data: dict = Body(...)):
 @router.post("/api/view/result")
 async def view_result(request_data: dict = Body(...)):
     try:
-        print("request_data", request_data)
         evaluation = evaluation_instance[request_data["sessionId"]]
         return await evaluation.view_result(request_data["data"])
     except Exception as e:
