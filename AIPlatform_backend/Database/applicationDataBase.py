@@ -887,8 +887,10 @@ class ApplicationDataBase:
 
     def checkUserCredentials(self, username: str, password: str):
         try:
+            print("username", username, password)
             # Ensure applicationDB is properly initialized
             if not hasattr(self, 'applicationDB') or self.applicationDB is None:
+                print("not initialized")
                 logging.error("ApplicationDB is not initialized.")
                 return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, "detail": "Internal server error"}, None
             # Attempt to find the user in the users table

@@ -170,7 +170,7 @@ class BenchmarkHandler:
         return {"status": BenchmarkHandler.task_statuses[process_id], "detail": "Benchmark completed", "result": all_results}
 
     @staticmethod
-    async def get_status_details(process_id: str, service: str):
+    async def get_status_details(process_id: str, service: str, org_id):
         print("details are", process_id,service)
         # Initialize the current statuses list
         model_statuses = []
@@ -198,8 +198,10 @@ class BenchmarkHandler:
                               for model_id, status in status_details['models'].items()]
             #return model_statuses, overall_status
         else:
+            print("else")
             # Get the MongoDB handler based on the service
-            mongo_handler = await MongoDBHandler.get_mongo_handler(service)
+            mongo_handler = await MongoDBHandler.get_mongo_handler(service, org_id)
+            print("handler")
             # Check for statuses in the database if not found in task_statuses
             db_status, overall_status = await mongo_handler.get_model_statuses_by_process_id(process_id)
             # Extracting overall_status

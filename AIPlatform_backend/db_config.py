@@ -1,8 +1,8 @@
 import os
 
 import os
-IP_ADDRESS = "172.10.10.124"  # You can change this value as needed
-MONGO_IP = "172.10.10.124"
+IP_ADDRESS = "192.168.1.225"  # You can change this value as needed
+MONGO_IP = "172.10.10.26"
 
 config = { 
     "mongoip": MONGO_IP,
