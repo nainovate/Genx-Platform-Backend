@@ -485,3 +485,36 @@ async def get_dataset_Details(request_data: dict):
             "status_code": 500,
             "detail": f"Internal server error: {str(e)}"
         }
+
+@router.post("/api/addDataset")
+async def addDataset(request_data: dict):
+    try:
+        session_id = request_data.get("sessionId")
+        if not session_id :
+            return {
+                "status_code": 400,
+                "detail": "Missing required 'sessionId' in the request data."
+            }
+
+        if session_id not in dataset_instance:
+            return {
+                "status_code": 404,
+                "detail": f"Session ID '{session_id}' not found."
+            }
+        required_fields = ["sessionId","data"]
+        missing_fields = [field for field in required_fields if field not in request_data]
+        if missing_fields:
+            
+            return {
+                "status_code": 400,
+                "detail": f"Missing required fields: {', '.join(missing_fields)}."
+            }
+        dataset = dataset_instance[session_id]
+        return await dataset.add_dataset(request_data["data"])
+
+    except Exception as e:
+        return {
+            "status_code": 500,
+            "detail": f"Internal server error: {str(e)}"
+        }
+
