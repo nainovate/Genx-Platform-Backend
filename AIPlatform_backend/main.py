@@ -58,3 +58,4 @@ if __name__ == "__main__":
     import uvicorn
     # setup.setup()  # Assuming there is a setup function in setup.py
     uvicorn.run(app, host="0.0.0.0", port=6000)
+

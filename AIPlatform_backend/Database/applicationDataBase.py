@@ -185,7 +185,9 @@ class ApplicationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving spaces: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-        
+    
+
+    
     def getUsersInOrg(self, orgId):
         try:
             if self.applicationDB is None:
@@ -898,7 +900,6 @@ class ApplicationDataBase:
                 {"username": username}
             )
             
-            print("user id --",user)
             # Check if the user exists
             if not user:
                 logging.info("User not found.")
