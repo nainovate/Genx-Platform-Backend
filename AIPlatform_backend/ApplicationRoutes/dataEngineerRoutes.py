@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
-from ApplicationRoutes.authenticationRoutes import prompts_instance,payload_instance,model_instance
+from ApplicationRoutes.authenticationRoutes import prompts_instance,payload_instance,model_instance,dataset_instance
 
 router = APIRouter()
 
@@ -461,3 +461,27 @@ async def deleteModel(request_data: dict = Body(...)):
         )             
   
 
+@router.post("/api/get_datasets")
+async def get_dataset_Details(request_data: dict):
+    try:
+        session_id = request_data.get("sessionId")
+        if not session_id:
+            return {
+                "status_code": 400,
+                "detail": "Missing required 'sessionId' in the request data."
+            }
+
+        if session_id not in dataset_instance:
+            return {
+                "status_code": 404,
+                "detail": f"Session ID '{session_id}' not found."
+            }
+
+        dataset = dataset_instance[session_id]
+        return await dataset.get_dataset_Details()
+
+    except Exception as e:
+        return {
+            "status_code": 500,
+            "detail": f"Internal server error: {str(e)}"
+        }
