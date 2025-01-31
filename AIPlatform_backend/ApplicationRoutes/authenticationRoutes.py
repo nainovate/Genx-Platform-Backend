@@ -10,7 +10,7 @@ from ApplicationManagment.evaluation import *
 from AiManagement.prompts import *
 from AiManagement.payloads import *
 from AiManagement.models import*
-
+from AiManagement.dataset import*
 
 router = APIRouter()
 
@@ -25,6 +25,8 @@ prompts_instance = {}
 payload_instance = {}
 model_instance = {}
 evaluation_instance = {}
+
+dataset_instance = {}
 
 
 
@@ -54,7 +56,7 @@ async def login(request_data: dict = Body(...)):
                 prompts_instance[sessionId] = Prompts(userId=userId, role=role)
                 payload_instance[sessionId] = Payload(userId=userId, role=role)  
                 model_instance[sessionId] = Model(userId=userId, role=role)      
-                         
+                dataset_instance[sessionId]= inserting(userId=userId, role=role) 
                 # Role-based instance creation
                 if "superadmin" in role:
                     organization_instance[sessionId] = Organization(userId=userId, role=role)

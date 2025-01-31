@@ -36,14 +36,11 @@ class MongoDBHandler:
 
     
     async def get_mongo_handler(service: str, org_id: str):
-        print("service", service)
         if service == "evaluation":
-            print("hii, i am eval")
             return MongoDBHandler(eval_config, org_id)  # Evaluation-specific handler
         elif service == "benchmarking":
             return MongoDBHandler(bench_config, org_id)  # Benchmarking-specific handler
         else:
-            print("no service")
             raise HTTPException(status_code=400, detail="Invalid service")
 
     async def update_results_path(self, process_id, results_path):
@@ -91,7 +88,7 @@ class MongoDBHandler:
                 }
             }
         )
-        print("---bye")
+    
     async def update_metric_model_status(self, process_id: str, model_id: str, new_status: str, metric_id: str, overall_status: str):
         # Check if the metric_id already exists in the metrics array
         existing_metric = await self.status_collection.find_one(
@@ -144,7 +141,6 @@ class MongoDBHandler:
             )
 
 
-        print("---bye")
     async def update_metric_status_record(self, status_record: StatusRecord, process_name):
         # Prepare the metrics object to add to the database
         metrics_data = {
@@ -228,7 +224,6 @@ class MongoDBHandler:
     async def update_metric_ranges(self, metric_id, metric_name, new_ranges):
             # Find the document with the provided metric_id
             document = await self.metrics_collection.find_one({"metric_id": metric_id})
-            
             if document:
                 # Check if the provided metric_name matches any range field in the document
                 if metric_name in document.get('ranges', {}):
@@ -240,7 +235,6 @@ class MongoDBHandler:
                         {"metric_id": metric_id},
                         {"$set": {"ranges": document['ranges']}}
                     )
-                    
                     # Return the number of modified documents (should be 1 if the document exists)
                     return result.modified_count
                 else:
@@ -328,12 +322,9 @@ class MongoDBHandler:
 
     
     async def update_model_status_to_cancelled(self, process_id):
-        print("db", process_id)
         
         # Fetch the document by process_id
         document = await self.get_status_document_by_process_id(process_id)
-        print("document", document)
-
         if not document:
             raise HTTPException(status_code=404, detail="Process not found")
 
@@ -371,7 +362,6 @@ class MongoDBHandler:
 
 
     async def insert_config_record(self, config_data: dict):
-        print("Inserting to config db")
         
         # Check if a record with the given user_id exists, and update it if found, else insert a new one
        # Insert a new record every time, without checking for an existing user_id
@@ -418,7 +408,6 @@ class MongoDBHandler:
     async def get_model_statuses_by_process_id(self, process_id: str):
         # Fetch the document associated with the given process_id
         result = await self.status_collection.find_one({"process_id": process_id})
-        
         overall_status = result.get("overall_status", None)
         if not result or "models" not in result:
             # If no result or models array not found, return an empty list
@@ -534,7 +523,7 @@ class MongoDBHandler:
     async def get_metric_results(self, user_id: str, page: int, page_size: int):
         # Calculate the number of documents to skip for pagination
         skip = (page - 1) * page_size
-
+      
         # Step 1: Calculate the total doc_count (total metrics available)
         total_metrics = 0
         async for document in self.status_collection.find(
@@ -542,7 +531,6 @@ class MongoDBHandler:
         ):
             if "metrics" in document:
                 total_metrics += len(document["metrics"])
-
         # Step 2: Fetch metrics with pagination logic
         flattened_metrics = []
         cursor = (
@@ -566,13 +554,12 @@ class MongoDBHandler:
                         "timestamp": timestamp
                     }
                     flattened_metrics.append(metric_info)
-
             if len(flattened_metrics) >= (skip + page_size):
                 break
 
         # Apply pagination to the flattened metrics
         paginated_metrics = flattened_metrics[skip:skip + page_size]
-
+        
         doc_count = total_metrics
         # Return the paginated results and the total count of metric_id
         return paginated_metrics, doc_count
@@ -580,17 +567,14 @@ class MongoDBHandler:
 
     async def get_results_by_process_id(self, process_id: str):
         try:
-            print("process_id", process_id)
             # Find the document with the specified process_id
             document = await self.results_collection.find_one({"process_id": process_id})
             
             # Check if the document exists
             if not document:
                 raise HTTPException(status_code=404, detail="Document not found.")
-            print("document", document)
             # Extract the 'models' array from the document
             models = document.get("models")
-            print("models", models)
             # Check if 'models' is not found in the document
             if models is None:
                 raise HTTPException(status_code=404, detail="'models' object not found in the document.")

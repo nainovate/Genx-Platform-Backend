@@ -1,8 +1,11 @@
 import os
 
 import os
-IP_ADDRESS = "172.10.10.95"  # You can change this value as needed
-MONGO_IP = "172.10.10.95"
+
+
+IP_ADDRESS = "172.10.10.26"  # You can change this value as needed
+MONGO_IP = "172.10.10.26"
+
 
 config = { 
     "mongoip": MONGO_IP,
@@ -43,10 +46,16 @@ bench_config ={
     "SERVER_ENDPOINT" : f"http://{IP_ADDRESS}:4001/accelerator/server",
 }
 
-    
-
-
-   
+finetune_config = {
+    "LOCAL_HOST": IP_ADDRESS,
+    "MONGO_URI": os.getenv("MONGO_URI", f"mongodb://{IP_ADDRESS}:27017"),
+    "DB_NAME": "Finetuning",
+    "status_collection": "tuning_status",
+    "finetune_config": "tuning_config",
+    "response": "Tuning_metrics",
+    "dataset_collection": "Tuning_dataset",
+    # Endpoint to backend server
+    "TRAINING_ENDPOINT": f"http://{IP_ADDRESS}:8007/train_model"}
    
 
 
