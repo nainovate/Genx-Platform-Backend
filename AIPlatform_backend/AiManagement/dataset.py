@@ -106,7 +106,7 @@ class dataset:
             dataset_id = self.generate_id(4)
             timestamp = self.generate_timestamp()
             payload_document = {
-                "type": dataset_type,
+                "dataset_name": dataset_type,
                 "dataset_id": dataset_id,
                 "clientApiKey": client_api_key,
                 "dataset_path": path,
