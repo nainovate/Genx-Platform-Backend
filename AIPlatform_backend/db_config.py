@@ -3,8 +3,8 @@ import os
 import os
 
 
-IP_ADDRESS = "172.10.10.26"  # You can change this value as needed
-MONGO_IP = "172.10.10.26"
+IP_ADDRESS = "172.10.10.95"  # You can change this value as needed
+MONGO_IP = "172.10.10.95"
 
 
 config = { 
