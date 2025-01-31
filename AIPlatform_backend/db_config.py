@@ -46,7 +46,7 @@ bench_config ={
     "SERVER_ENDPOINT" : f"http://{IP_ADDRESS}:4001/accelerator/server",
 }
 
-finetune_config = {
+finetuning_config = {
     "LOCAL_HOST": IP_ADDRESS,
     "MONGO_URI": os.getenv("MONGO_URI", f"mongodb://{IP_ADDRESS}:27017"),
     "DB_NAME": "Finetuning",
