@@ -372,6 +372,7 @@ async def addModel(request_data: dict = Body(...)):
 async def getModeldetails(request_data: dict = Body(...)):
    
     try:
+        print("request data", request_data)
         # Ensure 'sessionId' is provided in the request data
         session_id = request_data.get("sessionId")
         if not session_id:
@@ -395,6 +396,7 @@ async def getModeldetails(request_data: dict = Body(...)):
         data=request_data.get("data")
         # Call the `getPromptsData` method of the corresponding instance
         response = model.getModeldetails(data)
+        print("response", response)
         return response
 
     except KeyError as e:
