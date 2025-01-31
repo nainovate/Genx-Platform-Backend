@@ -79,8 +79,7 @@ class Role:
                 }
 
             # Create the space in the organization database
-            roleId = generate_role_id()
-            status_code = organizationDB.createRole(roleInfo=roleInfo, roleId=roleId, spaceIds=spaceIds, userId=self.userId)
+            status_code = organizationDB.createRole(roleInfo=roleInfo, spaceIds=spaceIds, userId=self.userId)
 
             # Handle space creation statuses
             if status_code == status.HTTP_400_BAD_REQUEST:
@@ -94,12 +93,6 @@ class Role:
                     "status_code": status.HTTP_409_CONFLICT,
                     "detail": "Space Name Already Exists"
                 }
-
-            # Handle spaceId conflict by regenerating spaceId
-            while status_code == status.HTTP_422_UNPROCESSABLE_ENTITY:
-                roleId = generate_role_id()
-                status_code = organizationDB.createRole(roleInfo=roleInfo, roleId=roleId, spaceIds=spaceIds, userId=self.userId)
-
             # Return final status
             if status_code == status.HTTP_200_OK:
                 return {

@@ -59,18 +59,18 @@ async def getassignedAdmins(request_data: dict = Body(...)):
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
     
-@router.post("/api/assignAdmin")
+@router.post("/api/assignUsersToOrg")
 async def assignAdmin(request_data: dict = Body(...)):
     try:
         org = organization_instance[request_data["sessionId"]]
-        return  org.assignAdmin(request_data["data"])
+        return  org.assignUsersToOrg(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
     
-@router.post("/api/unassignAdmin")
+@router.post("/api/unassignUsersToOrg")
 async def unassignAdmin(request_data: dict = Body(...)):
     try:
         org = organization_instance[request_data["sessionId"]]
-        return  org.unassignAdmin(request_data["data"])
+        return  org.unassignUsersToOrg(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))

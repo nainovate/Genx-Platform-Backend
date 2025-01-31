@@ -80,12 +80,12 @@ class OrganizationDataBase:
             self.status_code = 500
             return None
     
-    def createSpace(self, spaceName: str, spaceId: str, userId: str):
+    def createSpace(self, spaceName: str, userId: str):
         try:
 
             # Validate input types
-            if not isinstance(spaceName, str) or not isinstance(spaceId, str) or not isinstance(userId, str):
-                logging.error("Invalid input data types. Expected strings for spaceName, spaceId, and userId.")
+            if not isinstance(spaceName, str) or not isinstance(userId, str):
+                logging.error("Invalid input data types. Expected strings for spaceName, and userId.")
                 return status.HTTP_400_BAD_REQUEST
             
             if self.organizationDB is None:
@@ -98,21 +98,14 @@ class OrganizationDataBase:
                 logging.error("Space Name Already Exists")
                 return status.HTTP_409_CONFLICT
             
-            # Check if spaceId already exists
-            existing_space_id = self.organizationDB["spaces"].find_one({"spaceId": spaceId})
-            if existing_space_id:
-                logging.error("Space ID Already Exists")
-                return status.HTTP_422_UNPROCESSABLE_ENTITY
-            
             data = {
                 "spaceName": spaceName,
-                "spaceId": spaceId,
                 "createdBy": userId
             }
 
             # Insert the new space data into the database
             self.organizationDB["spaces"].insert_one(data)
-            logging.info(f"Space {spaceName} created successfully with space id {spaceId}")
+            logging.info(f"Space {spaceName} created successfully ")
             return status.HTTP_200_OK
         except Exception as e:
             logging.error(f"Error while creating space: {e}")
@@ -121,7 +114,7 @@ class OrganizationDataBase:
     def removeSpace(self, spaceId: str):
         try:
             result = self.organizationDB["spaces"].delete_one(
-                {"spaceId": spaceId}
+                {"_id": ObjectId(spaceId)}
             )
             if result.deleted_count==1:
                 return status.HTTP_200_OK
@@ -137,7 +130,7 @@ class OrganizationDataBase:
             if not isinstance(spaceId, str):
                 return status.HTTP_400_BAD_REQUEST
 
-            space = self.organizationDB["spaces"].find_one({"spaceId": spaceId})
+            space = self.organizationDB["spaces"].find_one({"_id": ObjectId(spaceId)})
             if space:
                 return status.HTTP_200_OK
             else:
@@ -158,10 +151,13 @@ class OrganizationDataBase:
                 return status.HTTP_409_CONFLICT
             
             result = self.organizationDB["spaces"].update_one(
-                {"spaceId": spaceId},
+                {"_id": ObjectId(spaceId)},
                 {"$set": {"spaceName": spaceName}}
             )
-            return status.HTTP_200_OK
+            if result.matched_count==1:
+                return status.HTTP_200_OK
+            else:
+                return status.HTTP_422_UNPROCESSABLE_ENTITY
         except Exception as e:
             logging.error(f"Error while updating space: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
@@ -172,14 +168,28 @@ class OrganizationDataBase:
                 logging.error("Organization database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             if "admin" in role:
-                spaces_list = list(self.organizationDB["spaces"].find({"createdBy":userId}, {"_id": 0,"createdBy":0}))
+                spaces_list = list(self.organizationDB["spaces"].find({"createdBy":userId}, {"createdBy":0}))
+                if len(spaces_list) > 0:
+                    spaces = [{"spaceId":str(space["_id"]),"spaceName":space["spaceName"]} for space in spaces_list]
+                    parsedSpaces =[]
+                    for space in spaces:
+                        role_list = list(self.organizationDB["roles"].find({"spaceIds": {"$elemMatch": {"$eq": space["spaceId"]}}}, {"_id": 1, "roleName":1, "description":1}))
+                        if len(role_list):
+                            roles = [{"roleId":str(role["_id"]),"roleName":role["roleName"],"description":role["description"]} for role in role_list]
+                            space["roles"] = roles
+                        parsedSpaces.append(space)
+                    return parsedSpaces, status.HTTP_200_OK
+                else:
+                    logging.info("No spaces found for this Org.")
+                    return [], status.HTTP_404_NOT_FOUND
             elif "analyst" in role:
-                spaces_list = list(self.organizationDB["spaces"].find({}, {"_id": 0,"createdBy":0}))
-            if len(spaces_list) > 0:
-                return spaces_list, status.HTTP_200_OK
-            else:
-                logging.info("No spaces found for this Org.")
-                return [], status.HTTP_404_NOT_FOUND
+                spaces_list = list(self.organizationDB["spaces"].find({}, {"_id": 1,"createdBy":0}))
+                if len(spaces_list) > 0:
+                    spaces = [{"spaceId":str(space["_id"]),"spaceName":space["spaceName"]} for space in spaces_list]
+                    return spaces, status.HTTP_200_OK
+                else:
+                    logging.info("No spaces found for this Org.")
+                    return [], status.HTTP_404_NOT_FOUND
         except Exception as e:
             logging.error(f"Error while retrieving spaces: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
@@ -200,7 +210,7 @@ class OrganizationDataBase:
             logging.error(f"Error while retrieving spaces: {e}")
             return []
     
-    def createRole(self, roleInfo:dict, roleId:str, spaceIds:dict, userId: str):
+    def createRole(self, roleInfo:dict, spaceIds:dict, userId: str):
         try:
             # Validate input types
             if not isinstance(roleInfo, dict) or not isinstance(spaceIds, list) or not isinstance(userId, str):
@@ -218,17 +228,10 @@ class OrganizationDataBase:
                 logging.error("role Name Already Exists")
                 return status.HTTP_409_CONFLICT
             
-            # Check if roleId already exists
-            existing_role_id = self.organizationDB["roles"].find_one({"roleId": roleId})
-
-            if existing_role_id:
-                logging.error("role ID Already Exists")
-                return status.HTTP_422_UNPROCESSABLE_ENTITY
             
             data = {
                 "roleName": roleInfo["roleName"],
                 "description":roleInfo["description"],
-                "roleId": roleId,
                 "spaceIds": spaceIds,
                 "createdBy": userId
             }
@@ -246,10 +249,10 @@ class OrganizationDataBase:
             if self.organizationDB is None:
                 logging.error("Organization database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-            
-            space = self.organizationDB["spaces"].find_one({"spaceId":spaceId}, {"_id": 0,"createdBy":0})
+            space = self.organizationDB["spaces"].find_one({"_id":ObjectId(spaceId)}, {"_id": 1,"createdBy":0})
             if space:
-                return space, status.HTTP_200_OK
+                spaceInfo = {"spaceId":str(space["_id"]),"spaceName":space["spaceName"]}
+                return spaceInfo, status.HTTP_200_OK
             else:
                 logging.info("space is not found.")
                 return {}, status.HTTP_404_NOT_FOUND
@@ -263,14 +266,17 @@ class OrganizationDataBase:
                 logging.error("Organization database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             if "analyst" in role:
-                roles_list = list(self.organizationDB["roles"].find({"spaceIds": {"$elemMatch": {"$eq": spaceId}}}, {"_id": 0,"roleId":1, "roleName":1, "description":1}))
+                roles_list = list(self.organizationDB["roles"].find({"spaceIds": {"$elemMatch": {"$eq": spaceId}}}, {"_id": 1, "roleName":1, "description":1}))
             # elif "admin" in role:
             #     spaces_list = list(self.organizationDB["spaces"].find({}, {"_id": 0,"createdBy":0}))
             if len(roles_list) > 0:
+                roles = [{"roleId":str(role["_id"]),"roleName":role["roleName"],"description":role["description"]} for role in roles_list]
                 parsedRoles =[]
-                for role in roles_list:
-                    tasks_list = list(self.organizationDB["tasks"].find({"roleIds": {"$elemMatch": {"$eq": role["roleId"]}}}, {"_id": 0,"taskId":1, "taskName":1}))
-                    role["tasks"] = tasks_list
+                for role in roles:
+                    tasks_list = list(self.organizationDB["tasks"].find({"roleIds": {"$elemMatch": {"$eq": role["roleId"]}}}, {"_id": 1, "taskName":1, "description":1}))
+                    if len(tasks_list):
+                        tasks = [{"taskId":str(task["_id"]),"taskName":task["taskName"],"description":task["description"]} for task in tasks_list]
+                        role["tasks"] = tasks
                     parsedRoles.append(role)
                 return parsedRoles, status.HTTP_200_OK
             else:
@@ -321,7 +327,7 @@ class OrganizationDataBase:
                     logging.error("Role Name Already Exists")
                     return status.HTTP_409_CONFLICT
             result = self.organizationDB["roles"].update_one(
-                {"roleId": data['roleId']},
+                {"_id": ObjectId(data['roleId'])},
                 {"$set": {**data}}
             )
             if result.matched_count==1:
@@ -335,7 +341,7 @@ class OrganizationDataBase:
     def removeRole(self, roleId: str):
         try:
             result = self.organizationDB["roles"].delete_one(
-                {"roleId": roleId}
+                {"_id": ObjectId(roleId)}
             )
             if result.deleted_count==1:
                 return status.HTTP_200_OK
