@@ -417,6 +417,7 @@ class Authorization:
                 "detail": str(e)
             }
     
+
     def updateProfile(self, data: dict):
         try:
             if data.get("email") or data.get("username"):

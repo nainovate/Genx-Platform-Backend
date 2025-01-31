@@ -188,33 +188,47 @@ class ApplicationDataBase:
     
 
     
-    def getUsersInOrg(self, orgId):
+    def getUsersInOrg(self, orgId, role):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            users_list = list(self.applicationDB["users"].find(
-                {"role.admin": {"$exists": False},
-                 "role.superadmin": {"$exists": False},
-                 "role.user": {"$exists": False},
-                },{ "contactNumber": 0}))
-            filtered_users = [user for user in users_list if orgId in user['orgIds']]
-
-            if filtered_users is None:
-                return {
-                    status.HTTP_404_NOT_FOUND, []
-                }
-            else:
-                for user in filtered_users:
-                    user['userId'] = str(user['_id'])
-                    del user['_id']
-                return status.HTTP_200_OK, list(filtered_users)
+            # Check if orgId exists in the organizations collection
+            org_exists = self.applicationDB["organizations"].find_one({"orgId": orgId})
+            if not org_exists:
+                logging.warning(f"Organization with orgId {orgId} not found.")
+                return None, status.HTTP_404_NOT_FOUND
             
+            if "admin" in role:
+                # Fetch users with no 'admin', 'superadmin', or 'user' roles
+                users_list = list(self.applicationDB["users"].find(
+                    {"role.admin": {"$exists": False},
+                    "role.superadmin": {"$exists": False},
+                    "role.user": {"$exists": False}},
+                    {"contactNumber": 0}  # Exclude contactNumber from the result
+                ))
+            elif "analyst" in role:
+                # Fetch users with 'user' role
+                users_list = list(self.applicationDB["users"].find(
+                    {"role.user": {"$exists": True}},
+                    {"contactNumber": 0}  # Exclude contactNumber from the result
+                ))
+
+            filtered_users = [user for user in users_list if orgId in user['orgIds']]
+            
+            if not filtered_users:
+                return status.HTTP_404_NOT_FOUND, []
+            
+            for user in filtered_users:
+                user['userId'] = str(user['_id'])
+                del user['_id']
+            return status.HTTP_200_OK, list(filtered_users)
+
         except Exception as e:
-            logging.error(f"Error while retrieving Users for orgId: {e}")
+            logging.error(f"Error while retrieving Users for orgId {orgId}: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-        
+
 
     def getAllUsers(self):
         try:
@@ -1461,7 +1475,10 @@ class ApplicationDataBase:
         except Exception as e:
             logging.error(f"Error while removing space: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
-    
+        
+
+
+
     def updateProfile(self, data: dict, userId):
         try:
             status_code = self.checkUser(userId= userId)
