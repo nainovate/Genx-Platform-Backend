@@ -126,7 +126,6 @@ class Authorization:
                         "detail":"Unauthorized Access",
                     }
                 data["role"] = {data["role"]:[]}
-            
             elif data["role"] in ["analyst", "aiEngineer","mlOpsEngineer", "dataEngineer"]:
                 if "orgIds" not in data:
                     return {
@@ -138,7 +137,8 @@ class Authorization:
                         "status_code":status.HTTP_401_UNAUTHORIZED,
                         "detail":"Unauthorized Access",
                     }
-                data["role"] = {data["role"]:[]}
+                
+                data["role"] = {data["role"]:{orgId: [] for orgId in data["orgIds"]}}
             elif data["role"] == "user":
                 if "orgIds" not in data:
                     return {
@@ -150,7 +150,7 @@ class Authorization:
                         "status_code":status.HTTP_401_UNAUTHORIZED,
                         "detail":"Unauthorized Access",
                     }
-                data["role"] = {data["role"]:[]}
+                data["role"] = {data["role"]:{}}
             
             else:
                 return {

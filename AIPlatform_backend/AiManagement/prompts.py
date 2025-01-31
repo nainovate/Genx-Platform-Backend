@@ -53,7 +53,6 @@ class Prompts:
         :return: A dictionary containing the status code and additional details.
         """
         try:
-            # Check if the incoming data is empty
             if not data or not isinstance(data, dict):
                 logger.error("Empty or invalid data received.")
                 return {
@@ -61,13 +60,13 @@ class Prompts:
                     "detail": "Request data cannot be empty or invalid. Please provide valid data.",
                 }
 
-            # Define the required keys
+            # Define required keys
             required_keys = {
-                "clientApiKey", "promptName", "appType", 
-                "systemMessage", "aiMessage", "humanMessage", "inputData"
+                "clientApiKey", "promptName", "appType", "memoryType",
+                "systemMessage", "aiMessage", "humanMessage", "inputData"  # Ensure inputData is included
             }
 
-            # Check for missing keys
+            # Check for missing keys (but allow empty values)
             missing_keys = required_keys - data.keys()
             if missing_keys:
                 logger.error(f"Missing required keys: {', '.join(missing_keys)}")
@@ -76,18 +75,8 @@ class Prompts:
                     "detail": f"Missing required keys: {', '.join(missing_keys)}. Please include them in your request.",
                 }
 
-            # Check for unexpected keys (including misspelled keys)
-            unexpected_keys = set(data.keys()) - required_keys
-            if unexpected_keys:
-                logger.error(f"Missing required fields: {', '.join(unexpected_keys)}")
-                return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": f"Unexpected or misspelled keys found: {', '.join(unexpected_keys)}. "
-                            f"Please use the correct keys: {', '.join(required_keys)}.",
-                }
-
-            # Check for empty values in the required fields
-            empty_fields = [key for key in required_keys if not data.get(key)]
+            # Allow inputData to be empty, but check other required fields for missing values
+            empty_fields = [key for key in required_keys if key != "inputData" and not data.get(key)]
             if empty_fields:
                 logger.error(f"Empty values found in fields: {', '.join(empty_fields)}")
                 return {
@@ -96,7 +85,7 @@ class Prompts:
                 }
 
             # Call the database layer to add the prompt
-            status_code, success = self.applicationDB. add_prompt(data)
+            status_code, success = self.applicationDB.add_prompt(data)
 
             if success:
                 logger.info(f"Prompt added successfully for clientApiKey {data['clientApiKey']}")
@@ -106,36 +95,21 @@ class Prompts:
                 }
             else:
                 logger.error(f"Failed to add prompt for clientApiKey {data['clientApiKey']}")
-                # Map the database error code to a meaningful HTTP status
-                if status_code == 400:
-                    return {
-                        "status_code": status.HTTP_400_BAD_REQUEST,
-                        "detail": "Invalid input or data",
-                    }
-                elif status_code == 500:
-                    return {
-                        "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                        "detail": "Internal server error while adding prompt",
-                    }
-                else:
-                    return {
-                        "status_code": status_code,
-                        "detail": "Unknown error occurred",
-                    }
+                return {
+                    "status_code": status_code,
+                    "detail": "Error occurred while adding prompt",
+                }
 
         except HTTPException as http_exc:
-            # Log and re-raise any explicit HTTP exceptions
             logger.error(f"HTTPException in addPrompt: {http_exc.detail}")
             raise
 
         except Exception as e:
-            # Log unexpected errors and raise an HTTPException
             logger.error(f"Unexpected error in addPrompt method: {e}")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="Failed to add prompt due to an unexpected internal error",
             )
-
 
     def getPromptsData(self):
         """

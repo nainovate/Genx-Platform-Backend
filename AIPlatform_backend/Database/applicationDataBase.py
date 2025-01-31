@@ -1543,10 +1543,10 @@ class ApplicationDataBase:
             logging.error(f"Error creating collections: {e}")
             return False, 500  # Error occurred during collection creation, return 500
         
-    def assignUserToOrg(self, orgId: str, userId: str):
+    def assignUserToOrg(self, orgId: str, userId: str, role:dict):
         try:
             # Validate input data
-            if not isinstance(userId, str) or not isinstance(orgId, str):
+            if not isinstance(userId, str) or not isinstance(orgId, str) or not isinstance(role, dict):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "Invalid input data. userId and orgId must be strings."
@@ -1556,23 +1556,32 @@ class ApplicationDataBase:
 
             if not user:
                 return status.HTTP_404_NOT_FOUND
-            
+            user_role = list(user["role"].keys())[0]
             user_orgIds = user.get("orgIds", [])
-            
+
             if orgId in user_orgIds:
                 return status.HTTP_409_CONFLICT
 
-            self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}})
-            return status.HTTP_200_OK
+            if "superadmin" in role:
+                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId, "role.admin": orgId}})
+            elif "admin" in role:
+                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": []}})
+
+            if result.modified_count > 0:
+                return status.HTTP_200_OK
+            else:
+                return status.HTTP_400_BAD_REQUEST
+            
             
         except Exception as e:
             # Log and handle unexpected errors
             logging.error(f"Error while assigning user {userId} for org id {orgId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
-    def unassignUserToOrg(self, orgId: str, userId: str):
+    def unassignUserToOrg(self, orgId: str, userId: str, role: dict):
         try:
             # Validate input data
+            print('----input',userId,orgId,role)
             if not isinstance(userId, str) or not isinstance(orgId, str):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
@@ -1586,17 +1595,22 @@ class ApplicationDataBase:
                 return status.HTTP_404_NOT_FOUND
             
             user_orgIds = user.get("orgIds", [])
-            
+            user_role = list(user["role"].keys())[0]
             if orgId not in user_orgIds:
-                return status.HTTP_409_CONFLICT
+                return status.HTTP_400_BAD_REQUEST
+            if "superadmin" in role:
+                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId,"role.admin": orgId}})
+            elif "admin" in role:
+                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
 
-            result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}})
             # Check if the update modified any documents
             if result.modified_count > 0:
                 logging.info("Update successful.")
+                return status.HTTP_200_OK
+
             else:
                 logging.info("No documents were updated.")
-            return status.HTTP_200_OK
+                return status.HTTP_406_NOT_ACCEPTABLE
             
         except Exception as e:
             # Log and handle unexpected errors
@@ -1609,11 +1623,10 @@ class ApplicationDataBase:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            adminDocument = self.applicationDB["users"].find(
+            adminDocument = self.applicationDB["users"].find_one(
                 {"_id":ObjectId(userId), 
-                },{"_id": 0, "role":1})
-            adminDocument = list(adminDocument)
-            org_ids = adminDocument[0]['role']['admin']
+                },{"_id": 0, "orgIds":1})
+            org_ids = adminDocument["orgIds"]
             if len(org_ids) > 0:
                 adminOrgs = []
                 for orgId in org_ids:
@@ -1657,12 +1670,10 @@ class ApplicationDataBase:
             user = self.applicationDB["users"].find_one({"_id":ObjectId(userId)})
             if not user:
                 return status.HTTP_404_NOT_FOUND
-            
-            user_role = user.get("role", {})
+            user_role = user.get("role", [])
             user_orgs = user.get("orgIds")
             if orgId not in user_orgs:
                 return status.HTTP_401_UNAUTHORIZED
-            
             if "analyst" in user_role:
                 spaceIds = [ spaceId for spaceIdList in user_role.get("analyst", {}).values() for spaceId in spaceIdList]
                 if spaceId in spaceIds:

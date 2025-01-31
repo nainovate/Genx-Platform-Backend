@@ -72,9 +72,8 @@ class Spaces:
                         "detail": "Error initializing the organization database"
                     }
 
-                # Create the space in the organization database
-                spaceId = generate_space_id()
-                status_code = organizationDB.createSpace(spaceName=spaceName, spaceId=spaceId, userId=self.userId)
+
+                status_code = organizationDB.createSpace(spaceName=spaceName, userId=self.userId)
 
                 # Handle space creation statuses
                 if status_code == status.HTTP_400_BAD_REQUEST:
@@ -88,12 +87,7 @@ class Spaces:
                         "status_code": status.HTTP_409_CONFLICT,
                         "detail": "Space Name Already Exists"
                     }
-
-                # Handle spaceId conflict by regenerating spaceId
-                while status_code == status.HTTP_422_UNPROCESSABLE_ENTITY:
-                    spaceId = generate_space_id()
-                    status_code = organizationDB.createSpace(spaceName=spaceName, spaceId=spaceId, userId=self.userId)
-
+                
             # Return final status
             if status_code == status.HTTP_200_OK:
                 return {
@@ -166,7 +160,7 @@ class Spaces:
                 org_list,status = applicationDB.getOrgInfo(orgId=orgId)
                 spaceInfo= org_list
                 organizationDB = OrganizationDataBase(orgId)
-                spaces, status_code = organizationDB.getSpaceInOrg(self.userId)
+                spaces, status_code = organizationDB.getSpaceInOrg(self.role,self.userId)
                 spaceInfo["spaces"] = spaces
                 spaces_data.append(spaceInfo)
 

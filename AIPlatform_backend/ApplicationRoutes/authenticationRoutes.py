@@ -59,7 +59,7 @@ async def login(request_data: dict = Body(...)):
                 if "superadmin" in role:
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
                 if "admin" in role:
-                    orgIds = role["admin"]
+                    orgIds = data["orgIds"]
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
                     space_instance[sessionId] = Spaces(userId=userId, role=role, orgIds=orgIds)
                 if "analyst" in role:

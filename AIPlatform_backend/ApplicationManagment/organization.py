@@ -79,7 +79,7 @@ class Organization:
                         "detail": "Org Name Already Existed"
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error occurred."
@@ -115,7 +115,7 @@ class Organization:
                     "detail": f"Org Not Found for OrgId: {data['orgId']}",
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
@@ -127,7 +127,7 @@ class Organization:
                     "status_code": status.HTTP_409_CONFLICT,
                     "detail": "Org name already exists."
                 }
-            if not status_code == 200:
+            elif not status_code == 200:
                 return HTTPException(
                         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error occurred."
                     )
@@ -158,7 +158,7 @@ class Organization:
                         "detail": "No Organizations found in application database."
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error occurred."
@@ -191,13 +191,13 @@ class Organization:
                     "detail": "Invalid OrgId. Expected a string."
                 }
             
-            if status_code == 404:
+            elif status_code == 404:
                 return {
                     "status_code": status.HTTP_404_NOT_FOUND,
                     "detail": f"Org Not Found for OrgId: {orgId}",
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
@@ -209,7 +209,7 @@ class Organization:
                     "detail": f"Org Not Found for OrgId: {orgId}",
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return HTTPException(
                         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error occurred."
                     )
@@ -257,20 +257,20 @@ class Organization:
                     "detail": "Invalid orgId. Expected a string."
                 }
             
-            if status_code == 404:
+            elif status_code == 404:
                 return {
                     "status_code": status.HTTP_404_NOT_FOUND,
                     "detail": f"Org Not Found for orgId: {orgId}",
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
                 }
             
             for userId in userIds:
-                status_code = self.applicationDB.assignUserToOrg(orgId= orgId, userId= userId)
+                status_code = self.applicationDB.assignUserToOrg(orgId= orgId, userId= userId, role=self.role)
 
                 if status_code == 400:
                     return {
@@ -278,25 +278,25 @@ class Organization:
                         "detail": "Invalid input data. orgID and userId must be strings."
                     }
                 
-                if status_code == 404:
+                elif status_code == 404:
                     return {
                         "status_code": status.HTTP_404_NOT_FOUND,
                         "detail": "User not found."
                     }
                 
-                if status_code == 403:
+                elif status_code == 403:
                     return {
                         "status_code": status.HTTP_403_FORBIDDEN,
                         "detail": "User cannot be assigned a org."
                     }
                 
-                if status_code == 409:
+                elif status_code == 409:
                     return {
                         "status_code": status.HTTP_409_CONFLICT,
                         "detail": "user Already Assigned To Org",
                     }
                 
-                if not status_code == 200:
+                elif not status_code == 200:
                     return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error",
@@ -346,46 +346,45 @@ class Organization:
                     "detail": "Invalid orgId. Expected a string."
                 }
             
-            if status_code == 404:
+            elif status_code == 404:
                 return {
                     "status_code": status.HTTP_404_NOT_FOUND,
                     "detail": f"Org Not Found for orgId: {orgId}",
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
                 }
             
             for userId in userIds:
-                status_code = self.applicationDB.unassignUserToOrg(orgId= orgId, userId= userId)
-
+                status_code = self.applicationDB.unassignUserToOrg(orgId= orgId, userId= userId, role=self.role)
                 if status_code == 400:
                     return {
                         "status_code": status.HTTP_400_BAD_REQUEST,
                         "detail": "Invalid input data. orgID and userId must be strings."
                     }
                 
-                if status_code == 404:
+                elif status_code == 404:
                     return {
                         "status_code": status.HTTP_404_NOT_FOUND,
                         "detail": "User not found."
                     }
                 
-                if status_code == 403:
+                elif status_code == 403:
                     return {
                         "status_code": status.HTTP_403_FORBIDDEN,
                         "detail": "User cannot be unassigned from a org."
                     }
                 
-                if status_code == 409:
+                elif status_code == 409:
                     return {
                         "status_code": status.HTTP_409_CONFLICT,
                         "detail": "User Already unssigned To Org",
                     }
                 
-                if not status_code == 200:
+                elif not status_code == 200:
                     return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error",
@@ -418,7 +417,7 @@ class Organization:
                         "detail": "No Organizations found in application database."
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error occurred."
