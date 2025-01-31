@@ -1103,38 +1103,58 @@ class Spaces:
                 "detail": f"{e}"
             } 
 
+
     def getUsersInOrg(self, data):
         try:
-            if not "admin" in self.role:
+            if not "admin" in self.role and not "analyst" in self.role:
                 return {
                     "status_code": status.HTTP_401_UNAUTHORIZED,
                     "detail": "Unauthorized Access",
                 }
             
-            status_code, users = self.applicationDB.getUsersInOrg(data["orgId"])
+            # Check if the organization exists before fetching users
+            org_status = self.applicationDB.checkOrg(data["orgId"])
+            if org_status == status.HTTP_404_NOT_FOUND:
+                logging.warning(f"Organization with orgId {data['orgId']} not found.")
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Organization not found."
+                }
+            elif org_status != status.HTTP_200_OK:
+                logging.error(f"Error checking organization with orgId {data['orgId']}.")
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Error validating organization."
+                }
+
+            # Proceed with fetching users if organization exists
+            status_code, users = self.applicationDB.getUsersInOrg(data["orgId"], self.role)
 
             if status_code == status.HTTP_404_NOT_FOUND:
                 return {
-                        "status_code": status.HTTP_404_NOT_FOUND, 
-                        "detail": "No users found for Org."
+                    "status_code": status.HTTP_404_NOT_FOUND, 
+                    "detail": "No users found for Org."
                 }
             
-            if not status_code == 200:
+            if status_code != 200:
                 return {
-                        "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                        "detail": "Internal server error occurred."
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Internal server error occurred."
                 }
+
             return {
                 "status_code": status_code,
                 "users_list": users
             }
-        
+
         except Exception as e:
             logging.error(f"Error while retrieving Users: {e}")
             return {
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"{e}"
-            }       
+            }
+ 
+    
     
     def getAllUsers(self):
         try:

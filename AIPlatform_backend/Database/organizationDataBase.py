@@ -387,7 +387,40 @@ class OrganizationDataBase:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": "Internal server error."
             }
+    
+
+    def checkAgent(self, agentId: str):
+        try:
+            if not isinstance(agentId, str):
+                return status.HTTP_400_BAD_REQUEST
+
+            role = self.organizationDB["agents"].find_one({"_id": ObjectId(agentId)})
+            if role:
+                return status.HTTP_200_OK
+            else:
+                return status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            # Log and handle unexpected errors
+            logging.error(f"Error while checking space for roleId {agentId}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
         
+
+    def getRolesInfo(self,spaceId):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+            roles = self.organizationDB["roles"].find({"spaceIds": {"$elemMatch": {"$eq": spaceId}}}, {"createdBy":0})
+            roles_list = list(roles)
+            if roles_list:
+                result = [{"roleName": role["roleName"], "roleId": str(role["_id"]),"description":role["description"]} for role in roles_list]
+                return result, status.HTTP_200_OK
+            else:
+                logging.info("roles not found.")
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving spaces: {e}")
+            return [], status.HTTP_500_INTERNAL_SERVER_ERROR
 
 
     def createTask(self, taskInfo: dict):
@@ -416,24 +449,77 @@ class OrganizationDataBase:
             logging.error(f"Error while creating Task: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
             
-        
-
-    
-
-    def getRolesInfo(self,spaceId):
+    def checkTask(self, taskId: str):
         try:
+            if not isinstance(taskId, str) or not ObjectId.is_valid(taskId):
+                return status.HTTP_400_BAD_REQUEST
+            
+            task = self.organizationDB["tasks"].find_one({"_id": ObjectId(taskId)})
+            
+            if not task:
+                return status.HTTP_404_NOT_FOUND  # Return 404 if task doesn't exist
+
+            return status.HTTP_200_OK  # Return the found task
+
+        except Exception as e:
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def updateTask(self, taskId: str, taskInfo: dict):
+        try:
+            # Validate input types
             if self.organizationDB is None:
                 logging.error("Organization database is not initialized.")
-                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-            roles = self.organizationDB["roles"].find({"spaceIds": {"$elemMatch": {"$eq": spaceId}}}, {"createdBy":0})
-            roles_list = list(roles)
-            if roles_list:
-                result = [{"roleName": role["roleName"], "roleId": str(role["_id"]),"description":role["description"]} for role in roles_list]
-                return result, status.HTTP_200_OK
-            else:
-                logging.info("roles not found.")
-                return [], status.HTTP_404_NOT_FOUND
-        except Exception as e:
-            logging.error(f"Error while retrieving spaces: {e}")
-            return [], status.HTTP_500_INTERNAL_SERVER_ERROR
+                return status.HTTP_500_INTERNAL_SERVER_ERROR
 
+            # Check for duplicate task name only if taskName is being updated
+            if 'taskName' in taskInfo:
+                try:
+                    existing_task_name = self.organizationDB["tasks"].find_one({
+                        "taskName": taskInfo['taskName'] # Exclude current task
+                    })
+
+                    if existing_task_name:
+                        logging.error(f"Task Name '{taskInfo['taskName']}' Already Exists for another task.")
+                        return status.HTTP_409_CONFLICT
+                except Exception as e:
+                    logging.error(f"Error checking for duplicate task name: {e}", exc_info=True)
+                    return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+            # Update the task data in the database
+            try:
+                result = self.organizationDB["tasks"].update_one(
+                    {"_id": ObjectId(taskId)},
+                    {"$set": taskInfo}
+                )
+
+                if result.modified_count == 0:
+                    logging.error(f"No task was updated with ID: {taskId}")
+                    return status.HTTP_404_NOT_FOUND
+
+                logging.info(f"Task updated successfully")
+                return status.HTTP_200_OK
+
+            except Exception as e:
+                logging.error(f"Error updating task in database: {e}", exc_info=True)
+                return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+        except Exception as e:
+            logging.error(f"Unexpected error while updating Task: {e}", exc_info=True)
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+    
+
+    def deleteTask(self, taskId: str):
+        try:
+            if not isinstance(taskId, str) or not ObjectId.is_valid(taskId):
+                return status.HTTP_400_BAD_REQUEST
+            
+            result = self.organizationDB["tasks"].delete_one({"_id": ObjectId(taskId)})
+            
+            if result.deleted_count == 0:
+                return status.HTTP_404_NOT_FOUND  # Return 404 if no task was deleted
+            
+            return status.HTTP_200_OK  # Successfully deleted task
+        
+        except Exception as e:
+            logging.error(f"Error deleting task from database: {e}", exc_info=True)
+            return status.HTTP_500_INTERNAL_SERVER_ERROR

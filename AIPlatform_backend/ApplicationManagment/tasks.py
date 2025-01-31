@@ -184,13 +184,13 @@ class Task:
     def createTask(self, data: dict):
         try:
             # Validate input data
-            if not isinstance(data, dict) or "orgId" not in data or "taskName" not in data or "description" not in data or "roleIds" not in data or "spaceId" not in data:
+            if not isinstance(data, dict) or "orgId" not in data or "taskName" not in data or "description" not in data or "roleIds" not in data or "spaceId" not in data or "agentId" not in data:
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "Invalid input data. Expected a dictionary with 'taskName', 'description', 'orgId', 'roleIds', and 'spaceId' keys."
                 }
 
-            if data["orgId"] == '' or data["taskName"] == '' or not data["roleIds"]:
+            if data["orgId"] == '' or data["taskName"] == '' or not data["roleIds"] or data["agentId"] == '':
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "OrgId, taskName, and roleIds are required fields."
@@ -259,7 +259,7 @@ class Task:
                     "detail": "Internal server error while checking space."
                 }
             roleIds = data["roleIds"]
-            print(f"roleIds: {roleIds}")
+    
             for roleId in roleIds:
                 status_code = organizationDB.checkRole(roleId=roleId)
                 if status_code != 200:
@@ -275,12 +275,28 @@ class Task:
                         "detail": f"Role doesn't have access for spaceId: {spaceId}"
                     }
 
+            agentId = data["agentId"]   
+            if not isinstance(data["agentId"], str):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "agentId must be a string"
+                }
+
+            status_code = organizationDB.checkAgent(agentId)
+            if status_code != 200:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Agent with ID {data['agentId']} not found"
+                }
+
+
             # Create the task in the organization database
             taskInfo = {
                 "taskName": data["taskName"],
                 "description": data["description"],
                 "roleIds": roleIds,
                 "createdBy": self.userId,
+                "agentId": agentId
             }
             status_code = organizationDB.createTask(taskInfo=taskInfo)
 
@@ -306,7 +322,200 @@ class Task:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": str(e)
             }
+        
+
+    
+    def updateTask(self, data: dict):
+        try:
+            # Validate required input data
+            if not isinstance(data, dict) or "orgId" not in data or "taskId" not in data:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with 'orgId' and 'taskId' keys."
+                }
+            if data["orgId"] == '' or data["taskId"] == '':
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "OrgId and taskId are required fields."
+                }
+
+            # Check if at least one optional field is present
+            optional_fields = ['taskName', 'description', 'agentId']
+            if not any(field in data for field in optional_fields):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "At least one of taskName, description, or agentId must be provided for update."
+                }
+
+            # Rest of the authorization and organization checks...
+            if "analyst" not in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access"
+                }
+
+            if data["orgId"] not in self.orgIds:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access"
+                }
+
+            # Organization existence check...
+            status_code = self.applicationDB.checkOrg(data["orgId"])
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Organization not found."
+                }
+            elif status_code != 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Invalid or Incorrect orgId."
+                }
+
+            # Initialize database...
+            organizationDB = OrganizationDataBase(data["orgId"])
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+
+            # Task existence check...
+            status_code = organizationDB.checkTask(data["taskId"])
+            
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Task not found"
+                }
+            elif status_code != 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Error checking task existence"
+                }
+
+            # Initialize taskInfo with optional fields
+            taskInfo = {
+            }
+
+            # Add only the provided optional fields
+            for field in optional_fields:
+                if field in data:
+                    taskInfo[field] = data[field]
+
+            # Update task...
+            status_code = organizationDB.updateTask(taskId=data["taskId"], taskInfo=taskInfo)
+            if status_code == status.HTTP_409_CONFLICT:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Task Name Already Exists."
+                }
+            elif status_code == status.HTTP_200_OK:
+                return {
+                    "status_code": status.HTTP_200_OK,
+                    "detail": "Task Updated Successfully."
+                }
+            
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error occurred."
+            }
+
+        except Exception as e:
+            logging.error(f"Error while updating Task: {e}", exc_info=True)
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": str(e)
+            }     
+        
+    
+    
+    def deleteTask(self, data: dict):
+        try:
+            # Validate required input data
+            if not isinstance(data, dict) or "orgId" not in data or "taskId" not in data:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with 'orgId' and 'taskId' keys."
+                }
+            if data["orgId"] == '' or data["taskId"] == '':
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "OrgId and taskId are required fields."
+                }
+
+            # Authorization checks
+            if "analyst" not in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access"
+                }
+
+            if data["orgId"] not in self.orgIds:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access"
+                }
+
+            # Check if the organization exists
+            status_code = self.applicationDB.checkOrg(data["orgId"])
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Organization not found."
+                }
+            elif status_code != 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Invalid or Incorrect orgId."
+                }
+
+            # Initialize database
+            organizationDB = OrganizationDataBase(data["orgId"])
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+
+            # Check if task exists
+            status_code = organizationDB.checkTask(data["taskId"])
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Task not found"
+                }
+            elif status_code != 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Error checking task existence"
+                }
+
+            # Delete task
+            status_code = organizationDB.deleteTask(data["taskId"])
+            if status_code == status.HTTP_200_OK:
+                return {
+                    "status_code": status.HTTP_200_OK,
+                    "detail": "Task Deleted Successfully."
+                }
+            elif status_code == status.HTTP_404_NOT_FOUND:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Task not found."
+                }
+
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error occurred."
+            }
+
+        except Exception as e:
+            logging.error(f"Error while deleting Task: {e}", exc_info=True)
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": str(e)
+            }
 
 
-   
-                    
+
