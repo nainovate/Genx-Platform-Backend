@@ -3,6 +3,8 @@ import os
 import logging
 import random
 import string
+from motor.motor_asyncio import AsyncIOMotorClient
+from db_config import finetuning_config
 import time
 from bson import ObjectId
 from pymongo import UpdateOne
@@ -34,6 +36,13 @@ class ApplicationDataBase:
         self.status_code = None  # default status code
         mongo_ip = config['mongoip']
         mongo_port = config['mongoport']
+
+        self.client = AsyncIOMotorClient(finetuning_config['MONGO_URI'])
+        self.db = self.client[finetuning_config['DB_NAME']]
+        self.response = self.db[finetuning_config['response']]
+        self.dataset_collection = self.db[finetuning_config['dataset_collection']]
+        self.status_collection = self.db[finetuning_config['status_collection']]
+        self.finetune_config = self.db[finetuning_config['finetune_config']]
         try:
             db_uri = "mongodb://"+mongo_ip+":"+mongo_port+"/"
             self.client = MongoClient(db_uri)
@@ -2253,4 +2262,113 @@ class ApplicationDataBase:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
 
-      
+    async def insertdataset(self, document):
+        try:
+            if not self.client:
+                raise Exception("Database client is not connected.")
+            
+            client_api_key = document.get("clientApiKey")
+            dataset_content = document.get("datasetContent")
+            path = document.get("path")
+            dataset_type = document.get("dataset_name")
+
+            if not client_api_key or not dataset_content or not path or not dataset_type:
+                missing_fields = [
+                    field for field in ["clientApiKey", "datasetContent", "path","dataset_name"]
+                    if not document.get(field)
+                ]
+                return({"status_code":422, "detail":f"Missing required fields: {', '.join(missing_fields)}"})
+
+
+            if not os.path.exists(path):
+                raise FileNotFoundError(f"Path does not exist: {path}")
+            if not os.access(path, os.R_OK):
+                raise PermissionError(f"Path is not readable: {path}")
+
+            dataset_id = self.generate_id(4)
+            timestamp = self.get_current_timestamp()
+            payload_document = {
+                "dataset_name": dataset_type,
+                "dataset_id": dataset_id,
+                "clientApiKey": client_api_key,
+                "dataset_path": path,
+                "dataset": dataset_content,
+                "timestamp": timestamp,
+                
+            }
+
+            insert_result = await self.dataset_collection.insert_one(payload_document)
+            if not insert_result.acknowledged:
+                raise Exception("Failed to insert document into MongoDB.")
+
+            return 200, {"success": True, "dataset_id": dataset_id}
+
+        except FileNotFoundError as fnfe:
+            return 404, {"success": False, "error": str(fnfe)}
+        except PermissionError as pe:
+            return 403, {"success": False, "error": str(pe)}
+        except ValueError as ve:
+            return 400, {"success": False, "error": str(ve)}
+        except Exception as e:
+            return 500, {"success": False, "error": f"Unexpected error: {str(e)}"}
+        
+
+    async def dataset_details(self):
+        """
+        Fetches datasets details from the MongoDB collection for the given organisation.
+
+        :return: Dictionary containing success status and dataset details or an error message.
+        """
+        try:
+            # Query the collection for dataset details, excluding the "_id" field
+            datasets = await self.dataset_collection.find({}, {"_id": 0, "dataset": 0}).sort("timestamp", DESCENDING).to_list(length=None)
+
+            if datasets is None:
+                logging.error("Unexpected None response from database query.")
+                return {"success": False, "error": "Unexpected database response."}
+
+            if not datasets:
+                logging.warning("No datasets data found.")
+                return {"success": False, "message": "No dataset data found."}
+
+            logging.info(f"Datasets fetched successfully: {len(datasets)} records.")
+            return {"success": True, "data": datasets}
+
+        except ConnectionError as e:
+            logging.error(f"Database connection error: {e}")
+            return {"success": False, "error": f"Database connection failed: {str(e)}"}
+
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            return {"success": False, "error": "An unexpected error occurred."}
+        
+
+    async def delete_dataset(self, json_data):
+        try:
+            client_api_key = json_data["clientApiKey"]
+            dataset_Ids = json_data["dataset_Ids"]
+
+            if not client_api_key or not dataset_Id:
+                logging.error("Missing required fields: 'clientApiKey' or 'dataset_Id'")
+                return {"status_code": 400, "detail": "Missing 'clientApiKey' or 'dataset_Id'."}
+
+          
+
+            # Ensure dataset_Id is a string and handle list case
+            if isinstance(dataset_Ids, list):
+                dataset_Id = [str(item) for item in dataset_Id]  # Convert items to strings
+
+            # For multiple deletions, use delete_many with $in operator
+            query = {"clientApiKey": client_api_key, "dataset_id": {"$in": dataset_Id} if isinstance(dataset_Id, list) else str(dataset_Id)}
+            
+
+            if isinstance(dataset_Id, list):
+                result = await self.dataset_collection.delete_many(query)
+            else:
+                result = await self.dataset_collection.delete_one(query)
+
+            return {"deleted_count": result.deleted_count, "status_code": 200 if result.deleted_count > 0 else 404}
+
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            return {"status_code": 500, "detail": "Unexpected server error."}
