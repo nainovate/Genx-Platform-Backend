@@ -1,12 +1,11 @@
-from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi import status
 import logging
 from pymongo import DESCENDING
-from db_config import finetuning_config
 from datetime import datetime
 import os
 import random
 from fastapi import HTTPException,status
+from Database.applicationDataBase import ApplicationDataBase
 
 
 
@@ -16,12 +15,7 @@ class dataset:
     def __init__(self, role: dict, userId: str):
         self.role = role
         self.userId = userId
-        self.client = AsyncIOMotorClient(finetuning_config['MONGO_URI'])
-        self.db = self.client[finetuning_config['DB_NAME']]
-        self.response = self.db[finetuning_config['response']]
-        self.dataset_collection = self.db[finetuning_config['dataset_collection']]
-        self.status_collection = self.db[finetuning_config['status_collection']]
-        self.finetune_config = self.db[finetuning_config['finetune_config']]
+        
 
     async def add_dataset(self, data: dict):
         try:
@@ -43,7 +37,7 @@ class dataset:
                         "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
                     }
 
-            required_fields = ["path","clientApiKey", "datasetContent","dataset_type"]
+            required_fields = ["path","clientApiKey", "datasetContent","dataset_name"]
             missing_fields = [field for field in required_fields if field not in data]
             if missing_fields:
                 logging.error(f"Missing required fields: {', '.join(missing_fields)}")
@@ -54,15 +48,15 @@ class dataset:
             client_api_key = data["clientApiKey"]
             parsed_content = data["datasetContent"]
             path = data["path"]
-            dataset_type = data["dataset_type"]
-            data_dict = {
+            dataset_type = data["dataset_name"]
+            document = {
                 "clientApiKey": client_api_key,
                 "datasetContent": [qa_item for qa_item in parsed_content],
                 "path": path,
-                "dataset_type" : dataset_type
+                "dataset_name" : dataset_type
             }
-
-            status_code, response = await self.insertdataset(data_dict)
+            database = ApplicationDataBase()
+            status_code, response = await database.insertdataset(document)
             if response["success"]:
                 return {
                     "status_code": status.HTTP_200_OK,
@@ -80,55 +74,7 @@ class dataset:
             )
             
 
-    async def insertdataset(self, document):
-        try:
-            if not self.client:
-                raise Exception("Database client is not connected.")
-            
-            client_api_key = document.get("clientApiKey")
-            dataset_content = document.get("datasetContent")
-            path = document.get("path")
-            dataset_type = document.get("dataset_type")
 
-            if not client_api_key or not dataset_content or not path or not dataset_type:
-                missing_fields = [
-                    field for field in ["clientApiKey", "datasetContent", "path","dataset_type"]
-                    if not document.get(field)
-                ]
-                return(f"statuscode:422, detail:Missing required fields: {', '.join(missing_fields)}")
-
-
-            if not os.path.exists(path):
-                raise FileNotFoundError(f"Path does not exist: {path}")
-            if not os.access(path, os.R_OK):
-                raise PermissionError(f"Path is not readable: {path}")
-
-            dataset_id = self.generate_id(4)
-            timestamp = self.generate_timestamp()
-            payload_document = {
-                "dataset_name": dataset_type,
-                "dataset_id": dataset_id,
-                "clientApiKey": client_api_key,
-                "dataset_path": path,
-                "dataset": dataset_content,
-                "timestamp": timestamp,
-                
-            }
-
-            insert_result = await self.dataset_collection.insert_one(payload_document)
-            if not insert_result.acknowledged:
-                raise Exception("Failed to insert document into MongoDB.")
-
-            return 200, {"success": True, "dataset_id": dataset_id}
-
-        except FileNotFoundError as fnfe:
-            return 404, {"success": False, "error": str(fnfe)}
-        except PermissionError as pe:
-            return 403, {"success": False, "error": str(pe)}
-        except ValueError as ve:
-            return 400, {"success": False, "error": str(ve)}
-        except Exception as e:
-            return 500, {"success": False, "error": f"Unexpected error: {str(e)}"}
         
 
     def generate_id(self,length):
@@ -149,9 +95,9 @@ class dataset:
         :return: A dictionary containing the status code and additional details.
         """
         try:
-            
+            database = ApplicationDataBase()
             # Fetch dataset details
-            result = await self.dataset_details()
+            result = await database.dataset_details()
 
             # Ensure response is structured correctly
             if not result or not isinstance(result, dict) or "success" not in result:
@@ -199,31 +145,85 @@ class dataset:
             }
 
 
-    async def dataset_details(self):
-        """
-        Fetches datasets details from the MongoDB collection for the given organisation.
+ 
+    
 
-        :return: Dictionary containing success status and dataset details or an error message.
+    async def deletedataset(self, data: dict):
+        """
+        Deletes dataset_Id from the database.
+
+        :param data: Dictionary containing payload data, including required fields.
+        :return: A dictionary containing the status code and additional details.
         """
         try:
-            # Query the collection for dataset details, excluding the "_id" field
-            datasets = await self.dataset_collection.find({}, {"_id": 0, "dataset": 0}).sort("timestamp", DESCENDING).to_list(length=None)
+            if not data or not isinstance(data, dict):
+                logging.error("Empty or invalid data received.")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Request data cannot be empty",
+                }
 
-            if datasets is None:
-                logging.error("Unexpected None response from database query.")
-                return {"success": False, "error": "Unexpected database response."}
 
-            if not datasets:
-                logging.warning("No datasets data found.")
-                return {"success": False, "message": "No dataset data found."}
+            # Check for empty values in the data
+            empty_fields = [key for key, value in data.items() if not value]
+            
+            if empty_fields:
+                logging.error(f"Empty values found in fields: {', '.join(empty_fields)}")
+                return {
+                        "status_code": status.HTTP_400_BAD_REQUEST,
+                        "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
+                    }
 
-            logging.info(f"Datasets fetched successfully: {len(datasets)} records.")
-            return {"success": True, "data": datasets}
+            required_fields = ["dataset_Id","clientApiKey"]
+            missing_fields = [field for field in required_fields if field not in data]
+            if missing_fields:
+                logging.error(f"Missing required fields: {', '.join(missing_fields)}")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": f"Missing required fields: {', '.join(missing_fields)}."
+                }
+            database = ApplicationDataBase()
+            # Call the database layer to delete the prompt
+            result = await database.delete_dataset(data)
 
-        except ConnectionError as e:
-            logging.error(f"Database connection error: {e}")
-            return {"success": False, "error": f"Database connection failed: {str(e)}"}
+            # Handle cases based on the result
+            if result["status_code"] == 404:
+                logging.warning("No dataset found matching the provided criteria.")
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "No datasets found matching the provided datasetID {dataset}. They may already be deleted or never existed."
+                }
+
+            if result["status_code"] == 200 and result["deleted_count"] == 0:
+                logging.warning("datasets were already deleted.")
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "The specified dataset were already deleted or not found."
+                }
+
+            if result["status_code"] == 200 and result["deleted_count"] > 0:
+                logging.info(f"Deleted {result['deleted_count']} dataset_Id(s).")
+                return {
+                    "status_code": status.HTTP_200_OK,
+                    "detail": f"Successfully deleted {result['deleted_count']} dataset_Id(s)."
+                }
+
+            # Handle unexpected server error from the database layer
+            if result["status_code"] == 500:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": result.get("detail", "An unexpected server error occurred.")
+                }
 
         except Exception as e:
             logging.error(f"An unexpected error occurred: {e}")
-            return {"success": False, "error": "An unexpected error occurred."}
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "An unexpected server error occurred. Please try again later or contact support."
+            }
+    
+
+
+
+
+    

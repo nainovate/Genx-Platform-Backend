@@ -384,8 +384,8 @@ async def getModeldetails(request_data: dict = Body(...)):
         # Check if the sessionId exists in prompts_instance
         if session_id not in payload_instance:
             raise HTTPException(
-                status_code=404,
-                detail=f"Session ID '{session_id}' not found."
+                status_code=403,
+                detail=f"Unauthorized access, session expired."
             )
         
         # Access the corresponding Prompts instance
@@ -426,14 +426,14 @@ async def deleteModel(request_data: dict = Body(...)):
         if not session_id:
             raise HTTPException(
                 status_code=400,
-                detail="Missing required 'sessionId' in the request data."
+                detail="Missing required 'SessionId' in the request data."
             )
         
         # Check if the sessionId exists in prompts_instance
         if session_id not in payload_instance:
             raise HTTPException(
-                status_code=404,
-                detail=f"Session ID '{session_id}' not found."
+                status_code=403,
+                detail=f"Unauthorized access, Session expired."
             )
         # Access the corresponding Prompts instance
         models = model_instance[session_id]
@@ -475,8 +475,8 @@ async def get_dataset_Details(request_data: dict):
 
         if session_id not in dataset_instance:
             return {
-                "status_code": 404,
-                "detail": f"Session ID '{session_id}' not found."
+                "status_code": 403,
+                "detail": f"Unauthorized access, Session expired."
             }
 
         dataset = dataset_instance[session_id]
@@ -500,8 +500,8 @@ async def addDataset(request_data: dict):
 
         if session_id not in dataset_instance:
             return {
-                "status_code": 404,
-                "detail": f"Session ID '{session_id}' not found."
+                "status_code": 403,
+                "detail": f"Unauthorized access, session expired."
             }
         required_fields = ["sessionId","data"]
         missing_fields = [field for field in required_fields if field not in request_data]
@@ -513,6 +513,41 @@ async def addDataset(request_data: dict):
             }
         dataset = dataset_instance[session_id]
         return await dataset.add_dataset(request_data["data"])
+
+    except Exception as e:
+        return {
+            "status_code": 500,
+            "detail": f"Internal server error: {str(e)}"
+        }
+
+@router.post("/api/deletedataset")
+async def deletedataset(request_data: dict):
+    try:
+        session_id = request_data.get("sessionId")
+        if not session_id :
+            return {
+                "status_code": 400,
+                "detail": "Missing required 'sessionId' in the request data."
+            }
+
+        if session_id not in dataset_instance:
+            return {
+                "status_code": 403,
+                "detail": f"Unauthorized access, session expired."
+            }
+        required_fields = ["sessionId","data"]
+        missing_fields = [field for field in required_fields if field not in request_data]
+        if missing_fields:
+            
+            return {
+                "status_code": 400,
+                "detail": f"Missing required fields: {', '.join(missing_fields)}."
+            }
+        dataset = dataset_instance[session_id]
+        # Remove sessionId from the request data before passing it to getPromptsData
+        request_data.pop("sessionId", None)
+        data = request_data.get("data")
+        return await dataset.deletedataset(data)
 
     except Exception as e:
         return {
