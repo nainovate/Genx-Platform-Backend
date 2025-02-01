@@ -1905,14 +1905,18 @@ class ApplicationDataBase:
            
             llm_prompts = self.applicationDB["LLMPrompts"]
             # Fetching all documents, excluding the _id field, and sorting by timestamp in descending order
-            llm_prompts_cursor = llm_prompts.find({}, {"_id": 0}).sort("timestamp", -1)
+            llm_prompts_cursor = llm_prompts.find({}).sort("timestamp", -1)
 
             # Convert the cursor to a list and return the data
-            result = list(llm_prompts_cursor)
-
+            data = list(llm_prompts_cursor)
+            # result = [{**prompt,prompt["_id"]:str(prompt["_id"])} for prompt in result]
+            
+            for d in data:
+                d["_id"] = str(d["_id"])
+            print(data)
             # Log the retrieved data
-            logging.info("Retrieved data: %s", result)
-            return result
+            logging.info("Retrieved data: %s", data)
+            return data
 
         except ConnectionError as e:
             logging.error(f"Connection error while accessing the database: {e}")

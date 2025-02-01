@@ -120,7 +120,7 @@ class Spaces:
                         "detail": "Unauthorized Access"
                 }
             organizationDB = OrganizationDataBase(orgId)
-            spaces, status_code = organizationDB.getSpaceInOrg(self.role,self.userId)
+            spaces, status_code = organizationDB.getSpaceInOrg(self.role,self.userId,orgId=orgId)
 
             if status_code == status.HTTP_404_NOT_FOUND:
                 return {
@@ -157,10 +157,10 @@ class Spaces:
             spaces_data = []
             for orgId in orgIds:
                 applicationDB = ApplicationDataBase()
-                org_list,status = applicationDB.getOrgInfo(orgId=orgId)
+                org_list,status_code = applicationDB.getOrgInfo(orgId=orgId)
                 spaceInfo= org_list
                 organizationDB = OrganizationDataBase(orgId)
-                spaces, status_code = organizationDB.getSpaceInOrg(self.role,self.userId)
+                spaces, status_code = organizationDB.getSpaceInOrg(self.role, self.userId, orgId=orgId)
                 spaceInfo["spaces"] = spaces
                 spaces_data.append(spaceInfo)
 
