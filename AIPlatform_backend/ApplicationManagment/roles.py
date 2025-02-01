@@ -57,7 +57,6 @@ class Role:
                     "status_code": status.HTTP_401_UNAUTHORIZED,
                     "detail": "Unauthorized Access"
                 }
-
             roleInfo = {"roleName":data["roleName"], "description":data["description"]}
             spaceIds = data['spaceIds']
             orgId = data["orgId"]
@@ -315,6 +314,7 @@ class Role:
                 "detail": f"{e}"
             }
 
+
     def getAnalystRoles(self):
         try:
             if not "analyst" in self.role:
@@ -343,7 +343,7 @@ class Role:
                         "detail": "No spaces found for the Analyst."
                 }
             return {
-                "status_code": status_code,
+                "status_code": 200,
                 "roles": roles_data
             }
         except Exception as e:

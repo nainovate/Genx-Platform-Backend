@@ -67,7 +67,7 @@ async def getRoleTasks(request_data: dict = Body(...)):
     except KeyError as e:
         raise HTTPException(status_code=500, detail=str(e))
     
-
+    
 @router.post("/api/getAgents")
 async def getAgents(request_data: dict = Body(...)):
     try:
