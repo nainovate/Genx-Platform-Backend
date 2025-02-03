@@ -36,7 +36,8 @@ class MetricsCalculator:
         start_time = datetime.now()
         try:
             payload = self.payload_file_path
-            collection = self.load_yaml_data(payload)
+            #collection = self.load_yaml_data(payload)
+            collection=payload
 
             # Check if model is completed - this should be an async call
             model_completed = await self.mongoHandler.check_model_completed_status(self.process_id)
@@ -48,7 +49,7 @@ class MetricsCalculator:
             if not results_doc:
                 raise HTTPException(status_code=404, detail="Results document not found")
 
-            result_path = results_doc['results_path']
+            
             config_type = results_doc['config_type']
             model_ids = [model["model_id"] for model in results_doc["models"]]
             object_id = results_doc['_id']

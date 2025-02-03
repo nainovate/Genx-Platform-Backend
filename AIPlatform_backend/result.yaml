@@ -1,0 +1,64 @@
+TruePositive:
+  - index: 1
+    question: "What is the difference between software engineering and computer science?"
+    answer: "Software engineering is the application of engineering principles to software development"
+    response:  "Software engineering is the application of engineering principles to software development"
+
+  - index: 2
+    question: "Explain the difference between functional and object-oriented programming."
+    answer: "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+    response: "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+
+  - index: 3
+    question: "What is the SOLID principle in object-oriented programming?"
+    answer: "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+    response: "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+
+TrueNegative:
+  - index: 1
+    question: "What is the color of the sky?"
+    answer: "This question is not relevant to software engineering."
+    response: "This question is not relevant to software engineering."
+
+  - index: 2
+    question: "What is the speed of light?"
+    answer: "This question is not related to programming paradigms."
+    response: "This question is not related to programming paradigms."
+
+  - index: 3
+    question: "What is the capital of France?"
+    answer: "This question is irrelevant to the SOLID principles."
+    response: "This question is irrelevant to the SOLID principles."
+
+FalsePositive:
+  - index: 1
+    question: "What is the difference between software engineering and computer science?"
+    answer: "Software engineering is the application of engineering principles to software development."
+    response: "Computer science is about coding languages like Java and Python."
+
+  - index: 2
+    question: "Explain the difference between functional and object-oriented programming."
+    answer: "Functional programming emphasizes immutability, while OOP organizes data into objects."
+    response: "Object-oriented programming and functional programming are the same."
+
+  - index: 3
+    question: "What is the SOLID principle in object-oriented programming?"
+    answer: "SOLID is a set of principles for writing maintainable, scalable object-oriented code."
+    response: "SOLID is about Agile development practices."
+
+
+FalseNegative:
+  - index: 1
+    question: "What is the difference between software engineering and computer science?"
+    answer: "Software engineering is the application of engineering principles to software development."
+    response: "Software engineering is the application of engineering principles to software development."
+
+  - index: 2
+    question: "Explain the difference between functional and object-oriented programming."
+    answer: "Functional programming avoids mutable data, while object-oriented programming organizes data as objects."
+    response: "Functional programming avoids mutable data, while object-oriented programming organizes data as objects."
+
+  - index: 3
+    question: "What is the SOLID principle in object-oriented programming?"
+    answer: "SOLID is a set of principles for writing maintainable, scalable object-oriented code."
+    response: "I don't know."
