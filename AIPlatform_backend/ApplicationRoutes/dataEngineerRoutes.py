@@ -1,10 +1,17 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
-from ApplicationRoutes.authenticationRoutes import prompts_instance,payload_instance,model_instance,dataset_instance
+from ApplicationRoutes.authenticationRoutes import prompts_instance,payload_instance,model_instance,dataset_instance, task_instance
 
 router = APIRouter()
 
 
 # authentication_instances["resetPassword"] = Authentication()
+@router.post("/api/getAllTasks")
+async def getRoleTasks(request_data: dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.getTasks(request_data["data"])
+    except KeyError as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/addPrompt")
 async def addPrompt(request_data: dict = Body(...)):

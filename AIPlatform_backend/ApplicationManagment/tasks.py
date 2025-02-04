@@ -115,7 +115,70 @@ class Task:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": "Internal server error",
             }
-        
+    
+
+    def getTasks(self, data:dict):
+        try:
+            if not "aiengineer" in self.role and not "dataengineer" in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access",
+                }
+            
+            orgId = data.get("orgId")
+            if not orgId:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. orgId and roleId must be provided."
+                }
+
+            if not isinstance(orgId, str):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid roleId or orgId. Expected a string."
+                }
+
+            status_code = self.applicationDB.checkOrg(orgId)
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Organization not found."
+                }
+            if not status_code == 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Internal server error",
+                }
+
+            if orgId not in self.orgIds:
+                return {
+                    "status_code": status.HTTP_403_FORBIDDEN,
+                    "detail": "You are not authorized to access this resource.",
+                }
+            
+            organizationDB = OrganizationDataBase(orgId)
+            tasks, status_code = organizationDB.getTasks()
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Tasks Not Found for orgId: {orgId}"
+                }
+            elif not status_code == 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Internal server error",
+                }
+            return {
+                "status_code": status.HTTP_200_OK,
+                "tasks": tasks
+            }
+        except Exception as e:
+            logger.error(f"Error in getTasks For orgId: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error",
+            }
+
     def getAgents(self, data: dict):
             try:
                 if not "analyst" in self.role:

@@ -239,17 +239,25 @@ class ApplicationDataBase:
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
 
 
-    def getAllUsers(self):
+    def getAllUsers(self, role):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            users_list = list(self.applicationDB["users"].find(
+            if "analyst" in role:
+                # Fetch users with 'user' role
+                users_list = list(self.applicationDB["users"].find(
+                    {"role.user": {"$exists": True}},
+                    {"contactNumber": 0}  # Exclude contactNumber from the result
+                ))
+            elif "admin" in role:
+                users_list = list(self.applicationDB["users"].find(
                 {"role.admin": {"$exists": False},
                  "role.superadmin": {"$exists": False},
                  "role.user": {"$exists": False},
                 },{"contactNumber": 0}))
+            
 
             if users_list is None:
                 return {
@@ -1594,6 +1602,10 @@ class ApplicationDataBase:
                 result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId, "role.admin": orgId}})
             elif "admin" in role:
                 result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": []}})
+            elif "analyst" in role:
+                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": {}}})
+            else:
+                return status.HTTP_403_FORBIDDEN
 
             if result.modified_count > 0:
                 return status.HTTP_200_OK
@@ -1609,7 +1621,6 @@ class ApplicationDataBase:
     def unassignUserToOrg(self, orgId: str, userId: str, role: dict):
         try:
             # Validate input data
-            print('----input',userId,orgId,role)
             if not isinstance(userId, str) or not isinstance(orgId, str):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
@@ -1630,6 +1641,11 @@ class ApplicationDataBase:
                 result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId,"role.admin": orgId}})
             elif "admin" in role:
                 result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
+            elif "analyst" in role:
+                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
+            else:
+                return status.HTTP_400_BAD_REQUEST
+
 
             # Check if the update modified any documents
             if result.modified_count > 0:
@@ -1645,7 +1661,7 @@ class ApplicationDataBase:
             logging.error(f"Error while unassigning User {userId} for org id {orgId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
 
-    def getOrganizationsforAdmin(self, userId):
+    def getOrganizationsforUsers(self, userId):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")

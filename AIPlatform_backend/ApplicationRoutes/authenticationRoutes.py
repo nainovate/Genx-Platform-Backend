@@ -48,10 +48,14 @@ async def login(request_data: dict = Body(...)):
                 userId = data["userId"]
                 role = data["role"]
                 refreshToken = data["refreshToken"]
-                
+                if not "superadmin" in role:
+                    orgIds = data["orgIds"]
+                    authorization_instance[sessionId] = Authorization(username=userName, userId=userId, role=role, orgIds=orgIds)
+                else:
+                    authorization_instance[sessionId] = Authorization(username=userName, userId=userId, role=role)
+                    
                 # Populate the instances
                 authentication_instances[sessionId] = Authentication(username=userName, userId=userId, refreshToken=refreshToken)
-                authorization_instance[sessionId] = Authorization(username=userName, userId=userId, role=role)
                 
                 # # Populating prompts_instance with the sessionId
                 prompts_instance[sessionId] = Prompts(userId=userId, role=role)
@@ -61,20 +65,26 @@ async def login(request_data: dict = Body(...)):
                 # Role-based instance creation
                 if "superadmin" in role:
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
-                if "admin" in role:
+                elif "admin" in role:
                     orgIds = data["orgIds"]
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
                     space_instance[sessionId] = Spaces(userId=userId, role=role, orgIds=orgIds)
-                if "analyst" in role:
+                elif "analyst" in role:
                     orgIds = data["orgIds"]
                     spaceIds = role["analyst"]
+                    organization_instance[sessionId] = Organization(userId=userId, role=role)
                     space_instance[sessionId] = Spaces(userId=userId, role=role, orgIds=orgIds)
                     role_instance[sessionId] = Role(userId=userId, orgIds=orgIds, role=role, spaceIds=spaceIds)
                     task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
-                if "aiengineer" in role:
+                elif "aiengineer" in role:
                     orgIds = data["orgIds"]
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
-                    evaluation_instance[sessionId] = Evaluation(userId=userId, role=role, orgIds=orgIds) 
+                    task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
+                    evaluation_instance[sessionId] = Evaluation(userId=userId, role=role, orgIds=orgIds)
+                elif "dataengineer" in role:
+                    orgIds = data["orgIds"]
+                    organization_instance[sessionId] = Organization(userId=userId, role=role)
+                    task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
 
             # Convert ObjectId to string for userId in the response data
             if isinstance(data["userId"], ObjectId):

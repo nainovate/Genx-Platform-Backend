@@ -371,7 +371,20 @@ class OrganizationDataBase:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
     
-
+    def getTasks(self):
+        try:
+            tasks = self.organizationDB["tasks"].find({}, {"roleIds": 0})
+            tasks_list = list(tasks)
+            
+            if tasks_list:
+                result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"description":str(task["description"])} for task in tasks_list]
+                return result, status.HTTP_200_OK
+            else:
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+        
     def getAgents(self,tagName: str):
         try:
             agents = self.organizationDB["agents"].find({"tagName":tagName,"status": "deploy"})
