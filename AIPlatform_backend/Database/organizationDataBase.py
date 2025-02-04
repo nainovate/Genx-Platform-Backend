@@ -168,7 +168,7 @@ class OrganizationDataBase:
             logging.error(f"Error while updating space: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
 
-    def getSpaceInOrg(self,role,userId):
+    def getSpaceInOrg(self,role,userId,orgId):
         try:
             if self.organizationDB is None:
                 logging.error("Organization database is not initialized.")
@@ -189,13 +189,16 @@ class OrganizationDataBase:
                     logging.info("No spaces found for this Org.")
                     return [], status.HTTP_404_NOT_FOUND
             elif "analyst" in role:
-                spaces_list = list(self.organizationDB["spaces"].find({}, {"_id": 1,"createdBy":0}))
-                if len(spaces_list) > 0:
-                    spaces = [{"spaceId":str(space["_id"]),"spaceName":space["spaceName"]} for space in spaces_list]
-                    return spaces, status.HTTP_200_OK
-                else:
-                    logging.info("No spaces found for this Org.")
+                spaceIds = role["analyst"][f"{orgId}"]
+                if len(spaceIds) ==0:
                     return [], status.HTTP_404_NOT_FOUND
+                spaces_list =[]
+                for spaceId in spaceIds:
+                    space = self.organizationDB["spaces"].find_one({"_id":ObjectId(spaceId)}, {"_id": 1,"createdBy":0})
+                    if space:
+                        space["_id"] = str(space["_id"])
+                        spaces_list.append(space)
+                return spaces_list,status.HTTP_200_OK
         except Exception as e:
             logging.error(f"Error while retrieving spaces: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
@@ -292,6 +295,7 @@ class OrganizationDataBase:
             logging.error(f"Error while retrieving spaces: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
         
+        
     def checkRole(self, roleId: str):
         try:
             if not isinstance(roleId, str):
@@ -378,13 +382,11 @@ class OrganizationDataBase:
         try:
             agents = self.organizationDB["agents"].find({"tagName":tagName,"status": "deploy"})
             agents_list = list(agents)
-            if not agents_list:
-                return {
-                    "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": "No agents found in OrgId."
-                }
+            if len(agents_list) ==0:
+                return agents_list,status.HTTP_404_NOT_FOUND
+            
             else:
-                result = [{"agentName": agents["agent"], "agentId": str(agents["_id"])} for agents in agents_list]
+                result = [{**agent, "_id": str(agent["_id"])} for agent in agents_list]
                 return result, status.HTTP_200_OK
                 
         except Exception as e:
