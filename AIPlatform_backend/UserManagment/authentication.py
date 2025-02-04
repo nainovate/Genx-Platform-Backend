@@ -127,7 +127,6 @@ class Authentication:
             password = requestData["password"]
             # Ensure applicationDB is initialized
             if not hasattr(self, 'applicationDB') or self.applicationDB is None:
-                print("not initi")
                 logging.error("ApplicationDB is not initialized.")
                 return {
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,

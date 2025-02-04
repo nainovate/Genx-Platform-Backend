@@ -2,12 +2,13 @@ import os
 import logging
 from bson import ObjectId
 from pymongo import UpdateOne
+import pymongo
 from pymongo.mongo_client import MongoClient
-from fastapi import status
+from fastapi import HTTPException, status
 from pymongo.errors import OperationFailure
 from werkzeug.security import check_password_hash
 # from Database.applicationDataBase import ApplicationDataBase
-from db_config import config
+from db_config import config, finetuning_config
 
 # Set up logging
 projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -40,11 +41,16 @@ class OrganizationDataBase:
         self.client = None
         self.organizationDB = None
         self.orgId = orgId
+
         # self.applicationDB = ApplicationDataBase()
         try:
             db_uri = f"mongodb://{mongo_ip}:{mongo_port}/"
             self.client = MongoClient(db_uri)
             self.organizationDB = self._get_organization_db(orgId)
+            self.responseCollection = self.organizationDB[finetuning_config['metric_response']]
+            self.dataset_collection = self.organizationDB[finetuning_config['dataset_collection']]
+            self.status_collection = self.organizationDB[finetuning_config['status_collection']]
+            self.finetune_configCollection = self.organizationDB[finetuning_config['finetune_config']]
             self.status_code = 200
         except OperationFailure as op_err:
             logging.error(f"Error connecting to the database: {op_err}")
@@ -523,3 +529,39 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error deleting task from database: {e}", exc_info=True)
             return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+
+    def get_metrics_by_process_id(self, process_id):
+        try:
+            
+            if not process_id:
+                return {"status_code": status.HTTP_400_BAD_REQUEST, 
+                        "message": "Missing required 'process_id' in the request data."}
+
+            document = self.responseCollection.find_one({"process_id": process_id})
+            
+
+            if not document:
+                return {"status_code": status.HTTP_404_NOT_FOUND,
+                         "message": f"No document found with process_id: {process_id}"}
+
+            metrics = document.get("metrics", [])
+
+            if not metrics:
+                return {"status_code": status.HTTP_404_NOT_FOUND, 
+                        "message": "No metrics found for the given process_id."}
+
+            return {"status_code": status.HTTP_200_OK, 
+                    "message": "Metrics retrieved successfully.", "data": metrics}
+
+        except pymongo.errors.ConnectionFailure:
+            return {"status_code": status.HTTP_503_SERVICE_UNAVAILABLE,
+                     "message": "Database connection failed. Please try again later."}
+
+        except HTTPException as http_exc:
+            return {"status_code": http_exc.status_code, 
+                    "message": http_exc.detail}
+
+        except Exception as e:
+            return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                    "message": "Error retrieving metrics.", "detail": str(e)}
