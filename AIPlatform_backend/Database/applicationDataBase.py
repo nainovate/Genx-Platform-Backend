@@ -39,7 +39,7 @@ class ApplicationDataBase:
 
         self.client = AsyncIOMotorClient(finetuning_config['MONGO_URI'])
         self.db = self.client[finetuning_config['DB_NAME']]
-        self.response = self.db[finetuning_config['response']]
+        self.response = self.db[finetuning_config['metric_response']]
         self.dataset_collection = self.db[finetuning_config['dataset_collection']]
         self.status_collection = self.db[finetuning_config['status_collection']]
         self.finetune_config = self.db[finetuning_config['finetune_config']]

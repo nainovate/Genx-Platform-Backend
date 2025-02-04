@@ -480,6 +480,7 @@ async def get_dataset_Details(request_data: dict):
             }
 
         dataset = dataset_instance[session_id]
+        # Call the `get_dataset_Details` method of the corresponding instance
         return await dataset.get_dataset_Details()
 
     except Exception as e:
@@ -512,6 +513,7 @@ async def addDataset(request_data: dict):
                 "detail": f"Missing required fields: {', '.join(missing_fields)}."
             }
         dataset = dataset_instance[session_id]
+        # Call the `add_dataset` method of the corresponding instance
         return await dataset.add_dataset(request_data["data"])
 
     except Exception as e:
@@ -544,9 +546,10 @@ async def deletedataset(request_data: dict):
                 "detail": f"Missing required fields: {', '.join(missing_fields)}."
             }
         dataset = dataset_instance[session_id]
-        # Remove sessionId from the request data before passing it to getPromptsData
+        
         request_data.pop("sessionId", None)
         data = request_data.get("data")
+        # Call the `deletedataset` method of the corresponding instance
         return await dataset.deletedataset(data)
 
     except Exception as e:
@@ -554,4 +557,6 @@ async def deletedataset(request_data: dict):
             "status_code": 500,
             "detail": f"Internal server error: {str(e)}"
         }
+
+
 

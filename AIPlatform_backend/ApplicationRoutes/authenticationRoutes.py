@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
+
 from UserManagment.authorization import *
 from UserManagment.authentication import *
 from ApplicationManagment.usecases import *
@@ -11,6 +12,9 @@ from AiManagement.prompts import *
 from AiManagement.payloads import *
 from AiManagement.models import*
 from AiManagement.dataset import*
+from AiManagement.finetuning import*
+
+
 
 router = APIRouter()
 
@@ -26,8 +30,8 @@ payload_instance = {}
 model_instance = {}
 evaluation_instance = {}
 dataset_instance = {}
+finetuning_instance = {}
 
-dataset_instance = {}
 
 
 
@@ -41,7 +45,6 @@ async def login(request_data: dict = Body(...)):
         data = auth.login(requestData=request_data)
         if data["status_code"] == 200:
             sessionId = request_data["sessionId"]
-            
             # Check if sessionId already exists
             if sessionId not in authentication_instances:
                 userName = data["userName"]
@@ -75,6 +78,7 @@ async def login(request_data: dict = Body(...)):
                     orgIds = data["orgIds"]
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
                     evaluation_instance[sessionId] = Evaluation(userId=userId, role=role, orgIds=orgIds) 
+                    finetuning_instance[sessionId] = finetune(userId=userId,role=role,orgIds=orgIds)
 
             # Convert ObjectId to string for userId in the response data
             if isinstance(data["userId"], ObjectId):
