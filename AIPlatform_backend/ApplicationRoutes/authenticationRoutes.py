@@ -119,3 +119,11 @@ async def updateUserDetails(request_data: dict = Body(...)):
         return  auth.updateUserDetails(request_data['data'])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
+
+@router.post("/api/deleteUser")
+async def deleteUser(request_data: dict = Body(...)):
+    try:
+        auth = authorization_instance[request_data["sessionId"]]
+        return  auth.deleteUser(request_data['data'])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))

@@ -3,8 +3,6 @@ import os
 import logging
 import random
 import string
-from motor.motor_asyncio import AsyncIOMotorClient
-from db_config import finetuning_config
 import time
 from bson import ObjectId
 from pymongo import UpdateOne
@@ -36,13 +34,6 @@ class ApplicationDataBase:
         self.status_code = None  # default status code
         mongo_ip = config['mongoip']
         mongo_port = config['mongoport']
-
-        self.client = AsyncIOMotorClient(finetuning_config['MONGO_URI'])
-        self.db = self.client[finetuning_config['DB_NAME']]
-        self.response = self.db[finetuning_config['response']]
-        self.dataset_collection = self.db[finetuning_config['dataset_collection']]
-        self.status_collection = self.db[finetuning_config['status_collection']]
-        self.finetune_config = self.db[finetuning_config['finetune_config']]
         try:
             db_uri = "mongodb://"+mongo_ip+":"+mongo_port+"/"
             self.client = MongoClient(db_uri)
@@ -1555,6 +1546,32 @@ class ApplicationDataBase:
             logging.error(f"Error while updating user: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
+
+    def getUserById(self, user_id: str):
+        try:
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(user_id)})
+            if not user:
+                return status.HTTP_404_NOT_FOUND, None
+
+            user["userId"] = str(user["_id"])
+            del user["_id"]  # Remove MongoDB ObjectId before returning
+            return status.HTTP_200_OK, user
+        except Exception as e:
+            logging.error(f"Error while fetching user by ID {user_id}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR, None
+
+
+    def deleteUserById(self, user_id: str):
+        try:
+            result = self.applicationDB["users"].delete_one({"_id": ObjectId(user_id)})
+            if result.deleted_count == 0:
+                return status.HTTP_404_NOT_FOUND  # User not found
+            return status.HTTP_200_OK  # Successfully deleted
+        except Exception as e:
+            logging.error(f"Error while deleting user {user_id}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+        
     def createUserCollections(self):
         collections = ["users", "userAuthentication", "userAttributes", "refreshTokens"]
         try:
@@ -1571,10 +1588,10 @@ class ApplicationDataBase:
             logging.error(f"Error creating collections: {e}")
             return False, 500  # Error occurred during collection creation, return 500
         
-    def assignUserToOrg(self, orgId: str, userId: str, role:dict):
+    def assignUserToOrg(self, orgId: str, userId: str):
         try:
             # Validate input data
-            if not isinstance(userId, str) or not isinstance(orgId, str) or not isinstance(role, dict):
+            if not isinstance(userId, str) or not isinstance(orgId, str):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "Invalid input data. userId and orgId must be strings."
@@ -1584,32 +1601,23 @@ class ApplicationDataBase:
 
             if not user:
                 return status.HTTP_404_NOT_FOUND
-            user_role = list(user["role"].keys())[0]
+            
             user_orgIds = user.get("orgIds", [])
-
+            
             if orgId in user_orgIds:
                 return status.HTTP_409_CONFLICT
 
-            if "superadmin" in role:
-                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId, "role.admin": orgId}})
-            elif "admin" in role:
-                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": []}})
-
-            if result.modified_count > 0:
-                return status.HTTP_200_OK
-            else:
-                return status.HTTP_400_BAD_REQUEST
-            
+            self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}})
+            return status.HTTP_200_OK
             
         except Exception as e:
             # Log and handle unexpected errors
             logging.error(f"Error while assigning user {userId} for org id {orgId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
-    def unassignUserToOrg(self, orgId: str, userId: str, role: dict):
+    def unassignUserToOrg(self, orgId: str, userId: str):
         try:
             # Validate input data
-            print('----input',userId,orgId,role)
             if not isinstance(userId, str) or not isinstance(orgId, str):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
@@ -1623,22 +1631,17 @@ class ApplicationDataBase:
                 return status.HTTP_404_NOT_FOUND
             
             user_orgIds = user.get("orgIds", [])
-            user_role = list(user["role"].keys())[0]
+            
             if orgId not in user_orgIds:
-                return status.HTTP_400_BAD_REQUEST
-            if "superadmin" in role:
-                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId,"role.admin": orgId}})
-            elif "admin" in role:
-                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
+                return status.HTTP_409_CONFLICT
 
+            result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}})
             # Check if the update modified any documents
             if result.modified_count > 0:
                 logging.info("Update successful.")
-                return status.HTTP_200_OK
-
             else:
                 logging.info("No documents were updated.")
-                return status.HTTP_406_NOT_ACCEPTABLE
+            return status.HTTP_200_OK
             
         except Exception as e:
             # Log and handle unexpected errors
@@ -1651,10 +1654,11 @@ class ApplicationDataBase:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            adminDocument = self.applicationDB["users"].find_one(
+            adminDocument = self.applicationDB["users"].find(
                 {"_id":ObjectId(userId), 
-                },{"_id": 0, "orgIds":1})
-            org_ids = adminDocument["orgIds"]
+                },{"_id": 0, "role":1})
+            adminDocument = list(adminDocument)
+            org_ids = adminDocument[0]['role']['admin']
             if len(org_ids) > 0:
                 adminOrgs = []
                 for orgId in org_ids:
@@ -1698,10 +1702,12 @@ class ApplicationDataBase:
             user = self.applicationDB["users"].find_one({"_id":ObjectId(userId)})
             if not user:
                 return status.HTTP_404_NOT_FOUND
-            user_role = user.get("role", [])
+            
+            user_role = user.get("role", {})
             user_orgs = user.get("orgIds")
             if orgId not in user_orgs:
                 return status.HTTP_401_UNAUTHORIZED
+            
             if "analyst" in user_role:
                 spaceIds = [ spaceId for spaceIdList in user_role.get("analyst", {}).values() for spaceId in spaceIdList]
                 if spaceId in spaceIds:
@@ -1905,18 +1911,14 @@ class ApplicationDataBase:
            
             llm_prompts = self.applicationDB["LLMPrompts"]
             # Fetching all documents, excluding the _id field, and sorting by timestamp in descending order
-            llm_prompts_cursor = llm_prompts.find({}).sort("timestamp", -1)
+            llm_prompts_cursor = llm_prompts.find({}, {"_id": 0}).sort("timestamp", -1)
 
             # Convert the cursor to a list and return the data
-            data = list(llm_prompts_cursor)
-            # result = [{**prompt,prompt["_id"]:str(prompt["_id"])} for prompt in result]
-            
-            for d in data:
-                d["_id"] = str(d["_id"])
-            print(data)
+            result = list(llm_prompts_cursor)
+
             # Log the retrieved data
-            logging.info("Retrieved data: %s", data)
-            return data
+            logging.info("Retrieved data: %s", result)
+            return result
 
         except ConnectionError as e:
             logging.error(f"Connection error while accessing the database: {e}")
@@ -2294,113 +2296,4 @@ class ApplicationDataBase:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
 
-    async def insertdataset(self, document):
-        try:
-            if not self.client:
-                raise Exception("Database client is not connected.")
-            
-            client_api_key = document.get("clientApiKey")
-            dataset_content = document.get("datasetContent")
-            path = document.get("path")
-            dataset_type = document.get("dataset_name")
-
-            if not client_api_key or not dataset_content or not path or not dataset_type:
-                missing_fields = [
-                    field for field in ["clientApiKey", "datasetContent", "path","dataset_name"]
-                    if not document.get(field)
-                ]
-                return({"status_code":422, "detail":f"Missing required fields: {', '.join(missing_fields)}"})
-
-
-            if not os.path.exists(path):
-                raise FileNotFoundError(f"Path does not exist: {path}")
-            if not os.access(path, os.R_OK):
-                raise PermissionError(f"Path is not readable: {path}")
-
-            dataset_id = self.generate_id(4)
-            timestamp = self.get_current_timestamp()
-            payload_document = {
-                "dataset_name": dataset_type,
-                "dataset_id": dataset_id,
-                "clientApiKey": client_api_key,
-                "dataset_path": path,
-                "dataset": dataset_content,
-                "timestamp": timestamp,
-                
-            }
-
-            insert_result = await self.dataset_collection.insert_one(payload_document)
-            if not insert_result.acknowledged:
-                raise Exception("Failed to insert document into MongoDB.")
-
-            return 200, {"success": True, "dataset_id": dataset_id}
-
-        except FileNotFoundError as fnfe:
-            return 404, {"success": False, "error": str(fnfe)}
-        except PermissionError as pe:
-            return 403, {"success": False, "error": str(pe)}
-        except ValueError as ve:
-            return 400, {"success": False, "error": str(ve)}
-        except Exception as e:
-            return 500, {"success": False, "error": f"Unexpected error: {str(e)}"}
-        
-
-    async def dataset_details(self):
-        """
-        Fetches datasets details from the MongoDB collection for the given organisation.
-
-        :return: Dictionary containing success status and dataset details or an error message.
-        """
-        try:
-            # Query the collection for dataset details, excluding the "_id" field
-            datasets = await self.dataset_collection.find({}, {"_id": 0, "dataset": 0}).sort("timestamp", DESCENDING).to_list(length=None)
-
-            if datasets is None:
-                logging.error("Unexpected None response from database query.")
-                return {"success": False, "error": "Unexpected database response."}
-
-            if not datasets:
-                logging.warning("No datasets data found.")
-                return {"success": False, "message": "No dataset data found."}
-
-            logging.info(f"Datasets fetched successfully: {len(datasets)} records.")
-            return {"success": True, "data": datasets}
-
-        except ConnectionError as e:
-            logging.error(f"Database connection error: {e}")
-            return {"success": False, "error": f"Database connection failed: {str(e)}"}
-
-        except Exception as e:
-            logging.error(f"An unexpected error occurred: {e}")
-            return {"success": False, "error": "An unexpected error occurred."}
-        
-
-    async def delete_dataset(self, json_data):
-        try:
-            client_api_key = json_data["clientApiKey"]
-            dataset_Ids = json_data["dataset_Ids"]
-
-            if not client_api_key or not dataset_Id:
-                logging.error("Missing required fields: 'clientApiKey' or 'dataset_Id'")
-                return {"status_code": 400, "detail": "Missing 'clientApiKey' or 'dataset_Id'."}
-
-          
-
-            # Ensure dataset_Id is a string and handle list case
-            if isinstance(dataset_Ids, list):
-                dataset_Id = [str(item) for item in dataset_Id]  # Convert items to strings
-
-            # For multiple deletions, use delete_many with $in operator
-            query = {"clientApiKey": client_api_key, "dataset_id": {"$in": dataset_Id} if isinstance(dataset_Id, list) else str(dataset_Id)}
-            
-
-            if isinstance(dataset_Id, list):
-                result = await self.dataset_collection.delete_many(query)
-            else:
-                result = await self.dataset_collection.delete_one(query)
-
-            return {"deleted_count": result.deleted_count, "status_code": 200 if result.deleted_count > 0 else 404}
-
-        except Exception as e:
-            logging.error(f"An unexpected error occurred: {e}")
-            return {"status_code": 500, "detail": "Unexpected server error."}
+      

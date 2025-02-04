@@ -521,6 +521,75 @@ class Authorization:
                 "detail": str(e)
             }
         
+
+    def deleteUser(self, data: dict):
+        try:
+            user_id_to_delete = data.get("userId")
+            if not user_id_to_delete:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "User ID must be provided."
+                }
+
+            # Fetch the details of the user who is making the delete request
+            requester_id = self.userId
+            # Prevent users from deleting themselves
+            if requester_id == user_id_to_delete:
+                return {
+                    "status_code": status.HTTP_403_FORBIDDEN,
+                    "detail": "Users cannot delete themselves."
+                }
+            
+
+            # Fetch details of the user being deleted
+            status_code, user_to_delete = self.applicationDB.getUserById(user_id_to_delete)
+
+            if status_code != 200:
+                return {
+                    "status_code": status_code,
+                    "detail": "User not found." if status_code == 404 else "Internal server error"
+                }
+
+            
+            requester_role = self.role
+            target_role = user_to_delete.get("role", {})
+
+            # Role-based deletion logic
+            if "superadmin" in requester_role and "admin" in target_role:
+                pass  # Superadmin can delete admin
+            elif "admin" in requester_role and any(role in target_role for role in ["aiengineer", "dataengineer", "analyst", "mlopps"]):
+                pass  # Admin can delete AI Engineer, Data Engineer, Analyst, and MLOps
+            elif "analyst" in requester_role and "user" in target_role:
+                pass  # Analyst can delete regular users
+            else:
+                return {
+                    "status_code": status.HTTP_403_FORBIDDEN,
+                    "detail": "You do not have permission to delete this user."
+                }
+
+            # Perform the deletion
+            status_code = self.applicationDB.deleteUserById(user_id_to_delete)
+
+            if status_code == 200:
+                return {
+                    "status_code": status.HTTP_200_OK,
+                    "detail": "User deleted successfully."
+                }
+            else:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Error while deleting user."
+                }
+
+        except Exception as e:
+            logging.error(f"Error while deleting user: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": str(e)
+            }
+
+
+
     def createClientAPIKey(self, data: dict):
         try:
             if not isinstance(data, dict):
