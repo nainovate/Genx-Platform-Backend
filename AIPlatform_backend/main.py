@@ -8,7 +8,9 @@ from ApplicationRoutes.adminRotes import router as admin_router
 from ApplicationRoutes.analystRoutes import router as analyst_router
 from ApplicationRoutes.dataEngineerRoutes import router as dataEngineer_router
 from ApplicationRoutes.evaluationRoutes import router as evaluation_router
+from ApplicationRoutes.aiEngineerRoutes import router as aiEngineerRoutes
 from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
@@ -53,9 +55,11 @@ app.include_router(dataEngineer_router)
 
 app.include_router(evaluation_router)
 
+app.include_router(aiEngineerRoutes)
+
 # Entry point
 if __name__ == "__main__":
     import uvicorn
     # setup.setup()  # Assuming there is a setup function in setup.py
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    uvicorn.run(app, host="0.0.0.0", port=1010)
 

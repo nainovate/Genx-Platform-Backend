@@ -34,6 +34,13 @@ class ApplicationDataBase:
         self.status_code = None  # default status code
         mongo_ip = config['mongoip']
         mongo_port = config['mongoport']
+
+        self.client = AsyncIOMotorClient(finetuning_config['MONGO_URI'])
+        self.db = self.client[finetuning_config['DB_NAME']]
+        self.response = self.db[finetuning_config['metric_response']]
+        self.dataset_collection = self.db[finetuning_config['dataset_collection']]
+        self.status_collection = self.db[finetuning_config['status_collection']]
+        self.finetune_config = self.db[finetuning_config['finetune_config']]
         try:
             db_uri = "mongodb://"+mongo_ip+":"+mongo_port+"/"
             self.client = MongoClient(db_uri)
@@ -230,17 +237,25 @@ class ApplicationDataBase:
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
 
 
-    def getAllUsers(self):
+    def getAllUsers(self, role):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            users_list = list(self.applicationDB["users"].find(
+            if "analyst" in role:
+                # Fetch users with 'user' role
+                users_list = list(self.applicationDB["users"].find(
+                    {"role.user": {"$exists": True}},
+                    {"contactNumber": 0}  # Exclude contactNumber from the result
+                ))
+            elif "admin" in role:
+                users_list = list(self.applicationDB["users"].find(
                 {"role.admin": {"$exists": False},
                  "role.superadmin": {"$exists": False},
                  "role.user": {"$exists": False},
                 },{"contactNumber": 0}))
+            
 
             if users_list is None:
                 return {
@@ -1607,9 +1622,20 @@ class ApplicationDataBase:
             if orgId in user_orgIds:
                 return status.HTTP_409_CONFLICT
 
-            self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}})
-            return status.HTTP_200_OK
-            
+            if "superadmin" in role:
+                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId, "role.admin": orgId}})
+            elif "admin" in role:
+                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": []}})
+            elif "analyst" in role:
+                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": {}}})
+            else:
+                return status.HTTP_403_FORBIDDEN
+
+            if result.modified_count > 0:
+                return status.HTTP_200_OK
+            else:
+                return status.HTTP_400_BAD_REQUEST
+                        
         except Exception as e:
             # Log and handle unexpected errors
             logging.error(f"Error while assigning user {userId} for org id {orgId}: {e}")
@@ -1633,7 +1659,15 @@ class ApplicationDataBase:
             user_orgIds = user.get("orgIds", [])
             
             if orgId not in user_orgIds:
-                return status.HTTP_409_CONFLICT
+                return status.HTTP_400_BAD_REQUEST
+            if "superadmin" in role:
+                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId,"role.admin": orgId}})
+            elif "admin" in role:
+                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
+            elif "analyst" in role:
+                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
+            else:
+                return status.HTTP_400_BAD_REQUEST
 
             result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}})
             # Check if the update modified any documents
@@ -1648,7 +1682,7 @@ class ApplicationDataBase:
             logging.error(f"Error while unassigning User {userId} for org id {orgId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
 
-    def getOrganizationsforAdmin(self, userId):
+    def getOrganizationsforUsers(self, userId):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")

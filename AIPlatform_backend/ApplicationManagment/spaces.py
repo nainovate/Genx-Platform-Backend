@@ -1158,13 +1158,13 @@ class Spaces:
     
     def getAllUsers(self):
         try:
-            if not "admin" in self.role:
-                return {
-                    "status_code": status.HTTP_401_UNAUTHORIZED,
-                    "detail": "Unauthorized Access",
-                }
+            # if not "admin" in self.role:
+            #     return {
+            #         "status_code": status.HTTP_401_UNAUTHORIZED,
+            #         "detail": "Unauthorized Access",
+            #     }
             
-            status_code, users = self.applicationDB.getAllUsers()
+            status_code, users = self.applicationDB.getAllUsers(self.role)
 
             if status_code == status.HTTP_404_NOT_FOUND:
                 return {
@@ -1172,7 +1172,7 @@ class Spaces:
                         "detail": "No users found."
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error occurred."

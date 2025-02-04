@@ -87,10 +87,11 @@ def generateUserId():
     return id_with_hyphens
 
 class Authorization:
-    def __init__(self, username: str, userId: str, role: dict):
+    def __init__(self, username: str, userId: str, role: dict, orgIds:list = []):
         self.username = username
         self.userId = userId
         self.role = role
+        self.orgIds = orgIds
         self.applicationDB = initilizeApplicationDB()
 
 
@@ -132,26 +133,38 @@ class Authorization:
                         "status_code": status.HTTP_400_BAD_REQUEST,
                         "detail": "Invalid input data. Expected 'orgId' in input data."
                     }
+                orgIds = data["orgIds"]
                 if "admin" not in self.role:
                     return {
                         "status_code":status.HTTP_401_UNAUTHORIZED,
                         "detail":"Unauthorized Access",
                     }
-                
+                for orgId in orgIds:
+                    if orgId not in self.orgIds:
+                        return {
+                            "status_code": status.HTTP_401_UNAUTHORIZED,
+                            "detail": "Unauthorized Access"
+                        }
                 data["role"] = {data["role"]:{orgId: [] for orgId in data["orgIds"]}}
             elif data["role"] == "user":
-                if "orgIds" not in data:
-                    return {
-                        "status_code": status.HTTP_400_BAD_REQUEST,
-                        "detail": "Invalid input data. Expected 'orgId' in input data."
-                    }
                 if "analyst" not in self.role:
                     return {
                         "status_code":status.HTTP_401_UNAUTHORIZED,
                         "detail":"Unauthorized Access",
                     }
-                data["role"] = {data["role"]:{}}
-            
+                if "orgIds" not in data:
+                    return {
+                        "status_code": status.HTTP_400_BAD_REQUEST,
+                        "detail": "Invalid input data. Expected 'orgId' in input data."
+                    }
+                orgIds = data["orgIds"]
+                for orgId in orgIds:
+                    if orgId not in self.orgIds:
+                        return {
+                            "status_code": status.HTTP_401_UNAUTHORIZED,
+                            "detail": "Unauthorized Access"
+                        }
+                data["role"] = {data["role"]:{orgId: {} for orgId in data["orgIds"]}}
             else:
                 return {
                     "status_code":status.HTTP_400_BAD_REQUEST,
@@ -161,7 +174,6 @@ class Authorization:
             # Insert user data into the `users` table
             data.pop("password")
             user_id = self.applicationDB.insertData("users", data)
-            print(user_id)
             # Insert user credentials into `userCredentials` table
 
             user_credentials_data = {
