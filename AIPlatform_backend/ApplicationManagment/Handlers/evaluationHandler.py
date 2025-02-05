@@ -26,6 +26,7 @@ class EvaluationHandler:
         self.mongoHandler = mongoHandler
         self.payload = payload
         self.endpoint = eval_config['SERVER_ENDPOINT']
+        self.status_endpoint = eval_config['STATUS_ENDPOINT']
         # Access the payload fields like this:
         self.payload_file_path = self.payload.payload_file_path
         self.user_id = self.payload.user_id
@@ -77,7 +78,7 @@ class EvaluationHandler:
             # Create initial status record in the database
             status_record = {
                 "user_id": self.user_id,
-               
+                "process_name": self.process_name,
                 "process_id": process_id,
                 "models": [
                     {
@@ -243,6 +244,7 @@ class EvaluationHandler:
                     logger.error(f"Request failed: {response}")
                     raise HTTPException(status_code=500, detail="Request failed")
 
+                print("res", response)
                 if response.status_code == 200:
                     formatted_response = self.format_responses(
                         question_data.get("query", ""), response.json(), test_id, response.status_code
@@ -287,7 +289,30 @@ class EvaluationHandler:
     
         try:
             response = requests.post(f"{self.endpoint}", json=data)
-            print("res", response)
+            print("response", response)
+
+            response.raise_for_status()
+
+            #Get job ID from response
+            job_data = response.json()
+            job_id = job_data['job_id']
+
+            while True:
+                status_response = requests.get(f"{self.status_endpoint}/{job_id}")
+                status_response.raise_for_status()
+
+                status_data = status_response.json()
+                current_status = status_data["status"]
+
+                if current_status == "completed":
+                    print(status_data)
+                    return(status_response)
+                    break
+                elif current_status == "failed":
+                    raise Exception(f"Transcription failed: {status_data.get('error', 'Unkown error')}")
+                elif current_status == "cancelled":
+                    raise Exception("Job was cancelled")
+
             return response
         except requests.exceptions.RequestException as e:
             logger.error(f"RequestException: {e}")
@@ -295,7 +320,7 @@ class EvaluationHandler:
     def format_responses(self, question, data, test_id, status_code):
         """Formats the response received from the endpoint."""
         try:
-            result = data.get('response', '')
+            result = data.get('result', '')
             response_text = "\n".join(re.findall(r'<ASSISTANT>:\s*(.*?)(?=\n<|\Z)', result, re.DOTALL))
 
             return {
@@ -336,6 +361,7 @@ class EvaluationHandler:
                 question = question_data[1] if isinstance(question_data, tuple) else question_data.get("query", "")
                 data = self._prepare_request_data(random.randint(1000, 9999), clientApiKey, config_id, question, random.randint(100, 9999))
                 response = self._post_request(endpoint, data)
+                
 
                 if response.status_code == 200:
                     responses.append(response.json())

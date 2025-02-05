@@ -3,10 +3,9 @@ import os
 import os
 
 
-IP_ADDRESS = "172.10.10.139"  # You can change this value as needed
-MONGO_IP = "172.10.10.139"
-IP_ADDRESS = "172.10.10.142"  # You can change this value as needed
-MONGO_IP = "172.10.10.142"
+IP_ADDRESS = "172.10.10.26"  # You can change this value as needed
+MONGO_IP = "172.10.10.26"
+
 
 
 config = { 
@@ -34,6 +33,7 @@ eval_config = {
     "METRIC_CONFIG":"MetricConfig",
     # Endpoint to backend server
     "SERVER_ENDPOINT": f"http://{IP_ADDRESS}:4001/accelerator/server",
+    "STATUS_ENDPOINT": f"http://{IP_ADDRESS}:4001/job",
     "SCORE_ENDPOINT": f"http://{IP_ADDRESS}:4001"
 }
     

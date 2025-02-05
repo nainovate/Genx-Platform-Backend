@@ -195,20 +195,21 @@ class Evaluation:
     async def check_process_status(self, request):
         async def event_generator():
             try:
-                process_id=request["process_id"]
-                service=request["service"]
-                org_id=request["orgId"]
+                process_id = request["process_id"]
+                service = request["service"]
+                org_id = request["orgId"]
+
                 while True:
                     # Fetch the status details for the process
                     model_statuses, overall_status = await BenchmarkHandler.get_status_details(
-                    process_id, 
+                        process_id, 
                         service, org_id
                     )
 
                     if model_statuses is None:
                         # Send an error message and keep checking
                         yield f"data: {json.dumps({'error': overall_status})}\n\n"
-                        await asyncio.sleep(2)
+                        await asyncio.sleep(2)  # Poll every 2 seconds
                         continue
 
                     # Prepare and send response data as SSE
@@ -228,7 +229,7 @@ class Evaluation:
                         break  # Exit the loop when all tasks are done
 
                     # Heartbeat to keep the connection alive
-                    await asyncio.sleep(2)
+                    await asyncio.sleep(2)  # Poll every 2 seconds
 
             except Exception as e:
                 # Send any encountered errors back to the client
@@ -240,10 +241,10 @@ class Evaluation:
             media_type="text/event-stream",
             headers={
                 "Cache-Control": "no-cache",
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "*",
+                "Connection": "keep-alive"  # Ensure the connection remains open
             }
         )
-
     async def check_process_results(self, Pagination: Pagination):
         try:
 

@@ -1,4 +1,3 @@
-
 2025-02-01 11:25:13,292 - root - INFO - User Manju4 authenticated successfully.
 2025-02-01 11:25:16,693 - root - ERROR - Error while retrieving spaces: cannot access local variable 'status_code' where it is not associated with a value
 2025-02-01 11:26:21,943 - root - INFO - Invalid Credentials: Incorrect password.
