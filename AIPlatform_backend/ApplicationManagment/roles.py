@@ -850,3 +850,46 @@ class Role:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"Internal server error: {e}"
             }
+
+
+
+
+    def getUsersByRole(self, data: dict):
+        try:
+            expected_keys = {"orgId", "spaceId", "roleId"}
+            
+            # Validate input data type and required fields
+            if not isinstance(data, dict) or set(data.keys()) != expected_keys:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with keys 'orgId', 'spaceId', and 'roleId'."
+                }
+
+            orgId = data.get("orgId")
+            spaceId = data.get("spaceId")
+            roleId = data.get("roleId")
+
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId]):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "orgId, spaceId, and roleId must be non-empty strings."
+                }
+
+            # Ensure only Analysts can fetch users
+            if "analyst" not in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access. Only Analysts can fetch users by role."
+                }
+
+            # Call the database function to get users with the specified role
+            users = self.applicationDB.getUsersByRole(orgId=orgId, spaceId=spaceId, roleId=roleId)
+            
+            return users
+
+        except Exception as e:
+            logging.error(f"Error while retrieving users by role: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }

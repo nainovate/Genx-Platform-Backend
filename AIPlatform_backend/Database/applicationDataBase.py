@@ -1350,6 +1350,52 @@ class ApplicationDataBase:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"Internal server error: {e}"
             }
+        
+
+    
+    def getUsersByRole(self, orgId: str, spaceId: str, roleId: str):
+        try:
+            # Validate input types
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId]):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "orgId, spaceId, and roleId must be non-empty strings."
+                }
+
+            # Fetch all users
+            users = self.applicationDB["users"].find({}, {"_id": 1, "firstName": 1, "lastName": 1, "email": 1, "role": 1})
+
+            # Filter users in Python
+            filtered_users = []
+            for user in users:
+                user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
+                
+                if roleId in user_roles:
+                    filtered_users.append({
+                        "id": str(user["_id"]),
+                        "firstName": user["firstName"],
+                        "lastName": user["lastName"],
+                        "email": user["email"]
+                    })
+
+            if not filtered_users:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"No users found for role {roleId} in space {spaceId} within organization {orgId}."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "users": filtered_users
+            }
+
+        except Exception as e:
+            logging.error(f"Error while retrieving users by role: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+
 
 
         
