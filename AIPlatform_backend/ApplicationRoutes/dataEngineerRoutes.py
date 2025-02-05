@@ -471,7 +471,7 @@ async def deleteModel(request_data: dict = Body(...)):
   
 
 @router.post("/api/get_datasets")
-async def get_dataset_Details(request_data: dict):
+def get_dataset_Details(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
         if not session_id:
@@ -485,10 +485,17 @@ async def get_dataset_Details(request_data: dict):
                 "status_code": 403,
                 "detail": f"Unauthorized access, Session expired."
             }
-
+        required_fields = ["sessionId","data"]
+        missing_fields = [field for field in required_fields if field not in request_data]
+        if missing_fields:
+            
+            return {
+                "status_code": 400,
+                "detail": f"Missing required fields: {', '.join(missing_fields)}."
+            }
         dataset = dataset_instance[session_id]
         # Call the `get_dataset_Details` method of the corresponding instance
-        return await dataset.get_dataset_Details()
+        return dataset.get_dataset_Details(request_data["data"])
 
     except Exception as e:
         return {
@@ -497,7 +504,7 @@ async def get_dataset_Details(request_data: dict):
         }
 
 @router.post("/api/addDataset")
-async def addDataset(request_data: dict):
+def addDataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
         if not session_id :
@@ -521,7 +528,7 @@ async def addDataset(request_data: dict):
             }
         dataset = dataset_instance[session_id]
         # Call the `add_dataset` method of the corresponding instance
-        return await dataset.add_dataset(request_data["data"])
+        return dataset.add_dataset(request_data["data"])
 
     except Exception as e:
         return {
@@ -530,7 +537,7 @@ async def addDataset(request_data: dict):
         }
 
 @router.post("/api/deletedataset")
-async def deletedataset(request_data: dict):
+def deletedataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
         if not session_id :
@@ -557,7 +564,7 @@ async def deletedataset(request_data: dict):
         request_data.pop("sessionId", None)
         data = request_data.get("data")
         # Call the `deletedataset` method of the corresponding instance
-        return await dataset.deletedataset(data)
+        return dataset.deletedataset(data)
 
     except Exception as e:
         return {

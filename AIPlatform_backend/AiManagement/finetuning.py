@@ -37,7 +37,7 @@ class finetune():
                         "detail": "Unauthorized Access "
                     }
 
-                # Initialize the organization database
+            # Initialize the organization database
             organizationDB = OrganizationDataBase(orgId)
             
             # Check if organizationDB is initialized successfully
@@ -63,7 +63,7 @@ class finetune():
                         "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
                     }
 
-            # Call the function to fetch metrics
+            # Call the function to fetch metrics by process_id
             response = organizationDB.get_metrics_by_process_id(process_id)
 
             return response  # Now returning a dictionary instead of JSONResponse
@@ -78,3 +78,52 @@ class finetune():
 
         except Exception as e:
             return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, "message": "Internal Server Error", "detail": str(e)}
+    
+
+
+
+    def view_allmetricresult(self,data):
+        try:
+            required_fields = ["user_id","orgId"]
+            missing_fields = [field for field in required_fields if field not in data]
+            if missing_fields:
+                logging.error(f"Missing required fields: {', '.join(missing_fields)}")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": f"Missing required fields: {', '.join(missing_fields)}."
+                }
+            orgId = data["orgId"]
+            if orgId not in self.orgIds:
+                    return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access "
+                    }
+            
+            # Initialize the organization database
+            organizationDB = OrganizationDataBase(orgId)
+            
+            # Check if organizationDB is initialized successfully
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+            # Extract process_id from the request body
+            user_id = data["user_id"]
+            # Call the function to fetch metrics by user_id
+            response = organizationDB.get_documents_by_user_id(user_id)
+            return response
+
+        except HTTPException as http_exc:
+            # Handle specific HTTP exceptions
+            return {
+                "status_code":http_exc.status_code,
+                "message": http_exc.detail}
+            
+
+        except Exception as e:
+            # Catch-all for unforeseen errors
+            return {
+                "status_code":status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "message": "Internal Server Error", "detail": str(e)}
+        
