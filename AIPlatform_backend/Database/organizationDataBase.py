@@ -1,13 +1,19 @@
+from datetime import datetime
 import os
 import logging
+import random
+import time
 from bson import ObjectId
+from fastapi.responses import JSONResponse
 from pymongo import UpdateOne
+import pymongo
+from pymongo import MongoClient, DESCENDING
 from pymongo.mongo_client import MongoClient
-from fastapi import status
+from fastapi import HTTPException, status
 from pymongo.errors import OperationFailure
 from werkzeug.security import check_password_hash
 # from Database.applicationDataBase import ApplicationDataBase
-from db_config import config
+from db_config import config, finetuning_config
 
 # Set up logging
 projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -40,11 +46,16 @@ class OrganizationDataBase:
         self.client = None
         self.organizationDB = None
         self.orgId = orgId
+
         # self.applicationDB = ApplicationDataBase()
         try:
             db_uri = f"mongodb://{mongo_ip}:{mongo_port}/"
             self.client = MongoClient(db_uri)
             self.organizationDB = self._get_organization_db(orgId)
+            self.responseCollection = self.organizationDB[finetuning_config['metric_response']]
+            self.dataset_collection = self.organizationDB[finetuning_config['dataset_collection']]
+            self.status_collection = self.organizationDB[finetuning_config['status_collection']]
+            self.finetune_configCollection = self.organizationDB[finetuning_config['finetune_config']]
             self.status_code = 200
         except OperationFailure as op_err:
             logging.error(f"Error connecting to the database: {op_err}")
@@ -162,7 +173,7 @@ class OrganizationDataBase:
             logging.error(f"Error while updating space: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
 
-    def getSpaceInOrg(self,role,userId):
+    def getSpaceInOrg(self,role,userId,orgId):
         try:
             if self.organizationDB is None:
                 logging.error("Organization database is not initialized.")
@@ -183,13 +194,16 @@ class OrganizationDataBase:
                     logging.info("No spaces found for this Org.")
                     return [], status.HTTP_404_NOT_FOUND
             elif "analyst" in role:
-                spaces_list = list(self.organizationDB["spaces"].find({}, {"_id": 1,"createdBy":0}))
-                if len(spaces_list) > 0:
-                    spaces = [{"spaceId":str(space["_id"]),"spaceName":space["spaceName"]} for space in spaces_list]
-                    return spaces, status.HTTP_200_OK
-                else:
-                    logging.info("No spaces found for this Org.")
+                spaceIds = role["analyst"][f"{orgId}"]
+                if len(spaceIds) ==0:
                     return [], status.HTTP_404_NOT_FOUND
+                spaces_list =[]
+                for spaceId in spaceIds:
+                    space = self.organizationDB["spaces"].find_one({"_id":ObjectId(spaceId)}, {"_id": 1,"createdBy":0})
+                    if space:
+                        space["_id"] = str(space["_id"])
+                        spaces_list.append(space)
+                return spaces_list,status.HTTP_200_OK
         except Exception as e:
             logging.error(f"Error while retrieving spaces: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
@@ -286,6 +300,7 @@ class OrganizationDataBase:
             logging.error(f"Error while retrieving spaces: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
         
+        
     def checkRole(self, roleId: str):
         try:
             if not isinstance(roleId, str):
@@ -367,18 +382,29 @@ class OrganizationDataBase:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
     
-
+    def getTasks(self):
+        try:
+            tasks = self.organizationDB["tasks"].find({}, {"roleIds": 0})
+            tasks_list = list(tasks)
+            
+            if tasks_list:
+                result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"description":str(task["description"])} for task in tasks_list]
+                return result, status.HTTP_200_OK
+            else:
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+        
     def getAgents(self,tagName: str):
         try:
             agents = self.organizationDB["agents"].find({"tagName":tagName,"status": "deploy"})
             agents_list = list(agents)
-            if not agents_list:
-                return {
-                    "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": "No agents found in OrgId."
-                }
+            if len(agents_list) ==0:
+                return agents_list,status.HTTP_404_NOT_FOUND
+            
             else:
-                result = [{"agentName": agents["agent"], "agentId": str(agents["_id"])} for agents in agents_list]
+                result = [{**agent, "_id": str(agent["_id"])} for agent in agents_list]
                 return result, status.HTTP_200_OK
                 
         except Exception as e:
@@ -523,3 +549,254 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error deleting task from database: {e}", exc_info=True)
             return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+
+    def get_metrics_by_process_id(self, process_id):
+        try:
+            
+            if not process_id:
+                return {"status_code": status.HTTP_400_BAD_REQUEST, 
+                        "message": "Missing required 'process_id' in the request data."}
+
+            document = self.responseCollection.find_one({"process_id": process_id})
+            
+
+            if not document:
+                return {"status_code": status.HTTP_404_NOT_FOUND,
+                         "message": f"No document found with process_id: {process_id}"}
+
+            metrics = document.get("metrics", [])
+
+            if not metrics:
+                return {"status_code": status.HTTP_404_NOT_FOUND, 
+                        "message": "No metrics found for the given process_id."}
+
+            return {"status_code": status.HTTP_200_OK, 
+                    "message": "Metrics retrieved successfully.", "data": metrics}
+
+        except pymongo.errors.ConnectionFailure:
+            return {"status_code": status.HTTP_503_SERVICE_UNAVAILABLE,
+                     "message": "Database connection failed. Please try again later."}
+
+        except HTTPException as http_exc:
+            return {"status_code": http_exc.status_code, 
+                    "message": http_exc.detail}
+
+        except Exception as e:
+            return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                    "message": "Error retrieving metrics.", "detail": str(e)}
+        
+    
+
+    def get_documents_by_user_id(self, user_id):
+        try:
+            # Validate input
+            if not user_id:
+                return {"status_code": status.HTTP_400_BAD_REQUEST, "detail": "user_id is required"}
+
+            # Fetch all documents matching the user_id from MongoDB
+            documents = self.responseCollection.find({"user_id": user_id}).to_list(length=None)
+
+            if not documents:
+                # If no documents are found, return a 404 error
+                return {
+                    "status_code":status.HTTP_404_NOT_FOUND,
+                    "detail":{"message": f"No documents found for user_id: {user_id}","detail":status.HTTP_404_NOT_FOUND}
+                }
+
+            # Convert ObjectId to string for JSON serialization
+            for doc in documents:
+                if "_id" in doc:
+                    doc["_id"] = str(doc["_id"])
+                for key, value in doc.items():
+                    if isinstance(value, datetime):  # Check for datetime fields
+                        doc[key] = value.isoformat()
+            # Return the full documents as a successful response
+            return JSONResponse(
+                status_code=status.HTTP_200_OK,
+                content={"message": "Documents retrieved successfully.",
+                         "detail":status.HTTP_200_OK, "data": documents}
+            )
+
+        except HTTPException as http_exc:
+            # Handle HTTP exceptions
+            return JSONResponse(
+                status_code=http_exc.status_code,
+                content={"message": http_exc.detail}
+            )
+        except ConnectionError as conn_err:
+            # Handle MongoDB connection issues
+            return JSONResponse(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                content={
+                    "message": "Database connection error.",
+                    "detail": str(conn_err)
+                }
+            )
+        except Exception as e:
+            # Generic error handling for unforeseen issues
+            return JSONResponse(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                content={"message": "Error retrieving documents.", "detail": str(e)}
+            )
+        
+    def insertdataset(self, document):
+        try:
+            if not self.client:
+                raise Exception("Database client is not connected.")
+            
+            client_api_key = document.get("clientApiKey")
+            dataset_content = document.get("datasetContent")
+            path = document.get("path")
+            dataset_type = document.get("dataset_name")
+
+            if not client_api_key or not dataset_content or not path or not dataset_type:
+                missing_fields = [
+                    field for field in ["clientApiKey", "datasetContent", "path","dataset_name"]
+                    if not document.get(field)
+                ]
+                return({"status_code":422, "detail":f"Missing required fields: {', '.join(missing_fields)}"})
+
+
+            if not os.path.exists(path):
+                raise FileNotFoundError(f"Path does not exist: {path}")
+            if not os.access(path, os.R_OK):
+                raise PermissionError(f"Path is not readable: {path}")
+
+            dataset_id = self.generate_id(4)
+            timestamp = self.get_current_timestamp()
+            payload_document = {
+                "dataset_name": dataset_type,
+                "dataset_id": dataset_id,
+                "clientApiKey": client_api_key,
+                "dataset_path": path,
+                "dataset": dataset_content,
+                "timestamp": timestamp,
+                
+            }
+
+            insert_result = self.dataset_collection.insert_one(payload_document)
+            if not insert_result.acknowledged:
+                raise Exception("Failed to insert document into MongoDB.")
+
+            return 200, {"success": True, "dataset_id": dataset_id}
+
+        except FileNotFoundError as fnfe:
+            return 404, {"success": False, "error": str(fnfe)}
+        except PermissionError as pe:
+            return 403, {"success": False, "error": str(pe)}
+        except ValueError as ve:
+            return 400, {"success": False, "error": str(ve)}
+        except Exception as e:
+            return 500, {"success": False, "error": f"Unexpected error: {str(e)}"}
+    def generate_id(self,length):
+        result = ''
+        characters = '0123456789'
+        for i in range(length):
+            result += random.choice(characters)
+        return result
+    def get_current_timestamp(self):
+        return int(time.time())
+    
+
+    def dataset_details(self):
+        """
+        Fetches datasets details from the MongoDB collection for the given organisation.
+
+        :return: Dictionary containing success status and dataset details or an error message.
+        """
+        try:
+            # Query the collection for dataset details, excluding the "_id" field
+            datasets = self.dataset_collection.find({}, {"_id": 0, "dataset": 0}).sort("timestamp", DESCENDING).to_list(length=None)
+
+            if datasets is None:
+                logging.error("Unexpected None response from database query.")
+                return {"success": False, "error": "Unexpected database response."}
+
+            if not datasets:
+                logging.warning("No datasets data found.")
+                return {"success": False, "message": "No dataset data found."}
+
+            logging.info(f"Datasets fetched successfully: {len(datasets)} records.")
+            return {"success": True, "data": datasets}
+
+        except ConnectionError as e:
+            logging.error(f"Database connection error: {e}")
+            return {"success": False, "error": f"Database connection failed: {str(e)}"}
+
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            return {"success": False, "error": "An unexpected error occurred."}
+        
+
+    def delete_dataset(self, json_data):
+        try:
+            print("json data ",json_data)
+            client_api_key = json_data["clientApiKey"]
+            dataset_Ids = json_data["dataset_Ids"]
+
+            if not client_api_key or not dataset_Ids:
+                logging.error("Missing required fields: 'clientApiKey' or 'dataset_Ids'")
+                return {"status_code": 400, "detail": "Missing 'clientApiKey' or 'dataset_Ids'."}
+
+          
+
+            # Ensure dataset_Id is a string and handle list case
+            if isinstance(dataset_Ids, list):
+                dataset_Ids = [str(item) for item in dataset_Ids]  # Convert items to strings
+
+            # For multiple deletions, use delete_many with $in operator
+            query = {"clientApiKey": client_api_key, "dataset_id": {"$in": dataset_Ids} if isinstance(dataset_Ids, list) else str(dataset_Ids)}
+            
+
+            if isinstance(dataset_Ids, list):
+                result = self.dataset_collection.delete_many(query)
+            else:
+                result = self.dataset_collection.delete_one(query)
+            print("result ---",result)
+            return {"deleted_count": result.deleted_count, "status_code": 200 if result.deleted_count > 0 else 404}
+
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            return {"status_code": 500, "detail": "Unexpected server error."}
+        
+    def delete_payload(self, json_data):
+        """
+        Deletes one or more payloadss from the MongoDB collection.
+
+        :param json_data: Dictionary containing required keys:
+                        - "clientApiKey": The API key for identifying the client.
+                        - "payloadId": A single payload ID (str) or a list of payload IDs (list).
+        :return: Dictionary with details of the operation:
+                - "deleted_count": Number of deleted payloads.
+                - "status_code": HTTP status code.
+        """
+        try:
+            # Extract client API key and prompt ID from input data
+            client_api_key = json_data.get("clientApiKey")
+            payloadId = json_data.get("payloadId")
+          
+            # Validate required fields
+            if not client_api_key or not payloadId:
+                logging.error("Missing required fields: 'clientApiKey' or 'payloadId'")
+                return {"status_code": 400, "detail": "Missing 'clientApiKey' or 'payloadId'."}
+
+            # Access the MongoDB collection
+            prompts = self.organizationDB["payload"]
+
+            # Check if prompt_id is a list or a single value
+            if isinstance(payloadId, list):
+                # For multiple deletions, use delete_many with $in operator
+                query = {"clientApiKey": client_api_key, "payloadId": {"$in": payloadId}}
+                result = prompts.delete_many(query)
+            else:
+                # For single deletion, use delete_one
+                query = {"clientApiKey": client_api_key, "payloadId": payloadId}
+                result = prompts.delete_one(query)
+
+            # Return appropriate details
+            return {"deleted_count": result.deleted_count, "status_code": 200 if result.deleted_count > 0 else 404}
+
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            return {"status_code": 500, "detail": "Unexpected server error."}

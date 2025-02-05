@@ -2,8 +2,10 @@ import os
 
 import os
 
+
 IP_ADDRESS = "172.10.10.26"  # You can change this value as needed
 MONGO_IP = "172.10.10.26"
+
 
 
 config = { 
@@ -51,8 +53,8 @@ finetuning_config = {
     "MONGO_URI": os.getenv("MONGO_URI", f"mongodb://{IP_ADDRESS}:27017"),
     "DB_NAME": "Finetuning",
     "status_collection": "tuning_status",
-    "finetune_config": "tuning_config",
-    "response": "Tuning_metrics",
+    "finetune_config": "Tuning_config",
+    "metric_response": "tuning_metrics",
     "dataset_collection": "Tuning_dataset",
     # Endpoint to backend server
     "TRAINING_ENDPOINT": f"http://{IP_ADDRESS}:8007/train_model"}

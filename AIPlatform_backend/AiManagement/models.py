@@ -40,7 +40,7 @@ def generate_hierarchy_id():
 
 
 class Model:
-    def __init__(self, role: dict, userId: str):
+    def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role
         self.userId = userId
         self.applicationDB = initilizeApplicationDB()

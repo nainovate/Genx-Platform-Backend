@@ -402,15 +402,15 @@ class Organization:
                 "detail": f"{e}"
             }
         
-    def getOrganizationsforAdmin(self):
+    def getOrganizationsforUsers(self):
         try:
-            if not "admin" in self.role:
-                return {
-                    "status_code": status.HTTP_401_UNAUTHORIZED,
-                    "detail": "Unauthorized Access",
-                }
+            # if not "admin" in self.role:
+            #     return {
+            #         "status_code": status.HTTP_401_UNAUTHORIZED,
+            #         "detail": "Unauthorized Access",
+            #     }
             
-            organizations, status_code = self.applicationDB.getOrganizationsforAdmin(self.userId)
+            organizations, status_code = self.applicationDB.getOrganizationsforUsers(self.userId)
             if status_code == status.HTTP_404_NOT_FOUND:
                 return {
                         "status_code": status.HTTP_404_NOT_FOUND, 
