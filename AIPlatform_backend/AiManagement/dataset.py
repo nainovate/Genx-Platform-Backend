@@ -6,18 +6,18 @@ import os
 import random
 from fastapi import HTTPException,status
 from Database.applicationDataBase import ApplicationDataBase
-
+from Database.organizationDataBase import OrganizationDataBase
 
 
 
 
 class dataset:
-    def __init__(self, role: dict, userId: str):
+    def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role
         self.userId = userId
         
 
-    async def add_dataset(self, data: dict):
+    def add_dataset(self, data: dict):
         try:
             if not data or not isinstance(data, dict):
                 logging.error("Empty or invalid data received.")
@@ -48,6 +48,7 @@ class dataset:
             client_api_key = data["clientApiKey"]
             parsed_content = data["datasetContent"]
             path = data["path"]
+            orgId = data["orgId"]
             dataset_type = data["dataset_name"]
             document = {
                 "clientApiKey": client_api_key,
@@ -55,8 +56,14 @@ class dataset:
                 "path": path,
                 "dataset_name" : dataset_type
             }
-            database = ApplicationDataBase()
-            status_code, response = await database.insertdataset(document)
+            organizationDB = OrganizationDataBase(orgId)
+            # Check if organizationDB is initialized successfully
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+            status_code, response = organizationDB.insertdataset(document)
             if response["success"]:
                 return {
                     "status_code": status.HTTP_200_OK,
@@ -87,7 +94,7 @@ class dataset:
     def generate_timestamp(self):
         return str(int(datetime.utcnow().timestamp()))
 
-    async def get_dataset_Details(self):
+    def get_dataset_Details(self,data):
         """
         Fetches the datasets data from the database based on the provided request data.
 
@@ -95,9 +102,18 @@ class dataset:
         :return: A dictionary containing the status code and additional details.
         """
         try:
-            database = ApplicationDataBase()
+
+
+            orgId = data["orgId"]
+            organizationDB = OrganizationDataBase(orgId)
+            # Check if organizationDB is initialized successfully
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
             # Fetch dataset details
-            result = await database.dataset_details()
+            result = organizationDB.dataset_details()
 
             # Ensure response is structured correctly
             if not result or not isinstance(result, dict) or "success" not in result:
@@ -148,7 +164,7 @@ class dataset:
  
     
 
-    async def deletedataset(self, data: dict):
+    def deletedataset(self, data: dict):
         """
         Deletes dataset_Id from the database.
 
@@ -162,7 +178,14 @@ class dataset:
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "Request data cannot be empty",
                 }
-
+            required_fields = ["dataset_Ids","clientApiKey","orgId"]
+            missing_fields = [field for field in required_fields if field not in data]
+            if missing_fields:
+                logging.error(f"Missing required fields: {', '.join(missing_fields)}")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": f"Missing required fields: {', '.join(missing_fields)}."
+                }
 
             # Check for empty values in the data
             empty_fields = [key for key, value in data.items() if not value]
@@ -174,17 +197,16 @@ class dataset:
                         "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
                     }
 
-            required_fields = ["dataset_Id","clientApiKey"]
-            missing_fields = [field for field in required_fields if field not in data]
-            if missing_fields:
-                logging.error(f"Missing required fields: {', '.join(missing_fields)}")
+            orgId = data["orgId"]
+            organizationDB = OrganizationDataBase(orgId)
+            # Check if organizationDB is initialized successfully
+            if organizationDB.status_code != 200:
                 return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": f"Missing required fields: {', '.join(missing_fields)}."
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
                 }
-            database = ApplicationDataBase()
             # Call the database layer to delete the prompt
-            result = await database.delete_dataset(data)
+            result =  organizationDB.delete_dataset(data)
 
             # Handle cases based on the result
             if result["status_code"] == 404:
