@@ -1,13 +1,13 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
-from ApplicationRoutes.authenticationRoutes import authorization_instance, space_instance, organization_instance
+from ApplicationRoutes.authenticationRoutes import authorization_instance, space_instance, organization_instance, role_instance
 
 router = APIRouter()
 
-@router.post("/api/getOrganizationsforAdmin")
-async def getOrganizationsforAdmin(request_data: dict = Body(...)):
+@router.post("/api/getOrganizationsforUsers")
+async def getOrganizationsforUsers(request_data: dict = Body(...)):
     try:
         org = organization_instance[request_data["sessionId"]]
-        return  org.getOrganizationsforAdmin()
+        return  org.getOrganizationsforUsers()
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e)) 
     
@@ -74,6 +74,14 @@ async def unassignSpace(request_data: dict = Body(...)):
     try:
         space = space_instance[request_data["sessionId"]]
         return  space.unassignSpace(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
+    
+@router.post("/api/unassignRole")
+async def unassignRole(request_data: dict = Body(...)):
+    try:
+        role = role_instance[request_data["sessionId"]]
+        return  role.unassignRole(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
     

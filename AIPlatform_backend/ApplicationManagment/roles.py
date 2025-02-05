@@ -786,3 +786,67 @@ class Role:
                 "status_code":status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"{e}"
             }'''
+    
+    
+    def unassignRole(self, data: dict):
+        try:
+            expected_keys = {"orgId", "spaceId", "userIds", "roleId"}
+
+            # Validate input data type and required fields
+            if not isinstance(data, dict) or set(data.keys()) != expected_keys:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with keys 'orgId', 'spaceId', 'userIds', and 'roleId'."
+                }
+
+            orgId = data.get("orgId", "").strip()
+            spaceId = data.get("spaceId", "").strip()
+            roleId = data.get("roleId", "").strip()
+            userIds = data.get("userIds")
+
+            # Ensure orgId, spaceId, and roleId are non-empty strings
+            if not all(isinstance(value, str) and value for value in [orgId, spaceId, roleId]):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "orgId, spaceId, and roleId must be non-empty strings."
+                }
+
+            # Ensure userIds is a non-empty list of valid strings
+            if not isinstance(userIds, list) or not userIds or not all(isinstance(userId, str) and userId.strip() for userId in userIds):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "userIds must be a non-empty list of valid strings."
+                }
+
+            # Check if the orgId is authorized
+            if orgId not in self.orgIds:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized access to the specified orgId."
+                }
+
+            # Ensure only analysts can perform this action
+            if "analyst" not in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access. Only analysts can unassign roles."
+                }
+
+            # Iterate over the userIds and unassign the role
+            for userId in userIds:
+                status_code = self.applicationDB.unassignRole(orgId=orgId, userId=userId.strip(), spaceId=spaceId, roleId=roleId)
+
+                if status_code["status_code"] != 200:
+                    return status_code
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Role {roleId} successfully unassigned from users in space {spaceId}."
+            }
+
+        except Exception as e:
+            logging.error(f"Error while unassigning role: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }

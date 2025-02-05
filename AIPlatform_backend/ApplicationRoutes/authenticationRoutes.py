@@ -51,10 +51,14 @@ async def login(request_data: dict = Body(...)):
                 userId = data["userId"]
                 role = data["role"]
                 refreshToken = data["refreshToken"]
-                
+                if not "superadmin" in role:
+                    orgIds = data["orgIds"]
+                    authorization_instance[sessionId] = Authorization(username=userName, userId=userId, role=role, orgIds=orgIds)
+                else:
+                    authorization_instance[sessionId] = Authorization(username=userName, userId=userId, role=role)
+                    
                 # Populate the instances
                 authentication_instances[sessionId] = Authentication(username=userName, userId=userId, refreshToken=refreshToken)
-                authorization_instance[sessionId] = Authorization(username=userName, userId=userId, role=role)
                 
  
                 # Role-based instance creation
@@ -67,6 +71,7 @@ async def login(request_data: dict = Body(...)):
                 elif "analyst" in role:
                     orgIds = data["orgIds"]
                     spaceIds = role["analyst"]
+                    organization_instance[sessionId] = Organization(userId=userId, role=role)
                     space_instance[sessionId] = Spaces(userId=userId, role=role, orgIds=orgIds)
                     role_instance[sessionId] = Role(userId=userId, orgIds=orgIds, role=role, spaceIds=spaceIds)
                     task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
@@ -93,6 +98,11 @@ async def login(request_data: dict = Body(...)):
                     model_instance[sessionId] = Model(userId=userId, role=role, orgIds=orgIds)
                     dataset_instance[sessionId]= dataset(userId=userId, role=role, orgIds=orgIds) 
             
+
+                elif "dataengineer" in role:
+                    orgIds = data["orgIds"]
+                    organization_instance[sessionId] = Organization(userId=userId, role=role)
+                    task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
 
             # Convert ObjectId to string for userId in the response data
             if isinstance(data["userId"], ObjectId):
@@ -135,5 +145,13 @@ async def updateUserDetails(request_data: dict = Body(...)):
     try:
         auth = authorization_instance[request_data["sessionId"]]
         return  auth.updateUserDetails(request_data['data'])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
+
+@router.post("/api/deleteUser")
+async def deleteUser(request_data: dict = Body(...)):
+    try:
+        auth = authorization_instance[request_data["sessionId"]]
+        return  auth.deleteUser(request_data['data'])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
