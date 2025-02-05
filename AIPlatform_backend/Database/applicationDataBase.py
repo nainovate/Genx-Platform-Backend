@@ -35,12 +35,7 @@ class ApplicationDataBase:
         mongo_ip = config['mongoip']
         mongo_port = config['mongoport']
 
-        self.client = AsyncIOMotorClient(finetuning_config['MONGO_URI'])
-        self.db = self.client[finetuning_config['DB_NAME']]
-        self.response = self.db[finetuning_config['metric_response']]
-        self.dataset_collection = self.db[finetuning_config['dataset_collection']]
-        self.status_collection = self.db[finetuning_config['status_collection']]
-        self.finetune_config = self.db[finetuning_config['finetune_config']]
+
         try:
             db_uri = "mongodb://"+mongo_ip+":"+mongo_port+"/"
             self.client = MongoClient(db_uri)
@@ -1290,6 +1285,73 @@ class ApplicationDataBase:
             # Log and handle unexpected errors
             logging.error(f"Error while unassigning space for user id {userId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+
+    def unassignRole(self, orgId: str, userId: str, spaceId: str, roleId: str):
+        try:
+            # Validate input data types and non-empty fields
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, userId, spaceId, roleId]):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. orgId, userId, spaceId, and roleId must be non-empty strings."
+                }
+
+            # Check if user exists
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(userId.strip())})
+            if not user:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "User not found."
+                }
+
+            user_role = user.get("role", {})
+
+            if "user" not in user_role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Except user role, other roles cannot be unassigned."
+                }
+
+            user_orgs = user.get("orgIds")
+
+            if orgId not in user_orgs:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "User does not have access to the specified orgId."
+                }
+
+            # Check if role exists in the user's role object for the given spaceId
+            if roleId not in user_role.get("user", {}).get(orgId, {}).get(spaceId, {}):
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": f"Role {roleId} not assigned to user in the space {spaceId}."
+                }
+
+            # Unassign the role
+            result = self.applicationDB["users"].update_one(
+                {"_id": ObjectId(userId.strip())},
+                {"$unset": {f"role.user.{orgId}.{spaceId}.{roleId}": ""}}
+            )
+
+            if result.modified_count == 0:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Role not found or already unassigned."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Role {roleId} successfully unassigned from user in space {spaceId}."
+            }
+
+        except Exception as e:
+            logging.error(f"Error while unassigning role for user id {userId}: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+
+
         
     def assignedAdmins(self, spaceId: str):
         try:
