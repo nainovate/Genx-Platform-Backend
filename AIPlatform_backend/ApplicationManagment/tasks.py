@@ -583,3 +583,45 @@ class Task:
 
 
 
+
+    def assignTask(self, data: dict):
+        try:
+            expected_keys = {"orgId", "spaceId", "roleId", "userId", "taskIds"}
+
+            # Validate input data type and required fields
+            if not isinstance(data, dict) or set(data.keys()) != expected_keys:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with keys 'orgId', 'spaceId', 'roleId', 'userId', and 'taskIds'."
+                }
+
+            orgId = data.get("orgId")
+            spaceId = data.get("spaceId")
+            roleId = data.get("roleId")
+            userId = data.get("userId")
+            taskIds = data.get("taskIds")
+
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId, userId]) or not isinstance(taskIds, list):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "orgId, spaceId, roleId, and userId must be non-empty strings, and taskIds must be a list."
+                }
+
+            # Ensure only Analysts can assign tasks
+            if "analyst" not in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access. Only Analysts can assign tasks."
+                }
+
+            # Call the database function to assign tasks
+            response = self.applicationDB.assignTask(orgId=orgId, spaceId=spaceId, roleId=roleId, userId=userId, taskIds=taskIds)
+
+            return response
+
+        except Exception as e:
+            logging.error(f"Error while assigning tasks: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
