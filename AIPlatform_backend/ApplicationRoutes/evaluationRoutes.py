@@ -1,16 +1,10 @@
-import asyncio
 from datetime import datetime, timedelta
-import json
-import logging
-import os
-import uuid
 from ApplicationRoutes.authenticationRoutes import authorization_instance, evaluation_instance
 from fastapi import APIRouter, BackgroundTasks, Body, FastAPI, HTTPException, Query, status, Request
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import ValidationError
 from pymongo import MongoClient
 from ApplicationManagment.evaluation import Evaluation
-from utils import BenchPayload, LoginDetails, MetricRequest, MetricsPayload, Pagination, Payload, RequestDetails, ResultDetails, ScheduleDetails, metric, viewDetails
+
 
 # API router instance
 router = APIRouter()

@@ -5,7 +5,7 @@ from fastapi import status
 from pymongo.errors import OperationFailure
 
 # Set up logging
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")

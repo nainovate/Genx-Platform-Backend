@@ -6,7 +6,7 @@ from fastapi import HTTPException
 from Database.applicationSetup import *
 from Database.applicationDataBase import *
 
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")

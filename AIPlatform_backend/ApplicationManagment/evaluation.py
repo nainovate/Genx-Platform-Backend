@@ -18,7 +18,7 @@ from ApplicationManagment.Handlers.storeExcel import JSONToExcelConverter
 from utils import BenchPayload, LoginDetails, MetricRequest, MetricsPayload, Pagination, Payload, RequestDetails, ResultDetails, ScheduleDetails, metric, viewDetails,RangeUpdateRequest
 from db_config import eval_config, bench_config
 
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
