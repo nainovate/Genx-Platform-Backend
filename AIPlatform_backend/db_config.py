@@ -1,11 +1,17 @@
 import os
 
-import os
+
+from dotenv import load_dotenv
+
+# Load variables from .env file
+load_dotenv()
+
+IP_ADDRESS = os.getenv("IP_ADDRESS")
+MONGO_IP = os.getenv("MONGO_IP_ADDRESS")
 
 
-IP_ADDRESS = "172.10.10.158"  # You can change this value as needed
-MONGO_IP = "172.10.10.158"
-
+print(IP_ADDRESS)
+print(MONGO_IP)
 
 
 config = { 
@@ -33,6 +39,7 @@ eval_config = {
     "METRIC_CONFIG":"MetricConfig",
     # Endpoint to backend server
     "SERVER_ENDPOINT": f"http://{IP_ADDRESS}:4001/accelerator/server",
+    "STATUS_ENDPOINT": f"http://{IP_ADDRESS}:4001/job",
     "SCORE_ENDPOINT": f"http://{IP_ADDRESS}:4001"
 }
     

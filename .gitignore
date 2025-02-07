@@ -20,4 +20,6 @@ AIPlatform_backend/logs
 
 AIPlatform_backend/__pycache__
 
+AIPlatform_backend/.env
+
 logs/backend/logger.log

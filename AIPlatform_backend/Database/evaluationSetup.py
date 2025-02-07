@@ -65,6 +65,7 @@ class MongoDBHandler:
             {
                 "$set": {
                     "user_id": status_record["user_id"],
+                    "process_name": status_record["process_name"],
                     "models": status_record["models"],  # Assuming models is already a list of dictionaries
                     "overall_status": status_record["overall_status"],
                     "start_time": status_record["start_time"],
@@ -246,79 +247,122 @@ class MongoDBHandler:
         # If no document is found with the provided metric_id
     
 
-    async def update_metrics_results_record(self, process_id, user_id, config_type, object_id, metric_id, process_name, model_id, metrics_results):
-        # Check if the document exists for the given process_id and user_id
-        # Get the current timestamp as Unix time
-        current_timestamp = int(datetime.utcnow().timestamp())
-
-        existing_document = await self.metrics_collection.find_one(
-            {
-                "user_id": user_id,
-                "process_id": process_id,
-                "process_name":process_name,
-                "config_type": config_type,
-                "eval_id" : object_id,
-                "metric_id": metric_id
-            }
-        )
-
-        if existing_document:
-            # Check if the model_id already exists in the models array
-                # Append the new model_id with metrics_results to the models array
-            await self.metrics_collection.update_one(
-            {
-                "user_id": user_id,
-                "process_id": process_id,
-                "config_type": config_type,
-                "eval_id": object_id,
-                "metric_id": metric_id
-            },
-            {
-                "$push": {
-                    "models": {
-                        "model_id": model_id,
-                        "metrics_results": metrics_results
+    async def update_metrics_results_record(
+        self, process_id, user_id, config_type, object_id, metric_id, 
+        process_name, model_id, metrics_results
+        ):
+            # Define the ranges for each metric
+            metric_ranges = {
+                "MRR": {
+                    "Excellent": "0.8 - 1.0",
+                    "Moderate": "0.5 - 0.8",
+                    "Poor": "0 - 0.5"
+                },
+                "ROUGE_score": {
+                    "ROUGE-1": {
+                        "Excellent": "0.45 - 1.0",
+                        "Moderate": "0.30 - 0.45",
+                        "Poor": "0 - 0.30"
+                    },
+                    "ROUGE-2": {
+                        "Excellent": "0.25 - 1.0",
+                        "Moderate": "0.15 - 0.25",
+                        "Poor": "0 - 0.15"
+                    },
+                    "ROUGE-L": {
+                        "Excellent": "0.40 - 1.0",
+                        "Moderate": "0.25 - 0.40",
+                        "Poor": "0 - 0.25"
                     }
                 },
-                # Update the timestamp for the record
-                "$set": {
-                    "timestamp": current_timestamp
+                "BERT_score": {
+                    "Excellent": "0.8 - 1.0",
+                    "Moderate": "0.5 - 0.8",
+                    "Poor": "0 - 0.5"
                 }
             }
-        )
-        else:
-            # Create a new document with the provided details
-            await self.metrics_collection.insert_one(
+
+            # Format metrics_results to retain only the scores
+            for metric, values in metrics_results.items():
+                if metric == "ROUGE_score":
+                    for rouge_type, rouge_score in values.items():
+                        values[rouge_type] = rouge_score
+                else:
+                    metrics_results[metric] = values
+
+            # Get the current timestamp as Unix time
+            current_timestamp = int(datetime.utcnow().timestamp())
+
+            # Check if the document exists for the given process_id and user_id
+            existing_document = await self.metrics_collection.find_one(
                 {
                     "user_id": user_id,
                     "process_id": process_id,
                     "process_name": process_name,
                     "config_type": config_type,
-                    "eval_id" : object_id,
-                    "metric_id": metric_id,
-                    "timestamp": current_timestamp,
-                    "models": [
-                        {
-                            "model_id": model_id,
-                            "metrics_results": metrics_results
-                        }
-                    ]
+                    "eval_id": object_id,
+                    "metric_id": metric_id
                 }
             )
+
+            if existing_document:
+                # Update the existing document
+                await self.metrics_collection.update_one(
+                    {
+                        "user_id": user_id,
+                        "process_id": process_id,
+                        "config_type": config_type,
+                        "eval_id": object_id,
+                        "metric_id": metric_id
+                    },
+                    {
+                        "$push": {
+                            "models": {
+                                "model_id": model_id,
+                                "metrics_results": metrics_results
+                            }
+                        },
+                        "$set": {
+                            "timestamp": current_timestamp
+                        }
+                    }
+                )
+            else:
+                # Create a new document
+                await self.metrics_collection.insert_one(
+                    {
+                        "user_id": user_id,
+                        "process_id": process_id,
+                        "process_name": process_name,
+                        "config_type": config_type,
+                        "eval_id": object_id,
+                        "metric_id": metric_id,
+                        "timestamp": current_timestamp,
+                        "ranges": metric_ranges,
+                        "models": [
+                            {
+                                "model_id": model_id,
+                                "metrics_results": metrics_results
+                            }
+                        ]
+                    }
+                )
     async def fetch_metrics_by_id(self, metric_id: str):
-     # Query the database
-        document =  await self.metrics_collection.find_one({"metric_id": metric_id})
+        document = await self.metrics_collection.find_one({"metric_id": metric_id})
         if not document:
             raise HTTPException(status_code=404, detail="Metric ID not found")
 
-        # Extract metrics_results
-        models = document.get("models", [])
-        metrics_results = [
-            {"model_id": model["model_id"], "metrics_results": model["metrics_results"]}
-            for model in models
-        ]
-    
-        return metrics_results
+        # Common ranges for all models
+        ranges = document.get("ranges", {})
+        
+        # Return structure with common ranges and model results
+        return {
+            "ranges": ranges,
+            "models": [{
+                "model_id": model["model_id"],
+                "metrics_results": model["metrics_results"]
+            } for model in document.get("models", [])]
+        }
 
     
     async def update_model_status_to_cancelled(self, process_id):
