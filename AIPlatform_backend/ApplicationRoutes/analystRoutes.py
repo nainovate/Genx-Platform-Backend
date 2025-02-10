@@ -139,3 +139,10 @@ async def assignTask(request_data:dict = Body(...)):
         return HTTPException(status_code=500, detial=str(e))
     
 
+@router.post("/api/unassignTask")
+async def unassignTask(request_data:dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.unassignTask(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detial=str(e))
