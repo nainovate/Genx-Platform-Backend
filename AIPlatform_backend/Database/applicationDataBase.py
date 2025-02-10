@@ -1351,8 +1351,82 @@ class ApplicationDataBase:
                 "detail": f"Internal server error: {e}"
             }
         
+        
 
-    
+    def assignTask(self, orgId: str, spaceId: str, roleId: str, userId: str, taskIds: list):
+        try:
+            # Validate input types
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId, userId]) or not isinstance(taskIds, list):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input. orgId, spaceId, roleId, and userId must be non-empty strings, and taskIds must be a list."
+                }
+
+            # Check if user exists
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(userId)})
+            if not user:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "User not found."
+                }
+
+            # Check if user belongs to the specified orgId
+            if orgId not in user.get("orgIds", []):
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "User does not have access to the specified orgId."
+                }
+
+            # Verify that the roleId is assigned under the given orgId and spaceId
+            user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
+            if roleId not in user_roles:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Role {roleId} is not assigned to user {userId} in space {spaceId} within organization {orgId}."
+                }
+
+            # Get current tasks assigned to the user under the roleId
+            current_tasks = set(user_roles.get(roleId, []))
+            new_tasks = set(taskIds)
+            already_assigned_tasks = current_tasks.intersection(new_tasks)
+            tasks_to_assign = new_tasks - already_assigned_tasks
+
+            if not tasks_to_assign:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": f"Task assignment failed. All provided tasks are already assigned: {list(already_assigned_tasks)}."
+                }
+
+            # Append new tasks while avoiding duplicates
+            updated_tasks = list(current_tasks.union(tasks_to_assign))
+
+            # Update the user document with the new task list
+            result = self.applicationDB["users"].update_one(
+                {"_id": ObjectId(userId)},
+                {"$set": {f"role.user.{orgId}.{spaceId}.{roleId}": updated_tasks}}
+            )
+
+            if result.modified_count == 0:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Task assignment failed. No tasks were added."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Tasks successfully assigned to user {userId}. Newly assigned: {list(tasks_to_assign)}. Already assigned: {list(already_assigned_tasks)}."
+            }
+
+        except Exception as e:
+            logging.error(f"Error while assigning tasks: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+
+
+
+
     def getUsersByRole(self, orgId: str, spaceId: str, roleId: str):
         try:
             # Validate input types
@@ -1711,7 +1785,7 @@ class ApplicationDataBase:
             logging.error(f"Error creating collections: {e}")
             return False, 500  # Error occurred during collection creation, return 500
         
-    def assignUserToOrg(self, orgId: str, userId: str, role:dict):
+    def assignUserToOrg(self, orgId: str, userId: str, role: dict):
         try:
             # Validate input data
             if not isinstance(userId, str) or not isinstance(orgId, str):

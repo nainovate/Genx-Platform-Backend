@@ -9,6 +9,7 @@ load_dotenv()
 IP_ADDRESS = os.getenv("IP_ADDRESS")
 MONGO_IP = os.getenv("MONGO_IP_ADDRESS")
 
+
 print(IP_ADDRESS)
 print(MONGO_IP)
 

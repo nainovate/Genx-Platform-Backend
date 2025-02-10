@@ -583,3 +583,84 @@ class Task:
 
 
 
+
+    def assignTask(self, data: dict):
+        try:
+            expected_keys = {"orgId", "spaceId", "roleId", "userId", "taskIds"}
+
+            # Validate input data type and required fields
+            if not isinstance(data, dict) or set(data.keys()) != expected_keys:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with keys 'orgId', 'spaceId', 'roleId', 'userId', and 'taskIds'."
+                }
+
+            orgId = data.get("orgId")
+            spaceId = data.get("spaceId")
+            roleId = data.get("roleId")
+            userId = data.get("userId")
+            taskIds = data.get("taskIds")
+
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId, userId]) or not isinstance(taskIds, list):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "orgId, spaceId, roleId, and userId must be non-empty strings, and taskIds must be a list."
+                }
+
+            # Ensure only Analysts can assign tasks
+            if "analyst" not in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access. Only Analysts can assign tasks."
+                }
+
+            # Validate each task
+            invalid_tasks = []
+            valid_tasks = []
+          # Initialize database
+            organizationDB = OrganizationDataBase(data["orgId"])
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+            for taskId in taskIds:
+                task_status = organizationDB.checkTask(taskId)  
+                
+                if task_status == status.HTTP_200_OK:
+                    valid_tasks.append(taskId)
+                else:
+                    invalid_tasks.append(taskId)
+
+            # If all tasks are invalid, return error
+            if not valid_tasks:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"None of the provided tasks exist: {invalid_tasks}"
+                }
+
+            # If some tasks are invalid, log warning and proceed with valid ones
+            if invalid_tasks:
+                logging.warning(f"The following tasks were not found and will be skipped: {invalid_tasks}")
+
+            # Proceed with assignment of valid tasks only
+            response = self.applicationDB.assignTask(
+                orgId=orgId, 
+                spaceId=spaceId, 
+                roleId=roleId, 
+                userId=userId, 
+                taskIds=valid_tasks
+            )
+
+            # If there were some invalid tasks, modify the success message
+            if response["status_code"] == status.HTTP_200_OK and invalid_tasks:
+                response["detail"] = f"Tasks partially assigned. Successfully assigned {len(valid_tasks)} tasks. {len(invalid_tasks)} invalid tasks were skipped: {invalid_tasks}"
+
+            return response
+
+        except Exception as e:
+            logging.error(f"Error while assigning tasks: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }

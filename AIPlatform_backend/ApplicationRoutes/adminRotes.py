@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
-from ApplicationRoutes.authenticationRoutes import authorization_instance, space_instance, organization_instance, role_instance
+from ApplicationRoutes.authenticationRoutes import authorization_instance, space_instance, organization_instance
 
 router = APIRouter()
 
@@ -77,23 +77,6 @@ async def unassignSpace(request_data: dict = Body(...)):
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
     
-@router.post("/api/unassignRole")
-async def unassignRole(request_data: dict = Body(...)):
-    try:
-        role = role_instance[request_data["sessionId"]]
-        return  role.unassignRole(request_data["data"])
-    except Exception as e:
-        return HTTPException(status_code=500, detail=str(e))
-
-
-@router.post("/api/getUsersByRole")
-async def getUsersByRole(request_data: dict = Body(...)):
-    try:
-        role = role_instance[request_data["sessionId"]]
-        return  role.getUsersByRole(request_data["data"])
-    except Exception as e:
-        return HTTPException(status_code=500, detail=str(e))
-
 
 @router.post("/api/getAllUsers")
 async def getAllUsers(request_data: dict = Body(...)):
