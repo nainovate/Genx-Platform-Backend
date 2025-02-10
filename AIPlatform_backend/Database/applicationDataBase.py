@@ -1505,18 +1505,17 @@ class ApplicationDataBase:
                 }
 
             # Fetch all users
-            users = self.applicationDB["users"].find({}, {"_id": 1, "firstName": 1, "lastName": 1, "email": 1, "role": 1})
+            users = self.applicationDB["users"].find({})
 
             # Filter users in Python
             filtered_users = []
             for user in users:
                 user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
-                
                 if roleId in user_roles:
                     filtered_users.append({
                         "id": str(user["_id"]),
-                        "firstName": user["firstName"],
-                        "lastName": user["lastName"],
+                        "username": user["username"],
+                        "role": user["role"],
                         "email": user["email"]
                     })
 
