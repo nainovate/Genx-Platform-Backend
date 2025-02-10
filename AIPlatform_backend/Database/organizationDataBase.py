@@ -12,8 +12,11 @@ from pymongo.mongo_client import MongoClient
 from fastapi import HTTPException, status
 from pymongo.errors import OperationFailure
 from werkzeug.security import check_password_hash
+from pymongo.errors import PyMongoError
+from Database.evaluationSetup import MongoDBHandler
+from utils import StatusRecord
 # from Database.applicationDataBase import ApplicationDataBase
-from db_config import config, finetuning_config
+from db_config import config,eval_config,bench_config,finetuning_config
 
 # Set up logging
 projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -56,6 +59,11 @@ class OrganizationDataBase:
             self.dataset_collection = self.organizationDB[finetuning_config['dataset_collection']]
             self.status_collection = self.organizationDB[finetuning_config['status_collection']]
             self.finetune_configCollection = self.organizationDB[finetuning_config['finetune_config']]
+            self.results_collection = self.organizationDB[eval_config['RESULTS_COLLECTION']]
+            self.status_collection = self.organizationDB[eval_config['STATUS_COLLECTION']]
+            self.config_collection = self.organizationDB[eval_config['CONFIG_COLLECTION']]
+            self.metrics_collection = self.organizationDB[eval_config['METRICS_COLLECTION']]
+
             self.status_code = 200
         except OperationFailure as op_err:
             logging.error(f"Error connecting to the database: {op_err}")
@@ -800,3 +808,333 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
+        
+    # Evaluation
+    async def check_ongoing_task(self, user_id: str):
+        """Check if the user already has an ongoing evaluation task."""
+        return await self.status_collection.find_one({"user_id": user_id, "overall_status": "In Progress"}) is not None
+
+    async def insert_config_record(self, config_data: dict):
+        try:
+            # Insert record into MongoDB
+            await self.config_collection.insert_one({
+                "user_id": config_data.get('user_id'),
+                "process_id": config_data.get('process_id'),
+                "process_name": config_data.get("process_name"),
+                "model_id": config_data.get("model_id"),
+                "model_name": config_data.get("model_name"),
+                "payload_file_path": config_data.get("payload_file_path"),
+                "timestamp": int(datetime.utcnow().timestamp())
+            })
+
+        except PyMongoError as e:
+            logging.error(f"Database Error: {e}")
+            return {"success": False, "error": "Database insertion failed"}
+
+        except Exception as e:
+            logging.error(f"Unexpected Error: {e}")
+            return {"success": False, "error": "An unexpected error occurred"}
+        
+    async def update_status_record(self, status_record: dict):
+    
+        await self.status_collection.update_one(
+            {"process_id": status_record["process_id"]},
+            {
+                "$set": {
+                    "user_id": status_record["user_id"],
+                    "process_name": status_record["process_name"],
+                    "models": status_record["models"],  # Assuming models is already a list of dictionaries
+                    "overall_status": status_record["overall_status"],
+                    "start_time": status_record["start_time"],
+                    "end_time": status_record.get("end_time", None)  # Ensure that end_time can be optional
+                }
+            },
+            upsert=True
+        )
+    async def update_results_record(self, process_id: str,process_name: str, user_id: str, config_type: str, model_id: str,model_name:str, results: dict):
+        """Update the status of a specific process in the database."""
+        timestamp = datetime.utcnow()
+        await self.results_collection.update_one(
+                {"user_id": user_id, "process_id": process_id, "process_name": process_name, "config_type": config_type},
+                {"$push": {"models": {"model_id": model_id, "model_name": model_name, "results": results}}},
+                upsert=True
+        )
+    async def get_results(self, process_id: str):
+        try:
+            document = await self.results_collection.find_one({"process_id": process_id})
+            if not document:
+                raise HTTPException(status_code=404, detail="Document not found.")
+            results = document.get("models")
+            if results is None:
+                raise HTTPException(status_code=404, detail="'results' object not found in the document.")
+            return results
+        except Exception as e:
+            # Handle any unexpected exceptions
+            raise HTTPException(status_code=500, detail=str(e))
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error retrieving results: {e}")
+    async def update_results_path(self, process_id, results_path):
+        try:
+            result = await self.results_collection.update_one(
+                {"process_id": process_id,},
+                {"$set": {"results_path": results_path}},
+                upsert=True
+            )
+            if result.matched_count > 0:
+                logger.info(f"Process {process_id} updated in DB")
+            else:
+                logger.info(f"Process {process_id} inserted in DB")
+        except Exception as e:
+            logger.error(f"An error occurred while inserting/updating data for process_id {process_id}: {e}")
+            raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+    async def check_model_completed_status(self, process_id: str):
+        # Fetch the existing record
+        existing_record = await self.status_collection.find_one({"process_id": process_id})        
+        if existing_record:
+            # Check if any model's status is "Completed"
+            return any(model['status'] == "Completed" for model in existing_record['models']) is not None
+    async def get_result_document_by_process_id(self, process_id: str):
+        """Get the status of a specific process."""
+        document = await self.results_collection.find_one({"process_id": process_id})
+        return document if document else None
+    async def update_metric_status_record(self, status_record: StatusRecord, process_name):
+        # Prepare the metrics object to add to the database
+        metrics_data = {
+            "metric_id": status_record.metric_id,  # Add the metric_id
+            "models": [model_status.dict() for model_status in status_record.models],  # Convert models to dictionaries
+            "metric_overall_status": status_record.overall_status  # Add the overall_status
+        }
+        timestamp = int(datetime.utcnow().timestamp())
+        # Ensure the metric_id does not already exist in the metrics array
+        await self.status_collection.update_one(
+            {
+                "process_id": status_record.process_id,  # Match the process_id
+                "metrics.metric_id": {"$ne": status_record.metric_id}  # Ensure the metric_id is not already in the array
+            },
+            {
+                "$push": {
+                    "metrics": metrics_data  # Add the new metric record to the array
+                },
+                "$set": {
+                    "user_id": status_record.user_id,  # Update the user_id
+                    "start_time": status_record.start_time,  # Update the start_time
+                    "end_time": status_record.end_time,  # Update the end_time
+                    "process_name": process_name,  # Add or update the process_name
+                    "timestamp": timestamp  # Add or update the timestamp
+                }
+            },
+            upsert=True  # Create the document if it does not exist
+        )
+    async def update_metric_model_status(self, process_id: str, model_id: str, new_status: str, metric_id: str, overall_status: str):
+        # Check if the metric_id already exists in the metrics array
+        existing_metric = await self.status_collection.find_one(
+            {
+                "process_id": process_id,
+                "metrics.metric_id": metric_id
+            },
+            {"metrics.$": 1}  # Only fetch the specific metric array for efficiency
+        )
+        
+        if existing_metric:
+            # If the metric exists, update the existing model status in that metric
+            await self.status_collection.update_one(
+                {
+                    "process_id": process_id,  # Match the process by ID
+                    "metrics.metric_id": metric_id  # Match the specific metric by ID
+                },
+                {
+                    "$set": {
+                        "metrics.$.models.$[model].status": new_status,  # Update the model's status within the existing metric
+                        "metrics.$.metric_overall_status": overall_status  # Update the overall status for the matched metric
+                    }
+                },
+                array_filters=[
+                    {"model.model_id": model_id}  # Filter for the correct model inside metrics' models
+                ]
+            )
+        else:
+            # If the metric does not exist, add a new metric to the metrics array
+            new_metric = {
+                "metric_id": metric_id,
+                "models": [
+                    {
+                        "model_id": model_id,
+                        "status": new_status  # Add the model status to the new metric
+                    }
+                ],
+                "metric_overall_status": overall_status  # Add the overall status to the new metric
+            }
+
+            await self.status_collection.update_one(
+                {
+                    "process_id": process_id  # Match the process by ID
+                },
+                {
+                    "$push": {
+                        "metrics": new_metric  # Push the new metric to the metrics array
+                    }
+                }
+            )
+
+    async def update_metrics_results_record(
+        self, process_id, user_id, config_type, object_id, metric_id, 
+        process_name, model_id, metrics_results
+        ):
+            # Define the ranges for each metric
+            metric_ranges = {
+                "MRR": {
+                    "Excellent": "0.8 - 1.0",
+                    "Moderate": "0.5 - 0.8",
+                    "Poor": "0 - 0.5"
+                },
+                "ROUGE_score": {
+                    "ROUGE-1": {
+                        "Excellent": "0.45 - 1.0",
+                        "Moderate": "0.30 - 0.45",
+                        "Poor": "0 - 0.30"
+                    },
+                    "ROUGE-2": {
+                        "Excellent": "0.25 - 1.0",
+                        "Moderate": "0.15 - 0.25",
+                        "Poor": "0 - 0.15"
+                    },
+                    "ROUGE-L": {
+                        "Excellent": "0.40 - 1.0",
+                        "Moderate": "0.25 - 0.40",
+                        "Poor": "0 - 0.25"
+                    }
+                },
+                "BERT_score": {
+                    "Excellent": "0.8 - 1.0",
+                    "Moderate": "0.5 - 0.8",
+                    "Poor": "0 - 0.5"
+                }
+            }
+
+            # Format metrics_results to retain only the scores
+            for metric, values in metrics_results.items():
+                if metric == "ROUGE_score":
+                    for rouge_type, rouge_score in values.items():
+                        values[rouge_type] = rouge_score
+                else:
+                    metrics_results[metric] = values
+
+            # Get the current timestamp as Unix time
+            current_timestamp = int(datetime.utcnow().timestamp())
+
+            # Check if the document exists for the given process_id and user_id
+            existing_document = await self.metrics_collection.find_one(
+                {
+                    "user_id": user_id,
+                    "process_id": process_id,
+                    "process_name": process_name,
+                    "config_type": config_type,
+                    "eval_id": object_id,
+                    "metric_id": metric_id
+                }
+            )
+
+            if existing_document:
+                # Update the existing document
+                await self.metrics_collection.update_one(
+                    {
+                        "user_id": user_id,
+                        "process_id": process_id,
+                        "config_type": config_type,
+                        "eval_id": object_id,
+                        "metric_id": metric_id
+                    },
+                    {
+                        "$push": {
+                            "models": {
+                                "model_id": model_id,
+                                "metrics_results": metrics_results
+                            }
+                        },
+                        "$set": {
+                            "timestamp": current_timestamp
+                        }
+                    }
+                )
+            else:
+                # Create a new document
+                await self.metrics_collection.insert_one(
+                    {
+                        "user_id": user_id,
+                        "process_id": process_id,
+                        "process_name": process_name,
+                        "config_type": config_type,
+                        "eval_id": object_id,
+                        "metric_id": metric_id,
+                        "timestamp": current_timestamp,
+                        "ranges": metric_ranges,
+                        "models": [
+                            {
+                                "model_id": model_id,
+                                "metrics_results": metrics_results
+                            }
+                        ]
+                    }
+                )
+    async def update_metric_overall_status(self, process_id: str, metric_id: str, overall_status: str):
+    
+        await self.status_collection.update_one(
+            {
+                "process_id": process_id,  # Match the process
+                "metrics.metric_id": metric_id  # Match the specific metric in the array
+            },
+            {
+                "$set": {
+                    "metrics.$.metric_overall_status": overall_status  # Update the matched array element
+                }
+            }
+        )
+    async def get_process_results(self, user_id: str, page: int, page_size: int):
+        results = []
+        total_count = 0
+
+        for orgId in self.orgIds:
+            organizationDB = OrganizationDataBase(orgId)
+
+            # Calculate skip value for pagination
+            skip = (page - 1) * page_size
+
+            # Fetch documents for the specific user_id from the organization’s config collection
+            cursor = organizationDB.config_collection.find({"user_id": user_id}).sort("timestamp", -1).skip(skip).limit(page_size)
+
+            async for document in cursor:
+                process_id = document.get("process_id")
+                
+                # Fetch the overall_status for the process_id from the status_collection
+                status_document = await organizationDB.status_collection.find_one({"process_id": str(process_id)})
+                overall_status = status_document.get("overall_status") if status_document else None
+                
+                # Append the task details
+                results.append({
+                    "process_id": process_id,
+                    "process_name": document.get("process_name"),
+                    "model_id": document.get("model_id"),
+                    "model_name": document.get("model_name"),
+                    "payload_path": document.get("payload_file_path"),
+                    "timestamp": document.get("timestamp"),
+                    "overall_status": overall_status,
+                    "organization_id": orgId
+                })
+
+            # Fetch the total count of documents for this user_id in the organization
+            org_count = await organizationDB.config_collection.count_documents({"user_id": user_id})
+            total_count += org_count  # Sum up counts across all organizations
+
+        # Calculate total pages based on aggregated count
+        total_pages = (total_count + page_size - 1) // page_size
+
+        # Return paginated results and metadata
+        return results, total_count
+
+    async def get_mongo_handler(service: str, org_id: str):
+        if service == "evaluation":
+            return MongoDBHandler(eval_config, org_id)  # Evaluation-specific handler
+        elif service == "benchmarking":
+            return MongoDBHandler(bench_config, org_id)  # Benchmarking-specific handler
+        else:
+            raise HTTPException(status_code=400, detail="Invalid service")

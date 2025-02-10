@@ -410,7 +410,7 @@ class Organization:
             #         "detail": "Unauthorized Access",
             #     }
             
-            organizations, status_code = self.applicationDB.getOrganizationsforUsers(self.userId)
+            organizations, status_code = self.applicationDB.getOrganizationsforUsers(self.userId, self.role)
             if status_code == status.HTTP_404_NOT_FOUND:
                 return {
                         "status_code": status.HTTP_404_NOT_FOUND, 

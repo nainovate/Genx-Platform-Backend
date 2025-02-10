@@ -7,6 +7,7 @@ import logging
 import yaml
 from fastapi import HTTPException,status
 from Database.applicationDataBase import *
+from Database.organizationDataBase import *
 import random
 import string
 
@@ -31,6 +32,10 @@ def initilizeApplicationDB():
     return applicationDB
 
 
+def initilizeOrganizationDB():
+    organizationDB = OrganizationDataBase('')
+    return organizationDB
+
 def generate_hierarchy_id():
     space_id = "".join(random.choice(string.ascii_lowercase) for _ in range(4))
     return space_id 
@@ -44,6 +49,7 @@ class Payload:
         self.role = role
         self.userId = userId
         self.applicationDB = initilizeApplicationDB()  # Initialize the application database
+        # self.organizationDB = initilizeOrganizationDB() 
     def addPayload(self, data: dict):
         try:
             # Check if the incoming data is empty
@@ -73,7 +79,7 @@ class Payload:
                 }
 
             # Call the database layer to add the payload
-            status_code, success, error = self.applicationDB.add_payload(data)
+            status_code, success, error = self.organizationDB.add_payload(data)
             logger.info(f"Add payload response: {status_code}, Success: {success}, Error: {error}")
 
             if success:
@@ -123,7 +129,7 @@ class Payload:
                 """
                 try:
                     # Call the database layer method to fetch LLM prompts data
-                    result = self.applicationDB.get_payload_details()
+                    result = self.organizationDB.get_payload_details()
 
                     # Handle cases where no data is returned
                     if not result:
@@ -200,7 +206,7 @@ class Payload:
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data."
                 }
-            orginizationDB = OrganizationDataBase()
+            orginizationDB = OrganizationDataBase('')
             # Call the database layer to delete the prompt
             result = orginizationDB.delete_payload(data)
 
