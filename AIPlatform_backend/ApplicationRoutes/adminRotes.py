@@ -3,11 +3,11 @@ from ApplicationRoutes.authenticationRoutes import authorization_instance, space
 
 router = APIRouter()
 
-@router.post("/api/getOrganizationsforAdmin")
-async def getOrganizationsforAdmin(request_data: dict = Body(...)):
+@router.post("/api/getOrganizationsforUsers")
+async def getOrganizationsforUsers(request_data: dict = Body(...)):
     try:
         org = organization_instance[request_data["sessionId"]]
-        return  org.getOrganizationsforAdmin()
+        return  org.getOrganizationsforUsers()
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e)) 
     
@@ -77,6 +77,7 @@ async def unassignSpace(request_data: dict = Body(...)):
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
     
+
 @router.post("/api/getAllUsers")
 async def getAllUsers(request_data: dict = Body(...)):
     try:

@@ -67,7 +67,7 @@ async def getRoleTasks(request_data: dict = Body(...)):
     except KeyError as e:
         raise HTTPException(status_code=500, detail=str(e))
     
-
+    
 @router.post("/api/getAgents")
 async def getAgents(request_data: dict = Body(...)):
     try:
@@ -127,4 +127,37 @@ async def unassignRole(request_data: dict = Body(...)):
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
 
+@router.post("/api/unassignRole")
+async def unassignRole(request_data: dict = Body(...)):
+    try:
+        role = role_instance[request_data["sessionId"]]
+        return  role.unassignRole(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
 
+
+@router.post("/api/getUsersByRole")
+async def getUsersByRole(request_data: dict = Body(...)):
+    try:
+        role = role_instance[request_data["sessionId"]]
+        return  role.getUsersByRole(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/api/assignTask")
+async def assignTask(request_data:dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.assignTask(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detial=str(e))
+    
+
+@router.post("/api/unassignTask")
+async def unassignTask(request_data:dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.unassignTask(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detial=str(e))

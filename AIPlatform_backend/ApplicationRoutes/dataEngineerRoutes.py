@@ -1,31 +1,30 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
-from ApplicationRoutes.authenticationRoutes import prompts_instance,payload_instance,model_instance,dataset_instance
+from ApplicationRoutes.authenticationRoutes import prompts_instance,payload_instance,model_instance,dataset_instance, task_instance
 
 router = APIRouter()
 
 
 # authentication_instances["resetPassword"] = Authentication()
+@router.post("/api/getAllTasks")
+async def getRoleTasks(request_data: dict = Body(...)):
+    try:
+        task = task_instance[request_data["sessionId"]]
+        return task.getTasks(request_data["data"])
+    except KeyError as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/addPrompt")
 async def addPrompt(request_data: dict = Body(...)):
     try:
-        # Get the sessionId from the request
         session_id = request_data["sessionId"]
         data = request_data["data"]
-        print("data",data)
-        print("session ID",session_id)
         
         # Check if the sessionId exists in prompts_instance
         if session_id not in prompts_instance: 
             raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.")
-        
-        # Remove sessionId from the request data to pass the rest to the addPrompt function
-        request_data.pop("sessionId", None)  # Remove sessionId if exists
-        
+
         # Access the corresponding Prompts instance
         prompts = prompts_instance[session_id]
-        print("data",data)
-        # Pass the filtered data (excluding sessionId) to addPrompt
         return prompts.addPrompt(data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -40,7 +39,7 @@ async def getPrompts(request_data: dict = Body(...)):
     """
     try:
         # Ensure 'sessionId' is provided in the request data
-        session_id = request_data.get("sessionId")
+        session_id = request_data["sessionId"]
         if not session_id:
             raise HTTPException(
                 status_code=400,
@@ -48,17 +47,11 @@ async def getPrompts(request_data: dict = Body(...)):
             )
         
         # Check if the sessionId exists in prompts_instance
-        if session_id not in prompts_instance:
-            raise HTTPException(
-                status_code=404,
-                detail=f"Session ID '{session_id}' not found."
-            )
+        if session_id not in prompts_instance: 
+            raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.")
         
         # Access the corresponding Prompts instance
         prompts = prompts_instance[session_id]
-        
-        # Remove sessionId from the request data before passing it to getPromptsData
-        request_data.pop("sessionId", None)
         
         # Call the `getPromptsData` method of the corresponding instance
         response = prompts.getPromptsData()
@@ -464,7 +457,7 @@ async def deleteModel(request_data: dict = Body(...)):
   
 
 @router.post("/api/get_datasets")
-async def get_dataset_Details(request_data: dict):
+def get_dataset_Details(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
         if not session_id:
@@ -478,9 +471,17 @@ async def get_dataset_Details(request_data: dict):
                 "status_code": 403,
                 "detail": f"Unauthorized access, Session expired."
             }
-
+        required_fields = ["sessionId","data"]
+        missing_fields = [field for field in required_fields if field not in request_data]
+        if missing_fields:
+            
+            return {
+                "status_code": 400,
+                "detail": f"Missing required fields: {', '.join(missing_fields)}."
+            }
         dataset = dataset_instance[session_id]
-        return await dataset.get_dataset_Details()
+        # Call the `get_dataset_Details` method of the corresponding instance
+        return dataset.get_dataset_Details(request_data["data"])
 
     except Exception as e:
         return {
@@ -489,7 +490,7 @@ async def get_dataset_Details(request_data: dict):
         }
 
 @router.post("/api/addDataset")
-async def addDataset(request_data: dict):
+def addDataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
         if not session_id :
@@ -512,7 +513,8 @@ async def addDataset(request_data: dict):
                 "detail": f"Missing required fields: {', '.join(missing_fields)}."
             }
         dataset = dataset_instance[session_id]
-        return await dataset.add_dataset(request_data["data"])
+        # Call the `add_dataset` method of the corresponding instance
+        return dataset.add_dataset(request_data["data"])
 
     except Exception as e:
         return {
@@ -521,7 +523,7 @@ async def addDataset(request_data: dict):
         }
 
 @router.post("/api/deletedataset")
-async def deletedataset(request_data: dict):
+def deletedataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
         if not session_id :
@@ -544,14 +546,17 @@ async def deletedataset(request_data: dict):
                 "detail": f"Missing required fields: {', '.join(missing_fields)}."
             }
         dataset = dataset_instance[session_id]
-        # Remove sessionId from the request data before passing it to getPromptsData
+        
         request_data.pop("sessionId", None)
         data = request_data.get("data")
-        return await dataset.deletedataset(data)
+        # Call the `deletedataset` method of the corresponding instance
+        return dataset.deletedataset(data)
 
     except Exception as e:
         return {
             "status_code": 500,
             "detail": f"Internal server error: {str(e)}"
         }
+
+
 

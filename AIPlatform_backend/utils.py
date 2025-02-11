@@ -11,7 +11,7 @@ class Payload(BaseModel):
     session_id: str
     config_type: str
     config_id: List[Dict[str, str]]
-    client_api_key: str
+    #client_api_key: str
 
 class BenchPayload(BaseModel):
     payload_file_path: str
@@ -69,7 +69,7 @@ class Pagination(BaseModel):
     user_id: str
     page : int
     page_size : int
-    orgId:str
+    
 
 class metric(BaseModel):
     user_id: str

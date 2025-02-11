@@ -3,11 +3,13 @@ from datetime import datetime, timedelta
 import json
 import logging
 import os
+from typing import Dict
 import uuid
 from fastapi import APIRouter, BackgroundTasks, FastAPI, HTTPException, Query, status, Request
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import ValidationError
 from pymongo import MongoClient
+from Database.organizationDataBase import OrganizationDataBase
 from Database.applicationDataBase import ApplicationDataBase
 from ApplicationManagment.Handlers.evaluationHandler import EvaluationHandler
 from Database.evaluationSetup import MongoDBHandler
@@ -18,7 +20,7 @@ from ApplicationManagment.Handlers.storeExcel import JSONToExcelConverter
 from utils import BenchPayload, LoginDetails, MetricRequest, MetricsPayload, Pagination, Payload, RequestDetails, ResultDetails, ScheduleDetails, metric, viewDetails,RangeUpdateRequest
 from db_config import eval_config, bench_config
 
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
@@ -31,6 +33,9 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+# Global dictionary to store process_id -> orgId mapping
+process_org_mapping: Dict[str, str] = {}
     
 def initilizeApplicationDB():
     applicationDB = ApplicationDataBase()
@@ -42,6 +47,7 @@ class Evaluation:
         self.userId = userId
         self.orgIds = orgIds
         self.applicationDB = initilizeApplicationDB()
+        
 
     async def get_evaluation_results(self, data: dict):
         try:
@@ -68,16 +74,26 @@ class Evaluation:
             mongo_handler = MongoDBHandler(eval_config, orgId)
             logger.info(f"MongoDBHandler initialized for orgId: {orgId}")
 
+            # Initialize the organization database
+            organizationDB = OrganizationDataBase(orgId)
+            
+            # Check if organizationDB is initialized successfully
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+
             # Check for unique process_name
             #if mongo_handler.config_collection.find_one({"process_name": payload.process_name}):
                 #raise HTTPException(status_code=400, detail="Process name must be unique")
 
             # Check for ongoing tasks
-            if await mongo_handler.check_ongoing_task(payload.user_id):
+            '''if await organizationDB.check_ongoing_task(payload.user_id):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "User already has an ongoing benchmarking task."
-                }
+                }'''
 
         except ConnectionError as e:
             logger.error(f"Database connection error: {str(e)}")
@@ -95,14 +111,17 @@ class Evaluation:
         # Generate process ID
         process_id = str(uuid.uuid4()).replace("-", "")[:8]
         logger.info(f"Generated process ID: {process_id}")
+        # Store mapping in the global dictionary
+        process_org_mapping[process_id] = orgId
+        logger.info(f"Stored mapping: {process_id} -> {orgId}")
 
         # Initialize evaluation handler
         evaluation_handler = EvaluationHandler(mongo_handler, payload)
         # Add task to background tasks
         if background_tasks:
-            background_tasks.add_task(evaluation_handler.background_evaluation, process_id)
+            background_tasks.add_task(evaluation_handler.background_evaluation, process_id, orgId)
         else:
-            asyncio.create_task(evaluation_handler.background_evaluation(process_id))
+            asyncio.create_task(evaluation_handler.background_evaluation(process_id, orgId))
 
         logger.info(f"Evaluation task started with process ID: {process_id}")
 
@@ -116,13 +135,16 @@ class Evaluation:
         # Generate a unique metric_id
         metric_id = str(uuid.uuid4())[:8]
         # Log the payload and metric_id
-        org_id = payload.get("org_id")
+        orgId = self.orgIds
+        process_id = payload.get("process_id") 
+        selected_org_id = process_org_mapping.get(process_id) if process_id else None
+
         # Create the MongoDB handler and metrics calculator
-        mongo_handler = MongoDBHandler(eval_config, org_id)
+        mongo_handler = MongoDBHandler(eval_config, orgId)
         eval = MetricsCalculator(mongo_handler, payload)
 
         # Add the metrics calculation task to the background
-        background_tasks.add_task(eval.do_metrics, metric_id)  # Pass metric_id to the task if needed
+        background_tasks.add_task(eval.do_metrics, metric_id, selected_org_id)  # Pass metric_id to the task if needed
 
         # Return the metric_id for tracking purposes
         return {
@@ -195,20 +217,23 @@ class Evaluation:
     async def check_process_status(self, request):
         async def event_generator():
             try:
-                process_id=request["process_id"]
-                service=request["service"]
-                org_id=request["orgId"]
+                process_id = request["process_id"]
+                service = request["service"]
+                 
+                selected_org_id = process_org_mapping.get(process_id) if process_id else None
+
+
                 while True:
                     # Fetch the status details for the process
                     model_statuses, overall_status = await BenchmarkHandler.get_status_details(
-                    process_id, 
-                        service, org_id
+                        process_id, 
+                        service, selected_org_id
                     )
 
                     if model_statuses is None:
                         # Send an error message and keep checking
                         yield f"data: {json.dumps({'error': overall_status})}\n\n"
-                        await asyncio.sleep(2)
+                        await asyncio.sleep(2)  # Poll every 2 seconds
                         continue
 
                     # Prepare and send response data as SSE
@@ -228,7 +253,7 @@ class Evaluation:
                         break  # Exit the loop when all tasks are done
 
                     # Heartbeat to keep the connection alive
-                    await asyncio.sleep(2)
+                    await asyncio.sleep(2)  # Poll every 2 seconds
 
             except Exception as e:
                 # Send any encountered errors back to the client
@@ -240,10 +265,10 @@ class Evaluation:
             media_type="text/event-stream",
             headers={
                 "Cache-Control": "no-cache",
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "*",
+                "Connection": "keep-alive"  # Ensure the connection remains open
             }
         )
-
     async def check_process_results(self, Pagination: Pagination):
         try:
 
@@ -258,9 +283,11 @@ class Evaluation:
             #     )
             # Get the MongoDB handler based on the service
             # mongo_handler = MongoDBHandler.get_mongo_handler(Pagination["service"], Pagination["orgId"])
-            mongo_handler = MongoDBHandler(eval_config, Pagination["orgId"])
+            # Initialize the organization database
+            orgId = self.orgIds
+            organizationDB = OrganizationDataBase(orgId)
             # Fetch the process results using the user_id from MongoDB
-            result, doc_count = await mongo_handler.get_process_results(Pagination["user_id"], Pagination["page"], Pagination["page_size"])
+            result, doc_count = await organizationDB.get_process_results(Pagination["user_id"], Pagination["page"], Pagination["page_size"])
             
             # Return a successful response with a 200 status code
             return {"result": result, "doc_count": doc_count}
@@ -276,8 +303,16 @@ class Evaluation:
         try:
             
             service = request["service"]
-            orgId = request["orgId"]
             process_id = request["process_id"]
+            orgId = self.orgIds
+            selected_org_id = process_org_mapping.get(process_id) if process_id else None
+
+            if not orgId:
+                return {
+                    "status": "error",
+                    "detail": "Invalid process_id or organization ID not found."
+                }
+            organizationDB = OrganizationDataBase(orgId)
             mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
             # Get results by process_id using the method defined earlier
             result =  await mongo_handler.get_results_by_process_id(process_id)
@@ -294,8 +329,8 @@ class Evaluation:
         try:
             
             service = RequestDetails["service"]
-            orgId = RequestDetails["orgId"]
             user_id = RequestDetails["user_id"]
+            orgId = self.orgIds
             mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
             # Get results by process_id using the method defined earlier
             
@@ -313,7 +348,7 @@ class Evaluation:
             service = RequestDetails["service"]
             process_id = RequestDetails["process_id"]
             
-            orgId = RequestDetails.get("orgId")
+            orgId = process_org_mapping.get(process_id) if process_id else None
             # Get the MongoDB handler based on the service
             mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
             results_doc = await mongo_handler.get_result_document_by_process_id(process_id)
@@ -426,8 +461,8 @@ class Evaluation:
     async def get_metrics(self, request):
         try:
             metric_id = request["metric_id"]
-            org_id = request["orgId"]
-            mongo_handler = MongoDBHandler(eval_config, org_id)
+            orgId = self.orgIds
+            mongo_handler = MongoDBHandler(eval_config, orgId)
             result = await mongo_handler.fetch_metrics_by_id(metric_id)
             return result
 
@@ -441,9 +476,9 @@ class Evaluation:
             user_id = request["user_id"]
             page = request["page"]
             page_size = request["page_size"]
-            org_id = request["orgId"]
+            orgId = self.orgIds
             # Get the MongoDB handler based on the service
-            mongo_handler = MongoDBHandler(eval_config,org_id)
+            mongo_handler = MongoDBHandler(eval_config, orgId)
             # Fetch the process results using the user_id from MongoDB
             result, doc_count = await mongo_handler.get_metric_results(user_id, page, page_size)
             
@@ -474,7 +509,7 @@ class Evaluation:
         metric_id = request["metric_id"]
         metric_name = request["metric_name"]
         new_ranges = request["new_ranges"]
-        org_id = request["orgId"]
+        orgId = self.orgIds
         try:
             # Validate the request (Pydantic already ensures this for required fields)
             if not metric_id or not metric_name or not new_ranges:
@@ -488,7 +523,7 @@ class Evaluation:
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="The 'new_ranges' field must be a non-empty dictionary."
                 )
-            mongo_handler = MongoDBHandler(eval_config,org_id)
+            mongo_handler = MongoDBHandler(eval_config, orgId)
             # Call the database function to update metric ranges
             result = await mongo_handler.update_metric_ranges(
                 metric_id=metric_id,

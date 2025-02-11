@@ -8,7 +8,7 @@ import random
 import string
 
 
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
@@ -120,7 +120,7 @@ class Spaces:
                         "detail": "Unauthorized Access"
                 }
             organizationDB = OrganizationDataBase(orgId)
-            spaces, status_code = organizationDB.getSpaceInOrg(self.role,self.userId)
+            spaces, status_code = organizationDB.getSpaceInOrg(self.role,self.userId,orgId=orgId)
 
             if status_code == status.HTTP_404_NOT_FOUND:
                 return {
@@ -157,10 +157,10 @@ class Spaces:
             spaces_data = []
             for orgId in orgIds:
                 applicationDB = ApplicationDataBase()
-                org_list,status = applicationDB.getOrgInfo(orgId=orgId)
+                org_list,status_code = applicationDB.getOrgInfo(orgId=orgId)
                 spaceInfo= org_list
                 organizationDB = OrganizationDataBase(orgId)
-                spaces, status_code = organizationDB.getSpaceInOrg(self.role,self.userId)
+                spaces, status_code = organizationDB.getSpaceInOrg(self.role, self.userId, orgId=orgId)
                 spaceInfo["spaces"] = spaces
                 spaces_data.append(spaceInfo)
 
@@ -1158,13 +1158,13 @@ class Spaces:
     
     def getAllUsers(self):
         try:
-            if not "admin" in self.role:
-                return {
-                    "status_code": status.HTTP_401_UNAUTHORIZED,
-                    "detail": "Unauthorized Access",
-                }
+            # if not "admin" in self.role:
+            #     return {
+            #         "status_code": status.HTTP_401_UNAUTHORIZED,
+            #         "detail": "Unauthorized Access",
+            #     }
             
-            status_code, users = self.applicationDB.getAllUsers()
+            status_code, users = self.applicationDB.getAllUsers(self.role)
 
             if status_code == status.HTTP_404_NOT_FOUND:
                 return {
@@ -1172,7 +1172,7 @@ class Spaces:
                         "detail": "No users found."
                 }
             
-            if not status_code == 200:
+            elif not status_code == 200:
                 return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error occurred."

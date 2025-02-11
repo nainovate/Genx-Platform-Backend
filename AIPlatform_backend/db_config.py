@@ -1,9 +1,17 @@
 import os
 
-import os
 
-IP_ADDRESS = "172.10.10.128"  # You can change this value as needed
-MONGO_IP = "172.10.10.128"
+from dotenv import load_dotenv
+
+# Load variables from .env file
+load_dotenv()
+
+IP_ADDRESS = os.getenv("IP_ADDRESS")
+MONGO_IP = os.getenv("MONGO_IP_ADDRESS")
+
+
+print(IP_ADDRESS)
+print(MONGO_IP)
 
 
 config = { 
@@ -31,6 +39,7 @@ eval_config = {
     "METRIC_CONFIG":"MetricConfig",
     # Endpoint to backend server
     "SERVER_ENDPOINT": f"http://{IP_ADDRESS}:4001/accelerator/server",
+    "STATUS_ENDPOINT": f"http://{IP_ADDRESS}:4001/job",
     "SCORE_ENDPOINT": f"http://{IP_ADDRESS}:4001"
 }
     
@@ -50,8 +59,8 @@ finetuning_config = {
     "MONGO_URI": os.getenv("MONGO_URI", f"mongodb://{IP_ADDRESS}:27017"),
     "DB_NAME": "Finetuning",
     "status_collection": "tuning_status",
-    "finetune_config": "tuning_config",
-    "response": "Tuning_metrics",
+    "finetune_config": "Tuning_config",
+    "metric_response": "tuning_metrics",
     "dataset_collection": "Tuning_dataset",
     # Endpoint to backend server
     "TRAINING_ENDPOINT": f"http://{IP_ADDRESS}:8007/train_model"}

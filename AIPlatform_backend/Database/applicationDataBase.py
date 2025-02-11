@@ -3,8 +3,6 @@ import os
 import logging
 import random
 import string
-from motor.motor_asyncio import AsyncIOMotorClient
-from db_config import finetuning_config
 import time
 from bson import ObjectId
 from pymongo import UpdateOne
@@ -16,7 +14,7 @@ from db_config import config
 from Database.organizationDataBase import OrganizationDataBase
 
 # Set up logging
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
@@ -37,12 +35,7 @@ class ApplicationDataBase:
         mongo_ip = config['mongoip']
         mongo_port = config['mongoport']
 
-        self.client = AsyncIOMotorClient(finetuning_config['MONGO_URI'])
-        self.db = self.client[finetuning_config['DB_NAME']]
-        self.response = self.db[finetuning_config['response']]
-        self.dataset_collection = self.db[finetuning_config['dataset_collection']]
-        self.status_collection = self.db[finetuning_config['status_collection']]
-        self.finetune_config = self.db[finetuning_config['finetune_config']]
+
         try:
             db_uri = "mongodb://"+mongo_ip+":"+mongo_port+"/"
             self.client = MongoClient(db_uri)
@@ -239,17 +232,25 @@ class ApplicationDataBase:
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
 
 
-    def getAllUsers(self):
+    def getAllUsers(self, role):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            users_list = list(self.applicationDB["users"].find(
+            if "analyst" in role:
+                # Fetch users with 'user' role
+                users_list = list(self.applicationDB["users"].find(
+                    {"role.user": {"$exists": True}},
+                    {"contactNumber": 0}  # Exclude contactNumber from the result
+                ))
+            elif "admin" in role:
+                users_list = list(self.applicationDB["users"].find(
                 {"role.admin": {"$exists": False},
                  "role.superadmin": {"$exists": False},
                  "role.user": {"$exists": False},
                 },{"contactNumber": 0}))
+            
 
             if users_list is None:
                 return {
@@ -1285,6 +1286,260 @@ class ApplicationDataBase:
             logging.error(f"Error while unassigning space for user id {userId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
+
+    def unassignRole(self, orgId: str, userId: str, spaceId: str, roleId: str):
+        try:
+            # Validate input data types and non-empty fields
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, userId, spaceId, roleId]):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. orgId, userId, spaceId, and roleId must be non-empty strings."
+                }
+
+            # Check if user exists
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(userId.strip())})
+            if not user:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "User not found."
+                }
+
+            user_role = user.get("role", {})
+
+            if "user" not in user_role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Except user role, other roles cannot be unassigned."
+                }
+
+            user_orgs = user.get("orgIds")
+
+            if orgId not in user_orgs:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "User does not have access to the specified orgId."
+                }
+
+            # Check if role exists in the user's role object for the given spaceId
+            if roleId not in user_role.get("user", {}).get(orgId, {}).get(spaceId, {}):
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": f"Role {roleId} not assigned to user in the space {spaceId}."
+                }
+
+            # Unassign the role
+            result = self.applicationDB["users"].update_one(
+                {"_id": ObjectId(userId.strip())},
+                {"$unset": {f"role.user.{orgId}.{spaceId}.{roleId}": ""}}
+            )
+
+            if result.modified_count == 0:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Role not found or already unassigned."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Role {roleId} successfully unassigned from user in space {spaceId}."
+            }
+
+        except Exception as e:
+            logging.error(f"Error while unassigning role for user id {userId}: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+        
+        
+
+    def assignTask(self, orgId: str, spaceId: str, roleId: str, userId: str, taskIds: list):
+        try:
+            # Validate input types
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId, userId]) or not isinstance(taskIds, list):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input. orgId, spaceId, roleId, and userId must be non-empty strings, and taskIds must be a list."
+                }
+
+            # Check if user exists
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(userId)})
+            if not user:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "User not found."
+                }
+
+            # Check if user belongs to the specified orgId
+            if orgId not in user.get("orgIds", []):
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "User does not have access to the specified orgId."
+                }
+
+            # Verify that the roleId is assigned under the given orgId and spaceId
+            user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
+            if roleId not in user_roles:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Role {roleId} is not assigned to user {userId} in space {spaceId} within organization {orgId}."
+                }
+
+            # Get current tasks assigned to the user under the roleId
+            current_tasks = set(user_roles.get(roleId, []))
+            new_tasks = set(taskIds)
+            already_assigned_tasks = current_tasks.intersection(new_tasks)
+            tasks_to_assign = new_tasks - already_assigned_tasks
+
+            if not tasks_to_assign:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": f"Task assignment failed. All provided tasks are already assigned: {list(already_assigned_tasks)}."
+                }
+
+            # Append new tasks while avoiding duplicates
+            updated_tasks = list(current_tasks.union(tasks_to_assign))
+
+            # Update the user document with the new task list
+            result = self.applicationDB["users"].update_one(
+                {"_id": ObjectId(userId)},
+                {"$set": {f"role.user.{orgId}.{spaceId}.{roleId}": updated_tasks}}
+            )
+
+            if result.modified_count == 0:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Task assignment failed. No tasks were added."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Tasks successfully assigned to user {userId}. Newly assigned: {list(tasks_to_assign)}. Already assigned: {list(already_assigned_tasks)}."
+            }
+
+        except Exception as e:
+            logging.error(f"Error while assigning tasks: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+
+
+    def unassignTask(self, orgId: str, spaceId: str, roleId: str, userId: str, taskIds: list):
+        try:
+            # Validate input types
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId, userId]) or not isinstance(taskIds, list):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input. orgId, spaceId, roleId, and userId must be non-empty strings, and taskIds must be a list."
+                }
+
+            # Check if user exists
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(userId)})
+            if not user:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "User not found."
+                }
+
+            # Check if user belongs to the specified orgId
+            if orgId not in user.get("orgIds", []):
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "User does not have access to the specified orgId."
+                }
+
+            # Verify that the roleId is assigned under the given orgId and spaceId
+            user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
+            if roleId not in user_roles:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Role {roleId} is not assigned to user {userId} in space {spaceId} within organization {orgId}."
+                }
+
+            # Get current tasks assigned to the user under the roleId
+            current_tasks = set(user_roles.get(roleId, []))
+            tasks_to_remove = set(taskIds)
+            existing_tasks_to_remove = current_tasks.intersection(tasks_to_remove)
+            updated_tasks = list(current_tasks - existing_tasks_to_remove)
+
+            if not existing_tasks_to_remove:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "No matching tasks found for unassignment."
+                }
+
+            # Update the user document with the new task list
+            result = self.applicationDB["users"].update_one(
+                {"_id": ObjectId(userId)},
+                {"$set": {f"role.user.{orgId}.{spaceId}.{roleId}": updated_tasks}}
+            )
+
+            if result.modified_count == 0:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Task unassignment failed. No tasks were removed."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Tasks successfully unassigned from user {userId}. Removed: {list(existing_tasks_to_remove)}. Remaining tasks: {updated_tasks}"
+            }
+
+        except Exception as e:
+            logging.error(f"Error while unassigning tasks: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+
+
+
+    def getUsersByRole(self, orgId: str, spaceId: str, roleId: str):
+        try:
+            # Validate input types
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId]):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "orgId, spaceId, and roleId must be non-empty strings."
+                }
+
+            # Fetch all users
+            users = self.applicationDB["users"].find({})
+
+            # Filter users in Python
+            filtered_users = []
+            for user in users:
+                user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
+                if roleId in user_roles:
+                    filtered_users.append({
+                        "id": str(user["_id"]),
+                        "username": user["username"],
+                        "role": user["role"],
+                        "email": user["email"]
+                    })
+
+            if not filtered_users:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"No users found for role {roleId} in space {spaceId} within organization {orgId}."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "users": filtered_users
+            }
+
+        except Exception as e:
+            logging.error(f"Error while retrieving users by role: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+
+
+
+        
     def assignedAdmins(self, spaceId: str):
         try:
             # Validate input data
@@ -1555,6 +1810,32 @@ class ApplicationDataBase:
             logging.error(f"Error while updating user: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
+
+    def getUserById(self, user_id: str):
+        try:
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(user_id)})
+            if not user:
+                return status.HTTP_404_NOT_FOUND, None
+
+            user["userId"] = str(user["_id"])
+            del user["_id"]  # Remove MongoDB ObjectId before returning
+            return status.HTTP_200_OK, user
+        except Exception as e:
+            logging.error(f"Error while fetching user by ID {user_id}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR, None
+
+
+    def deleteUserById(self, user_id: str):
+        try:
+            result = self.applicationDB["users"].delete_one({"_id": ObjectId(user_id)})
+            if result.deleted_count == 0:
+                return status.HTTP_404_NOT_FOUND  # User not found
+            return status.HTTP_200_OK  # Successfully deleted
+        except Exception as e:
+            logging.error(f"Error while deleting user {user_id}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+        
     def createUserCollections(self):
         collections = ["users", "userAuthentication", "userAttributes", "refreshTokens"]
         try:
@@ -1571,10 +1852,10 @@ class ApplicationDataBase:
             logging.error(f"Error creating collections: {e}")
             return False, 500  # Error occurred during collection creation, return 500
         
-    def assignUserToOrg(self, orgId: str, userId: str, role:dict):
+    def assignUserToOrg(self, orgId: str, userId: str, role: dict):
         try:
             # Validate input data
-            if not isinstance(userId, str) or not isinstance(orgId, str) or not isinstance(role, dict):
+            if not isinstance(userId, str) or not isinstance(orgId, str):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "Invalid input data. userId and orgId must be strings."
@@ -1584,9 +1865,9 @@ class ApplicationDataBase:
 
             if not user:
                 return status.HTTP_404_NOT_FOUND
-            user_role = list(user["role"].keys())[0]
+            
             user_orgIds = user.get("orgIds", [])
-
+            user_role = list(user.get("role",{}).keys())[0]
             if orgId in user_orgIds:
                 return status.HTTP_409_CONFLICT
 
@@ -1594,13 +1875,16 @@ class ApplicationDataBase:
                 result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId, "role.admin": orgId}})
             elif "admin" in role:
                 result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": []}})
+            elif "analyst" in role:
+                result=self.applicationDB["users"].update_one({"_id": ObjectId(userId)}, {"$push": {"orgIds": orgId}, "$set":{f"role.{user_role}.{orgId}": {}}})
+            else:
+                return status.HTTP_403_FORBIDDEN
 
             if result.modified_count > 0:
                 return status.HTTP_200_OK
             else:
                 return status.HTTP_400_BAD_REQUEST
-            
-            
+                        
         except Exception as e:
             # Log and handle unexpected errors
             logging.error(f"Error while assigning user {userId} for org id {orgId}: {e}")
@@ -1609,7 +1893,6 @@ class ApplicationDataBase:
     def unassignUserToOrg(self, orgId: str, userId: str, role: dict):
         try:
             # Validate input data
-            print('----input',userId,orgId,role)
             if not isinstance(userId, str) or not isinstance(orgId, str):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
@@ -1623,48 +1906,52 @@ class ApplicationDataBase:
                 return status.HTTP_404_NOT_FOUND
             
             user_orgIds = user.get("orgIds", [])
-            user_role = list(user["role"].keys())[0]
+            user_role = list(user.get("role",{}).keys())[0]
+
             if orgId not in user_orgIds:
                 return status.HTTP_400_BAD_REQUEST
             if "superadmin" in role:
                 result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId,"role.admin": orgId}})
             elif "admin" in role:
                 result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
+            elif "analyst" in role:
+                result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}, "$unset":{f"role.{user_role}.{orgId}": ""}})
+            else:
+                return status.HTTP_400_BAD_REQUEST
 
+            result = self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$pull": {"orgIds": orgId}})
             # Check if the update modified any documents
             if result.modified_count > 0:
                 logging.info("Update successful.")
-                return status.HTTP_200_OK
-
             else:
                 logging.info("No documents were updated.")
-                return status.HTTP_406_NOT_ACCEPTABLE
+            return status.HTTP_200_OK
             
         except Exception as e:
             # Log and handle unexpected errors
             logging.error(f"Error while unassigning User {userId} for org id {orgId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
 
-    def getOrganizationsforAdmin(self, userId):
+    def getOrganizationsforUsers(self, userId, role):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            adminDocument = self.applicationDB["users"].find_one(
+            result = self.applicationDB["users"].find_one(
                 {"_id":ObjectId(userId), 
                 },{"_id": 0, "orgIds":1})
-            org_ids = adminDocument["orgIds"]
-            if len(org_ids) > 0:
-                adminOrgs = []
-                for orgId in org_ids:
+            orgIds = result["orgIds"]
+            if len(orgIds) > 0:
+                userOrgs = []
+                for orgId in orgIds:
                     org ={}
                     orgName = self.applicationDB["organizations"].find_one({"orgId": orgId}, {"_id": 0, "orgName": 1})
                     org["orgId"] = orgId
                     org["orgName"] = orgName['orgName']
-                    adminOrgs.append(org)
+                    userOrgs.append(org)
 
-                return adminOrgs, status.HTTP_200_OK
+                return userOrgs, status.HTTP_200_OK
             else:
                 logging.info("No org found in application database for this admin.")
                 return {}, status.HTTP_404_NOT_FOUND
@@ -1698,10 +1985,12 @@ class ApplicationDataBase:
             user = self.applicationDB["users"].find_one({"_id":ObjectId(userId)})
             if not user:
                 return status.HTTP_404_NOT_FOUND
-            user_role = user.get("role", [])
+            
+            user_role = user.get("role", {})
             user_orgs = user.get("orgIds")
             if orgId not in user_orgs:
                 return status.HTTP_401_UNAUTHORIZED
+            
             if "analyst" in user_role:
                 spaceIds = [ spaceId for spaceIdList in user_role.get("analyst", {}).values() for spaceId in spaceIdList]
                 if spaceId in spaceIds:
@@ -2009,148 +2298,9 @@ class ApplicationDataBase:
             return {"status_code": 500, "detail": "Unexpected server error."}
 
 
-    def add_payload(self, document):
-        """
-        Saves payload to MongoDB.
-
-        :param organisation: Name of the organisation (used as a collection name).
-        :param document: Dictionary containing `clientApiKey` and `parsedContent`.
-        :return: Dictionary with success status, payloadId, or error message.
-        """
-        try:
-            # Extract fields from the document
-            client_api_key = document.get("clientApiKey")
-            parsed_content = document.get("parsedContent")
-            payloadPath = document.get("path")
-            # Validate required fields
-            if not client_api_key or not parsed_content:
-                missing_fields = []
-                if not client_api_key:
-                    missing_fields.append("clientApiKey")
-                if not parsed_content:
-                    missing_fields.append("parsedContent")
-                raise ValueError(f"Missing required fields: {', '.join(missing_fields)}")
-
-            # Generate payloadId from the current timestamp
-            payload_id = self.generate_id(4)
-            timestamp = self.get_current_timestamp()
-            # Process the parsed content
-            processed_payloads = [
-                {
-                    "payloadName": payload_name,
-                    "items": [
-                        {
-                            "index": item["index"],
-                            "question": item["question"],
-                            "answer": item["answer"]
-                        }
-                        for item in items
-                    ]
-                }
-                for payload_name, items in parsed_content.items()
-            ]
-
-            # Create the full document to insert into MongoDB
-            payload_document = {
-                "payloadId": payload_id,
-                "clientApiKey": client_api_key,
-                "payloadPath":payloadPath,
-                "payloads": processed_payloads,
-                "timestamp":timestamp
-            }
-
-            # Insert the document into the MongoDB collection
-            payload_collection = self.applicationDB["payload"]
-            insert_result = payload_collection.insert_one(payload_document)
-
-            # Check if the insertion was successful
-            if not insert_result.acknowledged:
-                raise Exception("Failed to insert document into MongoDB.")
-
-            # Return success
-            return {"success": True, "payloadId": payload_id}
-
-        except ValueError as ve:
-            # Validation errors
-            print(f"Validation Error: {ve}")
-            return {"success": False, "error": str(ve)}
-
-      
-        except Exception as e:
-            # Generic error handling
-            print(f"An unexpected error occurred: {e}")
-            return {"success": False, "error": f"An unexpected error occurred: {str(e)}"}
+    
         
-    def get_payload_details(self):
-            """
-            Fetches payload details from the MongoDB collection for the given organisation.
-
-            :param organisation: Name of the organisation (used as a database name).
-            :return: List of payload details or an error message.
-            """
-            try:
-
-                # Connect to the organisation database and collection
-                db = self.applicationDB
-                payload_collection = db["payload"]
-
-                # Query the collection for payload details, excluding the "_id" field
-                payload_data = list(
-                    payload_collection.find({}, {"_id": 0}).sort("timestamp", DESCENDING)
-                )
-
-                if not payload_data:
-                    logging.warning("No payload data found.")
-                    return {"success": False, "message": "No payload data found."}
-
-                logging.info(f"Payload data fetched successfully: {len(payload_data)} records.")
-                return {"success": True, "data": payload_data}
-
-            except Exception as e:
-                logging.error(f"An unexpected error occurred: {e}")
-                return {"success": False, "error": "An unexpected error occurred."}    
-
-    def delete_payload(self, json_data):
-        """
-        Deletes one or more payloadss from the MongoDB collection.
-
-        :param json_data: Dictionary containing required keys:
-                        - "clientApiKey": The API key for identifying the client.
-                        - "payloadId": A single payload ID (str) or a list of payload IDs (list).
-        :return: Dictionary with details of the operation:
-                - "deleted_count": Number of deleted payloads.
-                - "status_code": HTTP status code.
-        """
-        try:
-            # Extract client API key and prompt ID from input data
-            client_api_key = json_data.get("clientApiKey")
-            payloadId = json_data.get("payloadId")
-          
-            # Validate required fields
-            if not client_api_key or not payloadId:
-                logging.error("Missing required fields: 'clientApiKey' or 'payloadId'")
-                return {"status_code": 400, "detail": "Missing 'clientApiKey' or 'payloadId'."}
-
-            # Access the MongoDB collection
-            prompts = self.applicationDB["payload"]
-
-            # Check if prompt_id is a list or a single value
-            if isinstance(payloadId, list):
-                # For multiple deletions, use delete_many with $in operator
-                query = {"clientApiKey": client_api_key, "payloadId": {"$in": payloadId}}
-                result = prompts.delete_many(query)
-            else:
-                # For single deletion, use delete_one
-                query = {"clientApiKey": client_api_key, "payloadId": payloadId}
-                result = prompts.delete_one(query)
-
-            # Return appropriate details
-            return {"deleted_count": result.deleted_count, "status_code": 200 if result.deleted_count > 0 else 404}
-
-        except Exception as e:
-            logging.error(f"An unexpected error occurred: {e}")
-            return {"status_code": 500, "detail": "Unexpected server error."}
-
+   
 
     def add_model(self, json_data):
         try:
@@ -2290,117 +2440,6 @@ class ApplicationDataBase:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
 
-    async def insertdataset(self, document):
-        try:
-            if not self.client:
-                raise Exception("Database client is not connected.")
-            
-            client_api_key = document.get("clientApiKey")
-            dataset_content = document.get("datasetContent")
-            path = document.get("path")
-            dataset_type = document.get("dataset_name")
-
-            if not client_api_key or not dataset_content or not path or not dataset_type:
-                missing_fields = [
-                    field for field in ["clientApiKey", "datasetContent", "path","dataset_name"]
-                    if not document.get(field)
-                ]
-                return({"status_code":422, "detail":f"Missing required fields: {', '.join(missing_fields)}"})
-
-
-            if not os.path.exists(path):
-                raise FileNotFoundError(f"Path does not exist: {path}")
-            if not os.access(path, os.R_OK):
-                raise PermissionError(f"Path is not readable: {path}")
-
-            dataset_id = self.generate_id(4)
-            timestamp = self.get_current_timestamp()
-            payload_document = {
-                "dataset_name": dataset_type,
-                "dataset_id": dataset_id,
-                "clientApiKey": client_api_key,
-                "dataset_path": path,
-                "dataset": dataset_content,
-                "timestamp": timestamp,
-                
-            }
-
-            insert_result = await self.dataset_collection.insert_one(payload_document)
-            if not insert_result.acknowledged:
-                raise Exception("Failed to insert document into MongoDB.")
-
-            return 200, {"success": True, "dataset_id": dataset_id}
-
-        except FileNotFoundError as fnfe:
-            return 404, {"success": False, "error": str(fnfe)}
-        except PermissionError as pe:
-            return 403, {"success": False, "error": str(pe)}
-        except ValueError as ve:
-            return 400, {"success": False, "error": str(ve)}
-        except Exception as e:
-            return 500, {"success": False, "error": f"Unexpected error: {str(e)}"}
-        
-
-    async def dataset_details(self):
-        """
-        Fetches datasets details from the MongoDB collection for the given organisation.
-
-        :return: Dictionary containing success status and dataset details or an error message.
-        """
-        try:
-            # Query the collection for dataset details, excluding the "_id" field
-            datasets = await self.dataset_collection.find({}, {"_id": 0, "dataset": 0}).sort("timestamp", DESCENDING).to_list(length=None)
-
-            if datasets is None:
-                logging.error("Unexpected None response from database query.")
-                return {"success": False, "error": "Unexpected database response."}
-
-            if not datasets:
-                logging.warning("No datasets data found.")
-                return {"success": False, "message": "No dataset data found."}
-
-            logging.info(f"Datasets fetched successfully: {len(datasets)} records.")
-            return {"success": True, "data": datasets}
-
-        except ConnectionError as e:
-            logging.error(f"Database connection error: {e}")
-            return {"success": False, "error": f"Database connection failed: {str(e)}"}
-
-        except Exception as e:
-            logging.error(f"An unexpected error occurred: {e}")
-            return {"success": False, "error": "An unexpected error occurred."}
-        
-
-    async def delete_dataset(self, json_data):
-        try:
-            client_api_key = json_data["clientApiKey"]
-            dataset_Ids = json_data["dataset_Ids"]
-
-            if not client_api_key or not dataset_Id:
-                logging.error("Missing required fields: 'clientApiKey' or 'dataset_Id'")
-                return {"status_code": 400, "detail": "Missing 'clientApiKey' or 'dataset_Id'."}
-
-          
-
-            # Ensure dataset_Id is a string and handle list case
-            if isinstance(dataset_Ids, list):
-                dataset_Id = [str(item) for item in dataset_Id]  # Convert items to strings
-
-            # For multiple deletions, use delete_many with $in operator
-            query = {"clientApiKey": client_api_key, "dataset_id": {"$in": dataset_Id} if isinstance(dataset_Id, list) else str(dataset_Id)}
-            
-
-            if isinstance(dataset_Id, list):
-                result = await self.dataset_collection.delete_many(query)
-            else:
-                result = await self.dataset_collection.delete_one(query)
-
-            return {"deleted_count": result.deleted_count, "status_code": 200 if result.deleted_count > 0 else 404}
-
-        except Exception as e:
-            logging.error(f"An unexpected error occurred: {e}")
-            return {"status_code": 500, "detail": "Unexpected server error."}
-        
     def assignRole(self, orgId: str, userId: str, spaceId: str, roleId: str):
         try:
             # Validate input data

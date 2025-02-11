@@ -7,11 +7,12 @@ import logging
 import yaml
 from fastapi import HTTPException,status
 from Database.applicationDataBase import *
+from Database.organizationDataBase import *
 import random
 import string
 
 
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
@@ -31,6 +32,10 @@ def initilizeApplicationDB():
     return applicationDB
 
 
+def initilizeOrganizationDB():
+    organizationDB = OrganizationDataBase('')
+    return organizationDB
+
 def generate_hierarchy_id():
     space_id = "".join(random.choice(string.ascii_lowercase) for _ in range(4))
     return space_id 
@@ -40,15 +45,14 @@ def generate_hierarchy_id():
 
 
 class Payload:
-    def __init__(self, role: dict, userId: str):
+    def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role
         self.userId = userId
         self.applicationDB = initilizeApplicationDB()  # Initialize the application database
+        # self.organizationDB = initilizeOrganizationDB() 
     def addPayload(self, data: dict):
-        
         try:
             # Check if the incoming data is empty
-            
             if not data or not isinstance(data, dict):
                 logger.error("Empty or invalid data received.")
                 return {
@@ -56,27 +60,27 @@ class Payload:
                     "detail": "Request data cannot be empty",
                 }
 
-
             # Check for empty values in the data
             empty_fields = [key for key, value in data.items() if not value]
-            
             if empty_fields:
                 logger.error(f"Empty values found in fields: {', '.join(empty_fields)}")
                 return {
-    "status_code": status.HTTP_400_BAD_REQUEST,
-    "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
-}
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
+                }
 
-            required_fields = ["path","clientApiKey", "deployId","parsedContent"]
+            required_fields = ["path", "payloadName", "taskId", "parsedContent"]
             missing_fields = [field for field in required_fields if field not in data]
             if missing_fields:
                 logger.error(f"Missing required fields: {', '.join(missing_fields)}")
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": f"Missing required fields: {', '.join(missing_fields)}."
+                    "detail": f"Missing required fields: {', '.join(missing_fields)}.",
                 }
-            # Call the database layer to add the prompt
-            status_code, success = self.applicationDB.add_payload(data)
+
+            # Call the database layer to add the payload
+            status_code, success, error = self.organizationDB.add_payload(data)
+            logger.info(f"Add payload response: {status_code}, Success: {success}, Error: {error}")
 
             if success:
                 logger.info(f"Payload added successfully for userId {self.userId}")
@@ -85,12 +89,12 @@ class Payload:
                     "detail": "Payload added successfully",
                 }
             else:
-                logger.error(f"Failed to add payload for userId {self.userId}")
-                # Map the database error code to a meaningful HTTP status
-                if status_code == 400:
+                # Handle duplicate or other errors
+                logger.error(f"Failed to add payload for userId {self.userId}: {error}")
+                if "duplicate" in error.lower():
                     return {
                         "status_code": status.HTTP_400_BAD_REQUEST,
-                        "detail": "Invalid input or data",
+                        "detail": f"Duplicate payload name: {data['payloadName']}",
                     }
                 elif status_code == 500:
                     return {
@@ -115,6 +119,7 @@ class Payload:
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="Failed to add payload due to an unexpected internal error",
             )
+
         
     def getPayloadDetails(self):
                 """
@@ -124,7 +129,7 @@ class Payload:
                 """
                 try:
                     # Call the database layer method to fetch LLM prompts data
-                    result = self.applicationDB.get_payload_details()
+                    result = self.organizationDB.get_payload_details()
 
                     # Handle cases where no data is returned
                     if not result:
@@ -201,8 +206,9 @@ class Payload:
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data."
                 }
+            orginizationDB = OrganizationDataBase('')
             # Call the database layer to delete the prompt
-            result = self.applicationDB.delete_payload(data)
+            result = orginizationDB.delete_payload(data)
 
             # Handle cases based on the result
             if result["status_code"] == 404:

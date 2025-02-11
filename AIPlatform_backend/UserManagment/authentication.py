@@ -12,7 +12,7 @@ from werkzeug.security import generate_password_hash
 from db_config import config
 
 
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
@@ -127,7 +127,6 @@ class Authentication:
             password = requestData["password"]
             # Ensure applicationDB is initialized
             if not hasattr(self, 'applicationDB') or self.applicationDB is None:
-                print("not initi")
                 logging.error("ApplicationDB is not initialized.")
                 return {
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,

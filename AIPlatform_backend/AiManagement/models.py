@@ -11,7 +11,7 @@ import random
 import string
 
 
-projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
@@ -40,7 +40,7 @@ def generate_hierarchy_id():
 
 
 class Model:
-    def __init__(self, role: dict, userId: str):
+    def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role
         self.userId = userId
         self.applicationDB = initilizeApplicationDB()
