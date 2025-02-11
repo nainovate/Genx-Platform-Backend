@@ -38,8 +38,7 @@ async def start_benchmark_task(request_data: dict = Body(...)):
 async def check_process_status(
     process_id: str = Query(...), 
     service: str = Query(...), 
-    sessionId: str = Query(...), 
-    orgId: str = Query(...), 
+    sessionId: str = Query(...)
 ):
     try:
         # Retrieve the evaluation instance using sessionId
@@ -48,8 +47,7 @@ async def check_process_status(
         # Create the request_data structure as expected by the check_process_status method
         request_data = {
             "process_id": process_id,
-            "service": service,
-            "orgId": orgId
+            "service": service
         }
         
         # Call the method with the required data

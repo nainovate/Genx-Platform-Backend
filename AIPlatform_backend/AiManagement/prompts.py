@@ -43,7 +43,8 @@ class Prompts:
     def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role
         self.userId = userId
-        self.applicationDB = initilizeApplicationDB()  # Initialize the application database
+        self.orgIds = orgIds
+    
     def addPrompt(self, data: dict):
         print("dataa  dghfd--",data)
         """
@@ -62,7 +63,7 @@ class Prompts:
 
             # Define required keys
             required_keys = {
-                "clientApiKey", "promptName", "appType", "memoryType",
+                "promptName", "taskType",
                 "systemMessage", "aiMessage", "humanMessage", "inputData"  # Ensure inputData is included
             }
 
@@ -76,25 +77,26 @@ class Prompts:
                 }
 
             # Allow inputData to be empty, but check other required fields for missing values
-            empty_fields = [key for key in required_keys if key != "inputData" and not data.get(key)]
+            empty_fields = [
+                key for key in required_keys
+                if key not in {"inputData", "humanMessage", "aiMessage"} and not data.get(key)
+            ] 
             if empty_fields:
                 logger.error(f"Empty values found in fields: {', '.join(empty_fields)}")
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
                 }
-
+            organizationDB = OrganizationDataBase(orgId)
             # Call the database layer to add the prompt
-            status_code, success = self.applicationDB.add_prompt(data)
+            status_code, success = organizationDB.add_prompt(data)
 
             if success:
-                logger.info(f"Prompt added successfully for clientApiKey {data['clientApiKey']}")
                 return {
                     "status_code": status.HTTP_200_OK,
                     "detail": "Prompt added successfully",
                 }
             else:
-                logger.error(f"Failed to add prompt for clientApiKey {data['clientApiKey']}")
                 return {
                     "status_code": status_code,
                     "detail": "Error occurred while adding prompt",
@@ -118,8 +120,14 @@ class Prompts:
         :return: A dictionary containing the status code and additional details.
         """
         try:
-            # Call the database layer method to fetch LLM prompts data
-            result = self.applicationDB.get_llm_prompts_data()
+
+            result = []
+
+            for orgId in self.orgIds:
+                organizationDB = OrganizationDataBase(orgId)
+                prompts, status_code = organizationDB.get_prompts_data()
+                if prompts:
+                    result.extend(prompts)
 
             # Handle cases where no data is returned
             if not result:

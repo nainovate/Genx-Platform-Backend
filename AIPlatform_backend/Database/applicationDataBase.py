@@ -1425,6 +1425,74 @@ class ApplicationDataBase:
             }
 
 
+    def unassignTask(self, orgId: str, spaceId: str, roleId: str, userId: str, taskIds: list):
+        try:
+            # Validate input types
+            if not all(isinstance(value, str) and value.strip() for value in [orgId, spaceId, roleId, userId]) or not isinstance(taskIds, list):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input. orgId, spaceId, roleId, and userId must be non-empty strings, and taskIds must be a list."
+                }
+
+            # Check if user exists
+            user = self.applicationDB["users"].find_one({"_id": ObjectId(userId)})
+            if not user:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "User not found."
+                }
+
+            # Check if user belongs to the specified orgId
+            if orgId not in user.get("orgIds", []):
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "User does not have access to the specified orgId."
+                }
+
+            # Verify that the roleId is assigned under the given orgId and spaceId
+            user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
+            if roleId not in user_roles:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Role {roleId} is not assigned to user {userId} in space {spaceId} within organization {orgId}."
+                }
+
+            # Get current tasks assigned to the user under the roleId
+            current_tasks = set(user_roles.get(roleId, []))
+            tasks_to_remove = set(taskIds)
+            existing_tasks_to_remove = current_tasks.intersection(tasks_to_remove)
+            updated_tasks = list(current_tasks - existing_tasks_to_remove)
+
+            if not existing_tasks_to_remove:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "No matching tasks found for unassignment."
+                }
+
+            # Update the user document with the new task list
+            result = self.applicationDB["users"].update_one(
+                {"_id": ObjectId(userId)},
+                {"$set": {f"role.user.{orgId}.{spaceId}.{roleId}": updated_tasks}}
+            )
+
+            if result.modified_count == 0:
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": "Task unassignment failed. No tasks were removed."
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Tasks successfully unassigned from user {userId}. Removed: {list(existing_tasks_to_remove)}. Remaining tasks: {updated_tasks}"
+            }
+
+        except Exception as e:
+            logging.error(f"Error while unassigning tasks: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Internal server error: {e}"
+            }
+
 
 
     def getUsersByRole(self, orgId: str, spaceId: str, roleId: str):
@@ -1437,18 +1505,17 @@ class ApplicationDataBase:
                 }
 
             # Fetch all users
-            users = self.applicationDB["users"].find({}, {"_id": 1, "firstName": 1, "lastName": 1, "email": 1, "role": 1})
+            users = self.applicationDB["users"].find({})
 
             # Filter users in Python
             filtered_users = []
             for user in users:
                 user_roles = user.get("role", {}).get("user", {}).get(orgId, {}).get(spaceId, {})
-                
                 if roleId in user_roles:
                     filtered_users.append({
                         "id": str(user["_id"]),
-                        "firstName": user["firstName"],
-                        "lastName": user["lastName"],
+                        "username": user["username"],
+                        "role": user["role"],
                         "email": user["email"]
                     })
 
@@ -1800,7 +1867,7 @@ class ApplicationDataBase:
                 return status.HTTP_404_NOT_FOUND
             
             user_orgIds = user.get("orgIds", [])
-            user_role = list(user.get("role").keys())[0]
+            user_role = list(user.get("role",{}).keys())[0]
             if orgId in user_orgIds:
                 return status.HTTP_409_CONFLICT
 
@@ -1839,7 +1906,7 @@ class ApplicationDataBase:
                 return status.HTTP_404_NOT_FOUND
             
             user_orgIds = user.get("orgIds", [])
-            user_role = list(user.get("role").keys())[0]
+            user_role = list(user.get("role",{}).keys())[0]
 
             if orgId not in user_orgIds:
                 return status.HTTP_400_BAD_REQUEST
@@ -1865,27 +1932,26 @@ class ApplicationDataBase:
             logging.error(f"Error while unassigning User {userId} for org id {orgId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
 
-    def getOrganizationsforUsers(self, userId):
+    def getOrganizationsforUsers(self, userId, role):
         try:
             if self.applicationDB is None:
                 logging.error("Application database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
             
-            adminDocument = self.applicationDB["users"].find(
+            result = self.applicationDB["users"].find_one(
                 {"_id":ObjectId(userId), 
-                },{"_id": 0, "role":1})
-            adminDocument = list(adminDocument)
-            org_ids = adminDocument[0]['role']['admin']
-            if len(org_ids) > 0:
-                adminOrgs = []
-                for orgId in org_ids:
+                },{"_id": 0, "orgIds":1})
+            orgIds = result["orgIds"]
+            if len(orgIds) > 0:
+                userOrgs = []
+                for orgId in orgIds:
                     org ={}
                     orgName = self.applicationDB["organizations"].find_one({"orgId": orgId}, {"_id": 0, "orgName": 1})
                     org["orgId"] = orgId
                     org["orgName"] = orgName['orgName']
-                    adminOrgs.append(org)
+                    userOrgs.append(org)
 
-                return adminOrgs, status.HTTP_200_OK
+                return userOrgs, status.HTTP_200_OK
             else:
                 logging.info("No org found in application database for this admin.")
                 return {}, status.HTTP_404_NOT_FOUND
@@ -2232,114 +2298,9 @@ class ApplicationDataBase:
             return {"status_code": 500, "detail": "Unexpected server error."}
 
 
-    def add_payload(self, document):
-        """
-        Saves payload to MongoDB, preventing duplicate payload names.
-
-        :param document: Dictionary containing `taskId`, `payloadName`, `parsedContent`, and optional `path`.
-        :return: Dictionary with success status, payloadId, or error message.
-        """
-        try:
-            # Extract fields from the document
-            taskId = document.get("taskId")
-            payloadName = document.get("payloadName")
-            parsed_content = document.get("parsedContent")
-            payloadPath = document.get("path")
-            print("parsed_content",parsed_content)
-            # Validate required fields
-            if not payloadName or not parsed_content or not taskId:
-                missing_fields = []
-                if not payloadName:
-                    missing_fields.append("payloadName")
-                if not parsed_content:
-                    missing_fields.append("parsedContent")
-                if not taskId:
-                    missing_fields.append("taskId")
-                raise ValueError(f"Missing required fields: {', '.join(missing_fields)}")
-
-            # Check for duplicate payloadName
-            payload_collection = self.applicationDB["payload"]
-            print(f"Checking for existing payload with name: {payloadName}")
-            existing_payload = payload_collection.find_one({"payloadName": payloadName})
-            if existing_payload:
-                return {"success": False, "error": f"Payload with name '{payloadName}' already exists."}
-
-            # Generate timestamp
-            timestamp = self.get_current_timestamp()
-
-            # Process the parsed content
-            processed_payloads = [
-                {
-                "items": [
-                    {
-                        "index": idx + 1,  # Add index based on the position in the list
-                        "question": item["question"],
-                        "answer": item["answer"]
-                    }
-                    for idx, item in enumerate(parsed_content)  # Loop through parsed_content list
-                ]
-            }
-            ]
-
-            # Create the full document to insert into MongoDB
-            payload_document = {
-                "taskId": taskId,
-                "payloadName": payloadName,
-                "payloadPath": payloadPath,
-                "payloads": processed_payloads,
-                "timestamp": timestamp
-            }
-            print("oayload Content ",payload_collection)
-            # Insert the document into MongoDB
-            insert_result = payload_collection.insert_one(payload_document)
-            print(f"Insertion result: {insert_result}")
-            # Check if the insertion was successful
-            if not insert_result.acknowledged:
-                raise Exception("Failed to insert document into MongoDB.")
-
-            # Return success with inserted ID
-            return {"success": True, "payloadId": str(insert_result.inserted_id)}
-
-        except ValueError as ve:
-            print(f"Validation Error: {ve}")
-            return {"success": False, "error": str(ve)}
-
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-            return {"success": False, "error": f"An unexpected error occurred: {str(e)}"}
-
-        
-    def get_payload_details(self):
-            """
-            Fetches payload details from the MongoDB collection for the given organisation.
-
-            :param organisation: Name of the organisation (used as a database name).
-            :return: List of payload details or an error message.
-            """
-            try:
-
-                # Connect to the organisation database and collection
-                db = self.applicationDB
-                payload_collection = db["payload"]
-
-                # Query the collection for payload details, excluding the "_id" field
-                payload_data = list(
-                    payload_collection.find({}, {"_id": 0}).sort("timestamp", DESCENDING)
-                )
-
-                if not payload_data:
-                    logging.warning("No payload data found.")
-                    return {"success": False, "message": "No payload data found."}
-
-                logging.info(f"Payload data fetched successfully: {len(payload_data)} records.")
-                return {"success": True, "data": payload_data}
-
-            except Exception as e:
-                logging.error(f"An unexpected error occurred: {e}")
-                return {"success": False, "error": "An unexpected error occurred."}    
-
     
-
+        
+   
 
     def add_model(self, json_data):
         try:

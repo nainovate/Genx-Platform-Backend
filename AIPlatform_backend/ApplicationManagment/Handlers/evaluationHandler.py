@@ -12,6 +12,7 @@ import requests
 
 import yaml
 from flask import jsonify
+from Database.organizationDataBase import OrganizationDataBase
 from utils import Payload, ModelStatus, StatusRecord
 from Database.evaluationSetup import MongoDBHandler
 from ApplicationManagment.Handlers.storeExcel import JSONToExcelConverter
@@ -33,7 +34,7 @@ class EvaluationHandler:
         self.session_id = self.payload.session_id
         self.config_type = self.payload.config_type
         self.config_id = self.payload.config_id
-        self.client_api_key = self.payload.client_api_key
+        #self.client_api_key = self.payload.client_api_key
         self.process_name = self.payload.process_name
         # Lists to store extracted config_id and model_name
         self.config_ids = []
@@ -51,7 +52,7 @@ class EvaluationHandler:
         print("Extracted Config IDs:", self.config_ids)
         print("Extracted Model Names:", self.model_names)
         
-    async def background_evaluation(self, process_id: str):
+    async def background_evaluation(self, process_id: str, orgId):
         start_time = datetime.now()
 
         # Initialize in-memory storage for the process
@@ -62,7 +63,15 @@ class EvaluationHandler:
             "end_time": None,
             "async_task": asyncio.current_task()
         }
-
+        # Initialize the organization database
+        organizationDB = OrganizationDataBase(orgId)
+    
+        # Check if organizationDB is initialized successfully
+        if organizationDB.status_code != 200:
+            return {
+                "status_code": organizationDB.status_code,
+                "detail": "Error initializing the organization database"
+            }
         try:
             config_data = {
                 "user_id": self.user_id,
@@ -72,7 +81,8 @@ class EvaluationHandler:
                 "model_name": self.model_names,
                 "payload_file_path": self.payload_file_path
                 }
-            await self.mongoHandler.insert_config_record(config_data)
+            await organizationDB.insert_config_record(config_data)
+            print("insertr record--")
 
             # Create initial status record in the database
             # Create initial status record in the database
@@ -93,7 +103,7 @@ class EvaluationHandler:
             }
              
             # Insert initial status in EvalStatus using MongoDBHandler
-            await self.mongoHandler.update_status_record(status_record)
+            await organizationDB.update_status_record(status_record)
 
             # Evaluate each model concurrently
             async def evaluate_model(index, model_id):
@@ -102,26 +112,26 @@ class EvaluationHandler:
                     # Update the status of the current model
                     EvaluationHandler.task_statuses[process_id]["models"][model_id] = "In Progress"
                     status_record['models'][index]['status'] = "In Progress"
-                    await self.mongoHandler.update_status_record(status_record)
+                    await organizationDB.update_status_record(status_record)
 
                     # Perform evaluation for the current model
                     eval_results = await self.select_config_type(model_id)  # Await here
                     if eval_results.get('status_code') == 200:
                         # Store results immediately in results_db
                         model_name = self.model_names[index]
-                        await self.mongoHandler.update_results_record(
+                        await organizationDB.update_results_record(
                             process_id, self.process_name, self.user_id, self.config_type, model_id, model_name, eval_results['data']
                         )
                         EvaluationHandler.task_statuses[process_id]["models"][model_id] = "Completed"
                         status_record['models'][index]['status'] = "Completed"
 
                         #status_record["status_details"][0]["overall_status"] = "Completed"
-                        await self.mongoHandler.update_status_record(status_record)
+                        await organizationDB.update_status_record(status_record)
                     else:
                         EvaluationHandler.task_statuses[process_id]["models"][model_id] = "Failed"
                         status_record['models'][index]['status'] = "Failed"
                         #status_record["status_details"][0]["overall_status"] = "Failed"
-                        await self.mongoHandler.update_status_record(status_record)
+                        await organizationDB.update_status_record(status_record)
                         raise Exception("Evaluation failed for model")
                         
 
@@ -132,7 +142,7 @@ class EvaluationHandler:
                     print("task_statuses", EvaluationHandler.task_statuses)
                     print("status_record", status_record)
                     #status_record["status_details"][0]["overall_status"] = "Failed"
-                    await self.mongoHandler.update_status_record(status_record)
+                    await organizationDB.update_status_record(status_record)
                     raise
 
                 
@@ -156,21 +166,21 @@ class EvaluationHandler:
                 status_record["overall_status"] = "Failed"
 
             # Update the status record in the database
-            await self.mongoHandler.update_status_record(status_record)
+            await organizationDB.update_status_record(status_record)
 
             # Extract results from DB
-            all_results = await self.mongoHandler.get_results(process_id)
+            all_results = await organizationDB.get_results(process_id)
             if all_results:
                 os.makedirs(os.path.dirname(EvaluationHandler.results_path), exist_ok=True)
                 excelConverter = JSONToExcelConverter()
                 resultpath = excelConverter.convert_json_to_excel(all_results, EvaluationHandler.results_path, self.config_type)
-                await self.mongoHandler.update_results_path(process_id, resultpath["path"])
+                await organizationDB.update_results_path(process_id, resultpath["path"])
 
             # Update end time
             end_time = datetime.now()
             EvaluationHandler.task_statuses[process_id]["end_time"] = end_time
             status_record["end_time"] = end_time
-            await self.mongoHandler.update_status_record(status_record)
+            await organizationDB.update_status_record(status_record)
 
             return {"status": EvaluationHandler.task_statuses, "detail": "Evaluation completed"}
 
@@ -179,9 +189,8 @@ class EvaluationHandler:
             EvaluationHandler.task_statuses[process_id]["overall_status"] = "Failed"
             EvaluationHandler.task_statuses[process_id]["end_time"] = datetime.now()
             status_record["overall_status"] = "Failed"
-            await self.mongoHandler.update_status_record(status_record)
+            await organizationDB.update_status_record(status_record)
             raise HTTPException(status_code=500, detail=f"Internal server error: {e}")
-
     async def select_config_type(self, deploy_id):
         try:
             if self.config_type == "STT":
@@ -268,7 +277,7 @@ class EvaluationHandler:
             inputData = {"question": question}
             return {
             "userId": self.user_id,
-            "clientApiKey": self.client_api_key,
+            #"clientApiKey": self.client_api_key,
             "deployId": deploy_id,
             "inputData": inputData,
             "uniqueId": self.session_id
@@ -277,7 +286,7 @@ class EvaluationHandler:
             """Prepares the request payload based on input data."""
             return {
                 "userId": self.user_id,
-                "clientApiKey": self.client_api_key,
+                #"clientApiKey": self.client_api_key,
                 "deployId": deploy_id,
                 "query": question,
                 "uniqueId": self.session_id

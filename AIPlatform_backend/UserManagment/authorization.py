@@ -97,6 +97,8 @@ class Authorization:
 
     def createUser(self, data: dict = Body(...)):
         try:
+            print('-----role',self.role)
+            print('--------data',data)
             # Check if user already exists by username or email
             if self.applicationDB.checkExistingUser(data["username"], data["email"]):
                 return {
