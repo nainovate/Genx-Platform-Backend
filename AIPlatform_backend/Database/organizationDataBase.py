@@ -12,6 +12,7 @@ from pymongo.mongo_client import MongoClient
 from fastapi import HTTPException, status
 from pymongo.errors import OperationFailure
 from werkzeug.security import check_password_hash
+
 # from Database.applicationDataBase import ApplicationDataBase
 from db_config import config, finetuning_config
 
@@ -586,7 +587,48 @@ class OrganizationDataBase:
             return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, 
                     "message": "Error retrieving metrics.", "detail": str(e)}
         
-    
+    def fetch_process_status(self, process_id):
+        """Fetch the document with the given process ID."""
+        try:
+
+            # Validate process_id
+            if not process_id or not isinstance(process_id, str):
+                logging.error("Invalid process ID.")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid process ID. It must be a non-empty string."
+                }
+
+            # Ensure MongoDB collection is initialized
+            if self.status_collection is None:
+                logging.error("MongoDB collection is not initialized.")
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Database connection issue."
+                }
+
+            # Fetch the document
+            document = self.status_collection.find_one({"process_id": process_id})
+
+            # If process ID does not exist, return an error response
+            if not document:
+                logging.warning(f"Process ID {process_id} not found.")
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Process ID {process_id} not found."
+                }
+
+            return document  # Return the found document
+
+        except Exception as e:
+            logging.error(f"Database error while fetching process status: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Database error: {str(e)}"
+            }
+
+
+
 
     def get_documents_by_user_id(self, user_id):
         try:
