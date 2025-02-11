@@ -2427,16 +2427,16 @@ class ApplicationDataBase:
             user = self.applicationDB["users"].find_one({"_id":ObjectId(userId)})
             if not user:
                 return status.HTTP_404_NOT_FOUND
-            user_role = user.get("role", [])
+            user_role = user.get("role", {})
             user_orgs = user.get("orgIds")
             if orgId not in user_orgs:
                 return status.HTTP_401_UNAUTHORIZED
             if not "user" in user_role:
                 return status.HTTP_401_UNAUTHORIZED
             else:
-                if roleId not in user_role.get("user", {}).get(orgId, {}).get(spaceId, {}):
+                if roleId in user_role.get("user", {}).get(orgId, {}).get(spaceId, {}):
                     return status.HTTP_409_CONFLICT
-                self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$push": {f"role.user.{orgId}.{spaceId}.{roleId}": []}})
+                self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$set": {f"role.user.{orgId}.{spaceId}.{roleId}": []}})
             return status.HTTP_200_OK
             
         except Exception as e:

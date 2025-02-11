@@ -389,13 +389,13 @@ class Role:
             if status_code == 400:
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "Invalid spaceId. Expected a string."
+                    "detail": "Invalid RoleId. Expected a string."
                 }
             
             elif status_code == 404:
                 return {
                     "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": f"Space Not Found for spaceId: {spaceId}",
+                    "detail": f"Role Not Found for spaceId: {spaceId}",
                 }
             
             elif not status_code == 200:
