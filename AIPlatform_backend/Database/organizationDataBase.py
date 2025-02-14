@@ -405,7 +405,7 @@ class OrganizationDataBase:
         
     def getAgents(self,tagName: str):
         try:
-            agents = self.organizationDB["agents"].find({"tagName":tagName,"status": "deploy"})
+            agents = self.organizationDB["DeploymentConfig"].find({"tagName":tagName})
             agents_list = list(agents)
             if len(agents_list) ==0:
                 return agents_list,status.HTTP_404_NOT_FOUND
