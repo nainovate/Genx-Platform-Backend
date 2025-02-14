@@ -16,7 +16,7 @@ logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
 
 tasks = {}
-
+metrics = {}
 
 class finetune():
     def __init__(self, role: dict, userId: str,orgIds:list):
@@ -292,7 +292,7 @@ class finetune():
             update_result = organizationDB.update_status_in_mongo(status_record)
 
             # Retrieve session metrics safely
-            metrics = tasks.get(process_id)
+            metrics = metrics.get(process_id)
 
             # Remove the task from the running store
             tasks.pop(process_id, None)
