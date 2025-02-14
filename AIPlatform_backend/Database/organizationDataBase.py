@@ -848,7 +848,83 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
+    def update_status_in_mongo(self, status_record):
+        """ Update only the status field of a model in MongoDB """
+        try:
+            timestamp = self.get_current_timestamp
+            # Update the status and last_updated fields
+            self.status_collection.update_one(
+                {"process_id": status_record["process_id"], 
+                 "user_id": status_record["user_id"],
+                 "model_id": status_record["model_id"]},
+                {
+                    "$set": {
+                        "status": status_record["status"],
+                        "last_updated": timestamp
+                    }
+                },
+                upsert=True
+            )
+            return {
+                "status_code": 200,
+                "detail": f"Status updated successfully for process {status_record['process_id']}, model {status_record['model_id']}."
+            }
         
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "detail": f"Failed to update status for process {status_record['process_id']}, model {status_record['model_id']}: {str(e)}"
+            }
+    
+    def store_session_metrics(self,user_id,process_id, session_metrics,model_id,target_loss):
+        print("entered metrics in to the db  ")
+
+        """
+        Stores session metrics into MongoDB with error handling.
+
+        Parameters:
+        - session_id (str): Unique session identifier.
+        - series_id (str): Identifier for the training series.
+        - session_metrics (list): List of metric dictionaries.
+        - db_url (str): MongoDB connection URL.
+        - db_name (str): Name of the database.
+        - collection_name (str): Name of the collection.
+
+        Returns:
+        - dict: Result of the operation or error details.
+        """
+        try:
+            
+            
+
+            timestamp = self.get_current_timestamp
+            # Prepare document for insertion
+            document = {
+                "process_id": process_id,
+                "user_id": user_id,
+                "model_id" : model_id,
+                "Target_loss": target_loss,
+                "iterations_count": len(session_metrics),
+                "metrics": session_metrics,
+                "timestamp": timestamp,
+            }
+
+            # Insert document into MongoDB
+            result = self.responseCollection.insert_one(document)
+
+            return {
+                "status_code": 200,
+                "message": "Data inserted successfully!",
+                "inserted_id": str(result.inserted_id),
+            }
+
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "message": f"Failed to insert data: {str(e)}",
+            }
+
+
     # Evaluation
     async def check_ongoing_task(self, user_id: str):
         """Check if the user already has an ongoing evaluation task."""

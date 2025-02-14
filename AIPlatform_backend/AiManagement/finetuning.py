@@ -15,6 +15,7 @@ logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
 
+tasks = {}
 
 
 class finetune():
@@ -219,3 +220,102 @@ class finetune():
             },
         )
 
+    def cancel_fine_tune(self,data):
+        try:
+            required_fields = ["process_id","orgId"]
+            missing_fields = [field for field in required_fields if field not in data]
+            if missing_fields:
+                logging.error(f"Missing required fields: {', '.join(missing_fields)}")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": f"Missing required fields: {', '.join(missing_fields)}."
+                }
+            process_id = data["process_id"]
+            orgId = data["orgId"]
+            if orgId not in self.orgIds:
+                    return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access "
+                    }
+
+            # Initialize the organization database
+            organizationDB = OrganizationDataBase(orgId)
+            
+            # Check if organizationDB is initialized successfully
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+            # Check if process ID exists in the running tasks
+            task = tasks.get(process_id)
+            if not task:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"No running task found with process ID: {process_id}",
+                }
+
+            user_id = task.get("user_id", None)
+            model_id = task.get("models", None)
+            target_loss = task.get("target_loss", None)
+
+            if not user_id or not model_id:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": f"Missing required fields in task data for process ID: {process_id}",
+                }
+
+            # Attempt to cancel the task
+            async_task = task.get("async_task")
+            if async_task:
+                async_task.cancel()
+                try:
+                    async_task
+                except asyncio.CancelledError:
+                    pass  # Task was successfully canceled
+
+            # Update the task status in the store
+            tasks[process_id] = {
+                "status": "canceled",
+                "end_time": datetime.now()
+            }
+
+            # Prepare the status update record
+            status_record = {
+                "process_id": process_id,
+                "user_id": user_id,
+                "model_id": model_id,
+                "status": "canceled"
+            }
+
+            # Update MongoDB with the new status
+            update_result = organizationDB.update_status_in_mongo(status_record)
+
+            # Retrieve session metrics safely
+            metrics = tasks.get(process_id)
+
+            # Remove the task from the running store
+            tasks.pop(process_id, None)
+
+            # Store session metrics
+            store_result = organizationDB.store_session_metrics(user_id, process_id, metrics, model_id, target_loss)
+
+            return {
+                "status_code": 200,
+                "message": f"Fine-tuning process with ID {process_id} has been canceled.",
+                "mongo_update": update_result,
+                "store_metrics_result": store_result
+            }
+
+        except HTTPException as http_ex:
+            raise http_ex  # Re-raise FastAPI-specific exceptions
+        except KeyError as key_ex:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Missing key in request: {str(key_ex)}",
+            )
+        except Exception as e:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"An unexpected error occurred: {str(e)}",
+            )
