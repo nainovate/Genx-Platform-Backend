@@ -301,6 +301,7 @@ class Task:
                 }
 
             # Initialize the organization database
+            clientApiKey = self.applicationDB.getApiKey(data["orgId"])
             organizationDB = OrganizationDataBase(data["orgId"])
             if organizationDB.status_code != 200:
                 return {
@@ -340,18 +341,18 @@ class Task:
                     }
 
             agentId = data["agentId"]   
-            if not isinstance(data["agentId"], str):
-                return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "agentId must be a string"
-                }
+            # if not isinstance(data["agentId"], str):
+            #     return {
+            #         "status_code": status.HTTP_400_BAD_REQUEST,
+            #         "detail": "agentId must be a string"
+            #     }
 
-            status_code = organizationDB.checkAgent(agentId)
-            if status_code != 200:
-                return {
-                    "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": f"Agent with ID {data['agentId']} not found"
-                }
+            # status_code = organizationDB.checkAgent(agentId)
+            # if status_code != 200:
+            #     return {
+            #         "status_code": status.HTTP_404_NOT_FOUND,
+            #         "detail": f"Agent with ID {data['agentId']} not found"
+            #     }
 
 
             # Create the task in the organization database
@@ -360,7 +361,8 @@ class Task:
                 "description": data["description"],
                 "roleIds": roleIds,
                 "createdBy": self.userId,
-                "agentId": agentId
+                "agentId": agentId,
+                "clientApiKey" : clientApiKey
             }
             status_code = organizationDB.createTask(taskInfo=taskInfo)
 
