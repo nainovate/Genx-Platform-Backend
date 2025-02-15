@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class EvaluationHandler:
     task_statuses = {}
-    results_path = "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/results"
+    results_path = "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/results"
     def __init__(self, mongoHandler: MongoDBHandler, payload: Payload):
         self.mongoHandler = mongoHandler
         self.payload = payload
@@ -81,8 +81,12 @@ class EvaluationHandler:
                 "model_name": self.model_names,
                 "payload_file_path": self.payload_file_path
                 }
-            await organizationDB.insert_config_record(config_data)
-            print("insertr record--")
+            try:
+                print("config_data", config_data)
+                result = await organizationDB.insert_config_record(config_data)
+                print("insert record", result)
+            except Exception as e:
+                print(f"Full error: {e}")
 
             # Create initial status record in the database
             # Create initial status record in the database
@@ -101,10 +105,12 @@ class EvaluationHandler:
                 "overall_status": "In Progress",
                 "start_time": start_time
             }
-             
-            # Insert initial status in EvalStatus using MongoDBHandler
-            await organizationDB.update_status_record(status_record)
-
+            print("status record", status_record)
+            try:
+                result = await organizationDB.update_status_record(status_record)
+                print("status record updated", result)
+            except Exception as e:
+                print(f"Full error: {e}")
             # Evaluate each model concurrently
             async def evaluate_model(index, model_id):
                 try:
@@ -116,6 +122,7 @@ class EvaluationHandler:
 
                     # Perform evaluation for the current model
                     eval_results = await self.select_config_type(model_id)  # Await here
+                    print("results", eval_results)
                     if eval_results.get('status_code') == 200:
                         # Store results immediately in results_db
                         model_name = self.model_names[index]
@@ -149,6 +156,7 @@ class EvaluationHandler:
                     
             for index, model_id in enumerate(self.config_ids):
                 try:
+                    print("model_id", model_id)
                     # Attempt to run evaluate_model for the current config_id
                     await evaluate_model(index, model_id)
                 except Exception as e:
@@ -174,7 +182,9 @@ class EvaluationHandler:
                 os.makedirs(os.path.dirname(EvaluationHandler.results_path), exist_ok=True)
                 excelConverter = JSONToExcelConverter()
                 resultpath = excelConverter.convert_json_to_excel(all_results, EvaluationHandler.results_path, self.config_type)
-                await organizationDB.update_results_path(process_id, resultpath["path"])
+                file_path = resultpath.get("path")
+                print("result path", resultpath)
+                await organizationDB.update_results_path(process_id, file_path)
 
             # Update end time
             end_time = datetime.now()
@@ -276,18 +286,18 @@ class EvaluationHandler:
         if self.config_type == "LLM":
             inputData = {"question": question}
             return {
-            "userId": self.user_id,
-            #"clientApiKey": self.client_api_key,
-            "deployId": deploy_id,
+            "user_id": self.user_id,
+            "client_api_key": "R3AM-52JL-INUS-E5YL",
+            "deployment_id": deploy_id,
             "inputData": inputData,
             "uniqueId": self.session_id
         }
         else:
             """Prepares the request payload based on input data."""
             return {
-                "userId": self.user_id,
-                #"clientApiKey": self.client_api_key,
-                "deployId": deploy_id,
+                "user_id": self.user_id,
+                "client_api_key": "R3AM-52JL-INUS-E5YL",
+                "deployment_id": deploy_id,
                 "query": question,
                 "uniqueId": self.session_id
             }
