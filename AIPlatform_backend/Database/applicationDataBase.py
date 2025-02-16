@@ -2482,3 +2482,19 @@ class ApplicationDataBase:
             # Log and handle unexpected errors
             logging.error(f"Error while assigning role for user id {userId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
+
+    def getApiKey(self,orgId):
+            try:
+                if self.applicationDB is None:
+                    logging.error("Application database is not initialized.")
+                    return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+                
+                apiKey = self.applicationDB["clientApiKeys"].find_one({"orgId":orgId}, {"_id": 0, "clientApiKey": 1})
+                if apiKey:
+                    return apiKey.get("clientApiKey", None)
+                else:
+                    logging.info("No keys found.")
+                    return None
+            except Exception as e:
+                logging.error(f"Error while retrieving apiKey: {e}")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR

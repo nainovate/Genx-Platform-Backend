@@ -23,6 +23,7 @@ async def calculate_metrics(request_data: dict, background_tasks: BackgroundTask
         evaluation = evaluation_instance[request_data["sessionId"]]
         return   evaluation.calculate_metrics(request_data["data"], background_tasks)
     except Exception as e:
+        print("error route", e)
         return HTTPException(status_code=500, detail=str(e))    
     
 @router.post("/api/benchmark/start")
@@ -66,9 +67,11 @@ async def check_process_results(request_data: dict = Body(...)):
 @router.post("/api/view/result")
 async def view_result(request_data: dict = Body(...)):
     try:
+        print("request data route", request_data["data"])
         evaluation = evaluation_instance[request_data["sessionId"]]
         return await evaluation.view_result(request_data["data"])
     except Exception as e:
+        print("error", e)
         return HTTPException(status_code=500, detail=str(e))      
     
 @router.post("/api/view/status")
@@ -118,4 +121,12 @@ async def update_ranges(request_data: dict = Body(...)):
         return await  evaluation.update_ranges(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))    
+    
+@router.post("/api/check/processName")
+async def check_process_name(request_data: dict = Body(...)):
+    try:
+        evaluation = evaluation_instance[request_data["sessionId"]]
+        return await  evaluation.check_process_name(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))     
 

@@ -62,6 +62,7 @@ class OrganizationDataBase:
             self.status_collection = self.organizationDB[eval_config['STATUS_COLLECTION']]
             self.config_collection = self.organizationDB[eval_config['CONFIG_COLLECTION']]
             self.metrics_collection = self.organizationDB[eval_config['METRICS_COLLECTION']]
+            self.llmPrompts_collection=self.organizationDB['LLMPrompts']
 
             self.status_code = 200
         except OperationFailure as op_err:
@@ -402,10 +403,11 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-        
+    
+    
     def getAgents(self,tagName: str):
         try:
-            agents = self.organizationDB["agents"].find({"tagName":tagName,"status": "deploy"})
+            agents = self.organizationDB["DeploymentConfig"].find({"tagName":tagName})
             agents_list = list(agents)
             if len(agents_list) ==0:
                 return agents_list,status.HTTP_404_NOT_FOUND
@@ -427,7 +429,7 @@ class OrganizationDataBase:
             if not isinstance(agentId, str):
                 return status.HTTP_400_BAD_REQUEST
 
-            role = self.organizationDB["agents"].find_one({"_id": ObjectId(agentId)})
+            role = self.organizationDB["DeploymentConfig"].find_one({"_id": ObjectId(agentId)})
             if role:
                 return status.HTTP_200_OK
             else:
@@ -848,16 +850,148 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
+    def addPrompt(self, data: dict):
+            try:
+                org_id = data.get("orgId")
+                if not org_id:
+                    raise HTTPException(status_code=400, detail="Missing 'orgId' in request data")
+                timestamp=self.get_current_timestamp()
+                # Prepare document for insertion
+                prompt_document = {
+                    "promptName": data.get("promptName", ""),
+                    "taskType": data.get("taskType", ""),
+                    "systemMessage": data.get("systemMessage", ""),
+                    "aiMessage": data.get("aiMessage", ""),
+                    "humanMessage": data.get("humanMessage", ""),
+                    "inputData": data.get("inputData", {}),
+                    "timestamp":timestamp
+                }
+                print("Prompt Document:", prompt_document)  # Debug: See the document being inserted
+
+                # Insert into MongoDB using motor's async method
+                result =  self.llmPrompts_collection.insert_one(prompt_document)
+                print("Insert Result:", result)  # Debug: See the insert result
+
+                if not result.acknowledged:
+                    raise HTTPException(status_code=500, detail="Failed to insert prompt into database")
+
+                return {"message": "Prompt added successfully", "promptId": str(result.inserted_id)}
+
+            except Exception as e:
+                print(f"Error in addPrompt: {e}")
+                raise HTTPException(status_code=500, detail=str(e))
+            
+    def get_prompts_data(self):
+        """
+        Fetches LLM Prompts data for a given organization (by orgId).
+
+        :return: List of prompts data or raises HTTPException if error occurs.
+        """
+        try:
+            # Query to get the prompts data for this org_id
+            prompts = self.llmPrompts_collection.find({}).to_list(length=100)  # Adjust the query if needed
+            logger.info(f"The prompts are: {prompts}")
+
+            if not prompts:
+                logger.warning(f"No prompts found for orgId {self.orgId}")
+                return [], 404  # Return empty list and 404 status if no data found
+
+            # Inline serialization: Convert ObjectId to string directly in the list
+            prompts = [
+                {k: (str(v) if isinstance(v, ObjectId) else v) for k, v in prompt.items()} 
+                for prompt in prompts
+            ]
+
+            return prompts, 200  # Return the prompts and a success status code
+
+        except Exception as e:
+            logger.error(f"Error fetching prompts for org {self.orgId}: {e}")
+            raise HTTPException(status_code=500, detail=f"Error fetching prompts for orgId {self.orgId}")         
+    def update_status_in_mongo(self, status_record):
+        """ Update only the status field of a model in MongoDB """
+        try:
+            timestamp = self.get_current_timestamp
+            # Update the status and last_updated fields
+            self.status_collection.update_one(
+                {"process_id": status_record["process_id"], 
+                 "user_id": status_record["user_id"],
+                 "model_id": status_record["model_id"]},
+                {
+                    "$set": {
+                        "status": status_record["status"],
+                        "last_updated": timestamp
+                    }
+                },
+                upsert=True
+            )
+            return {
+                "status_code": 200,
+                "detail": f"Status updated successfully for process {status_record['process_id']}, model {status_record['model_id']}."
+            }
         
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "detail": f"Failed to update status for process {status_record['process_id']}, model {status_record['model_id']}: {str(e)}"
+            }
+    
+    def store_session_metrics(self,user_id,process_id, session_metrics,model_id,target_loss):
+        print("entered metrics in to the db  ")
+
+        """
+        Stores session metrics into MongoDB with error handling.
+
+        Parameters:
+        - session_id (str): Unique session identifier.
+        - series_id (str): Identifier for the training series.
+        - session_metrics (list): List of metric dictionaries.
+        - db_url (str): MongoDB connection URL.
+        - db_name (str): Name of the database.
+        - collection_name (str): Name of the collection.
+
+        Returns:
+        - dict: Result of the operation or error details.
+        """
+        try:
+            
+            
+
+            timestamp = self.get_current_timestamp
+            # Prepare document for insertion
+            document = {
+                "process_id": process_id,
+                "user_id": user_id,
+                "model_id" : model_id,
+                "Target_loss": target_loss,
+                "iterations_count": len(session_metrics),
+                "metrics": session_metrics,
+                "timestamp": timestamp,
+            }
+
+            # Insert document into MongoDB
+            result = self.responseCollection.insert_one(document)
+
+            return {
+                "status_code": 200,
+                "message": "Data inserted successfully!",
+                "inserted_id": str(result.inserted_id),
+            }
+
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "message": f"Failed to insert data: {str(e)}",
+            }
+
+
     # Evaluation
     async def check_ongoing_task(self, user_id: str):
         """Check if the user already has an ongoing evaluation task."""
-        return await self.status_collection.find_one({"user_id": user_id, "overall_status": "In Progress"}) is not None
+        return  self.status_collection.find_one({"user_id": user_id, "overall_status": "In Progress"}) is not None
 
     async def insert_config_record(self, config_data: dict):
         try:
-            # Insert record into MongoDB
-            await self.config_collection.insert_one({
+            insert_result =  self.config_collection.insert_one({  # ✅ Correct: Await only the function call
                 "user_id": config_data.get('user_id'),
                 "process_id": config_data.get('process_id'),
                 "process_name": config_data.get("process_name"),
@@ -867,6 +1001,11 @@ class OrganizationDataBase:
                 "timestamp": int(datetime.utcnow().timestamp())
             })
 
+            # Log the inserted ID (optional)
+            logging.info(f"Inserted document ")
+
+            return {"success": True, "inserted": "sucessfully"}
+
         except PyMongoError as e:
             logging.error(f"Database Error: {e}")
             return {"success": False, "error": "Database insertion failed"}
@@ -874,34 +1013,56 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Unexpected Error: {e}")
             return {"success": False, "error": "An unexpected error occurred"}
+    async def check_process_name(self, process_name: str):
+        if not process_name:
+            raise HTTPException(status_code=400, detail="process_name parameter is required")
+        
+        existing_process = self.config_collection.find_one({"process_name": process_name})
+        
+        if existing_process:
+            return {"exists": True, "message": "Process name already exists"}
+        else:
+            return {"exists": False, "message": "Process name is available"}
         
     async def update_status_record(self, status_record: dict):
-    
-        await self.status_collection.update_one(
-            {"process_id": status_record["process_id"]},
-            {
-                "$set": {
-                    "user_id": status_record["user_id"],
-                    "process_name": status_record["process_name"],
-                    "models": status_record["models"],  # Assuming models is already a list of dictionaries
-                    "overall_status": status_record["overall_status"],
-                    "start_time": status_record["start_time"],
-                    "end_time": status_record.get("end_time", None)  # Ensure that end_time can be optional
-                }
-            },
-            upsert=True
-        )
+        try:
+            update_result = self.status_collection.update_one(
+                {"process_id": status_record["process_id"]},
+                {
+                    "$set": {
+                        "user_id": status_record["user_id"],
+                        "process_name": status_record["process_name"],
+                        "models": status_record["models"],  
+                        "overall_status": status_record["overall_status"],
+                        "start_time": status_record["start_time"],
+                        "end_time": status_record.get("end_time", None)  
+                    }
+                },
+                upsert=True
+            )
+
+            logging.info(f"Updated documents for process_id {status_record['process_id']}")
+            return {"success": True, "modified_count": 1}
+
+        except PyMongoError as e:
+            logging.error(f"Database Error: {e}")
+            return {"success": False, "error": str(e)}
+
+        except Exception as e:
+            logging.error(f"Unexpected Error: {e}")
+            return {"success": False, "error": str(e)}
+
     async def update_results_record(self, process_id: str,process_name: str, user_id: str, config_type: str, model_id: str,model_name:str, results: dict):
         """Update the status of a specific process in the database."""
         timestamp = datetime.utcnow()
-        await self.results_collection.update_one(
+        result =  self.results_collection.update_one(
                 {"user_id": user_id, "process_id": process_id, "process_name": process_name, "config_type": config_type},
                 {"$push": {"models": {"model_id": model_id, "model_name": model_name, "results": results}}},
                 upsert=True
         )
     async def get_results(self, process_id: str):
         try:
-            document = await self.results_collection.find_one({"process_id": process_id})
+            document =  self.results_collection.find_one({"process_id": process_id})
             if not document:
                 raise HTTPException(status_code=404, detail="Document not found.")
             results = document.get("models")
@@ -915,7 +1076,7 @@ class OrganizationDataBase:
             raise HTTPException(status_code=500, detail=f"Error retrieving results: {e}")
     async def update_results_path(self, process_id, results_path):
         try:
-            result = await self.results_collection.update_one(
+            result = self.results_collection.update_one(
                 {"process_id": process_id,},
                 {"$set": {"results_path": results_path}},
                 upsert=True
@@ -929,13 +1090,13 @@ class OrganizationDataBase:
             raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
     async def check_model_completed_status(self, process_id: str):
         # Fetch the existing record
-        existing_record = await self.status_collection.find_one({"process_id": process_id})        
+        existing_record = self.status_collection.find_one({"process_id": process_id})        
         if existing_record:
             # Check if any model's status is "Completed"
             return any(model['status'] == "Completed" for model in existing_record['models']) is not None
     async def get_result_document_by_process_id(self, process_id: str):
         """Get the status of a specific process."""
-        document = await self.results_collection.find_one({"process_id": process_id})
+        document = self.results_collection.find_one({"process_id": process_id})
         return document if document else None
     async def update_metric_status_record(self, status_record: StatusRecord, process_name):
         # Prepare the metrics object to add to the database
@@ -946,7 +1107,7 @@ class OrganizationDataBase:
         }
         timestamp = int(datetime.utcnow().timestamp())
         # Ensure the metric_id does not already exist in the metrics array
-        await self.status_collection.update_one(
+        status = self.status_collection.update_one(
             {
                 "process_id": status_record.process_id,  # Match the process_id
                 "metrics.metric_id": {"$ne": status_record.metric_id}  # Ensure the metric_id is not already in the array
@@ -967,7 +1128,7 @@ class OrganizationDataBase:
         )
     async def update_metric_model_status(self, process_id: str, model_id: str, new_status: str, metric_id: str, overall_status: str):
         # Check if the metric_id already exists in the metrics array
-        existing_metric = await self.status_collection.find_one(
+        existing_metric = self.status_collection.find_one(
             {
                 "process_id": process_id,
                 "metrics.metric_id": metric_id
@@ -977,7 +1138,7 @@ class OrganizationDataBase:
         
         if existing_metric:
             # If the metric exists, update the existing model status in that metric
-            await self.status_collection.update_one(
+            status = self.status_collection.update_one(
                 {
                     "process_id": process_id,  # Match the process by ID
                     "metrics.metric_id": metric_id  # Match the specific metric by ID
@@ -1005,7 +1166,7 @@ class OrganizationDataBase:
                 "metric_overall_status": overall_status  # Add the overall status to the new metric
             }
 
-            await self.status_collection.update_one(
+            self.status_collection.update_one(
                 {
                     "process_id": process_id  # Match the process by ID
                 },
@@ -1063,7 +1224,7 @@ class OrganizationDataBase:
             current_timestamp = int(datetime.utcnow().timestamp())
 
             # Check if the document exists for the given process_id and user_id
-            existing_document = await self.metrics_collection.find_one(
+            existing_document = self.metrics_collection.find_one(
                 {
                     "user_id": user_id,
                     "process_id": process_id,
@@ -1076,7 +1237,7 @@ class OrganizationDataBase:
 
             if existing_document:
                 # Update the existing document
-                await self.metrics_collection.update_one(
+                self.metrics_collection.update_one(
                     {
                         "user_id": user_id,
                         "process_id": process_id,
@@ -1098,7 +1259,7 @@ class OrganizationDataBase:
                 )
             else:
                 # Create a new document
-                await self.metrics_collection.insert_one(
+                self.metrics_collection.insert_one(
                     {
                         "user_id": user_id,
                         "process_id": process_id,
@@ -1118,7 +1279,7 @@ class OrganizationDataBase:
                 )
     async def update_metric_overall_status(self, process_id: str, metric_id: str, overall_status: str):
     
-        await self.status_collection.update_one(
+        metric =self.status_collection.update_one(
             {
                 "process_id": process_id,  # Match the process
                 "metrics.metric_id": metric_id  # Match the specific metric in the array
@@ -1133,7 +1294,7 @@ class OrganizationDataBase:
         results = []
         total_count = 0
 
-        for orgId in self.orgIds:
+        for orgId in self.orgId:
             organizationDB = OrganizationDataBase(orgId)
 
             # Calculate skip value for pagination
@@ -1141,12 +1302,10 @@ class OrganizationDataBase:
 
             # Fetch documents for the specific user_id from the organization’s config collection
             cursor = organizationDB.config_collection.find({"user_id": user_id}).sort("timestamp", -1).skip(skip).limit(page_size)
-
-            async for document in cursor:
+            for document in cursor:
                 process_id = document.get("process_id")
-                
                 # Fetch the overall_status for the process_id from the status_collection
-                status_document = await organizationDB.status_collection.find_one({"process_id": str(process_id)})
+                status_document = organizationDB.status_collection.find_one({"process_id": str(process_id)})
                 overall_status = status_document.get("overall_status") if status_document else None
                 
                 # Append the task details
@@ -1160,9 +1319,8 @@ class OrganizationDataBase:
                     "overall_status": overall_status,
                     "organization_id": orgId
                 })
-
             # Fetch the total count of documents for this user_id in the organization
-            org_count = await organizationDB.config_collection.count_documents({"user_id": user_id})
+            org_count = organizationDB.config_collection.count_documents({"user_id": user_id})
             total_count += org_count  # Sum up counts across all organizations
 
         # Calculate total pages based on aggregated count
@@ -1178,3 +1336,45 @@ class OrganizationDataBase:
             return MongoDBHandler(bench_config, org_id)  # Benchmarking-specific handler
         else:
             raise HTTPException(status_code=400, detail="Invalid service")
+        
+    def getRoleInfo(self, roleId):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+            role = self.organizationDB["roles"].find_one({"_id": ObjectId(roleId)},{"createdBy":0,"spaceIds":0})
+            if role:
+                role["roleId"]= str(role["_id"])
+                del role["_id"]
+                return role, status.HTTP_200_OK
+            else:
+                logging.info("role not found.")
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving roleInfo: {e}")
+            return [], status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def getTaskInfo(self,taskId):
+        try:
+            task = self.organizationDB["tasks"].find_one({"_id":ObjectId(taskId)}, {"roleIds": 0, "createdBy":0})    
+            if task:
+                task["_id"]= str(task["_id"])
+                return task, status.HTTP_200_OK
+            else:
+                return {}, status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def getQuestionCards(self,taskId):
+        try:
+            questions = self.organizationDB["questions"].find({"taskId":taskId}, {"_id": 0,"question":1})  
+            questions_list =list(questions)
+            if len(questions_list) != 0:
+                result = [object["question"] for object in questions_list]
+                return result, status.HTTP_200_OK
+            else:
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR

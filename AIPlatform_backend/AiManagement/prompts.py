@@ -87,9 +87,11 @@ class Prompts:
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": f"The following fields have empty values: {', '.join(empty_fields)}. Please provide valid data for these fields.",
                 }
+            orgId = data["orgId"]
+            print("org id", orgId)
             organizationDB = OrganizationDataBase(orgId)
             # Call the database layer to add the prompt
-            status_code, success = organizationDB.add_prompt(data)
+            status_code, success =   organizationDB.addPrompt(data)
 
             if success:
                 return {
@@ -122,13 +124,14 @@ class Prompts:
         try:
 
             result = []
+            print("the orgids are",self.orgIds)
 
             for orgId in self.orgIds:
                 organizationDB = OrganizationDataBase(orgId)
                 prompts, status_code = organizationDB.get_prompts_data()
                 if prompts:
                     result.extend(prompts)
-
+           
             # Handle cases where no data is returned
             if not result:
                 logger.warning("No prompts found in the database.")

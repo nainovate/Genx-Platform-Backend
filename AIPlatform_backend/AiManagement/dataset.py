@@ -15,6 +15,7 @@ class dataset:
     def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role
         self.userId = userId
+        self.orgIds=orgIds
         
 
     def add_dataset(self, data: dict):
@@ -56,6 +57,11 @@ class dataset:
                 "path": path,
                 "dataset_name" : dataset_type
             }
+            if orgId not in self.orgIds:
+                    return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access "
+                    }
             organizationDB = OrganizationDataBase(orgId)
             # Check if organizationDB is initialized successfully
             if organizationDB.status_code != 200:
@@ -105,6 +111,11 @@ class dataset:
 
 
             orgId = data["orgId"]
+            if orgId not in self.orgIds:
+                    return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access "
+                    }
             organizationDB = OrganizationDataBase(orgId)
             # Check if organizationDB is initialized successfully
             if organizationDB.status_code != 200:
@@ -198,6 +209,11 @@ class dataset:
                     }
 
             orgId = data["orgId"]
+            if orgId not in self.orgIds:
+                    return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access "
+                    }
             organizationDB = OrganizationDataBase(orgId)
             # Check if organizationDB is initialized successfully
             if organizationDB.status_code != 200:

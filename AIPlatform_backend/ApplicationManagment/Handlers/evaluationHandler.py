@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class EvaluationHandler:
     task_statuses = {}
-    results_path = "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/results"
+    results_path = "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/results"
     def __init__(self, mongoHandler: MongoDBHandler, payload: Payload):
         self.mongoHandler = mongoHandler
         self.payload = payload
@@ -48,9 +48,6 @@ class EvaluationHandler:
 
         # Now, self.config_ids contains all config_ids
         # and self.model_names contains all model_names
-
-        print("Extracted Config IDs:", self.config_ids)
-        print("Extracted Model Names:", self.model_names)
         
     async def background_evaluation(self, process_id: str, orgId):
         start_time = datetime.now()
@@ -81,8 +78,10 @@ class EvaluationHandler:
                 "model_name": self.model_names,
                 "payload_file_path": self.payload_file_path
                 }
-            await organizationDB.insert_config_record(config_data)
-            print("insertr record--")
+            try:
+                result = await organizationDB.insert_config_record(config_data)
+            except Exception as e:
+                print(f"Full error: {e}")
 
             # Create initial status record in the database
             # Create initial status record in the database
@@ -101,14 +100,13 @@ class EvaluationHandler:
                 "overall_status": "In Progress",
                 "start_time": start_time
             }
-             
-            # Insert initial status in EvalStatus using MongoDBHandler
-            await organizationDB.update_status_record(status_record)
-
+            try:
+                result = await organizationDB.update_status_record(status_record)
+            except Exception as e:
+                print(f"Full error: {e}")
             # Evaluate each model concurrently
             async def evaluate_model(index, model_id):
                 try:
-                    print("id", model_id)
                     # Update the status of the current model
                     EvaluationHandler.task_statuses[process_id]["models"][model_id] = "In Progress"
                     status_record['models'][index]['status'] = "In Progress"
@@ -139,8 +137,6 @@ class EvaluationHandler:
                     logger.error(f"Error during evaluation of model {model_id}: {e}")
                     EvaluationHandler.task_statuses[process_id]["models"][model_id] = "Failed"
                     status_record['models'][index]['status'] = "Failed"
-                    print("task_statuses", EvaluationHandler.task_statuses)
-                    print("status_record", status_record)
                     #status_record["status_details"][0]["overall_status"] = "Failed"
                     await organizationDB.update_status_record(status_record)
                     raise
@@ -160,7 +156,6 @@ class EvaluationHandler:
                 EvaluationHandler.task_statuses[process_id]["overall_status"] = "Completed"
                 status_record["overall_status"] = "Completed"
             else:
-                print("overall status failed")
                 # If any model is not "Completed", set the overall status to "Failed"
                 EvaluationHandler.task_statuses[process_id]["overall_status"] = "Failed"
                 status_record["overall_status"] = "Failed"
@@ -174,7 +169,8 @@ class EvaluationHandler:
                 os.makedirs(os.path.dirname(EvaluationHandler.results_path), exist_ok=True)
                 excelConverter = JSONToExcelConverter()
                 resultpath = excelConverter.convert_json_to_excel(all_results, EvaluationHandler.results_path, self.config_type)
-                await organizationDB.update_results_path(process_id, resultpath["path"])
+                file_path = resultpath.get("path")
+                await organizationDB.update_results_path(process_id, file_path)
 
             # Update end time
             end_time = datetime.now()
@@ -221,7 +217,6 @@ class EvaluationHandler:
             for key, value in collection.items():
                 payload_questions = [{"query": q.get("question", "")} for q in value]
                 responses = await self.fetch_responses(payload_questions, deploy_id) 
-                print("responses", responses) # Await here
                 if responses['status_code'] == 200:
                     final_result[f"{key}"] = self.process_responses(responses['response'], value)                    
                 else:
@@ -253,7 +248,6 @@ class EvaluationHandler:
                     logger.error(f"Request failed: {response}")
                     raise HTTPException(status_code=500, detail="Request failed")
 
-                print("res", response)
                 if response.status_code == 200:
                     formatted_response = self.format_responses(
                         question_data.get("query", ""), response.json(), test_id, response.status_code
@@ -276,18 +270,18 @@ class EvaluationHandler:
         if self.config_type == "LLM":
             inputData = {"question": question}
             return {
-            "userId": self.user_id,
-            #"clientApiKey": self.client_api_key,
-            "deployId": deploy_id,
+            "user_id": self.user_id,
+            "client_api_key": "R3AM-52JL-INUS-E5YL",
+            "deployment_id": deploy_id,
             "inputData": inputData,
             "uniqueId": self.session_id
         }
         else:
             """Prepares the request payload based on input data."""
             return {
-                "userId": self.user_id,
-                #"clientApiKey": self.client_api_key,
-                "deployId": deploy_id,
+                "user_id": self.user_id,
+                "client_api_key": "R3AM-52JL-INUS-E5YL",
+                "deployment_id": deploy_id,
                 "query": question,
                 "uniqueId": self.session_id
             }
@@ -298,8 +292,6 @@ class EvaluationHandler:
     
         try:
             response = requests.post(f"{self.endpoint}", json=data)
-            print("response", response)
-
             response.raise_for_status()
 
             #Get job ID from response
@@ -314,7 +306,6 @@ class EvaluationHandler:
                 current_status = status_data["status"]
 
                 if current_status == "completed":
-                    print(status_data)
                     return(status_response)
                     break
                 elif current_status == "failed":

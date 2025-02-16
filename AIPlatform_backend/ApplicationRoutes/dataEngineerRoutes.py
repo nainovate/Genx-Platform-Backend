@@ -14,23 +14,18 @@ async def getRoleTasks(request_data: dict = Body(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/addPrompt")
-async def addPrompt(request_data: dict = Body(...)):
+def addPrompt(request_data: dict = Body(...)):
     try:
-        session_id = request_data["sessionId"]
+      
         data = request_data["data"]
-        
+        prompts = prompts_instance[ request_data["sessionId"]]
         # Check if the sessionId exists in prompts_instance
-        if session_id not in prompts_instance: 
-            raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.")
-
-        # Access the corresponding Prompts instance
-        prompts = prompts_instance[session_id]
-        return prompts.addPrompt(data)
+        return  prompts.addPrompt(data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/getPrompts")
-async def getPrompts(request_data: dict = Body(...)):
+def getPrompts(request_data: dict = Body(...)):
     """
     Fetches prompts data for the given session ID.
 

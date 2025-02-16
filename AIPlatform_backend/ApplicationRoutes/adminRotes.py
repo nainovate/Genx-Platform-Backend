@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
 from ApplicationRoutes.authenticationRoutes import authorization_instance, space_instance, organization_instance
-
 router = APIRouter()
 
 @router.post("/api/getOrganizationsforUsers")
