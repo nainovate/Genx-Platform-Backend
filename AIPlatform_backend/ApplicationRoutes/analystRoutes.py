@@ -110,7 +110,22 @@ async def deleteTask(request_data: dict = Body(...)):
     except KeyError as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.post("/api/assignRole")
+async def assignRole(request_data: dict = Body(...)):
+    try:
+        role = role_instance[request_data["sessionId"]]
+        return  role.assignRole(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
+    
 
+@router.post("/api/unassignRole")
+async def unassignRole(request_data: dict = Body(...)):
+    try:
+        role = role_instance[request_data["sessionId"]]
+        return  role.unassignRole(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/unassignRole")
 async def unassignRole(request_data: dict = Body(...)):

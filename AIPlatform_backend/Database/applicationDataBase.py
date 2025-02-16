@@ -2440,6 +2440,48 @@ class ApplicationDataBase:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
 
+    def assignRole(self, orgId: str, userId: str, spaceId: str, roleId: str):
+        try:
+            # Validate input data
+            if not isinstance(userId, str) or not isinstance(spaceId, str) or not isinstance(orgId, str) or not isinstance(roleId, str):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. userId, roleId and spaceId must be strings."
+                }
+            # Ensure the applicationDB is properly initialized
+            if not hasattr(self, 'applicationDB') or self.applicationDB is None:
+                logging.error("ApplicationDB is not initialized.")
+                return status.HTTP_500_INTERNAL_SERVER_ERROR, None
+            
+            # Check if user exists and is an admin
+            # applicationDB = ApplicationDataBase()
+            if not hasattr(self.applicationDB, 'users'):
+                logging.error("The 'users' collection does not exist in the applicationDB.")
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Database not initialized properly."
+                }
+        
+            # Check if the user exists in the database
+            user = self.applicationDB["users"].find_one({"_id":ObjectId(userId)})
+            if not user:
+                return status.HTTP_404_NOT_FOUND
+            user_role = user.get("role", {})
+            user_orgs = user.get("orgIds")
+            if orgId not in user_orgs:
+                return status.HTTP_401_UNAUTHORIZED
+            if not "user" in user_role:
+                return status.HTTP_401_UNAUTHORIZED
+            else:
+                if roleId in user_role.get("user", {}).get(orgId, {}).get(spaceId, {}):
+                    return status.HTTP_409_CONFLICT
+                self.applicationDB["users"].update_one({"_id":ObjectId(userId)}, {"$set": {f"role.user.{orgId}.{spaceId}.{roleId}": []}})
+            return status.HTTP_200_OK
+            
+        except Exception as e:
+            # Log and handle unexpected errors
+            logging.error(f"Error while assigning role for user id {userId}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
 
     def getApiKey(self,orgId):
             try:

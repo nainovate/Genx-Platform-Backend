@@ -213,7 +213,7 @@ class Role:
             if status_code == 400:
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "Invalid spaceId. Expected a string."
+                    "detail": "Invalid roleId. Expected a string."
                 }
             
             if status_code == 404:
@@ -278,7 +278,7 @@ class Role:
             if status_code == 400:
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "Invalid spaceId. Expected a string."
+                    "detail": "Invalid roleId. Expected a string."
                 }
             
             if status_code == 404:
@@ -353,66 +353,106 @@ class Role:
                 "detail": f"{e}"
             }  
     
-    def assignHierarchy(self, data: dict):
+    def assignRole(self, data: dict):
         try:
-            hierarchyId = data["hierarchyId"]
-            useCaseRole = data["useCaseRole"]
-            userIds = data["userIds"]
-
-            if not "admin" in self.role:
+            expected_keys = {"orgId", "spaceId", "roleId", "userIds"}
+            if not isinstance(data, dict) or not data.keys() == expected_keys:
                 return {
-                        "status_code": status.HTTP_401_UNAUTHORIZED,
-                        "detail": "Unauthorized Access"
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with keys 'orgId', 'spaceId', 'roleId' and 'userIds'."
                 }
-             
-            status_code = self.applicationDB.checkHierarchy(hierarchyId= hierarchyId)
-            if status_code == 404:
+        
+            spaceId = data["spaceId"]
+            userIds = data["userIds"]
+            orgId = data["orgId"]
+            roleId = data["roleId"]
+            if orgId not in self.orgIds:
                 return {
                     "status_code": status.HTTP_401_UNAUTHORIZED,
-                    "detail": "Hierarchy Not Found",
+                    "detail":"Unauthorized Access",
                 }
-            if not status_code == 200:
-                return{
+
+            if not isinstance(userIds, list):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. 'userIds' must be a list."
+                }
+        
+            if not "analyst" in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail":"Unauthorized Access",
+                }
+            
+            organizationDB = OrganizationDataBase(orgId)
+            status_code = organizationDB.checkRole(roleId= roleId)
+            if status_code == 400:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid RoleId. Expected a string."
+                }
+            
+            elif status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Role Not Found for spaceId: {spaceId}",
+                }
+            
+            elif not status_code == 200:
+                return {
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
                 }
             
-            status_code = self.applicationDB.checkHierarchyRoles(hierarchyId= hierarchyId, useCaseRole= useCaseRole)
-            if status_code == 404:
-                return{
-                    "status_code": status.HTTP_401_UNAUTHORIZED,
-                    "detail": "Use Case Role  Not Found",
-                }
-            if not status_code == 200:
-                return{
-                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    "detail": "Internal server error",
+            # Check if the role is associated with the space
+            status_code = organizationDB.checkRoleAccess(roleId, spaceId)
+            if status_code != 200:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Role doesn't have access for spaceId: {spaceId}"
                 }
             
             for userId in userIds:
-                status_code = self.userDB.assignUseCaseRole(userId = userId, hierarchyId= hierarchyId, useCaseRole=useCaseRole)
-                if status_code == 409:
-                    return{
+                status_code = self.applicationDB.assignRole(orgId = orgId, userId= userId, spaceId= spaceId, roleId= roleId)
+
+                if status_code == 400:
+                    return {
+                        "status_code": status.HTTP_400_BAD_REQUEST,
+                        "detail": "Invalid input data. userId, roleId and spaceId must be strings."
+                    }
+                
+                elif status_code == 404:
+                    return {
+                        "status_code": status.HTTP_404_NOT_FOUND,
+                        "detail": "User not found."
+                    }
+                
+                elif status_code == 409:
+                    return {
                         "status_code": status.HTTP_409_CONFLICT,
-                        "detail": "Hierarchy Already Assigned To User",
+                        "detail": "Role Already Assigned To User",
                     }
-                if status_code == 404:
-                    return{
+                
+                elif status_code == 401:
+                    return {
                         "status_code": status.HTTP_401_UNAUTHORIZED,
-                        "detail": "Unauthorized Access",
+                        "detail": "User is not in Org",
                     }
-                if not status_code == 200:
-                    return{
+                
+                elif not status_code == 200:
+                    return {
                         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                         "detail": "Internal server error",
                     }
+                
             return {
                 "status_code": status_code,
-                "detail": "Hierarchy Assigned Successfully"
+                "detail": f"Role {roleId} assigned successfully."
             }
+        
         except Exception as e:
-            logging.error(f"Error while assigning Hierarchy: {e}")
-            return{
+            logging.error(f"Error while assigning role: {e}")
+            return {
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"{e}"
             }
