@@ -403,7 +403,8 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-        
+    
+    
     def getAgents(self,tagName: str):
         try:
             agents = self.organizationDB["DeploymentConfig"].find({"tagName":tagName})
@@ -428,7 +429,7 @@ class OrganizationDataBase:
             if not isinstance(agentId, str):
                 return status.HTTP_400_BAD_REQUEST
 
-            role = self.organizationDB["agents"].find_one({"_id": ObjectId(agentId)})
+            role = self.organizationDB["DeploymentConfig"].find_one({"_id": ObjectId(agentId)})
             if role:
                 return status.HTTP_200_OK
             else:
@@ -1336,3 +1337,44 @@ class OrganizationDataBase:
         else:
             raise HTTPException(status_code=400, detail="Invalid service")
         
+    def getRoleInfo(self, roleId):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+            role = self.organizationDB["roles"].find_one({"_id": ObjectId(roleId)},{"createdBy":0,"spaceIds":0})
+            if role:
+                role["roleId"]= str(role["_id"])
+                del role["_id"]
+                return role, status.HTTP_200_OK
+            else:
+                logging.info("role not found.")
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving roleInfo: {e}")
+            return [], status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def getTaskInfo(self,taskId):
+        try:
+            task = self.organizationDB["tasks"].find_one({"_id":ObjectId(taskId)}, {"roleIds": 0, "createdBy":0})    
+            if task:
+                task["_id"]= str(task["_id"])
+                return task, status.HTTP_200_OK
+            else:
+                return {}, status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def getQuestionCards(self,taskId):
+        try:
+            questions = self.organizationDB["questions"].find({"taskId":taskId}, {"_id": 0,"question":1})  
+            questions_list =list(questions)
+            if len(questions_list) != 0:
+                result = [object["question"] for object in questions_list]
+                return result, status.HTTP_200_OK
+            else:
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR

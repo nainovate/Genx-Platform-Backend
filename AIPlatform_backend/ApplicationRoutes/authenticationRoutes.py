@@ -98,6 +98,8 @@ async def login(request_data: dict = Body(...)):
                     payload_instance[sessionId] = Payload(userId=userId, role=role, orgIds=orgIds)  
                     model_instance[sessionId] = Model(userId=userId, role=role, orgIds=orgIds)
                     dataset_instance[sessionId]= dataset(userId=userId, role=role, orgIds=orgIds) 
+                elif "user" in role:
+                    task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
 
 
             # Convert ObjectId to string for userId in the response data

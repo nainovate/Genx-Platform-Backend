@@ -221,7 +221,6 @@ class Task:
                     }
                 organizationDB = OrganizationDataBase(orgId)
                 agents, status_code = organizationDB.getAgents(tagName)
-                print('-----',status_code)
                 if status_code == 404:
                     return {
                         "status_code": status.HTTP_404_NOT_FOUND,
@@ -247,7 +246,6 @@ class Task:
     def createTask(self, data: dict):
         try:
             # Validate input data
-            print('-----data',data)
             if not isinstance(data, dict) or "orgId" not in data or "taskName" not in data or "description" not in data or "roleIds" not in data or "spaceId" not in data or "agentId" not in data:
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
@@ -341,18 +339,18 @@ class Task:
                     }
 
             agentId = data["agentId"]   
-            # if not isinstance(data["agentId"], str):
-            #     return {
-            #         "status_code": status.HTTP_400_BAD_REQUEST,
-            #         "detail": "agentId must be a string"
-            #     }
+            if not isinstance(data["agentId"], str):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "agentId must be a string"
+                }
 
-            # status_code = organizationDB.checkAgent(agentId)
-            # if status_code != 200:
-            #     return {
-            #         "status_code": status.HTTP_404_NOT_FOUND,
-            #         "detail": f"Agent with ID {data['agentId']} not found"
-            #     }
+            status_code = organizationDB.checkAgent(agentId)
+            if status_code != 200:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Agent with ID {data['agentId']} not found"
+                }
 
 
             # Create the task in the organization database
@@ -715,4 +713,51 @@ class Task:
             return {
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"Internal server error: {e}"
+            }
+
+
+    def getTaskIds(self):
+        try:
+            if not "user" in self.role:
+                return {
+                    "status_code": status.HTTP_401_UNAUTHORIZED,
+                    "detail": "Unauthorized Access",
+                }
+            all_tasks =[]
+            for orgId, spaces in self.role["user"].items():
+                status_code = self.applicationDB.checkOrg(orgId)
+                if status_code == 404:
+                    return {
+                        "status_code": status.HTTP_404_NOT_FOUND,
+                        "detail": "Organization not found."
+                    }
+                if not status_code == 200:
+                    return {
+                        "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                        "detail": "Internal server error",
+                    }
+                applicationDB = ApplicationDataBase()
+                orgInfo, status_code = applicationDB.getOrgInfo(orgId=orgId)
+                for spaceId, rolesIds in spaces.items():
+                    roles = [] 
+                    for roleId, task_ids in rolesIds.items():
+                        organizationDB = OrganizationDataBase(orgId)
+                        roleInfo, status_code = organizationDB.getRoleInfo(roleId)
+                        tasks =[]
+                        for taskId in task_ids:
+                            task, status_code = organizationDB.getTaskInfo(taskId=taskId)
+                            tasks.append(task)
+                        roleInfo["tasks"] = tasks
+                        roles.append(roleInfo)
+                    orgInfo["roles"] = roles
+                all_tasks.append(orgInfo)
+            return {
+                "status_code": status.HTTP_200_OK,
+                "tasks": all_tasks
+            }
+        except Exception as e:
+            logger.error(f"Error in getTasks For orgId: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error",
             }
