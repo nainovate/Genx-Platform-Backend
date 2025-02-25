@@ -56,7 +56,7 @@ class OrganizationDataBase:
             self.organizationDB = self._get_organization_db(orgId)
             self.responseCollection = self.organizationDB[finetuning_config['metric_response']]
             self.dataset_collection = self.organizationDB[finetuning_config['dataset_collection']]
-            self.status_collection = self.organizationDB[finetuning_config['status_collection']]
+            self.status_collections = self.organizationDB[finetuning_config['status_collection']]
             self.finetune_configCollection = self.organizationDB[finetuning_config['finetune_config']]
             self.results_collection = self.organizationDB[eval_config['RESULTS_COLLECTION']]
             self.status_collection = self.organizationDB[eval_config['STATUS_COLLECTION']]
@@ -747,6 +747,26 @@ class OrganizationDataBase:
         return int(time.time())
     
 
+
+
+    async def get_dataset_path(self, dataset_id):
+        try:
+            
+            dataset_id = str(dataset_id)
+           
+            # Convert dataset_id to ObjectId if necessary
+            query = {"dataset_id": dataset_id}
+
+            document = self.dataset_collection.find_one(query)
+            
+
+            if document and "dataset_path" in document:
+                return {"status_code": 200, "dataset_path": document["dataset_path"]}
+            else:
+                return {"status_code": 404, "detail": "Dataset not found."}
+
+        except Exception as e:
+            return {"status_code": 500, "detail": str(e)}
     def dataset_details(self):
         """
         Fetches datasets details from the MongoDB collection for the given organisation.
@@ -848,12 +868,53 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
-    def update_status_in_mongo(self, status_record):
+        
+
+
+    async def config_record(self, config_data):
+        """
+        Inserts a new fine-tuning configuration record into the database.
+        
+        Args:
+            config_data (dict): Dictionary containing user_id, process_id, model_id, dataset_path.
+        
+        Returns:
+            dict: A response dictionary with status_code and message.
+        """
+        try:
+            print("entered to database ")
+            # Validate required fields
+            required_keys = {"user_id", "process_id", "model_id", "dataset_path","Timestamp"}
+            if not required_keys.issubset(config_data.keys()):
+                missing_keys = required_keys - config_data.keys()
+                return {"status_code": 400, "detail": f"Missing required fields: {missing_keys}"}
+
+            # Generate timestamp
+            timestamp = self.get_current_timestamp()
+
+            # Insert the new record
+            self.finetune_configCollection.insert_one({
+                "user_id": config_data["user_id"],
+                "process_id": config_data["process_id"],
+                "model_id": config_data["model_id"],
+                "dataset_path": config_data["dataset_path"],
+                "timestamp": timestamp
+            })
+
+            return {"status_code": 200, "detail": "Record inserted successfully"}
+        
+        except Exception as e:
+            logging.error(f"Error inserting config record: {str(e)}")
+            return {"status_code": 500, "detail": "Internal server error"}
+
+
+
+    async def update_status_in_mongo(self, status_record):
         """ Update only the status field of a model in MongoDB """
         try:
-            timestamp = self.get_current_timestamp
+            timestamp = self.get_current_timestamp()
             # Update the status and last_updated fields
-            self.status_collection.update_one(
+            self.status_collections.update_one(
                 {"process_id": status_record["process_id"], 
                  "user_id": status_record["user_id"],
                  "model_id": status_record["model_id"]},
@@ -876,41 +937,22 @@ class OrganizationDataBase:
                 "detail": f"Failed to update status for process {status_record['process_id']}, model {status_record['model_id']}: {str(e)}"
             }
     
-    def store_session_metrics(self,user_id,process_id, session_metrics,model_id,target_loss):
-        print("entered metrics in to the db  ")
+    async def store_session_metrics(self, user_id, process_id, session_metrics, model_id, target_loss):
+        print("Entered metrics into the DB")
 
-        """
-        Stores session metrics into MongoDB with error handling.
-
-        Parameters:
-        - session_id (str): Unique session identifier.
-        - series_id (str): Identifier for the training series.
-        - session_metrics (list): List of metric dictionaries.
-        - db_url (str): MongoDB connection URL.
-        - db_name (str): Name of the database.
-        - collection_name (str): Name of the collection.
-
-        Returns:
-        - dict: Result of the operation or error details.
-        """
         try:
-            
-            
-
-            timestamp = self.get_current_timestamp
-            # Prepare document for insertion
+            timestamp = self.get_current_timestamp()
             document = {
                 "process_id": process_id,
                 "user_id": user_id,
-                "model_id" : model_id,
+                "model_id": model_id,
                 "Target_loss": target_loss,
                 "iterations_count": len(session_metrics),
                 "metrics": session_metrics,
                 "timestamp": timestamp,
             }
 
-            # Insert document into MongoDB
-            result = self.responseCollection.insert_one(document)
+            result = self.responseCollection.insert_one(document)  
 
             return {
                 "status_code": 200,
@@ -925,6 +967,56 @@ class OrganizationDataBase:
             }
 
 
+
+    async def update_result_path(self, process_id, results_path):
+        try:
+            result =  self.responseCollection.update_one(
+                {"process_id": process_id,},
+                {"$set": {"results_path": results_path}},
+                upsert=True
+            )
+            if result.matched_count > 0:
+                logging.info(f"Process {process_id} updated in DB")
+            else:
+                logging.info(f"Process {process_id} inserted in DB")
+        except Exception as e:
+            logging.error(f"An error occurred while inserting/updating data for process_id {process_id}: {e}")
+            raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+
+
+    async def get_metrics(self, process_id):
+        """
+        Fetch the metrics field from a MongoDB document based on process_id.
+
+        Args:
+            process_id (str): The process ID to search for.
+
+        Returns:
+            List[dict]: A list of metrics if found.
+
+        Raises:
+            HTTPException: If the document or metrics field is not found.
+        """
+        try:
+            # Query the MongoDB collection
+            document =  self.responseCollection.find_one({"process_id": process_id})
+
+            # Check if the document exists
+            if not document:
+                return {
+                    "status_code" :status.HTTP_404_NOT_FOUND,
+                     "detail": "Document not Found"}
+            # Extract the metrics field
+            metrics = document.get("metrics")
+
+            # Check if metrics is present in the document
+            if metrics is None:
+                return {
+                    "status_code" :status.HTTP_404_NOT_FOUND,
+                     "detail": f"metrics' field not found in the document. with {process_id}"}
+            return metrics
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
     # Evaluation
     async def check_ongoing_task(self, user_id: str):
         """Check if the user already has an ongoing evaluation task."""
