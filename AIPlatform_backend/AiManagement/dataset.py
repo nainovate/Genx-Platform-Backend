@@ -223,13 +223,12 @@ class dataset:
                 }
             # Call the database layer to delete the prompt
             result =  organizationDB.delete_dataset(data)
-
             # Handle cases based on the result
             if result["status_code"] == 404:
                 logging.warning("No dataset found matching the provided criteria.")
                 return {
                     "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": "No datasets found matching the provided datasetID {dataset}. They may already be deleted or never existed."
+                    "detail": "No datasets found matching the provided datasetID . They may already be deleted or never existed."
                 }
 
             if result["status_code"] == 200 and result["deleted_count"] == 0:
