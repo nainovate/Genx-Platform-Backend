@@ -30,7 +30,6 @@ class MongoDBHandler:
         """Establish a connection to the MongoDB server."""
         try:
             self.client = self.client
-            self.db = self.db
         except Exception as e:
             logger.error(f"An error occurred while connecting to MongoDB: {e}")
             if self.client:
@@ -58,6 +57,16 @@ class MongoDBHandler:
             logging.error(f"An unexpected error occurred: {e}")
             self.status_code = 500
             return None
+    def check_process_exists(self, process_id):
+        """Checks if a process_id exists in the MongoDB collection and returns process_name."""
+        process = self.results_collection.find_one({"process_id": process_id}, {"process_name": 1, "process_id": 1})
+        
+        # Return both process_id and process_name if found
+        if process:
+            return {"process_id": process.get("process_id"), "process_name": process.get("process_name")}
+        
+        return None
+
     async def get_mongo_handler(service: str, org_id: str):
         if service == "evaluation":
             return MongoDBHandler(eval_config, org_id)  # Evaluation-specific handler
@@ -140,7 +149,7 @@ class MongoDBHandler:
 
                         # Return the number of modified documents and organization ID
                         return {"modified_count": result.modified_count, "organization_id": orgId}
-
+                return []
             # If the metric_id is not found in any organization, raise 404 error
             raise HTTPException(status_code=404, detail="Metric ID not found in any organization.")
 
@@ -151,30 +160,25 @@ class MongoDBHandler:
     
     async def fetch_metrics_by_id(self, metric_id: str):
         try:
-            from Database.organizationDataBase import OrganizationDataBase
-            for orgId in self.orgIds:
-                organizationDB = OrganizationDataBase(orgId)
+            # Search for the metric_id in the metrics collection
+            document = self.metrics_collection.find_one({"metric_id": metric_id})
+            print("document", document)
 
-                # Search for the metric_id in the organization's metrics collection
-                document = await organizationDB.metrics_collection.find_one({"metric_id": metric_id})
-
-                if document:
-                    return {
-                        "organization_id": orgId,  # Include organization ID
-                        "ranges": document.get("ranges", {}),  # Common ranges
-                        "models": [
-                            {
-                                "model_id": model["model_id"],
-                                "metrics_results": model["metrics_results"]
-                            }
-                            for model in document.get("models", [])
-                        ]
-                    }
-
-            # If no document is found across all organizations, raise 404 error
-            raise HTTPException(status_code=404, detail="Metric ID not found in any organization.")
+            if document:
+                return {
+                    "ranges": document.get("ranges", {}),  # Common ranges
+                    "models": [
+                        {
+                            "model_id": model["model_id"],
+                            "metrics_results": model["metrics_results"]
+                        }
+                        for model in document.get("models", [])
+                    ]
+                }
+            return []
 
         except Exception as e:
+            print("error", e)
             raise HTTPException(status_code=500, detail=f"Error retrieving metric data: {e}")
 
     
@@ -246,7 +250,7 @@ class MongoDBHandler:
 
     async def get_model_statuses_by_process_id(self, process_id: str):
         # Fetch the document associated with the given process_id
-        result = await self.status_collection.find_one({"process_id": process_id})
+        result = self.status_collection.find_one({"process_id": process_id})
         overall_status = result.get("overall_status", None)
         if not result or "models" not in result:
             # If no result or models array not found, return an empty list
@@ -275,42 +279,41 @@ class MongoDBHandler:
         return document.get("overall_status") if document else None
     
     
-    async def get_process_status_by_userid(self, user_id: str):
+    async def get_process_status_by_userid(self, user_id: str, orgId):
         try:
             status_list = []
             from Database.organizationDataBase import OrganizationDataBase
-            for orgId in self.orgIds:
-                organizationDB = OrganizationDataBase(orgId)
+            
+            organizationDB = OrganizationDataBase(orgId)
 
-                # Fetch all documents for the specific user_id from the organization's status collection
-                documents = await organizationDB.status_collection.find(
-                    {"user_id": user_id}  # Query by user_id
-                ).sort("start_time", -1).to_list(length=None)  # Sort by start_time in descending order
+            # Fetch all documents for the specific user_id from the organization's status collection
+            documents = organizationDB.status_collection.find(
+                {"user_id": user_id}  # Query by user_id
+            ).sort("start_time", -1).to_list(length=None)  # Sort by start_time in descending order
 
-                for doc in documents:
-                    process_id = doc.get("process_id")
-                    overall_status = doc.get("overall_status")
-                    models = [
-                        {
-                            "model_id": model.get("model_id"),
-                            "model_name": model.get("model_name"),
-                            "status": model.get("status")
-                        }
-                        for model in doc.get("models", [])
-                    ]
+            for doc in documents:
+                process_id = doc.get("process_id")
+                overall_status = doc.get("overall_status")
+                models = [
+                    {
+                        "model_id": model.get("model_id"),
+                        "model_name": model.get("model_name"),
+                        "status": model.get("status")
+                    }
+                    for model in doc.get("models", [])
+                ]
 
-                    status_list.append({
-                        "process_id": process_id,
-                        "models": models,
-                        "overall_status": overall_status,
-                        "organization_id": orgId  # Include the organization ID
-                    })
+                status_list.append({
+                    "process_id": process_id,
+                    "models": models,
+                    "overall_status": overall_status  # Include the organization ID
+                })
 
             # Return status list if available, otherwise raise 404
             if status_list:
                 return {"statuses": status_list}
 
-            raise HTTPException(status_code=404, detail="No status records found for the given user_id.")
+            return []
 
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error retrieving process statuses: {e}")
@@ -327,84 +330,69 @@ class MongoDBHandler:
     async def get_metric_results(self, user_id: str, page: int, page_size: int):
         try:
             skip = (page - 1) * page_size
-            total_metrics = 0
+
+            # Step 1: Calculate the total metrics count
+            total_metrics = self.status_collection.count_documents(
+                {"user_id": user_id, "metrics": {"$exists": True, "$ne": []}}
+            )
+
+            # Step 2: Fetch metrics with pagination
+            cursor = self.status_collection.find(
+                {"user_id": user_id, "metrics": {"$exists": True, "$ne": []}}
+            ).sort("timestamp", -1).skip(skip).limit(page_size)
+
             flattened_metrics = []
-            from Database.organizationDataBase import OrganizationDataBase
-            for orgId in self.orgIds:
-                organizationDB = OrganizationDataBase(orgId)
+            for document in cursor:
+                process_name = document.get("process_name")
+                timestamp = document.get("timestamp")
 
-                # Step 1: Calculate the total metrics count across all organizations
-                async for document in organizationDB.status_collection.find(
-                    {"user_id": user_id, "metrics": {"$exists": True, "$ne": []}}
-                ):
-                    if "metrics" in document:
-                        total_metrics += len(document["metrics"])
+                if "metrics" in document:
+                    for metric in document["metrics"]:
+                        metric_info = {
+                            "metric_id": metric.get("metric_id"),
+                            "models": metric.get("models"),
+                            "overall_status": metric.get("metric_overall_status"),
+                            "process_name": process_name,
+                            "timestamp": timestamp
+                        }
+                        flattened_metrics.append(metric_info)
 
-                # Step 2: Fetch metrics with pagination logic
-                cursor = organizationDB.status_collection.find(
-                    {"user_id": user_id, "metrics": {"$exists": True, "$ne": []}}
-                ).sort("timestamp", -1)
-
-                async for document in cursor:
-                    process_name = document.get("process_name")
-                    timestamp = document.get("timestamp")
-
-                    if "metrics" in document:
-                        for metric in document["metrics"]:
-                            metric_info = {
-                                "metric_id": metric.get("metric_id"),
-                                "models": metric.get("models"),
-                                "overall_status": metric.get("metric_overall_status"),
-                                "process_name": process_name,
-                                "timestamp": timestamp,
-                                "organization_id": orgId  # Include organization ID
-                            }
-                            flattened_metrics.append(metric_info)
-
-                    if len(flattened_metrics) >= (skip + page_size):
-                        break
-
-            # Apply pagination to the flattened metrics
-            paginated_metrics = flattened_metrics[skip:skip + page_size]
-
-            # Return the paginated results and the total count of metric_id
-            return paginated_metrics, total_metrics
+            # Return the paginated results and total metric count
+            return flattened_metrics, total_metrics
 
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error retrieving metric results: {e}")
 
-
-    async def get_results_by_process_id(self, process_id: str):
+    async def get_results_by_process_id(self, process_id: str, orgId):
         try:
             models = None  # To store the models once found
             from Database.organizationDataBase import OrganizationDataBase
-            for orgId in self.orgIds:
-                organizationDB = OrganizationDataBase(orgId)
+            print("pid", process_id)
+            organizationDB = OrganizationDataBase(orgId)
 
-                # Find the document with the specified process_id in the organization's database
-                document = await organizationDB.results_collection.find_one({"process_id": process_id})
-
-                if document:
-                    models = document.get("models")
-                    if models is not None:
-                        return models  # Return immediately when models are found
-
-            # If no models are found across all organizations, raise a 404 error
-            if models is None:
-                raise HTTPException(status_code=404, detail="'models' object not found in any organization.")
-
+            # Find the document with the specified process_id in the organization's database
+            document = organizationDB.results_collection.find_one({"process_id": process_id})
+            print("the dcument is",document)
+            if document:
+                models = document.get("models")
+                print("models", models)
+                if models is not None:
+                    return models  # Return immediately when models are found
+            return []
+           
         except Exception as e:
+            print("error, ", e)
             raise HTTPException(status_code=500, detail=f"Error retrieving results: {e}")
         
 
     async def get_results_file_path(self, process_id: str):
         """Get the file path for results."""
-        document = await self.results_collection.find_one({"process_id": process_id})
+        document = self.results_collection.find_one({"process_id": process_id})
         return document['results_path'] if document and 'results_path' in document else None
     
     async def get_results_by_model_id(self, process_id, model_id):
         # Query to find the document by process_id
-        process_doc = await self.results_collection.find_one({"process_id": process_id})
+        process_doc = self.results_collection.find_one({"process_id": process_id})
 
         if process_doc:
             # Iterate through the models array to find the specific model_id
