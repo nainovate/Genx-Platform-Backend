@@ -908,36 +908,42 @@ class OrganizationDataBase:
             return {"status_code": 500, "detail": "Internal server error"}
 
     def addPrompt(self, data: dict):
-            try:
-                org_id = data.get("orgId")
-                if not org_id:
-                    raise HTTPException(status_code=400, detail="Missing 'orgId' in request data")
-                timestamp=self.get_current_timestamp()
-                # Prepare document for insertion
-                prompt_document = {
-                    "promptName": data.get("promptName", ""),
-                    "taskType": data.get("taskType", ""),
-                    "systemMessage": data.get("systemMessage", ""),
-                    "aiMessage": data.get("aiMessage", ""),
-                    "humanMessage": data.get("humanMessage", ""),
-                    "inputData": data.get("inputData", {}),
-                    "timestamp":timestamp
-                }
-                print("Prompt Document:", prompt_document)  # Debug: See the document being inserted
-
-                # Insert into MongoDB using motor's async method
-                result =  self.llmPrompts_collection.insert_one(prompt_document)
-                print("Insert Result:", result)  # Debug: See the insert result
-
-                if not result.acknowledged:
-                    raise HTTPException(status_code=500, detail="Failed to insert prompt into database")
-
-                return {"message": "Prompt added successfully", "promptId": str(result.inserted_id)}
-
-            except Exception as e:
-                print(f"Error in addPrompt: {e}")
-                raise HTTPException(status_code=500, detail=str(e))
+        try:
+            org_id = data.get("orgId")
+            if not org_id:
+                return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId' in request data"
             
+            prompt_name = data.get("promptName", "").strip()
+            if not prompt_name:
+                return status.HTTP_400_BAD_REQUEST, False, "Prompt name is required"
+
+            # Check if prompt with the same name already exists
+            existing_prompt = self.llmPrompts_collection.find_one({"promptName": prompt_name})
+            if existing_prompt:
+                return status.HTTP_409_CONFLICT, False, "A prompt with this name already exists"
+
+            timestamp = self.get_current_timestamp()
+            
+            # Prepare document for insertion
+            prompt_document = {
+                "promptName": prompt_name,
+                "taskType": data.get("taskType", ""),
+                "systemMessage": data.get("systemMessage", ""),
+                "aiMessage": data.get("aiMessage", ""),
+                "humanMessage": data.get("humanMessage", ""),
+                "inputData": data.get("inputData", {}),
+                "timestamp": timestamp
+            }
+            print("Prompt Document:", prompt_document)  # Debugging
+
+            # Insert into MongoDB
+            result = self.llmPrompts_collection.insert_one(prompt_document)
+            return status.HTTP_200_OK, True, "Prompt added successfully"
+
+        except Exception as e:
+         print(f"Error in addPrompt: {e}")
+         return status.HTTP_500_INTERNAL_SERVER_ERROR, False, str(e) 
+
     def get_prompts_data(self):
         """
         Fetches LLM Prompts data for a given organization (by orgId).
