@@ -91,8 +91,8 @@ class Prompts:
             print("org id", orgId)
             organizationDB = OrganizationDataBase(orgId)
             # Call the database layer to add the prompt
-            status_code, success =   organizationDB.addPrompt(data)
-
+            status_code, success, detail_message = organizationDB.addPrompt(data)
+            
             if success:
                 return {
                     "status_code": status.HTTP_200_OK,
@@ -101,7 +101,7 @@ class Prompts:
             else:
                 return {
                     "status_code": status_code,
-                    "detail": "Error occurred while adding prompt",
+                    "detail": detail_message,
                 }
 
         except HTTPException as http_exc:
