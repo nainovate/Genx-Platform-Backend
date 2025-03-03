@@ -29,47 +29,41 @@ def getPrompts(request_data: dict = Body(...)):
     """
     Fetches prompts data for the given session ID.
 
-    :param request_data: A dictionary containing the sessionId and additional data.
+    :param request_data: A dictionary containing the data field which has sessionId.
     :return: The response from the `getPromptsData` method or an error message.
     """
     try:
-        # Ensure 'sessionId' is provided in the request data
-        session_id = request_data["sessionId"]
-        if not session_id:
+        # Check if request_data contains the data field
+        if "data" not in request_data:
             raise HTTPException(
                 status_code=400,
-                detail="Missing required 'sessionId' in the request data."
+                detail="Missing required 'data' field in the request."
             )
-        
-        # Check if the sessionId exists in prompts_instance
-        if session_id not in prompts_instance: 
-            raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.")
-        
-        # Access the corresponding Prompts instance
+            
+        data = request_data["data"]
+        session_id = data["sessionId"]
         prompts = prompts_instance[session_id]
-        
+        # Check if data contains the sessionId
+        if session_id not in prompts_instance: 
+            raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.") 
         # Call the `getPromptsData` method of the corresponding instance
-        response = prompts.getPromptsData()
+        response = prompts.getPromptsData(data)
         return response
-
     except KeyError as e:
         # Handle missing keys in the data
         raise HTTPException(
             status_code=400,
             detail=f"Missing or invalid data: {str(e)}"
         )
-
     except HTTPException as e:
         # Re-raise HTTP exceptions to preserve status code and detail
         raise e
-
     except Exception as e:
         # Handle unexpected errors
         raise HTTPException(
             status_code=500,
             detail=f"An unexpected error occurred: {str(e)}"
         )
-
 @router.post("/api/updatePrompt")
 async def updatePrompt(request_data: dict = Body(...)):
     """

@@ -944,13 +944,18 @@ class OrganizationDataBase:
          print(f"Error in addPrompt: {e}")
          return status.HTTP_500_INTERNAL_SERVER_ERROR, False, str(e) 
 
-    def get_prompts_data(self):
+    def get_prompts_data(self,data:dict):
         """
         Fetches LLM Prompts data for a given organization (by orgId).
 
         :return: List of prompts data or raises HTTPException if error occurs.
         """
         try:
+            print()
+            org_id = data.get("orgId")
+            print("orgid is",org_id)
+            if not org_id:
+                return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId' in request data"
             # Query to get the prompts data for this org_id
             prompts = self.llmPrompts_collection.find({}).to_list(length=100)  # Adjust the query if needed
             logger.info(f"The prompts are: {prompts}")
