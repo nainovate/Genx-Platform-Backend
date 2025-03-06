@@ -445,7 +445,7 @@ async def deleteModel(request_data: dict = Body(...)):
         )             
   
 
-@router.post("/api/get_datasets")
+@router.post("/v1/api/get_datasets")
 def get_dataset_Details(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
@@ -478,7 +478,7 @@ def get_dataset_Details(request_data: dict):
             "detail": f"Internal server error: {str(e)}"
         }
 
-@router.post("/api/addDataset")
+@router.post("/v1/api/addDataset")
 def addDataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
@@ -511,7 +511,7 @@ def addDataset(request_data: dict):
             "detail": f"Internal server error: {str(e)}"
         }
 
-@router.post("/api/deletedataset")
+@router.post("/v1/api/deletedataset")
 def deletedataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")

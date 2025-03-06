@@ -616,7 +616,7 @@ class OrganizationDataBase:
                 }
 
             # Fetch the document
-            document = self.status_collection.find_one({"process_id": process_id})
+            document = self.status_collections.find_one({"process_id": process_id})
 
             # If process ID does not exist, return an error response
             if not document:
@@ -976,7 +976,7 @@ class OrganizationDataBase:
             logger.error(f"Error fetching prompts for org {self.orgId}: {e}")
             raise HTTPException(status_code=500, detail=f"Error fetching prompts for orgId {self.orgId}") 
             
-    def update_status_in_mongo(self, status_record):
+    async def update_status_in_mongo(self, status_record):
         """ Update only the status field of a model in MongoDB """
         try:
             timestamp = self.get_current_timestamp()

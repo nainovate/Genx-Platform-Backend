@@ -63,7 +63,8 @@ finetuning_config = {
     "metric_response": "Tuning_metrics",
     "dataset_collection": "Tuning_dataset",
     # Endpoint to backend server
-    "TRAINING_ENDPOINT": f"http://{IP_ADDRESS}:8007/train_model"}
+    "TRAINING_ENDPOINT": f"http://{IP_ADDRESS}:8007/train_model",
+    "DPOtraining":f"http://{IP_ADDRESS}:8007/DPO_service_training"}
    
 
 
