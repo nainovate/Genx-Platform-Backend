@@ -396,9 +396,9 @@ class OrganizationDataBase:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
         
-    def getAgents(self,tagName: str):
+    def getAgents(self):
         try:
-            agents = self.organizationDB["agents"].find({"tagName":tagName,"status": "deploy"})
+            agents = self.organizationDB["DeploymentConfig"].find()
             agents_list = list(agents)
             if len(agents_list) ==0:
                 return agents_list,status.HTTP_404_NOT_FOUND
@@ -420,7 +420,7 @@ class OrganizationDataBase:
             if not isinstance(agentId, str):
                 return status.HTTP_400_BAD_REQUEST
 
-            role = self.organizationDB["agents"].find_one({"_id": ObjectId(agentId)})
+            role = self.organizationDB["DeploymentConfig"].find_one({"_id": ObjectId(agentId)})
             if role:
                 return status.HTTP_200_OK
             else:

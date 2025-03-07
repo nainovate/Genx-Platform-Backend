@@ -187,19 +187,17 @@ class Task:
                         "detail": "Unauthorized Access",
                     }
                 orgId = data.get("orgId")
-
-                tagName=data.get("tagName")
                 
-                if not orgId or not tagName:
+                if not orgId:
                     return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "Invalid input data. orgId and tagName must be provided."
+                    "detail": "Invalid input data. orgId must be provided."
                 }
 
-                if not isinstance(orgId, str) or not isinstance(tagName, str):
+                if not isinstance(orgId, str):
                     return {
                         "status_code": status.HTTP_400_BAD_REQUEST,
-                        "detail": "Invalid orgId and tagName. Expected a string."
+                        "detail": "Invalid orgId. Expected a string."
                     }
 
                 if orgId not in self.orgIds:
@@ -220,7 +218,7 @@ class Task:
                         "detail": "Error while connecting to Database."
                     }
                 organizationDB = OrganizationDataBase(orgId)
-                agents, status_code = organizationDB.getAgents(tagName)
+                agents, status_code = organizationDB.getAgents()
                 print('-----',status_code)
                 if status_code == 404:
                     return {
