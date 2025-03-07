@@ -58,12 +58,13 @@ finetuning_config = {
     "LOCAL_HOST": IP_ADDRESS,
     "MONGO_URI": os.getenv("MONGO_URI", f"mongodb://{IP_ADDRESS}:27017"),
     "DB_NAME": "Finetuning",
-    "status_collection": "tuning_status",
+    "status_collection": "Tuning_status",
     "finetune_config": "Tuning_config",
-    "metric_response": "tuning_metrics",
+    "metric_response": "Tuning_metrics",
     "dataset_collection": "Tuning_dataset",
     # Endpoint to backend server
-    "TRAINING_ENDPOINT": f"http://{IP_ADDRESS}:8007/train_model"}
+    "TRAINING_ENDPOINT": f"http://{IP_ADDRESS}:8007/train_model",
+    "DPOtraining":f"http://{IP_ADDRESS}:8007/DPO_service_training"}
    
 
 

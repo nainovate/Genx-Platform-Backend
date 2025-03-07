@@ -9,6 +9,7 @@ from ApplicationRoutes.analystRoutes import router as analyst_router
 from ApplicationRoutes.dataEngineerRoutes import router as dataEngineer_router
 from ApplicationRoutes.evaluationRoutes import router as evaluation_router
 from ApplicationRoutes.aiEngineerRoutes import router as aiEngineerRoutes
+from ApplicationRoutes.ChatBotRoutes import router as chatBotRoutes
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -56,6 +57,9 @@ app.include_router(dataEngineer_router)
 app.include_router(evaluation_router)
 
 app.include_router(aiEngineerRoutes)
+
+app.include_router(chatBotRoutes)
+
 
 # Entry point
 if __name__ == "__main__":

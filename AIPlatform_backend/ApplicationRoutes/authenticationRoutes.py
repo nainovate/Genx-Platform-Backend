@@ -90,6 +90,7 @@ async def login(request_data: dict = Body(...)):
 
                 elif "dataengineer" in role:
                     orgIds = data["orgIds"]
+                    print('----sessionId',sessionId)
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
                     task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
                     # # Populating prompts_instance with the sessionId
@@ -97,12 +98,9 @@ async def login(request_data: dict = Body(...)):
                     payload_instance[sessionId] = Payload(userId=userId, role=role, orgIds=orgIds)  
                     model_instance[sessionId] = Model(userId=userId, role=role, orgIds=orgIds)
                     dataset_instance[sessionId]= dataset(userId=userId, role=role, orgIds=orgIds) 
-            
-
-                elif "dataengineer" in role:
-                    orgIds = data["orgIds"]
-                    organization_instance[sessionId] = Organization(userId=userId, role=role)
+                elif "user" in role:
                     task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
+
 
             # Convert ObjectId to string for userId in the response data
             if isinstance(data["userId"], ObjectId):
@@ -148,10 +146,10 @@ async def updateUserDetails(request_data: dict = Body(...)):
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
 
-@router.post("/api/deleteUser")
-async def deleteUser(request_data: dict = Body(...)):
+@router.post("/api/deleteUsers")
+async def deleteUsers(request_data: dict = Body(...)):
     try:
         auth = authorization_instance[request_data["sessionId"]]
-        return  auth.deleteUser(request_data['data'])
+        return  auth.deleteUsers(request_data['data'])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))

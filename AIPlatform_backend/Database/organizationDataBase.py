@@ -12,8 +12,10 @@ from pymongo.mongo_client import MongoClient
 from fastapi import HTTPException, status
 from pymongo.errors import OperationFailure
 from werkzeug.security import check_password_hash
-# from Database.applicationDataBase import ApplicationDataBase
-from db_config import config, finetuning_config
+from pymongo.errors import PyMongoError
+from Database.evaluationSetup import MongoDBHandler
+from utils import StatusRecord
+from db_config import config,eval_config,bench_config,finetuning_config
 
 # Set up logging
 projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -54,8 +56,14 @@ class OrganizationDataBase:
             self.organizationDB = self._get_organization_db(orgId)
             self.responseCollection = self.organizationDB[finetuning_config['metric_response']]
             self.dataset_collection = self.organizationDB[finetuning_config['dataset_collection']]
-            self.status_collection = self.organizationDB[finetuning_config['status_collection']]
+            self.status_collections = self.organizationDB[finetuning_config['status_collection']]
             self.finetune_configCollection = self.organizationDB[finetuning_config['finetune_config']]
+            self.results_collection = self.organizationDB[eval_config['RESULTS_COLLECTION']]
+            self.status_collection = self.organizationDB[eval_config['STATUS_COLLECTION']]
+            self.config_collection = self.organizationDB[eval_config['CONFIG_COLLECTION']]
+            self.metrics_collection = self.organizationDB[eval_config['METRICS_COLLECTION']]
+            self.llmPrompts_collection=self.organizationDB['LLMPrompts']
+
             self.status_code = 200
         except OperationFailure as op_err:
             logging.error(f"Error connecting to the database: {op_err}")
@@ -395,7 +403,7 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-        
+
     def getAgents(self):
         try:
             agents = self.organizationDB["DeploymentConfig"].find()
@@ -586,7 +594,48 @@ class OrganizationDataBase:
             return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, 
                     "message": "Error retrieving metrics.", "detail": str(e)}
         
-    
+    def fetch_process_status(self, process_id):
+        """Fetch the document with the given process ID."""
+        try:
+
+            # Validate process_id
+            if not process_id or not isinstance(process_id, str):
+                logging.error("Invalid process ID.")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid process ID. It must be a non-empty string."
+                }
+
+            # Ensure MongoDB collection is initialized
+            if self.status_collection is None:
+                logging.error("MongoDB collection is not initialized.")
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Database connection issue."
+                }
+
+            # Fetch the document
+            document = self.status_collections.find_one({"process_id": process_id})
+
+            # If process ID does not exist, return an error response
+            if not document:
+                logging.warning(f"Process ID {process_id} not found.")
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Process ID {process_id} not found."
+                }
+
+            return document  # Return the found document
+
+        except Exception as e:
+            logging.error(f"Database error while fetching process status: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Database error: {str(e)}"
+            }
+
+
+
 
     def get_documents_by_user_id(self, user_id):
         try:
@@ -699,6 +748,26 @@ class OrganizationDataBase:
         return int(time.time())
     
 
+
+
+    async def get_dataset_path(self, dataset_id):
+        try:
+            
+            dataset_id = str(dataset_id)
+           
+            # Convert dataset_id to ObjectId if necessary
+            query = {"dataset_id": dataset_id}
+
+            document = self.dataset_collection.find_one(query)
+            
+
+            if document and "dataset_path" in document:
+                return {"status_code": 200, "dataset_path": document["dataset_path"]}
+            else:
+                return {"status_code": 404, "detail": "Dataset not found."}
+
+        except Exception as e:
+            return {"status_code": 500, "detail": str(e)}
     def dataset_details(self):
         """
         Fetches datasets details from the MongoDB collection for the given organisation.
@@ -800,3 +869,611 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"An unexpected error occurred: {e}")
             return {"status_code": 500, "detail": "Unexpected server error."}
+          
+    async def config_record(self, config_data):
+        """
+        Inserts a new fine-tuning configuration record into the database.
+        
+        Args:
+            config_data (dict): Dictionary containing user_id, process_id, model_id, dataset_path.
+        
+        Returns:
+            dict: A response dictionary with status_code and message.
+        """
+        try:
+            print("entered to database ")
+            # Validate required fields
+            required_keys = {"user_id", "process_id", "model_id", "dataset_path","Timestamp"}
+            if not required_keys.issubset(config_data.keys()):
+                missing_keys = required_keys - config_data.keys()
+                return {"status_code": 400, "detail": f"Missing required fields: {missing_keys}"}
+
+            # Generate timestamp
+            timestamp = self.get_current_timestamp()
+
+            # Insert the new record
+            self.finetune_configCollection.insert_one({
+                "user_id": config_data["user_id"],
+                "process_id": config_data["process_id"],
+                "model_id": config_data["model_id"],
+                "dataset_path": config_data["dataset_path"],
+                "timestamp": timestamp
+            })
+
+            return {"status_code": 200, "detail": "Record inserted successfully"}
+        
+        except Exception as e:
+            logging.error(f"Error inserting config record: {str(e)}")
+            return {"status_code": 500, "detail": "Internal server error"}
+
+    def addPrompt(self, data: dict):
+        try:
+            org_id = data.get("orgId")
+            if not org_id:
+                return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId' in request data"
+            
+            prompt_name = data.get("promptName", "").strip()
+            if not prompt_name:
+                return status.HTTP_400_BAD_REQUEST, False, "Prompt name is required"
+
+            # Check if prompt with the same name already exists
+            existing_prompt = self.llmPrompts_collection.find_one({"promptName": prompt_name})
+            if existing_prompt:
+                return status.HTTP_409_CONFLICT, False, "A prompt with this name already exists"
+
+            timestamp = self.get_current_timestamp()
+            
+            # Prepare document for insertion
+            prompt_document = {
+                "promptName": prompt_name,
+                "taskType": data.get("taskType", ""),
+                "systemMessage": data.get("systemMessage", ""),
+                "aiMessage": data.get("aiMessage", ""),
+                "humanMessage": data.get("humanMessage", ""),
+                "inputData": data.get("inputData", {}),
+                "timestamp": timestamp
+            }
+            print("Prompt Document:", prompt_document)  # Debugging
+
+            # Insert into MongoDB
+            result = self.llmPrompts_collection.insert_one(prompt_document)
+            return status.HTTP_200_OK, True, "Prompt added successfully"
+
+        except Exception as e:
+         print(f"Error in addPrompt: {e}")
+         return status.HTTP_500_INTERNAL_SERVER_ERROR, False, str(e) 
+
+    def get_prompts_data(self,data:dict):
+        """
+        Fetches LLM Prompts data for a given organization (by orgId).
+
+        :return: List of prompts data or raises HTTPException if error occurs.
+        """
+        try:
+            print()
+            org_id = data.get("orgId")
+            print("orgid is",org_id)
+            if not org_id:
+                return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId' in request data"
+            # Query to get the prompts data for this org_id
+            prompts = self.llmPrompts_collection.find({}).to_list(length=100)  # Adjust the query if needed
+            logger.info(f"The prompts are: {prompts}")
+
+            if not prompts:
+                logger.warning(f"No prompts found for orgId {self.orgId}")
+                return [], 404  # Return empty list and 404 status if no data found
+
+            # Inline serialization: Convert ObjectId to string directly in the list
+            prompts = [
+                {k: (str(v) if isinstance(v, ObjectId) else v) for k, v in prompt.items()} 
+                for prompt in prompts
+            ]
+
+            return prompts, 200  # Return the prompts and a success status code
+
+        except Exception as e:
+            logger.error(f"Error fetching prompts for org {self.orgId}: {e}")
+            raise HTTPException(status_code=500, detail=f"Error fetching prompts for orgId {self.orgId}") 
+            
+    async def update_status_in_mongo(self, status_record):
+        """ Update only the status field of a model in MongoDB """
+        try:
+            timestamp = self.get_current_timestamp()
+            # Update the status and last_updated fields
+            self.status_collections.update_one(
+                {"process_id": status_record["process_id"], 
+                 "user_id": status_record["user_id"],
+                 "model_id": status_record["model_id"]},
+                {
+                    "$set": {
+                        "status": status_record["status"],
+                        "last_updated": timestamp
+                    }
+                },
+                upsert=True
+            )
+            return {
+                "status_code": 200,
+                "detail": f"Status updated successfully for process {status_record['process_id']}, model {status_record['model_id']}."
+            }
+        
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "detail": f"Failed to update status for process {status_record['process_id']}, model {status_record['model_id']}: {str(e)}"
+            }
+    
+    async def store_session_metrics(self, user_id, process_id, session_metrics, model_id, target_loss):
+        print("Entered metrics into the DB")
+
+        try:
+            timestamp = self.get_current_timestamp()
+            document = {
+                "process_id": process_id,
+                "user_id": user_id,
+                "model_id": model_id,
+                "Target_loss": target_loss,
+                "iterations_count": len(session_metrics),
+                "metrics": session_metrics,
+                "timestamp": timestamp,
+            }
+
+            result = self.responseCollection.insert_one(document)  
+
+            return {
+                "status_code": 200,
+                "message": "Data inserted successfully!",
+                "inserted_id": str(result.inserted_id),
+            }
+
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "message": f"Failed to insert data: {str(e)}",
+            }
+
+
+
+    async def update_result_path(self, process_id, results_path):
+        try:
+            result =  self.responseCollection.update_one(
+                {"process_id": process_id,},
+                {"$set": {"results_path": results_path}},
+                upsert=True
+            )
+            if result.matched_count > 0:
+                logging.info(f"Process {process_id} updated in DB")
+            else:
+                logging.info(f"Process {process_id} inserted in DB")
+        except Exception as e:
+            logging.error(f"An error occurred while inserting/updating data for process_id {process_id}: {e}")
+            raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+
+
+    async def get_metrics(self, process_id):
+        """
+        Fetch the metrics field from a MongoDB document based on process_id.
+
+        Args:
+            process_id (str): The process ID to search for.
+
+        Returns:
+            List[dict]: A list of metrics if found.
+
+        Raises:
+            HTTPException: If the document or metrics field is not found.
+        """
+        try:
+            # Query the MongoDB collection
+            document =  self.responseCollection.find_one({"process_id": process_id})
+
+            # Check if the document exists
+            if not document:
+                return {
+                    "status_code" :status.HTTP_404_NOT_FOUND,
+                     "detail": "Document not Found"}
+            # Extract the metrics field
+            metrics = document.get("metrics")
+
+            # Check if metrics is present in the document
+            if metrics is None:
+                return {
+                    "status_code" :status.HTTP_404_NOT_FOUND,
+                     "detail": f"metrics' field not found in the document. with {process_id}"}
+            return metrics
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+    # Evaluation
+    async def check_ongoing_task(self, user_id: str):
+        """Check if the user already has an ongoing evaluation task."""
+        return  self.status_collection.find_one({"user_id": user_id, "overall_status": "In Progress"}) is not None
+
+    async def insert_config_record(self, config_data: dict):
+        try:
+            insert_result =  self.config_collection.insert_one({  # ✅ Correct: Await only the function call
+                "user_id": config_data.get('user_id'),
+                "process_id": config_data.get('process_id'),
+                "process_name": config_data.get("process_name"),
+                "model_id": config_data.get("model_id"),
+                "model_name": config_data.get("model_name"),
+                "payload_file_path": config_data.get("payload_file_path"),
+                "timestamp": int(datetime.utcnow().timestamp())
+            })
+
+            # Log the inserted ID (optional)
+            logging.info(f"Inserted document ")
+
+            return {"success": True, "inserted": "sucessfully"}
+
+        except PyMongoError as e:
+            logging.error(f"Database Error: {e}")
+            return {"success": False, "error": "Database insertion failed"}
+
+        except Exception as e:
+            logging.error(f"Unexpected Error: {e}")
+            return {"success": False, "error": "An unexpected error occurred"}
+    async def check_process_name(self, process_name: str):
+        if not process_name:
+            raise HTTPException(status_code=400, detail="process_name parameter is required")
+        
+        existing_process = self.config_collection.find_one({"process_name": process_name})
+        
+        if existing_process:
+            return {"exists": True, "message": "Process name already exists"}
+        else:
+            return {"exists": False, "message": "Process name is available"}
+        
+    async def update_status_record(self, status_record: dict):
+        try:
+            update_result = self.status_collection.update_one(
+                {"process_id": status_record["process_id"]},
+                {
+                    "$set": {
+                        "user_id": status_record["user_id"],
+                        "process_name": status_record["process_name"],
+                        "models": status_record["models"],  
+                        "overall_status": status_record["overall_status"],
+                        "start_time": status_record["start_time"],
+                        "end_time": status_record.get("end_time", None)  
+                    }
+                },
+                upsert=True
+            )
+
+            logging.info(f"Updated documents for process_id {status_record['process_id']}")
+            return {"success": True, "modified_count": 1}
+
+        except PyMongoError as e:
+            logging.error(f"Database Error: {e}")
+            return {"success": False, "error": str(e)}
+
+        except Exception as e:
+            logging.error(f"Unexpected Error: {e}")
+            return {"success": False, "error": str(e)}
+
+    async def update_results_record(self, process_id: str,process_name: str, user_id: str, config_type: str, model_id: str,model_name:str, results: dict):
+        """Update the status of a specific process in the database."""
+        timestamp = datetime.utcnow()
+        result =  self.results_collection.update_one(
+                {"user_id": user_id, "process_id": process_id, "process_name": process_name, "config_type": config_type},
+                {"$push": {"models": {"model_id": model_id, "model_name": model_name, "results": results}}},
+                upsert=True
+        )
+    async def get_results(self, process_id: str):
+        try:
+            document =  self.results_collection.find_one({"process_id": process_id})
+            if not document:
+                raise HTTPException(status_code=404, detail="Document not found.")
+            results = document.get("models")
+            if results is None:
+                raise HTTPException(status_code=404, detail="'results' object not found in the document.")
+            return results
+        except Exception as e:
+            # Handle any unexpected exceptions
+            raise HTTPException(status_code=500, detail=str(e))
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error retrieving results: {e}")
+    async def update_results_path(self, process_id, results_path):
+        try:
+            result = self.results_collection.update_one(
+                {"process_id": process_id,},
+                {"$set": {"results_path": results_path}},
+                upsert=True
+            )
+            if result.matched_count > 0:
+                logger.info(f"Process {process_id} updated in DB")
+            else:
+                logger.info(f"Process {process_id} inserted in DB")
+        except Exception as e:
+            logger.error(f"An error occurred while inserting/updating data for process_id {process_id}: {e}")
+            raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+    async def check_model_completed_status(self, process_id: str):
+        # Fetch the existing record
+        existing_record = self.status_collection.find_one({"process_id": process_id})        
+        if existing_record:
+            # Check if any model's status is "Completed"
+            return any(model['status'] == "Completed" for model in existing_record['models']) is not None
+    async def get_result_document_by_process_id(self, process_id: str):
+        """Get the status of a specific process."""
+        document = self.results_collection.find_one({"process_id": process_id})
+        return document if document else None
+    async def update_metric_status_record(self, status_record: StatusRecord, process_name):
+        # Prepare the metrics object to add to the database
+        metrics_data = {
+            "metric_id": status_record.metric_id,  # Add the metric_id
+            "models": [model_status.dict() for model_status in status_record.models],  # Convert models to dictionaries
+            "metric_overall_status": status_record.overall_status  # Add the overall_status
+        }
+        timestamp = int(datetime.utcnow().timestamp())
+        # Ensure the metric_id does not already exist in the metrics array
+        status = self.status_collection.update_one(
+            {
+                "process_id": status_record.process_id,  # Match the process_id
+                "metrics.metric_id": {"$ne": status_record.metric_id}  # Ensure the metric_id is not already in the array
+            },
+            {
+                "$push": {
+                    "metrics": metrics_data  # Add the new metric record to the array
+                },
+                "$set": {
+                    "user_id": status_record.user_id,  # Update the user_id
+                    "start_time": status_record.start_time,  # Update the start_time
+                    "end_time": status_record.end_time,  # Update the end_time
+                    "process_name": process_name,  # Add or update the process_name
+                    "timestamp": timestamp  # Add or update the timestamp
+                }
+            },
+            upsert=True  # Create the document if it does not exist
+        )
+    async def update_metric_model_status(self, process_id: str, model_id: str, new_status: str, metric_id: str, overall_status: str):
+        # Check if the metric_id already exists in the metrics array
+        existing_metric = self.status_collection.find_one(
+            {
+                "process_id": process_id,
+                "metrics.metric_id": metric_id
+            },
+            {"metrics.$": 1}  # Only fetch the specific metric array for efficiency
+        )
+        
+        if existing_metric:
+            # If the metric exists, update the existing model status in that metric
+            status = self.status_collection.update_one(
+                {
+                    "process_id": process_id,  # Match the process by ID
+                    "metrics.metric_id": metric_id  # Match the specific metric by ID
+                },
+                {
+                    "$set": {
+                        "metrics.$.models.$[model].status": new_status,  # Update the model's status within the existing metric
+                        "metrics.$.metric_overall_status": overall_status  # Update the overall status for the matched metric
+                    }
+                },
+                array_filters=[
+                    {"model.model_id": model_id}  # Filter for the correct model inside metrics' models
+                ]
+            )
+        else:
+            # If the metric does not exist, add a new metric to the metrics array
+            new_metric = {
+                "metric_id": metric_id,
+                "models": [
+                    {
+                        "model_id": model_id,
+                        "status": new_status  # Add the model status to the new metric
+                    }
+                ],
+                "metric_overall_status": overall_status  # Add the overall status to the new metric
+            }
+
+            self.status_collection.update_one(
+                {
+                    "process_id": process_id  # Match the process by ID
+                },
+                {
+                    "$push": {
+                        "metrics": new_metric  # Push the new metric to the metrics array
+                    }
+                }
+            )
+
+    async def update_metrics_results_record(
+        self, process_id, user_id, config_type, object_id, metric_id, 
+        process_name, model_id, metrics_results
+        ):
+            # Define the ranges for each metric
+            metric_ranges = {
+                "MRR": {
+                    "Excellent": "0.8 - 1.0",
+                    "Moderate": "0.5 - 0.8",
+                    "Poor": "0 - 0.5"
+                },
+                "ROUGE_score": {
+                    "ROUGE-1": {
+                        "Excellent": "0.45 - 1.0",
+                        "Moderate": "0.30 - 0.45",
+                        "Poor": "0 - 0.30"
+                    },
+                    "ROUGE-2": {
+                        "Excellent": "0.25 - 1.0",
+                        "Moderate": "0.15 - 0.25",
+                        "Poor": "0 - 0.15"
+                    },
+                    "ROUGE-L": {
+                        "Excellent": "0.40 - 1.0",
+                        "Moderate": "0.25 - 0.40",
+                        "Poor": "0 - 0.25"
+                    }
+                },
+                "BERT_score": {
+                    "Excellent": "0.8 - 1.0",
+                    "Moderate": "0.5 - 0.8",
+                    "Poor": "0 - 0.5"
+                }
+            }
+
+            # Format metrics_results to retain only the scores
+            for metric, values in metrics_results.items():
+                if metric == "ROUGE_score":
+                    for rouge_type, rouge_score in values.items():
+                        values[rouge_type] = rouge_score
+                else:
+                    metrics_results[metric] = values
+
+            # Get the current timestamp as Unix time
+            current_timestamp = int(datetime.utcnow().timestamp())
+
+            # Check if the document exists for the given process_id and user_id
+            existing_document = self.metrics_collection.find_one(
+                {
+                    "user_id": user_id,
+                    "process_id": process_id,
+                    "process_name": process_name,
+                    "config_type": config_type,
+                    "eval_id": object_id,
+                    "metric_id": metric_id
+                }
+            )
+
+            if existing_document:
+                # Update the existing document
+                self.metrics_collection.update_one(
+                    {
+                        "user_id": user_id,
+                        "process_id": process_id,
+                        "config_type": config_type,
+                        "eval_id": object_id,
+                        "metric_id": metric_id
+                    },
+                    {
+                        "$push": {
+                            "models": {
+                                "model_id": model_id,
+                                "metrics_results": metrics_results
+                            }
+                        },
+                        "$set": {
+                            "timestamp": current_timestamp
+                        }
+                    }
+                )
+            else:
+                # Create a new document
+                self.metrics_collection.insert_one(
+                    {
+                        "user_id": user_id,
+                        "process_id": process_id,
+                        "process_name": process_name,
+                        "config_type": config_type,
+                        "eval_id": object_id,
+                        "metric_id": metric_id,
+                        "timestamp": current_timestamp,
+                        "ranges": metric_ranges,
+                        "models": [
+                            {
+                                "model_id": model_id,
+                                "metrics_results": metrics_results
+                            }
+                        ]
+                    }
+                )
+    async def update_metric_overall_status(self, process_id: str, metric_id: str, overall_status: str):
+    
+        metric =self.status_collection.update_one(
+            {
+                "process_id": process_id,  # Match the process
+                "metrics.metric_id": metric_id  # Match the specific metric in the array
+            },
+            {
+                "$set": {
+                    "metrics.$.metric_overall_status": overall_status  # Update the matched array element
+                }
+            }
+        )
+    async def get_process_results(self, user_id: str, page: int, page_size: int):
+        results = []
+        total_count = 0
+
+        for orgId in self.orgId:
+            organizationDB = OrganizationDataBase(orgId)
+
+            # Calculate skip value for pagination
+            skip = (page - 1) * page_size
+
+            # Fetch documents for the specific user_id from the organization’s config collection
+            cursor = organizationDB.config_collection.find({"user_id": user_id}).sort("timestamp", -1).skip(skip).limit(page_size)
+            for document in cursor:
+                process_id = document.get("process_id")
+                # Fetch the overall_status for the process_id from the status_collection
+                status_document = organizationDB.status_collection.find_one({"process_id": str(process_id)})
+                overall_status = status_document.get("overall_status") if status_document else None
+                
+                # Append the task details
+                results.append({
+                    "process_id": process_id,
+                    "process_name": document.get("process_name"),
+                    "model_id": document.get("model_id"),
+                    "model_name": document.get("model_name"),
+                    "payload_path": document.get("payload_file_path"),
+                    "timestamp": document.get("timestamp"),
+                    "overall_status": overall_status,
+                    "organization_id": orgId
+                })
+            # Fetch the total count of documents for this user_id in the organization
+            org_count = organizationDB.config_collection.count_documents({"user_id": user_id})
+            total_count += org_count  # Sum up counts across all organizations
+
+        # Calculate total pages based on aggregated count
+        total_pages = (total_count + page_size - 1) // page_size
+
+        # Return paginated results and metadata
+        return results, total_count
+
+    async def get_mongo_handler(service: str, org_id: str):
+        if service == "evaluation":
+            return MongoDBHandler(eval_config, org_id)  # Evaluation-specific handler
+        elif service == "benchmarking":
+            return MongoDBHandler(bench_config, org_id)  # Benchmarking-specific handler
+        else:
+            raise HTTPException(status_code=400, detail="Invalid service")
+        
+    def getRoleInfo(self, roleId):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+            role = self.organizationDB["roles"].find_one({"_id": ObjectId(roleId)},{"createdBy":0,"spaceIds":0})
+            if role:
+                role["roleId"]= str(role["_id"])
+                del role["_id"]
+                return role, status.HTTP_200_OK
+            else:
+                logging.info("role not found.")
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving roleInfo: {e}")
+            return [], status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def getTaskInfo(self,taskId):
+        try:
+            task = self.organizationDB["tasks"].find_one({"_id":ObjectId(taskId)}, {"roleIds": 0, "createdBy":0})    
+            if task:
+                task["_id"]= str(task["_id"])
+                return task, status.HTTP_200_OK
+            else:
+                return {}, status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def getQuestionCards(self,taskId):
+        try:
+            questions = self.organizationDB["questions"].find({"taskId":taskId}, {"_id": 0,"question":1})  
+            questions_list =list(questions)
+            if len(questions_list) != 0:
+                result = [object["question"] for object in questions_list]
+                return result, status.HTTP_200_OK
+            else:
+                return [], status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving tasks: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR

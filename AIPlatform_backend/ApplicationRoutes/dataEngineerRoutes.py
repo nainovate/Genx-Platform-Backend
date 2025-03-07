@@ -14,81 +14,56 @@ async def getRoleTasks(request_data: dict = Body(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/addPrompt")
-async def addPrompt(request_data: dict = Body(...)):
+def addPrompt(request_data: dict = Body(...)):
     try:
-        # Get the sessionId from the request
-        session_id = request_data["sessionId"]
+      
         data = request_data["data"]
-        print("data",data)
-        print("session ID",session_id)
-        
+        prompts = prompts_instance[ request_data["sessionId"]]
         # Check if the sessionId exists in prompts_instance
-        if session_id not in prompts_instance: 
-            raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.")
-        
-        # Remove sessionId from the request data to pass the rest to the addPrompt function
-        request_data.pop("sessionId", None)  # Remove sessionId if exists
-        
-        # Access the corresponding Prompts instance
-        prompts = prompts_instance[session_id]
-        print("data",data)
-        # Pass the filtered data (excluding sessionId) to addPrompt
-        return prompts.addPrompt(data)
+        return  prompts.addPrompt(data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/getPrompts")
-async def getPrompts(request_data: dict = Body(...)):
+def getPrompts(request_data: dict = Body(...)):
     """
     Fetches prompts data for the given session ID.
 
-    :param request_data: A dictionary containing the sessionId and additional data.
+    :param request_data: A dictionary containing the data field which has sessionId.
     :return: The response from the `getPromptsData` method or an error message.
     """
     try:
-        # Ensure 'sessionId' is provided in the request data
-        session_id = request_data.get("sessionId")
-        if not session_id:
+        # Check if request_data contains the data field
+        if "data" not in request_data:
             raise HTTPException(
                 status_code=400,
-                detail="Missing required 'sessionId' in the request data."
+                detail="Missing required 'data' field in the request."
             )
-        
-        # Check if the sessionId exists in prompts_instance
-        if session_id not in prompts_instance:
-            raise HTTPException(
-                status_code=404,
-                detail=f"Session ID '{session_id}' not found."
-            )
-        
-        # Access the corresponding Prompts instance
+            
+        data = request_data["data"]
+        session_id = data["sessionId"]
         prompts = prompts_instance[session_id]
-        
-        # Remove sessionId from the request data before passing it to getPromptsData
-        request_data.pop("sessionId", None)
-        
+        # Check if data contains the sessionId
+        if session_id not in prompts_instance: 
+            raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.") 
         # Call the `getPromptsData` method of the corresponding instance
-        response = prompts.getPromptsData()
+        response = prompts.getPromptsData(data)
         return response
-
     except KeyError as e:
         # Handle missing keys in the data
         raise HTTPException(
             status_code=400,
             detail=f"Missing or invalid data: {str(e)}"
         )
-
     except HTTPException as e:
         # Re-raise HTTP exceptions to preserve status code and detail
         raise e
-
     except Exception as e:
         # Handle unexpected errors
         raise HTTPException(
             status_code=500,
             detail=f"An unexpected error occurred: {str(e)}"
         )
-
 @router.post("/api/updatePrompt")
 async def updatePrompt(request_data: dict = Body(...)):
     """
@@ -470,7 +445,7 @@ async def deleteModel(request_data: dict = Body(...)):
         )             
   
 
-@router.post("/api/get_datasets")
+@router.post("/v1/api/get_datasets")
 def get_dataset_Details(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
@@ -503,7 +478,7 @@ def get_dataset_Details(request_data: dict):
             "detail": f"Internal server error: {str(e)}"
         }
 
-@router.post("/api/addDataset")
+@router.post("/v1/api/addDataset")
 def addDataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")
@@ -536,7 +511,7 @@ def addDataset(request_data: dict):
             "detail": f"Internal server error: {str(e)}"
         }
 
-@router.post("/api/deletedataset")
+@router.post("/v1/api/deletedataset")
 def deletedataset(request_data: dict):
     try:
         session_id = request_data.get("sessionId")

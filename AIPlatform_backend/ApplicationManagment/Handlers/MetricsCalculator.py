@@ -5,6 +5,7 @@ import json
 import os
 from typing import List, Optional
 import yaml
+from Database.organizationDataBase import OrganizationDataBase
 from Database.evaluationSetup import MongoDBHandler
 import numpy as np
 import pandas as pd
@@ -21,31 +22,33 @@ score_calculator = ScoreCalculator(eval_config['SCORE_ENDPOINT'])
 metricsHandler = Metrics()
 
 class MetricsCalculator:
-    def __init__(self, mongoHandler: MongoDBHandler, payload):
-        self.mongoHandler = mongoHandler
+    def __init__(self, payload,process_name,orgId):
         self.payload = payload
         self.payload = payload
         self.payload_file_path = payload.get('payload_file_path')
         self.user_id = payload.get('user_id')
         self.process_id = payload.get('process_id')
         self.metrics = payload.get('metrics', [])  # Default empty list if not present
-        self.process_name = payload.get('process_name')
+        self.process_name = process_name
         self.task_statuses = {}
+        self.orgId = orgId
 
     async def do_metrics(self, metric_id):
         start_time = datetime.now()
         try:
+            print("metrics")
             payload = self.payload_file_path
             #collection = self.load_yaml_data(payload)
             collection=payload
-
+            mongo_handler = OrganizationDataBase(self.orgId)
             # Check if model is completed - this should be an async call
-            model_completed = await self.mongoHandler.check_model_completed_status(self.process_id)
+            model_completed = await mongo_handler.check_model_completed_status(self.process_id)
             if not model_completed:
                 raise HTTPException(status_code=400, detail="Model processing not completed")
 
             # Get results document - this should be an async call
-            results_doc = await self.mongoHandler.get_result_document_by_process_id(self.process_id)
+            results_doc = await mongo_handler.get_result_document_by_process_id(self.process_id)
+            print("results doc", results_doc)
             if not results_doc:
                 raise HTTPException(status_code=404, detail="Results document not found")
 
@@ -76,14 +79,14 @@ class MetricsCalculator:
             )
 
             # Update metric status - this should be an async call
-            await self.mongoHandler.update_metric_status_record(status_record, self.process_name)
+            await mongo_handler.update_metric_status_record(status_record, self.process_name)
 
             # Process each model
             for index, model_id in enumerate(model_ids):
                 try:
                     # Update model status to "Calculating"
                     self.task_statuses[self.process_id]["models"][model_id] = "Calculating Metrics"
-                    await self.mongoHandler.update_metric_model_status(
+                    await mongo_handler.update_metric_model_status(
                         self.process_id, 
                         model_id, 
                         "Calculating Metrics",
@@ -100,7 +103,7 @@ class MetricsCalculator:
                             # Update status to completed
                             logger.info("Updating model status to Completed...")
                             new_status = "Metrics Calculation Completed"
-                            await self.mongoHandler.update_metric_model_status(
+                            await mongo_handler.update_metric_model_status(
                                 self.process_id, 
                                 model_id, 
                                 new_status,
@@ -114,7 +117,7 @@ class MetricsCalculator:
                         try:
                             # Update metrics results
                             print("Updating metrics results record...")
-                            await self.mongoHandler.update_metrics_results_record(
+                            await mongo_handler.update_metrics_results_record(
                                 self.process_id,
                                 self.user_id,
                                 config_type,
@@ -131,7 +134,7 @@ class MetricsCalculator:
                     else:
                         print(f"Metrics calculation failed with status: {metrics_results.get('status_code')}")
                         # Update status to failed
-                        await self.mongoHandler.update_metric_model_status(
+                        await mongo_handler.update_metric_model_status(
                             self.process_id,
                             model_id,
                             "Metrics Calculation Failed",
@@ -146,7 +149,7 @@ class MetricsCalculator:
                 except Exception as e:
                     print(f"Error processing model {model_id}: {str(e)}")
                     try:
-                        await self.mongoHandler.update_metric_model_status(
+                        await mongo_handler.update_metric_model_status(
                             self.process_id,
                             model_id,
                             "Metrics Calculation Failed",
@@ -161,7 +164,7 @@ class MetricsCalculator:
                 # Update overall status when all models are processed
                 print("Updating overall status to Completed...")
                 final_status = "Metrics Calculation Completed"
-                await self.mongoHandler.update_metric_overall_status(self.process_id, metric_id, final_status)
+                await mongo_handler.update_metric_overall_status(self.process_id, metric_id, final_status)
             except Exception as e:
                 logger.error(f"Error updating overall status: {str(e)}")
                 raise
@@ -175,7 +178,7 @@ class MetricsCalculator:
             logger.error(f"Unexpected error in metrics calculation: {e}")
             try:
                 # Update overall status to failed
-                await self.mongoHandler.update_metric_overall_status(
+                await mongo_handler.update_metric_overall_status(
                     self.process_id,
                     metric_id,
                     "Metrics Calculation Failed"

@@ -3,11 +3,13 @@ from datetime import datetime, timedelta
 import json
 import logging
 import os
+from typing import Dict
 import uuid
 from fastapi import APIRouter, BackgroundTasks, FastAPI, HTTPException, Query, status, Request
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import ValidationError
 from pymongo import MongoClient
+from Database.organizationDataBase import OrganizationDataBase
 from Database.applicationDataBase import ApplicationDataBase
 from ApplicationManagment.Handlers.evaluationHandler import EvaluationHandler
 from Database.evaluationSetup import MongoDBHandler
@@ -31,6 +33,9 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+# Global dictionary to store process_id -> orgId mapping
+process_org_mapping: Dict[str, str] = {}
     
 def initilizeApplicationDB():
     applicationDB = ApplicationDataBase()
@@ -42,6 +47,7 @@ class Evaluation:
         self.userId = userId
         self.orgIds = orgIds
         self.applicationDB = initilizeApplicationDB()
+        
 
     async def get_evaluation_results(self, data: dict):
         try:
@@ -68,12 +74,22 @@ class Evaluation:
             mongo_handler = MongoDBHandler(eval_config, orgId)
             logger.info(f"MongoDBHandler initialized for orgId: {orgId}")
 
+            # Initialize the organization database
+            organizationDB = OrganizationDataBase(orgId)
+            
+            # Check if organizationDB is initialized successfully
+            if organizationDB.status_code != 200:
+                return {
+                    "status_code": organizationDB.status_code,
+                    "detail": "Error initializing the organization database"
+                }
+
             # Check for unique process_name
             #if mongo_handler.config_collection.find_one({"process_name": payload.process_name}):
                 #raise HTTPException(status_code=400, detail="Process name must be unique")
 
             # Check for ongoing tasks
-            if await mongo_handler.check_ongoing_task(payload.user_id):
+            if await organizationDB.check_ongoing_task(payload.user_id):
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "User already has an ongoing benchmarking task."
@@ -95,14 +111,17 @@ class Evaluation:
         # Generate process ID
         process_id = str(uuid.uuid4()).replace("-", "")[:8]
         logger.info(f"Generated process ID: {process_id}")
+        # Store mapping in the global dictionary
+        process_org_mapping[process_id] = orgId
+        logger.info(f"Stored mapping: {process_id} -> {orgId}")
 
         # Initialize evaluation handler
         evaluation_handler = EvaluationHandler(mongo_handler, payload)
         # Add task to background tasks
         if background_tasks:
-            background_tasks.add_task(evaluation_handler.background_evaluation, process_id)
+            background_tasks.add_task(evaluation_handler.background_evaluation, process_id, orgId)
         else:
-            asyncio.create_task(evaluation_handler.background_evaluation(process_id))
+            asyncio.create_task(evaluation_handler.background_evaluation(process_id, orgId))
 
         logger.info(f"Evaluation task started with process ID: {process_id}")
 
@@ -113,23 +132,82 @@ class Evaluation:
         }
 
     def calculate_metrics(self, payload, background_tasks):
+        """
+        Initiates metrics calculation for the organization where the process_id exists.
+
+        Args:
+            payload (dict): The input data for metrics calculation.
+            background_tasks: Background task handler for async execution.
+
+        Returns:
+            dict: Response containing metric_id and status message.
+        """
+        print("Payload:", payload)
+        
         # Generate a unique metric_id
         metric_id = str(uuid.uuid4())[:8]
-        # Log the payload and metric_id
-        org_id = payload.get("org_id")
-        # Create the MongoDB handler and metrics calculator
-        mongo_handler = MongoDBHandler(eval_config, org_id)
-        eval = MetricsCalculator(mongo_handler, payload)
+        
+        # Extract process_id from payload
+        process_id = payload.get("process_id")
+        
+        if not process_id:
+            raise HTTPException(
+                status_code=400,
+                detail="process_id is required in the payload."
+            )
 
-        # Add the metrics calculation task to the background
-        background_tasks.add_task(eval.do_metrics, metric_id)  # Pass metric_id to the task if needed
+        print("Searching for process_id in orgIds:", self.orgIds)
 
-        # Return the metric_id for tracking purposes
-        return {
-            "status": "Metrics calculation started",
-            "metric_id": metric_id,
-            "detail": "You can check the status via the status endpoint."
-        }
+        # Ensure MongoDB connection is managed properly
+        selected_org_id = None
+        mongo_handler = None  # Initialize outside loop to persist connection
+
+        try:
+            selected_org_id = None  # Ensure selected_org_id is initialized
+
+            for orgId in self.orgIds:
+                print("Checking orgId:", orgId)
+                
+                # Create a MongoDB handler for the organization
+                mongo_handler = MongoDBHandler(eval_config, orgId)  # Reuse mongo_handler
+                print("MongoDB Handler initialized for orgId:", orgId)
+
+                # Check if process_id exists in this organization's database, and get the process name
+                process_data = mongo_handler.check_process_exists(process_id)
+
+                if process_data:  # If process exists
+                    process_name = process_data.get("process_name")
+                    selected_org_id = orgId
+                    print(f"process_id {process_id} (process_name: {process_name}) found in orgId: {selected_org_id}")
+                    break  # Stop searching once we find the matching orgId
+
+            if not selected_org_id:
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"process_id {process_id} not found in any organization."
+                )
+
+            # Initialize MetricsCalculator with process_name
+            eval = MetricsCalculator(payload, process_name, selected_org_id)  # Pass process_name along with orgId
+
+            # Add metrics calculation as a background task
+            background_tasks.add_task(eval.do_metrics, metric_id)
+
+            # Return the metric_id for tracking purposes
+            return {
+                "status": "Metrics calculation started",
+                "metric_id": metric_id,
+                "detail": "You can check the status via the status endpoint."
+            }
+
+        except Exception as e:
+            print(f"Error in calculate_metrics: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+        finally:
+            # Ensure MongoDB connection is not closed prematurely
+            if mongo_handler:
+                mongo_handler.__exit__  # Implement this method in MongoDBHandler if not already
 
 
 
@@ -197,32 +275,40 @@ class Evaluation:
             try:
                 process_id = request["process_id"]
                 service = request["service"]
-                org_id = request["orgId"]
+                org_ids = process_org_mapping.get(process_id, [])  # Get all org IDs associated with the process
 
                 while True:
-                    # Fetch the status details for the process
-                    model_statuses, overall_status = await BenchmarkHandler.get_status_details(
-                        process_id, 
-                        service, org_id
-                    )
+                    all_model_statuses = []
+                    overall_statuses = []
 
-                    if model_statuses is None:
-                        # Send an error message and keep checking
-                        yield f"data: {json.dumps({'error': overall_status})}\n\n"
-                        await asyncio.sleep(2)  # Poll every 2 seconds
-                        continue
+                    # Loop over each org_id and fetch status details
+                    for org_id in org_ids:
+                        model_statuses, overall_status = await BenchmarkHandler.get_status_details(
+                            process_id, service, org_id
+                        )
+
+                        if model_statuses is None:
+                            yield f"data: {json.dumps({'error': f'Error fetching data for org {org_id}: {overall_status}'})}\n\n"
+                            await asyncio.sleep(2)  # Poll every 2 seconds
+                            continue
+
+                        all_model_statuses.extend(model_statuses)
+                        overall_statuses.append(overall_status)
+
+                    # Determine the combined overall status
+                    final_overall_status = "Completed" if all(status == "Completed" for status in overall_statuses) else "In Progress"
 
                     # Prepare and send response data as SSE
                     response_data = {
-                        "models": model_statuses,
-                        "overall_status": overall_status
+                        "models": all_model_statuses,
+                        "overall_status": final_overall_status
                     }
                     yield f"data: {json.dumps(response_data)}\n\n"
 
-                    # Check if all models have a final status
+                    # Check if all models across orgs have a final status
                     all_tasks_complete = all(
                         model["status"] in ["Completed", "Failed"]
-                        for model in model_statuses
+                        for model in all_model_statuses
                     )
 
                     if all_tasks_complete:
@@ -234,7 +320,7 @@ class Evaluation:
             except Exception as e:
                 # Send any encountered errors back to the client
                 yield f"data: {json.dumps({'error': str(e)})}\n\n"
-                
+
         # Return the streaming response with SSE-compatible headers
         return StreamingResponse(
             event_generator(),
@@ -245,6 +331,7 @@ class Evaluation:
                 "Connection": "keep-alive"  # Ensure the connection remains open
             }
         )
+
     async def check_process_results(self, Pagination: Pagination):
         try:
 
@@ -259,10 +346,11 @@ class Evaluation:
             #     )
             # Get the MongoDB handler based on the service
             # mongo_handler = MongoDBHandler.get_mongo_handler(Pagination["service"], Pagination["orgId"])
-            mongo_handler = MongoDBHandler(eval_config, Pagination["orgId"])
+            # Initialize the organization database
+            orgId = self.orgIds
+            organizationDB = OrganizationDataBase(orgId)
             # Fetch the process results using the user_id from MongoDB
-            result, doc_count = await mongo_handler.get_process_results(Pagination["user_id"], Pagination["page"], Pagination["page_size"])
-            
+            result, doc_count = await organizationDB.get_process_results(Pagination["user_id"], Pagination["page"], Pagination["page_size"])
             # Return a successful response with a 200 status code
             return {"result": result, "doc_count": doc_count}
 
@@ -273,48 +361,74 @@ class Evaluation:
                 content={"message": "Error fetching process results", "detail": str(e)}
             )
         
-    async def view_result(self,request):
+    async def view_result(self, request):
         try:
-            
+            print("request", request)
             service = request["service"]
-            orgId = request["orgId"]
             process_id = request["process_id"]
-            mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
-            # Get results by process_id using the method defined earlier
-            result =  await mongo_handler.get_results_by_process_id(process_id)
+
+            result = []  # Initialize an empty list to store results
+
+            print("The orgIds are", self.orgIds)
+
+            for orgId in self.orgIds:
+                print("Processing orgId:", orgId)
+
+                mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
+                org_results = await mongo_handler.get_results_by_process_id(process_id, orgId)
+
+                if org_results:  # Ensure there are results before adding
+                    result.extend(org_results)
+
+            print("Final result:", result)
             return result
 
         except Exception as e:
-            # Generic exception handling
             return JSONResponse(
                 status_code=500,
-                content={"message": "Error Retreiving results", "detail": str(e)})
+                content={"message": "Error retrieving results", "detail": str(e)}
+            )
 
 
     async def view_status_by_userid(self, RequestDetails):
         try:
-            
             service = RequestDetails["service"]
-            orgId = RequestDetails["orgId"]
             user_id = RequestDetails["user_id"]
-            mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
-            # Get results by process_id using the method defined earlier
-            
-            result = await mongo_handler.get_process_status_by_userid(user_id)
-            return self.validation_error_response(status_code=200, detail= result)
+            orgIds = self.orgIds  # Assuming orgIds is a list
+
+            all_results = []  # To store results from multiple orgs
+
+            for orgId in orgIds:
+                try:
+                    mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
+                    result = await mongo_handler.get_process_status_by_userid(user_id, orgId)
+
+                    if result:  # Only add if result is not empty
+                        all_results.append(result)
+                        print("result", all_results)
+                        return all_results
+                        
+                    return []
+                    
+                except Exception as org_error:
+                    # Log error for a specific org but continue for others
+                    print(f"Error fetching results for org {orgId}: {org_error}")
+
+            return self.validation_error_response(status_code=200, detail=all_results)
 
         except Exception as e:
-            # Generic exception handling
             return self.validation_error_response(
                 status_code=500,
-                detail={"message": "Error Retreiving results", "detail": str(e)})
+                detail={"message": "Error Retrieving results", "detail": str(e)}
+            )
+
         
     async def download_excel(self, RequestDetails, background_tasks):
         try:
             service = RequestDetails["service"]
             process_id = RequestDetails["process_id"]
             
-            orgId = RequestDetails.get("orgId")
+            orgId = process_org_mapping.get(process_id) if process_id else None
             # Get the MongoDB handler based on the service
             mongo_handler = await MongoDBHandler.get_mongo_handler(service, orgId)
             results_doc = await mongo_handler.get_result_document_by_process_id(process_id)
@@ -427,44 +541,69 @@ class Evaluation:
     async def get_metrics(self, request):
         try:
             metric_id = request["metric_id"]
-            org_id = request["orgId"]
-            mongo_handler = MongoDBHandler(eval_config, org_id)
-            result = await mongo_handler.fetch_metrics_by_id(metric_id)
+            result = []  # Initialize an empty list to store results
+
+            print("The orgIds are", self.orgIds)
+
+            for orgId in self.orgIds:
+                print("Processing orgId:", orgId)
+
+                mongo_handler = MongoDBHandler(eval_config, orgId)
+                metrics =  await mongo_handler.fetch_metrics_by_id(metric_id)
+                print("metrics", metrics)
+
+                if metrics:  # Ensure there are results before adding
+                    result.append(metrics)
+
+            print("Final result:", result)
             return result
 
         except HTTPException as e:
             raise e
         except Exception as e:
+            print("Error retrieving metrics:", e)
             raise HTTPException(status_code=500, detail=str(e))
+
 
     async def check_metric_results(self, request):
         try:
             user_id = request["user_id"]
             page = request["page"]
             page_size = request["page_size"]
-            org_id = request["orgId"]
-            # Get the MongoDB handler based on the service
-            mongo_handler = MongoDBHandler(eval_config,org_id)
-            # Fetch the process results using the user_id from MongoDB
-            result, doc_count = await mongo_handler.get_metric_results(user_id, page, page_size)
-            
-            # Return a successful response with a 200 status code
-            return {"result": result, "doc_count": doc_count}
+
+            result = []  # Initialize an empty list to store results
+            total_doc_count = 0  # To track total document count
+
+            print("The orgIds are", self.orgIds)
+
+            for orgId in self.orgIds:
+                print("Processing orgId:", orgId)
+
+                mongo_handler = MongoDBHandler(eval_config, orgId)
+                org_results, doc_count = await mongo_handler.get_metric_results(user_id, page, page_size)
+
+                if org_results:  # Ensure there are results before adding
+                    result.extend(org_results)
+
+                total_doc_count += doc_count  # Sum up document counts
+
+            print("Final result:", result)
+            return {"result": result, "doc_count": total_doc_count}
 
         except Exception as e:
-            # Handle any errors and return a 500 status code with error details
+            print("Error fetching process results:", e)
             return JSONResponse(
                 status_code=500,
                 content={"message": "Error fetching process results", "detail": str(e)}
-            )       
+            )
+
         
     async def update_ranges(self, request):
         """
-        Updates metric ranges in the database.
+        Updates metric ranges in the database for multiple organizations.
 
         Args:
-            request (RangeUpdateRequest): The request containing the metric details and new ranges.
-            db_handler: The database handler with an `update_metric_ranges` method.
+            request (dict): The request containing metric details and new ranges.
 
         Returns:
             dict: Success message if updated, else raises an HTTPException.
@@ -475,44 +614,67 @@ class Evaluation:
         metric_id = request["metric_id"]
         metric_name = request["metric_name"]
         new_ranges = request["new_ranges"]
-        org_id = request["orgId"]
+
         try:
-            # Validate the request (Pydantic already ensures this for required fields)
+            # Validate input
             if not metric_id or not metric_name or not new_ranges:
                 raise HTTPException(
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="All fields (metric_id, metric_name, new_ranges) are required."
                 )
-            # Ensure the new_ranges is a dictionary with valid entries
+
             if not isinstance(new_ranges, dict) or not new_ranges:
                 raise HTTPException(
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="The 'new_ranges' field must be a non-empty dictionary."
                 )
-            mongo_handler = MongoDBHandler(eval_config,org_id)
-            # Call the database function to update metric ranges
-            result = await mongo_handler.update_metric_ranges(
-                metric_id=metric_id,
-                metric_name=metric_name,
-                new_ranges=new_ranges
-            )
-            # Check the result from the database
-            if result is not None and result > 0:
-                return {"message": f"{result} document(s) updated successfully."}
+
+            total_updates = 0  # Track total updates
+
+            print("The orgIds are", self.orgIds)
+
+            for orgId in self.orgIds:
+                print("Processing orgId:", orgId)
+
+                mongo_handler = MongoDBHandler(eval_config, orgId)
+                updated_count = await mongo_handler.update_metric_ranges(
+                    metric_id=metric_id,
+                    metric_name=metric_name,
+                    new_ranges=new_ranges
+                )
+
+                if updated_count:
+                    total_updates += updated_count
+
+            if total_updates > 0:
+                return {"message": f"{total_updates} document(s) updated successfully."}
             else:
                 raise HTTPException(
                     status_code=status.HTTP_404_NOT_FOUND,
                     detail="Metric or document not found, or metric name does not match existing ranges."
                 )
+
         except ValidationError as e:
-            # Handle validation errors from Pydantic
             raise HTTPException(
                 status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
                 detail=f"Validation error: {e.errors()}"
             )
         except Exception as e:
-            # Catch all other unexpected exceptions
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"An unexpected error occurred: {str(e)}"
             )
+    async def check_process_name(self, request):
+        process_name = request["process_name"]
+        orgId = request["orgId"]
+        organizationDB = OrganizationDataBase(orgId)
+        
+        # Call the second check_process_name function
+        result = await organizationDB.check_process_name(process_name)
+        
+        # You can now use the result from the second check_process_name
+        if result["exists"]:
+            return result
+        else:
+            # Your other logic, if process name doesn't exist
+            return {"message": "Process name is available", "status": "success"}
