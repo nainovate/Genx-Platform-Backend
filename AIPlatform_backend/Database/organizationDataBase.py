@@ -405,9 +405,9 @@ class OrganizationDataBase:
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
     
     
-    def getAgents(self,tagName: str):
+    def getAgents(self):
         try:
-            agents = self.organizationDB["DeploymentConfig"].find({"tagName":tagName})
+            agents = self.organizationDB["DeploymentConfig"].find()
             agents_list = list(agents)
             if len(agents_list) ==0:
                 return agents_list,status.HTTP_404_NOT_FOUND
