@@ -218,6 +218,7 @@ class Task:
                     }
                 organizationDB = OrganizationDataBase(orgId)
                 agents, status_code = organizationDB.getAgents()
+
                 if status_code == 404:
                     return {
                         "status_code": status.HTTP_404_NOT_FOUND,

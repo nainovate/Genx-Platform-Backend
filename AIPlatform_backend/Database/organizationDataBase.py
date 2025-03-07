@@ -403,8 +403,7 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-    
-    
+
     def getAgents(self):
         try:
             agents = self.organizationDB["DeploymentConfig"].find()
