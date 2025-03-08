@@ -1,0 +1,176 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39f4"
+  },
+  "modelName": "TheBloke/Llama-2-7B-Chat-GGML",
+  "modelType": "llama2",
+  "engine": "llama-2-7b-chat.ggmlv3.q4_0.bin"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a1d"
+  },
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "modelType": "llama2",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a20"
+  },
+  "modelName": "TheBloke/Llama-2-7b-Chat-GGUF",
+  "modelType": "llama2",
+  "engine": "llama-2-7b-chat.Q4_K_M.gguf"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a23"
+  },
+  "modelName": "TheBloke/Llama-2-70b-Chat-GGUF",
+  "modelType": "llama2",
+  "engine": "llama-2-70b-chat.Q4_K_M.gguf"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a26"
+  },
+  "modelName": "NousResearch/Llama-2-7b-chat-hf",
+  "modelType": "llama2",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a29"
+  },
+  "modelName": "TheBloke/Llama-2-13B-chat-GPTQ",
+  "modelType": "llama2",
+  "engine": "model.safetensors"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a2a"
+  },
+  "modelName": "TheBloke/vicuna-13B-v1.5-GPTQ",
+  "modelType": "llama2",
+  "engine": "model.safetensors"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a2c"
+  },
+  "modelName": "TheBloke/Mistral-7B-OpenOrca-GPTQ",
+  "modelType": "mistral",
+  "engine": "model.safetensors"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a2d"
+  },
+  "modelName": "mistralai/Mistral-7B-v0.1",
+  "modelType": "mistral",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a2e"
+  },
+  "modelName": "mistralai/Mistral-7B-Instruct-v0.1",
+  "modelType": "mistral",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a2f"
+  },
+  "modelName": "TheBloke/Wizard-Vicuna-13B-Uncensored-GPTQ",
+  "modelType": "vicuna",
+  "engine": "Wizard-Vicuna-13B-Uncensored-GPTQ-4bit-128g.compat.no-act-order.safetensors"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a30"
+  },
+  "modelName": "TheBloke/vicuna-7B-1.1-HF",
+  "modelType": "vicuna",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a31"
+  },
+  "modelName": "tiiuae/falcon-7b",
+  "modelType": "falcon",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a32"
+  },
+  "modelName": "tiiuae/falcon-40b",
+  "modelType": "falcon",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a34"
+  },
+  "modelName": "gpt2",
+  "modelType": "gpt2",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a35"
+  },
+  "modelName": "gpt2-xl",
+  "modelType": "gpt2",
+  "engine": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a36"
+  },
+  "modelName": "Azure-Model-1",
+  "modelType": "Azure",
+  "engine": "gpt-3.5-turbo"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a37"
+  },
+  "modelName": "Azure-Model-2",
+  "modelType": "Azure",
+  "engine": "gpt-4"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a38"
+  },
+  "modelName": "GPT-3.5",
+  "modelType": "OpenAI",
+  "engine": "gpt-3.5-turbo-1106"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a39"
+  },
+  "modelName": "GPT-4",
+  "modelType": "OpenAI",
+  "engine": "gpt-4"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a3a"
+  },
+  "modelName": "GPT-4 Turbo",
+  "modelType": "OpenAI",
+  "engine": "gpt-4-1106-preview"
+},
+{
+  "_id": {
+    "$oid": "66e969c84e2bf0235a7e9d6c"
+  },
+  "modelName": "meta-llama/Meta-Llama-3.1-8B",
+  "modelType": "llama2",
+  "engine": ""
+}]
