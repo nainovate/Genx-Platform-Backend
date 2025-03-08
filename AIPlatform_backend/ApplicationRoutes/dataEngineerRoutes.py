@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from fastapi import APIRouter, HTTPException, Body, FastAPI
 from ApplicationRoutes.authenticationRoutes import prompts_instance,payload_instance,model_instance,dataset_instance, task_instance
 
@@ -25,7 +26,7 @@ def addPrompt(request_data: dict = Body(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/api/getPrompts")
-def getPrompts(request_data: dict = Body(...)):
+def getPrompts(request_data: Dict[str, Any]):  # Corrected type annotation
     """
     Fetches prompts data for the given session ID.
 
@@ -34,20 +35,14 @@ def getPrompts(request_data: dict = Body(...)):
     """
     try:
         # Check if request_data contains the data field
-        if "data" not in request_data:
-            raise HTTPException(
-                status_code=400,
-                detail="Missing required 'data' field in the request."
-            )
-            
-        data = request_data["data"]
-        session_id = data["sessionId"]
+      
+        session_id = request_data["sessionId"]
         prompts = prompts_instance[session_id]
         # Check if data contains the sessionId
         if session_id not in prompts_instance: 
             raise HTTPException(status_code=404, detail=f"Session ID '{session_id}' not found.") 
         # Call the `getPromptsData` method of the corresponding instance
-        response = prompts.getPromptsData(data)
+        response = prompts.getPromptsData()
         return response
     except KeyError as e:
         # Handle missing keys in the data

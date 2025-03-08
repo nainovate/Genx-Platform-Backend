@@ -129,7 +129,7 @@ class Authorization:
                         "detail":"Unauthorized Access",
                     }
                 data["role"] = {data["role"]:[]}
-            elif data["role"] in ["analyst", "aiEngineer","mlOpsEngineer", "dataEngineer"]:
+            elif data["role"] in ["analyst", "aiengineer","mlOpsengineer", "dataengineer"]:
                 if "orgIds" not in data:
                     return {
                         "status_code": status.HTTP_400_BAD_REQUEST,

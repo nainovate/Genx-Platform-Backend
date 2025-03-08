@@ -234,8 +234,6 @@ def import_json_data(folderPath):
     for filename in os.listdir(folderPath):
         if filename.endswith('.json'):
             collectionName = os.path.splitext(filename)[0].split('.')[-1]
-            if collectionName in db.list_collection_names():
-                db.drop_collection(collectionName)
             
             collection = db[collectionName]
             

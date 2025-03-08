@@ -115,7 +115,7 @@ class Prompts:
                 detail="Failed to add prompt due to an unexpected internal error",
             )
 
-    def getPromptsData(self,data:dict):
+    def getPromptsData(self,):
         """
         Fetches the LLM Prompts data from the database.
 
@@ -124,13 +124,14 @@ class Prompts:
         try:
 
             result = []
-            orgId = data["orgId"]
-            organizationDB = OrganizationDataBase(orgId)
-            prompts, status_code = organizationDB.get_prompts_data(data)
-            if prompts:
-                result.extend(prompts)
+            for org in self.orgIds:
            
-            # Handle cases where no data is returned
+                organizationDB = OrganizationDataBase(org)
+                prompts, status_code = organizationDB.get_prompts_data()
+                if prompts:
+                    result.extend(prompts)
+            
+                # Handle cases where no data is returned
             if not result:
                 logger.warning("No prompts found in the database.")
                 return {
