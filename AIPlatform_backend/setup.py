@@ -245,8 +245,9 @@ def import_json_data(folderPath):
                     
                     for document in data:
                         # Convert _id from {'$oid': '...'} to ObjectId
-                        if '_id' in document and isinstance(document['_id'], dict) and '$oid' in document['_id']:
-                            document['_id'] = ObjectId(document['_id']['$oid'])
+                        for key in document:
+                            if isinstance(document[key], dict) and '$oid' in document[key]:
+                                document[key] = ObjectId(document[key]['$oid'])
                         
                         if not document_exists(collection, document):
                             try:
