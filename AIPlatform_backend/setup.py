@@ -7,6 +7,9 @@ from werkzeug.security import generate_password_hash
 import json
 from pymongo import MongoClient
 
+
+
+
 projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
@@ -194,24 +197,71 @@ def create_refresh_token(user_setup, token_data: dict):
         logging.error(f"Failed to insert refresh token data into database: {e}")
 
 def document_exists(collection, document):
-    return collection.count_documents(document, limit=1) > 0
+    # Filter out None values and create a query with key fields
+    query = {k: v for k, v in document.items() if v is not None}
+    
+    # If the document has an '_id' field, prioritize it for exact matching
+    if '_id' in document:
+        # Handle case where _id is a dict with '$oid' (from JSON)
+        if isinstance(document['_id'], dict) and '$oid' in document['_id']:
+            try:
+                query = {'_id': ObjectId(document['_id']['$oid'])}
+            except Exception as e:
+                print(f"Error converting _id to ObjectId: {e}")
+                return False
+        else:
+            query = {'_id': document['_id']}
+    
+    try:
+        # Check how many documents match the query
+        count = collection.count_documents(query, limit=1)
+        
+        # Check if the document exists
+        exists = count > 0
+    
+        return exists
+    except Exception as e:
+        print(f"Error querying collection: {e}")
+        return False
+
 
 def import_json_data(folderPath):
     global client
     databaseName = os.path.basename(folderPath)
     db = client[databaseName]
+    
+    
     for filename in os.listdir(folderPath):
         if filename.endswith('.json'):
             collectionName = os.path.splitext(filename)[0].split('.')[-1]
             if collectionName in db.list_collection_names():
                 db.drop_collection(collectionName)
+            
             collection = db[collectionName]
-            with open(os.path.join(folderPath, filename), 'r') as file:
-                data = json.load(file)
-                for document in data:
-                    if not document_exists(collection, document):
-                        collection.insert_one(document)
-    logging.info(db.list_collection_names())
+            
+            try:
+                with open(os.path.join(folderPath, filename), 'r') as file:
+                    data = json.load(file)
+                    
+                    for document in data:
+                        # Convert _id from {'$oid': '...'} to ObjectId
+                        if '_id' in document and isinstance(document['_id'], dict) and '$oid' in document['_id']:
+                            document['_id'] = ObjectId(document['_id']['$oid'])
+                        
+                        if not document_exists(collection, document):
+                            try:
+                                result = collection.insert_one(document)
+                            except Exception as e:
+                                print(f"Failed to insert document: {document}")
+                                print(f"Error: {e}")
+                        else:
+                            print(f"Skipping duplicate document: {document}")
+            
+            except Exception as e:
+                print(f"Error processing file {filename}: {e}")
+    
+    collections = db.list_collection_names()
+    logging.info(collections)
 
 def setup():
     try:
@@ -328,10 +378,9 @@ def setup():
                         create_refresh_token(user_setup, refresh_token_data)
         else:
             global client
-            mongo_ip = "172.10.10.56"
-            mongo_port = "27017"
-            db_uri = "mongodb://"+mongo_ip+":"+mongo_port+"/"
-            client = MongoClient(db_uri)
+            MONGO_IP = os.environ.get("MONGO_IP_ADDRESS")
+            MONGO_URI = "mongodb://"+MONGO_IP+":27017"
+            client = MongoClient(MONGO_URI)
             backendDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__)))
             demoDataPath = os.path.join(backendDirectory,"DemoData")
             dbFolders = [name for name in os.listdir(demoDataPath) if os.path.isdir(os.path.join(demoDataPath, name))]
