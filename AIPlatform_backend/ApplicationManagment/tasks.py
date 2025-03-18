@@ -244,13 +244,13 @@ class Task:
     def createTask(self, data: dict):
         try:
             # Validate input data
-            if not isinstance(data, dict) or "orgId" not in data or "taskName" not in data or "description" not in data or "roleIds" not in data or "spaceId" not in data or "agentId" not in data:
+            if not isinstance(data, dict) or "orgId" not in data or "taskName" not in data or "description" not in data or "roleIds" not in data or "spaceId" not in data:
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "Invalid input data. Expected a dictionary with 'taskName', 'description', 'orgId', 'roleIds', and 'spaceId' keys."
                 }
 
-            if data["orgId"] == '' or data["taskName"] == '' or not data["roleIds"] or data["agentId"] == '':
+            if data["orgId"] == '' or data["taskName"] == '' or not data["roleIds"]:
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
                     "detail": "OrgId, taskName, and roleIds are required fields."
@@ -335,31 +335,39 @@ class Task:
                         "status_code": status.HTTP_404_NOT_FOUND,
                         "detail": f"Role doesn't have access for spaceId: {spaceId}"
                     }
+            if "agentId" in data:
+                agentId = data["agentId"]   
+                if not isinstance(data["agentId"], str):
+                    return {
+                        "status_code": status.HTTP_400_BAD_REQUEST,
+                        "detail": "agentId must be a string"
+                    }
 
-            agentId = data["agentId"]   
-            if not isinstance(data["agentId"], str):
-                return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "agentId must be a string"
+                status_code = organizationDB.checkAgent(agentId)
+                if status_code != 200:
+                    return {
+                        "status_code": status.HTTP_404_NOT_FOUND,
+                        "detail": f"Agent with ID {data['agentId']} not found"
+                    }
+
+                # Create the task in the organization database
+                taskInfo = {
+                    "taskName": data["taskName"],
+                    "description": data["description"],
+                    "roleIds": roleIds,
+                    "createdBy": self.userId,
+                    "agentId": agentId,
+                    "clientApiKey" : clientApiKey
                 }
-
-            status_code = organizationDB.checkAgent(agentId)
-            if status_code != 200:
-                return {
-                    "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": f"Agent with ID {data['agentId']} not found"
+            else:
+                taskInfo = {
+                    "taskName": data["taskName"],
+                    "description": data["description"],
+                    "roleIds": roleIds,
+                    "createdBy": self.userId,
+                    "clientApiKey" : clientApiKey
                 }
-
-
-            # Create the task in the organization database
-            taskInfo = {
-                "taskName": data["taskName"],
-                "description": data["description"],
-                "roleIds": roleIds,
-                "createdBy": self.userId,
-                "agentId": agentId,
-                "clientApiKey" : clientApiKey
-            }
+                
             status_code = organizationDB.createTask(taskInfo=taskInfo)
 
 
@@ -458,14 +466,29 @@ class Task:
                 }
 
             # Initialize taskInfo with optional fields
-            taskInfo = {
-            }
+            taskInfo = {}
 
             # Add only the provided optional fields
             for field in optional_fields:
                 if field in data:
                     taskInfo[field] = data[field]
+                    
+            if "agentId" in data:
+                agentId = data["agentId"]   
+                if not isinstance(data["agentId"], str):
+                    return {
+                        "status_code": status.HTTP_400_BAD_REQUEST,
+                        "detail": "agentId must be a string"
+                    }
 
+                status_code = organizationDB.checkAgent(agentId)
+                if status_code != 200:
+                    return {
+                        "status_code": status.HTTP_404_NOT_FOUND,
+                        "detail": f"Agent with ID {data['agentId']} not found"
+                    }
+                taskInfo["agentId"] = data["agentId"]
+                
             # Update task...
             status_code = organizationDB.updateTask(taskId=data["taskId"], taskInfo=taskInfo)
             if status_code == status.HTTP_409_CONFLICT:
@@ -481,7 +504,7 @@ class Task:
             
             return {
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                "detail": "Internal server error occurred."
+                "detail": "Task updation failed."
             }
 
         except Exception as e:
