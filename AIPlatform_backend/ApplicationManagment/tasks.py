@@ -472,8 +472,8 @@ class Task:
             for field in optional_fields:
                 if field in data:
                     taskInfo[field] = data[field]
-                    
-            if "agentId" in data:
+            print('-------agentId',data.get("agentId"))
+            if "agentId" in data and data.get("agentId"):
                 agentId = data["agentId"]   
                 if not isinstance(data["agentId"], str):
                     return {

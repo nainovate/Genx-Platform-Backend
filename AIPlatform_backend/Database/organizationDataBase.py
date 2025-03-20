@@ -382,7 +382,7 @@ class OrganizationDataBase:
             tasks_list = list(tasks)
             
             if tasks_list:
-                result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"taskDescription":str(task["description"])} for task in tasks_list]
+                result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"taskDescription":str(task["description"]),"agentId":task.get("agentId","")} for task in tasks_list]
                 return result, status.HTTP_200_OK
             else:
                 return {"detail": "No tasks found for the given roleId."}, status.HTTP_404_NOT_FOUND
@@ -396,7 +396,8 @@ class OrganizationDataBase:
             tasks_list = list(tasks)
             
             if tasks_list:
-                result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"description":str(task["description"])} for task in tasks_list]
+                result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"description":str(task["description"]),"agentId":task.get("agentId","")} for task in tasks_list]
+                print('-----result',result)
                 return result, status.HTTP_200_OK
             else:
                 return [], status.HTTP_404_NOT_FOUND
