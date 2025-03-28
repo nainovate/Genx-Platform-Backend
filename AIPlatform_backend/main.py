@@ -10,6 +10,7 @@ from ApplicationRoutes.dataEngineerRoutes import router as dataEngineer_router
 from ApplicationRoutes.evaluationRoutes import router as evaluation_router
 from ApplicationRoutes.aiEngineerRoutes import router as aiEngineerRoutes
 from ApplicationRoutes.ChatBotRoutes import router as chatBotRoutes
+from ApplicationRoutes.schedulerRoutes import router as schedulerRoutes
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -59,6 +60,8 @@ app.include_router(evaluation_router)
 app.include_router(aiEngineerRoutes)
 
 app.include_router(chatBotRoutes)
+
+app.include_router(schedulerRoutes)
 
 
 # Entry point

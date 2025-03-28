@@ -13,6 +13,7 @@ from AiManagement.payloads import *
 from AiManagement.models import*
 from AiManagement.dataset import*
 from AiManagement.finetuning import*
+from AiManagement.scheduler import *
 
 
 
@@ -31,6 +32,7 @@ model_instance = {}
 evaluation_instance = {}
 dataset_instance = {}
 finetuning_instance = {}
+scheduler_instance ={}
 
 
 
@@ -85,12 +87,11 @@ async def login(request_data: dict = Body(...)):
                     prompts_instance[sessionId] = Prompts(userId=userId, role=role, orgIds=orgIds)
                     payload_instance[sessionId] = Payload(userId=userId, role=role, orgIds=orgIds)  
                     model_instance[sessionId] = Model(userId=userId, role=role, orgIds=orgIds) 
-                    dataset_instance[sessionId]= dataset(userId=userId, role=role, orgIds=orgIds) 
-
+                    dataset_instance[sessionId]= dataset(userId=userId, role=role, orgIds=orgIds)
+                    scheduler_instance[sessionId]= Scheduler(userId=userId, role=role, orgIds=orgIds) 
 
                 elif "dataengineer" in role:
                     orgIds = data["orgIds"]
-                    print('----sessionId',sessionId)
                     organization_instance[sessionId] = Organization(userId=userId, role=role)
                     task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
                     # # Populating prompts_instance with the sessionId
@@ -98,6 +99,7 @@ async def login(request_data: dict = Body(...)):
                     payload_instance[sessionId] = Payload(userId=userId, role=role, orgIds=orgIds)  
                     model_instance[sessionId] = Model(userId=userId, role=role, orgIds=orgIds)
                     dataset_instance[sessionId]= dataset(userId=userId, role=role, orgIds=orgIds) 
+                    scheduler_instance[sessionId]= Scheduler(userId=userId, role=role, orgIds=orgIds) 
                 elif "user" in role:
                     task_instance[sessionId] = Task(userId=userId, role=role, orgIds=orgIds)
 

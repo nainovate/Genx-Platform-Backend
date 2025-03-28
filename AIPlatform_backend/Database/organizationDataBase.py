@@ -1476,3 +1476,76 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving tasks: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+        
+    def checkJob(self, name: str):
+        try:
+            # Check if spaceId is a string
+            if not isinstance(name, str):
+                return status.HTTP_400_BAD_REQUEST
+
+            space = self.organizationDB["schedulerJobs"].find_one({"name": name})
+            if space:
+                return status.HTTP_409_CONFLICT
+            else:
+                return status.HTTP_200_OK
+        except Exception as e:
+            # Log and handle unexpected errors
+            logging.error(f"Error while checking Job for Job name {name}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def createJob(self, data: dict):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return status.HTTP_500_INTERNAL_SERVER_ERROR
+            
+            # Check if spaceName already exists
+            existing_job_name = self.organizationDB["schedulerJobs"].find_one({"name": data["name"]})
+            if existing_job_name:
+                logging.error("Job Name Already Exists")
+                return status.HTTP_409_CONFLICT
+            
+            data = {
+                "jobId": data["jobId"],
+                "name": data["name"],
+                "config": data["config"],
+                "interval": data["interval"],
+                "prev_job":[],
+                "next_job":[data["time"]],
+                "createdBy": data["userId"]
+            }
+            # Insert the new space data into the database
+            self.organizationDB["schedulerJobs"].insert_one(data)
+            logging.info(f"job {data['name']} created successfully ")
+            return status.HTTP_200_OK
+        except Exception as e:
+            logging.error(f"Error while creating job: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def updateJob(self, data: dict):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return status.HTTP_500_INTERNAL_SERVER_ERROR
+            
+            # Check if spaceName already exists
+            schedulerTask = self.organizationDB["schedulerJobs"].find_one({"jobId": data["jobId"]})
+            if not schedulerTask:
+                logging.error("Job Not found")
+                return status.HTTP_404_NOT_FOUND
+            updated_data = {}
+            updated_data["prev_job"] = schedulerTask["prev_job"]
+            prev_job = schedulerTask["next_job"][0]
+            next_job = prev_job + data["seconds"]
+            updated_data["prev_job"].insert(0,prev_job)
+            updated_data["next_job"] =[next_job]
+            result = self.organizationDB["schedulerJobs"].update_one({"jobId":data['jobId']},{"$set": {**updated_data}})
+            if result.matched_count==1:
+                return status.HTTP_200_OK
+            else:
+                return status.HTTP_422_UNPROCESSABLE_ENTITY          
+        except Exception as e:
+            logging.error(f"Error while creating job: {e}")
+            print(f"Error while creating job: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
