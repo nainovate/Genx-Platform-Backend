@@ -1478,21 +1478,21 @@ class OrganizationDataBase:
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
         
         
-    def checkJob(self, name: str):
+    def checkJob(self, jobId: str):
         try:
             # Check if spaceId is a string
-            if not isinstance(name, str):
+            if not isinstance(jobId, str):
                 return status.HTTP_400_BAD_REQUEST
 
-            space = self.organizationDB["schedulerJobs"].find_one({"name": name})
-            if space:
-                return status.HTTP_409_CONFLICT
+            job = self.organizationDB["schedulerJobs"].find_one({"jobId": jobId})
+            if job:
+                return status.HTTP_200_OK, job["job"]
             else:
-                return status.HTTP_200_OK
+                return status.HTTP_404_NOT_FOUND, None
         except Exception as e:
             # Log and handle unexpected errors
-            logging.error(f"Error while checking Job for Job name {name}: {e}")
-            return status.HTTP_500_INTERNAL_SERVER_ERROR
+            logging.error(f"Error while checking Job for JobId {jobId}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR, None
         
     def createJob(self, data: dict):
         try:
@@ -1508,6 +1508,7 @@ class OrganizationDataBase:
             
             data = {
                 "jobId": data["jobId"],
+                "job":data["job"],
                 "name": data["name"],
                 "config": data["config"],
                 "interval": data["interval"],
@@ -1521,6 +1522,7 @@ class OrganizationDataBase:
             return status.HTTP_200_OK
         except Exception as e:
             logging.error(f"Error while creating job: {e}")
+            print(f"Error while creating job: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
     def updateJob(self, data: dict):
@@ -1549,3 +1551,35 @@ class OrganizationDataBase:
             logging.error(f"Error while creating job: {e}")
             print(f"Error while creating job: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def deleteJob(self, jobId: str):
+        try:
+            # Check if spaceId is a string
+            if not isinstance(jobId, str):
+                return status.HTTP_400_BAD_REQUEST
+
+            result = self.organizationDB["schedulerJobs"].delete_one({"jobId": jobId})
+            if result.deleted_count==1:
+                return status.HTTP_200_OK
+            else:
+                return status.HTTP_422_UNPROCESSABLE_ENTITY
+        except Exception as e:
+            # Log and handle unexpected errors
+            logging.error(f"Error while deleting Job for JobId {jobId}: {e}")
+            return status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    def getAllJobs(self):
+        try:
+            if self.organizationDB is None:
+                logging.error("Organization database is not initialized.")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+            
+            jobs_list = list(self.organizationDB["schedulerJobs"].find({}, {"_id": 0,"createdBy":0}))
+            if len(jobs_list) > 0:
+                return jobs_list
+            else:
+                logging.info("No jobs found for this Org.")
+                return None
+        except Exception as e:
+            logging.error(f"Error while retrieving jobs: {e}")
+            return None

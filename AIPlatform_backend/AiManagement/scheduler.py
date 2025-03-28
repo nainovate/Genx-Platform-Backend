@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 scheduler = BackgroundScheduler()
 scheduler.start()
-jobs = {}
+# jobs = {}
 
 
 
@@ -41,23 +41,24 @@ class Scheduler:
         self.AIServerPort = os.getenv("AIServerPort")
         self.endpoint = "http://"+self.AIServicesIp+":"+self.AIServerPort
         
-    def call_external_api(self,api_url: str, input_data: dict):
+    def ingestService(self,api_url: str, input_data: dict):
         """Function to call the external API."""
         try:
-            print('-----res',input_data)
-            res_data = input_data["config"]
-            response = requests.post(api_url, json = res_data)
-            print('-----res',response)
+            # res_data = input_data["config"]
+            # response = requests.post(api_url, json = res_data)
             # print(f"API Response: {response.status_code} - {response.text}")
-            status_code = self.organizationDB.updateJob(data=input_data)
+            self.organizationDB.updateJob(data=input_data)
+            print('----comming into ingest service function',input_data["jobId"])
         except Exception as e:
             print(f"Error calling API: {e}")
         
     async  def writeScheduleJob(self, input_data: dict):
         try:
-            job = scheduler.add_job(self.call_external_api, input_data["trigger"], [f'{self.endpoint}/aiService/rag', input_data], replace_existing=True)
+            job = scheduler.add_job(self.ingestService, input_data["trigger"], [f'{self.endpoint}/aiService/rag', input_data], replace_existing=True)
+            # jobs[input_data["jobId"]] = job
             data = {
                 "jobId":input_data["jobId"],
+                "job":job.id,
                 "name":input_data["name"],
                 "config":input_data["config"],
                 "interval":input_data["interval"],
@@ -114,7 +115,7 @@ class Scheduler:
             current_timestamp = int(datetime.now(tz=timezone.utc).timestamp())
             # Define interval mapping
             intervals = {
-                "minute": 60,
+                "minute": 10,
                 "hourly": 3600,
                 # "hourly": 10,
                 "daily": 86400,
@@ -170,6 +171,121 @@ class Scheduler:
             
         except Exception as e:
             logger.error(f"Error in getTasksForRole: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error",
+            }
+
+    async def remove_task(self,data:dict):
+        # Get current timestamp
+        try:
+            if not isinstance(data, dict):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary."
+                }
+
+            if not "dataengineer" in self.role and not "aiengineer" in self.role:
+                return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access"
+                }
+            if not isinstance(data, dict) or "orgId" not in data or "jobId" not in data:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with 'orgId' and 'jobId' keys."
+                }
+            orgId = data["orgId"]
+            jobId = data["jobId"]
+            if not orgId in self.orgIds:
+                return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access"
+                }
+
+            # Initialize the organization database
+            self.organizationDB = OrganizationDataBase(orgId)
+            
+            # Check if organizationDB is initialized successfully
+            if not self.organizationDB:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Error initializing the organization database"
+                }
+            status_code, job = self.organizationDB.checkJob(jobId=jobId)
+            if status_code == 404:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Job Not Found",
+                }
+            elif not status_code == 200:
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Internal server error",
+                }
+            scheduler.remove_job(job)
+            self.organizationDB.deleteJob(jobId=jobId)
+            return {
+                "status_code":status.HTTP_200_OK,
+                "detail":"Job Deleted Successfully.",
+            }
+        except Exception as e:
+            logger.error(f"Error in deleting job: {str(e)}")
+            print(f"Error in deleting job: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error",
+            }
+            
+    async def getAllJobs(self,data:dict):
+        # Get current timestamp
+        try:
+            if not isinstance(data, dict):
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary."
+                }
+
+            if not "dataengineer" in self.role and not "aiengineer" in self.role:
+                return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access"
+                }
+            if not isinstance(data, dict) or "orgId" not in data:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Invalid input data. Expected a dictionary with 'orgId' key."
+                }
+            orgId = data["orgId"]
+            if not orgId in self.orgIds:
+                return {
+                        "status_code": status.HTTP_401_UNAUTHORIZED,
+                        "detail": "Unauthorized Access"
+                }
+
+            # Initialize the organization database
+            self.organizationDB = OrganizationDataBase(orgId)
+            
+            # Check if organizationDB is initialized successfully
+            if not self.organizationDB:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Error initializing the organization database"
+                }
+            jobs = self.organizationDB.getAllJobs()
+            if jobs:
+                return {
+                    "status_code": status.HTTP_200_OK,
+                    "jobs": jobs,
+                }
+            else:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"Jobs Not Found",
+                }
+        except Exception as e:
+            logger.error(f"Error in getting jobs: {str(e)}")
+            print(f"Error in getting jobs: {str(e)}")
             return {
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": "Internal server error",
