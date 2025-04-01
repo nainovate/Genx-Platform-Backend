@@ -2498,3 +2498,20 @@ class ApplicationDataBase:
             except Exception as e:
                 logging.error(f"Error while retrieving apiKey: {e}")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+    
+    def getOrgIds(self):
+        try:
+            if self.applicationDB is None:
+                logging.error("Application database is not initialized.")
+                return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+            
+            org_list = list(self.applicationDB["organizations"].find({}, {"_id": 0, "orgId": 1}))
+            
+            if len(org_list) > 0:
+                return org_list, status.HTTP_200_OK
+            else:
+                logging.info("No org found in application database.")
+                return None, status.HTTP_404_NOT_FOUND
+        except Exception as e:
+            logging.error(f"Error while retrieving spaces: {e}")
+            return None, status.HTTP_500_INTERNAL_SERVER_ERROR

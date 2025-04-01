@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from fastapi import HTTPException, status
 from Database.organizationDataBase import *
 import requests
+from Database.applicationDataBase import *
 
 
 
@@ -14,6 +15,10 @@ projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
+
+def initilizeApplicationDB():
+    applicationDB = ApplicationDataBase()
+    return applicationDB
 
 # Configure logging settings
 logging.basicConfig(
@@ -40,6 +45,8 @@ class Scheduler:
         self.AIServicesIp = os.getenv("AIServicesIp")
         self.AIServerPort = os.getenv("AIServerPort")
         self.endpoint = "http://"+self.AIServicesIp+":"+self.AIServerPort
+        self.applicationDB = initilizeApplicationDB()
+
         
     def ingestService(self,api_url: str, input_data: dict):
         """Function to call the external API."""
@@ -115,7 +122,7 @@ class Scheduler:
             current_timestamp = int(datetime.now(tz=timezone.utc).timestamp())
             # Define interval mapping
             intervals = {
-                "minute": 10,
+                "minute": 60,
                 "hourly": 3600,
                 # "hourly": 10,
                 "daily": 86400,
@@ -238,7 +245,6 @@ class Scheduler:
             }
             
     async def getAllJobs(self,data:dict):
-        # Get current timestamp
         try:
             if not isinstance(data, dict):
                 return {
@@ -290,3 +296,15 @@ class Scheduler:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": "Internal server error",
             }
+        # job_list = []
+        # for job in scheduler.get_jobs():  # Fetch all active jobs
+        #     print('----job',job)
+        #     job_list.append({
+        #         "job_id": job.id,
+        #         "name": job.name,
+        #         "next_run_time": job.next_run_time.strftime("%Y-%m-%d %H:%M:%S") if job.next_run_time else "Not scheduled",
+        #         "trigger": str(job.trigger)
+        #     })
+
+        # return {"jobs": job_list}
+        

@@ -1513,7 +1513,7 @@ class OrganizationDataBase:
                 "config": data["config"],
                 "interval": data["interval"],
                 "prev_job":[],
-                "next_job":[data["time"]],
+                "next_job":data["time"],
                 "createdBy": data["userId"]
             }
             # Insert the new space data into the database
@@ -1530,7 +1530,6 @@ class OrganizationDataBase:
             if self.organizationDB is None:
                 logging.error("Organization database is not initialized.")
                 return status.HTTP_500_INTERNAL_SERVER_ERROR
-            
             # Check if spaceName already exists
             schedulerTask = self.organizationDB["schedulerJobs"].find_one({"jobId": data["jobId"]})
             if not schedulerTask:
@@ -1538,18 +1537,18 @@ class OrganizationDataBase:
                 return status.HTTP_404_NOT_FOUND
             updated_data = {}
             updated_data["prev_job"] = schedulerTask["prev_job"]
-            prev_job = schedulerTask["next_job"][0]
+            prev_job = schedulerTask["next_job"]
             next_job = prev_job + data["seconds"]
             updated_data["prev_job"].insert(0,prev_job)
-            updated_data["next_job"] =[next_job]
+            updated_data["next_job"] = next_job
             result = self.organizationDB["schedulerJobs"].update_one({"jobId":data['jobId']},{"$set": {**updated_data}})
             if result.matched_count==1:
                 return status.HTTP_200_OK
             else:
                 return status.HTTP_422_UNPROCESSABLE_ENTITY          
         except Exception as e:
-            logging.error(f"Error while creating job: {e}")
-            print(f"Error while creating job: {e}")
+            logging.error(f"Error while updating job: {e}")
+            print(f"Error while updating job: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
     def deleteJob(self, jobId: str):
@@ -1568,13 +1567,17 @@ class OrganizationDataBase:
             logging.error(f"Error while deleting Job for JobId {jobId}: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
-    def getAllJobs(self):
+    def getAllJobs(self, type = None ,info = None):
         try:
             if self.organizationDB is None:
                 logging.error("Organization database is not initialized.")
                 return None, status.HTTP_500_INTERNAL_SERVER_ERROR
-            
-            jobs_list = list(self.organizationDB["schedulerJobs"].find({}, {"_id": 0,"createdBy":0}))
+            if type:
+                today_epoch = info["today_epoch"]
+                tomorrow_epoch = info["tomorrow_epoch"]
+                jobs_list = list(self.organizationDB["schedulerJobs"].find({"next_job":{"$gte": today_epoch, "$lt": tomorrow_epoch}}, {"_id": 0,"createdBy":0}))
+            else:
+                jobs_list = list(self.organizationDB["schedulerJobs"].find({}, {"_id": 0,"createdBy":0}))
             if len(jobs_list) > 0:
                 return jobs_list
             else:

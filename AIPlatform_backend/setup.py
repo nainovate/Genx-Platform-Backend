@@ -6,9 +6,12 @@ from UserManagment.authorization import *
 from werkzeug.security import generate_password_hash
 import json
 from pymongo import MongoClient
+from AiManagement.scheduler import *
 
 
-
+AIServicesIp = os.getenv("AIServicesIp")
+AIServerPort = os.getenv("AIServerPort")
+endpoint = "http://"+AIServicesIp+":"+AIServerPort
 
 projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 logDir = os.path.join(projectDirectory, "logs")
@@ -262,6 +265,74 @@ def import_json_data(folderPath):
     collections = db.list_collection_names()
     logging.info(collections)
 
+def ingestService(api_url: str, input_data: dict, organizationDB):
+        """Function to call the external API."""
+        try:
+            # res_data = input_data["config"]
+            # response = requests.post(api_url, json = res_data)
+            # print(f"API Response: {response.status_code} - {response.text}")
+            organizationDB.updateJob(data=input_data)
+            print('----comming into ingest service function',input_data["jobId"])
+        except Exception as e:
+            print(f"Error calling API: {e}")
+
+def sub_scheduler():
+        # Get today's date at 00:00:00
+        today_start = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        today_epoch = int(today_start.timestamp())  # Convert to Unix epoch
+
+        # Get tomorrow's start time to filter today's records
+        tomorrow_epoch = today_epoch + 86400  # 86400 seconds = 1 day
+        applicationDB = ApplicationDataBase()
+        orgIds, status_code = applicationDB.getOrgIds()
+        if not orgIds:
+            return {
+                "status_code": status_code,
+                "detail": "Internal server error",
+            }
+        intervals = {
+                "minute": 60,
+                "hourly": 3600,
+                # "hourly": 10,
+                "daily": 86400,
+                "weekly": 604800,
+                "monthly": 2592000  # Approximate month (30 days)
+            }
+        for org in orgIds:
+            # Fetch records with timestamps within today’s range
+            organizationDB = OrganizationDataBase(org["orgId"])
+            
+            # Check if organizationDB is initialized successfully
+            if not organizationDB:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "Error initializing the organization database"
+                }
+            records = organizationDB.getAllJobs(type="main", info={"today_epoch":today_epoch,"tomorrow_epoch":tomorrow_epoch})
+            if records:
+                for record in records:
+                    job_time_epoch = record["next_job"]  # Example: 1743490716 (Unix timestamp)
+                    current_timestamp = int(datetime.now(tz=timezone.utc).timestamp())
+                    seconds = intervals[record["interval"]] 
+                    if current_timestamp >= job_time_epoch:
+                        job_time_epoch = current_timestamp + seconds
+                    else:
+                       pass
+                    job_datetime = datetime.fromtimestamp(job_time_epoch)  # Convert to datetime
+                    record["seconds"] = seconds
+                    # start_time = datetime.fromtimestamp(time, tz=timezone.utc)
+
+                    trigger = IntervalTrigger(seconds=seconds, start_date=job_datetime)
+
+                    # Schedule job at the given timestamp
+                    scheduler.add_job(ingestService, trigger, args=[f'{endpoint}/aiService/rag',record, organizationDB], replace_existing=True)
+                    logger.info(f"Scheduled job for record {record['jobId']} at {job_datetime}")
+
+def main_scheduler():
+    scheduler.add_job(sub_scheduler, 'cron', hour=5, minute=30)
+
+
+
 def setup():
     try:
         # Load configuration data
@@ -269,7 +340,7 @@ def setup():
         # Read the DEMO value from environment variable
         demo_value = os.environ.get('DEMO', 'False').lower()
         logging.info(demo_value)
-
+        
         # Set demo to True if the value is 'true', False otherwise
         demo = demo_value == 'true'
         if not demo:
