@@ -278,6 +278,7 @@ def ingestService(api_url: str, input_data: dict, organizationDB):
 
 def sub_scheduler():
         # Get today's date at 00:00:00
+        running_jobs = scheduler.get_jobs()
         today_start = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
         today_epoch = int(today_start.timestamp())  # Convert to Unix epoch
 
@@ -291,7 +292,7 @@ def sub_scheduler():
                 "detail": "Internal server error",
             }
         intervals = {
-                "minute": 60,
+                "minute": 10,
                 "hourly": 3600,
                 # "hourly": 10,
                 "daily": 86400,
@@ -311,6 +312,10 @@ def sub_scheduler():
             records = organizationDB.getAllJobs(type="main", info={"today_epoch":today_epoch,"tomorrow_epoch":tomorrow_epoch})
             if records:
                 for record in records:
+                    # Check if the job_id is present in the list
+                    job_already_running = any(job.id == record["job"] for job in running_jobs)
+                    if job_already_running:
+                        continue
                     job_time_epoch = record["next_job"]  # Example: 1743490716 (Unix timestamp)
                     current_timestamp = int(datetime.now(tz=timezone.utc).timestamp())
                     seconds = intervals[record["interval"]] 
@@ -325,11 +330,13 @@ def sub_scheduler():
                     trigger = IntervalTrigger(seconds=seconds, start_date=job_datetime)
 
                     # Schedule job at the given timestamp
-                    scheduler.add_job(ingestService, trigger, args=[f'{endpoint}/aiService/rag',record, organizationDB], replace_existing=True)
+                    job = scheduler.add_job(ingestService, trigger, args=[f'{endpoint}/aiService/ingest',record, organizationDB], replace_existing=True)
+                    organizationDB.updateJob(data=record, id=job.id)
+
                     logger.info(f"Scheduled job for record {record['jobId']} at {job_datetime}")
 
 def main_scheduler():
-    scheduler.add_job(sub_scheduler, 'cron', hour=5, minute=30)
+    scheduler.add_job(sub_scheduler, 'cron', hour=18, minute=19)
 
 
 

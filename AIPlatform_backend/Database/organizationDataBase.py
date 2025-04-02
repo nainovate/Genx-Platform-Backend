@@ -1525,7 +1525,7 @@ class OrganizationDataBase:
             print(f"Error while creating job: {e}")
             return status.HTTP_500_INTERNAL_SERVER_ERROR
         
-    def updateJob(self, data: dict):
+    def updateJob(self, data: dict, id=None):
         try:
             if self.organizationDB is None:
                 logging.error("Organization database is not initialized.")
@@ -1536,6 +1536,8 @@ class OrganizationDataBase:
                 logging.error("Job Not found")
                 return status.HTTP_404_NOT_FOUND
             updated_data = {}
+            if id:
+                updated_data["job"] = id
             updated_data["prev_job"] = schedulerTask["prev_job"]
             prev_job = schedulerTask["next_job"]
             next_job = prev_job + data["seconds"]
@@ -1575,7 +1577,7 @@ class OrganizationDataBase:
             if type:
                 today_epoch = info["today_epoch"]
                 tomorrow_epoch = info["tomorrow_epoch"]
-                jobs_list = list(self.organizationDB["schedulerJobs"].find({"next_job":{"$gte": today_epoch, "$lt": tomorrow_epoch}}, {"_id": 0,"createdBy":0}))
+                jobs_list = list(self.organizationDB["schedulerJobs"].find({"next_job":{ "$lt": tomorrow_epoch}}, {"_id": 0,"createdBy":0}))
             else:
                 jobs_list = list(self.organizationDB["schedulerJobs"].find({}, {"_id": 0,"createdBy":0}))
             if len(jobs_list) > 0:

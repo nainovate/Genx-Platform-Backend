@@ -61,7 +61,7 @@ class Scheduler:
         
     async  def writeScheduleJob(self, input_data: dict):
         try:
-            job = scheduler.add_job(self.ingestService, input_data["trigger"], [f'{self.endpoint}/aiService/rag', input_data], replace_existing=True)
+            job = scheduler.add_job(self.ingestService, input_data["trigger"], [f'{self.endpoint}/aiService/ingest', input_data], replace_existing=True)
             # jobs[input_data["jobId"]] = job
             data = {
                 "jobId":input_data["jobId"],
@@ -245,66 +245,66 @@ class Scheduler:
             }
             
     async def getAllJobs(self,data:dict):
-        try:
-            if not isinstance(data, dict):
-                return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "Invalid input data. Expected a dictionary."
-                }
+        # try:
+        #     if not isinstance(data, dict):
+        #         return {
+        #             "status_code": status.HTTP_400_BAD_REQUEST,
+        #             "detail": "Invalid input data. Expected a dictionary."
+        #         }
 
-            if not "dataengineer" in self.role and not "aiengineer" in self.role:
-                return {
-                        "status_code": status.HTTP_401_UNAUTHORIZED,
-                        "detail": "Unauthorized Access"
-                }
-            if not isinstance(data, dict) or "orgId" not in data:
-                return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "Invalid input data. Expected a dictionary with 'orgId' key."
-                }
-            orgId = data["orgId"]
-            if not orgId in self.orgIds:
-                return {
-                        "status_code": status.HTTP_401_UNAUTHORIZED,
-                        "detail": "Unauthorized Access"
-                }
+        #     if not "dataengineer" in self.role and not "aiengineer" in self.role:
+        #         return {
+        #                 "status_code": status.HTTP_401_UNAUTHORIZED,
+        #                 "detail": "Unauthorized Access"
+        #         }
+        #     if not isinstance(data, dict) or "orgId" not in data:
+        #         return {
+        #             "status_code": status.HTTP_400_BAD_REQUEST,
+        #             "detail": "Invalid input data. Expected a dictionary with 'orgId' key."
+        #         }
+        #     orgId = data["orgId"]
+        #     if not orgId in self.orgIds:
+        #         return {
+        #                 "status_code": status.HTTP_401_UNAUTHORIZED,
+        #                 "detail": "Unauthorized Access"
+        #         }
 
-            # Initialize the organization database
-            self.organizationDB = OrganizationDataBase(orgId)
+        #     # Initialize the organization database
+        #     self.organizationDB = OrganizationDataBase(orgId)
             
-            # Check if organizationDB is initialized successfully
-            if not self.organizationDB:
-                return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "Error initializing the organization database"
-                }
-            jobs = self.organizationDB.getAllJobs()
-            if jobs:
-                return {
-                    "status_code": status.HTTP_200_OK,
-                    "jobs": jobs,
-                }
-            else:
-                return {
-                    "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": f"Jobs Not Found",
-                }
-        except Exception as e:
-            logger.error(f"Error in getting jobs: {str(e)}")
-            print(f"Error in getting jobs: {str(e)}")
-            return {
-                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                "detail": "Internal server error",
-            }
-        # job_list = []
-        # for job in scheduler.get_jobs():  # Fetch all active jobs
-        #     print('----job',job)
-        #     job_list.append({
-        #         "job_id": job.id,
-        #         "name": job.name,
-        #         "next_run_time": job.next_run_time.strftime("%Y-%m-%d %H:%M:%S") if job.next_run_time else "Not scheduled",
-        #         "trigger": str(job.trigger)
-        #     })
+        #     # Check if organizationDB is initialized successfully
+        #     if not self.organizationDB:
+        #         return {
+        #             "status_code": status.HTTP_400_BAD_REQUEST,
+        #             "detail": "Error initializing the organization database"
+        #         }
+        #     jobs = self.organizationDB.getAllJobs()
+        #     if jobs:
+        #         return {
+        #             "status_code": status.HTTP_200_OK,
+        #             "jobs": jobs,
+        #         }
+        #     else:
+        #         return {
+        #             "status_code": status.HTTP_404_NOT_FOUND,
+        #             "detail": f"Jobs Not Found",
+        #         }
+        # except Exception as e:
+        #     logger.error(f"Error in getting jobs: {str(e)}")
+        #     print(f"Error in getting jobs: {str(e)}")
+        #     return {
+        #         "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+        #         "detail": "Internal server error",
+        #     }
+        job_list = []
+        for job in scheduler.get_jobs():  # Fetch all active jobs
+            print('----job',job)
+            job_list.append({
+                "job_id": job.id,
+                "name": job.name,
+                "next_run_time": job.next_run_time.strftime("%Y-%m-%d %H:%M:%S") if job.next_run_time else "Not scheduled",
+                "trigger": str(job.trigger)
+            })
 
-        # return {"jobs": job_list}
+        return {"jobs": job_list}
         
