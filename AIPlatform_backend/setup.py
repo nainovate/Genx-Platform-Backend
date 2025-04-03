@@ -335,7 +335,7 @@ def sub_scheduler():
                     logger.info(f"Scheduled job for record {record['jobId']} at {job_datetime}")
 
 def main_scheduler():
-    scheduler.add_job(sub_scheduler, 'cron', hour=18, minute=19)
+    scheduler.add_job(sub_scheduler, 'cron', hour=5, minute=30)
 
 
 
