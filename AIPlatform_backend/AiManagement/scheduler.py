@@ -51,9 +51,9 @@ class Scheduler:
     def ingestService(self,api_url: str, input_data: dict):
         """Function to call the external API."""
         try:
-            # res_data = input_data["config"]
-            # response = requests.post(api_url, json = res_data)
-            # print(f"API Response: {response.status_code} - {response.text}")
+            res_data = input_data["config"]
+            response = requests.post(api_url, json = res_data)
+            print(f"API Response: {response.status_code} - {response.text}")
             self.organizationDB.updateJob(data=input_data)
             print('----comming into ingest service function',input_data["jobId"])
         except Exception as e:

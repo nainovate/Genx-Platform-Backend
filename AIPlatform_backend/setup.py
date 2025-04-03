@@ -268,11 +268,10 @@ def import_json_data(folderPath):
 def ingestService(api_url: str, input_data: dict, organizationDB):
         """Function to call the external API."""
         try:
-            # res_data = input_data["config"]
-            # response = requests.post(api_url, json = res_data)
-            # print(f"API Response: {response.status_code} - {response.text}")
+            res_data = input_data["config"]
+            response = requests.post(api_url, json = res_data)
+            print(f"API Response: {response.status_code} - {response.text}")
             organizationDB.updateJob(data=input_data)
-            print('----comming into ingest service function',input_data["jobId"])
         except Exception as e:
             print(f"Error calling API: {e}")
 
