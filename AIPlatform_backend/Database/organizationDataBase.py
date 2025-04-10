@@ -1484,9 +1484,9 @@ class OrganizationDataBase:
             if not isinstance(jobId, str):
                 return status.HTTP_400_BAD_REQUEST
 
-            job = self.organizationDB["schedulerJobs"].find_one({"jobId": jobId})
+            job = self.organizationDB["schedulerJobs"].find_one({"jobId": jobId}, {"_id": 0,"createdBy":0})
             if job:
-                return status.HTTP_200_OK, job["job"]
+                return status.HTTP_200_OK, job
             else:
                 return status.HTTP_404_NOT_FOUND, None
         except Exception as e:
