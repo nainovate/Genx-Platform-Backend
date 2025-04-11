@@ -258,9 +258,3 @@ class dataset:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": "An unexpected server error occurred. Please try again later or contact support."
             }
-    
-
-
-
-
-    

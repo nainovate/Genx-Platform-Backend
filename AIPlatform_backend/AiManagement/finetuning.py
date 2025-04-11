@@ -21,7 +21,7 @@ projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 logDir = os.path.join(projectDirectory, "logs")
 logBackendDir = os.path.join(logDir, "backend")
 logFilePath = os.path.join(logBackendDir, "logger.log")
-
+staging = {}
 
 
 class finetune():
@@ -33,10 +33,13 @@ class finetune():
         self.dpoEndpoint = finetuning_config["DPOtraining"]
         self.tasks = {}
         self.metric_results = {}
+        self.staging = {}
         
 
     async def fine_tune_model(self, input_request):
         try:
+            start_time = self.get_current_timestamp()
+            
             # Validate missing or empty fields
             required = ["orgId","user_id","model_id","series_id","csvftlog","dataset_id","seed","r_values","alpha_values","dropout_values","learning_rates","batch_sizes","num_epochs","weight_decays","high_memory","searchlimit","target_loss"]
             missing_fields = [field for field in required if field not in input_request]
@@ -63,6 +66,10 @@ class finetune():
 
             # Generate a unique process ID
             process_id = str(uuid.uuid4()).replace('-', '')[:8]
+            self.staging[process_id] = {
+            "stage":"",
+            "start_tine": start_time ,
+            }
             print(process_id)
             # Start the fine-tuning process in the background
             asyncio.create_task(self.fine_tune_service(process_id,input_request))
@@ -164,7 +171,6 @@ class finetune():
                     "status_code": path.get("status_code"),
                     "detail": path.get("detail")
                 }
-            print("kbdf",path)
             dataset_path = path.get("dataset_path")
 
             start_time = datetime.now()
@@ -187,10 +193,9 @@ class finetune():
                 "model_id": model_id,
                 "dataset_path": dataset_path
             }
-            # info =await organizationDB.config_record(config_data)
+            await organizationDB.config_record(config_data)
             # Step 2: Prepare Datasets
             prepare_response = await self.prepare_data(dataset_path, seed,prompt,model_id)
-            print(prepare_response)
             
             if not prepare_response or prepare_response.get("status_code") != 200:
                 return {
@@ -202,7 +207,6 @@ class finetune():
 
             # Step 3: Fine-Tune the Model
             test_payload = await self.request_data(self.userId,model_id,num_epochs,splitdataset_Path,weight_decays,learning_rates,batch_sizes,high_memory,r_values,alpha_values,dropout_values)
-            print("dataa ----",test_payload)
             if not test_payload or test_payload.get("status_code") != 200:
                             # await self.mongoinfo.store_session_metrics(self.user_id,process_id, self.session_metrics,self.model_id,target_loss)
                         return{
@@ -214,7 +218,6 @@ class finetune():
                     # Send the POST request
             response = requests.post(self.dpoEndpoint,json=data,headers={"Content-Type": "application/json"})
             response = response.json()
-            print(response)
             if not response or response.get("status_code") != 200:
                 return {
                     "status_code": response.get("status_code"),
@@ -236,6 +239,7 @@ class finetune():
     
     async def fine_tune_service(self, process_id, input_request):
         try:
+            print("entered to service ")
             model_id = input_request.get("model_id")
             target_loss = input_request.get("target_loss")
             dataset_id = input_request.get("dataset_id")
@@ -259,15 +263,14 @@ class finetune():
                 }
             dataset_path = path.get("dataset_path")
 
-            start_time = datetime.now()
-
+            start_time  = self.get_current_timestamp()
             # Update the task with start time
             self.tasks[process_id] = {
             "user_id":self.userId,
             "model": model_id,
             "status": "started",
             "target_loss":target_loss,
-            "start_time": time,
+            "start_time": start_time,
             "end_time": None,
             "async_task": asyncio.current_task()}
 
@@ -279,11 +282,11 @@ class finetune():
                 "model_id": model_id,
                 "dataset_path": dataset_path
             }
-            info =await organizationDB.config_record(config_data)
-            print(info)
+            await organizationDB.config_record(config_data)
+            self.staging[process_id]["stage"] = "splitting Dataset"
+            self.staging[process_id]["start_tine"] = start_time
             # Step 2: Prepare Datasets
             prepare_response = await self.prepare_datasets(dataset_path, seed)
-            print("dgjh",prepare_response)
             if not prepare_response or prepare_response.get("status_code") != 200:
                 return {
                     "status_code": prepare_response.get("status_code"),
@@ -291,7 +294,6 @@ class finetune():
                 }
 
             splitdataset_Path = prepare_response.get("dataset_path")
-            print("hfsud")
             # Step 3: Fine-Tune the Model
             fine_tune_response = await self.control_random(process_id, splitdataset_Path, input_request)
             if not fine_tune_response or fine_tune_response.get("status_code") != 200:
@@ -302,7 +304,7 @@ class finetune():
 
             # Step 4: Mark Completion
             self.tasks[process_id]["status"] = "completed"
-            self.tasks[process_id]["end_time"] = datetime.now()
+            self.tasks[process_id]["end_time"] = start_time
 
             return fine_tune_response
 
@@ -318,7 +320,6 @@ class finetune():
 
     async def control_random(self,process_id,splitdataset,input_request):
         try:
-            print("tasksss  -------",self.tasks)
             model_id = input_request.get("model_id")
             series_id = input_request.get("series_id")
             target_loss = input_request.get("target_loss")
@@ -356,8 +357,10 @@ class finetune():
             "status": "started"
             }
             self.tasks[process_id]["status"] = "In Progress"
-            status = await organizationDB.update_status_in_mongo(status_record)
+            await organizationDB.update_status_in_mongo(status_record)
             # Ensure the directory exists
+            self.staging[process_id]["stage"] = "initializing CSV file"
+            self.staging[process_id]["start_tine"] = timestamp
             os.makedirs(os.path.dirname(csvftlog), exist_ok=True)
 
             # Check if the file exists
@@ -411,10 +414,11 @@ class finetune():
             current_loss = 10
             self.tasks[process_id]["status"] = "In Progress"
             status_record["status"] = "in progress "
+            self.staging[process_id]["stage"] = "Finetuning Started"
+            self.staging[process_id]["start_tine"] = timestamp
             await organizationDB.update_status_in_mongo(status_record)
             while batchFT and abc_counter < searchlimit:
                 try:
-                    print("entered in to the loop ")
                 
                     logging.info(f"Starting iteration {abc_counter}")
                     
@@ -659,11 +663,13 @@ class finetune():
             # metrics = list(self.session_metrics.values())[0]
             metrics = self.metric_results.get(process_id)
             
-            kgjfdu = await organizationDB.store_session_metrics(self.userId,process_id, metrics,model_id,target_loss)
+            await organizationDB.store_session_metrics(self.userId,process_id, metrics,model_id,target_loss)
             self.tasks[process_id]["status"] = "Completed"
             self.tasks[process_id]["end_time"] = timestamp
             status_record["status"] = "Completed "
             await organizationDB.update_status_in_mongo(status_record)
+            self.staging[process_id]["stage"] = "Training Competed "
+            self.staging[process_id]["start_tine"] = timestamp
             allresponse = await organizationDB.get_metrics(process_id)
             resultpath= await self.write_data_to_excel(allresponse)
             await organizationDB.update_result_path(process_id, resultpath["file_path"])
@@ -677,6 +683,8 @@ class finetune():
         except Exception as e:
             self.tasks[process_id]["status"] = "Failed"
             status_record["status"] = "Failed "
+            self.staging[process_id]["stage"] = "Training Failed"
+            self.staging[process_id]["start_tine"] = timestamp
             await organizationDB.update_status_in_mongo(status_record)
             logging.error(f"Control random process Failed: {str(e)}")
             return {"status_code": 500, "detail": f"Process Failed: {str(e)}"}
@@ -1058,7 +1066,6 @@ class finetune():
             dict: Contains 'train' and 'test' dataset file paths.
         """
         try:
-            print("jdd",dataset_path,seed)
             test_size = 0.2  # Define test split ratio
             
             # Load the dataset
@@ -1107,7 +1114,6 @@ class finetune():
 
 
     async def prepare_data(self, dataset_path, seed, prompt,modelid):
-        print("entered to split")
         """
         Loads a CSV file as a Hugging Face dataset, formats the data, and splits it into train and test sets.
 

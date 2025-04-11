@@ -115,7 +115,7 @@ class Prompts:
                 detail="Failed to add prompt due to an unexpected internal error",
             )
 
-    def getPromptsData(self,):
+    def getPromptsData(self):
         """
         Fetches the LLM Prompts data from the database.
 

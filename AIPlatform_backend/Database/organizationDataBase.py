@@ -397,7 +397,6 @@ class OrganizationDataBase:
             
             if tasks_list:
                 result = [{"taskName": task["taskName"], "taskId": str(task["_id"]),"description":str(task["description"]),"agentId":task.get("agentId","")} for task in tasks_list]
-                print('-----result',result)
                 return result, status.HTTP_200_OK
             else:
                 return [], status.HTTP_404_NOT_FOUND
@@ -951,7 +950,6 @@ class OrganizationDataBase:
         :return: List of prompts data or raises HTTPException if error occurs.
         """
         try: 
-            print("the orgs are",self.orgId)
             if not self.orgId:
                 return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId' in request data"
             # Query to get the prompts data for this org_id
