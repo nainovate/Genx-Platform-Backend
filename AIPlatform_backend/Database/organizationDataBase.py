@@ -906,7 +906,36 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error inserting config record: {str(e)}")
             return {"status_code": 500, "detail": "Internal server error"}
+    def delete_dataset(self, json_data):
+        try:
+            print("json data ",json_data)
+            client_api_key = json_data["clientApiKey"]
+            dataset_Ids = json_data["dataset_Ids"]
 
+            if not client_api_key or not dataset_Ids:
+                logging.error("Missing required fields: 'clientApiKey' or 'dataset_Ids'")
+                return {"status_code": 400, "detail": "Missing 'clientApiKey' or 'dataset_Ids'."}
+
+          
+
+            # Ensure dataset_Id is a string and handle list case
+            if isinstance(dataset_Ids, list):
+                dataset_Ids = [str(item) for item in dataset_Ids]  # Convert items to strings
+
+            # For multiple deletions, use delete_many with $in operator
+            query = {"clientApiKey": client_api_key, "dataset_id": {"$in": dataset_Ids} if isinstance(dataset_Ids, list) else str(dataset_Ids)}
+            
+
+            if isinstance(dataset_Ids, list):
+                result = self.dataset_collection.delete_many(query)
+            else:
+                result = self.dataset_collection.delete_one(query)
+            print("result ---",result)
+            return {"deleted_count": result.deleted_count, "status_code": 200 if result.deleted_count > 0 else 404}
+
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            return {"status_code": 500, "detail": "Unexpected server error."}
     def addPrompt(self, data: dict):
         try:
             org_id = data.get("orgId")

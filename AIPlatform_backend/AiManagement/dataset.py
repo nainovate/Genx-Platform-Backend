@@ -52,10 +52,12 @@ class dataset:
             orgId = data["orgId"]
             dataset_type = data["dataset_name"]
             document = {
+                "Created By": self.userId,
+                "dataset_name" : dataset_type,
                 "clientApiKey": client_api_key,
                 "datasetContent": [qa_item for qa_item in parsed_content],
                 "path": path,
-                "dataset_name" : dataset_type
+                
             }
             if orgId not in self.orgIds:
                     return {

@@ -33,6 +33,7 @@ class finetune():
         self.dpoEndpoint = finetuning_config["DPOtraining"]
         self.tasks = {}
         self.metric_results = {}
+        self.RL_metrics = {}
         
 
     async def fine_tune_model(self, input_request):
@@ -111,9 +112,9 @@ class finetune():
 
             # Generate a unique process ID
             process_id = str(uuid.uuid4()).replace('-', '')[:8]
-
-            # Start the fine-tuning process in the background
+            # Runs in the background Job
             asyncio.create_task(self.DPO_tuning_service(process_id,input_request))
+            
 
             return {
                 "status_code": 200,
@@ -150,6 +151,28 @@ class finetune():
             target_loss = input_request.get("target_loss")
             dataset_id = input_request.get("dataset_id")
             prompt = input_request.get("prompt")
+
+
+            # Update the task with start time
+            self.RL_metrics[process_id] = {
+            "Created By":self.userId,
+            "model": model_id,
+            "status": "started",
+            "target_loss":target_loss,
+            "start_time": time,
+            "end_time": None,
+            "async_task": asyncio.current_task()}
+
+
+            # Initialize the organization database
+            status_record = {
+            "Created_by " : self.userId,
+            "process_id": process_id,
+            "model_id": model_id,
+            "status": "started"
+            }
+            self.RL_metrics[process_id]["status"] = "In Progress"
+            await organizationDB.update_status_in_mongo(status_record)
             # Initialize the organization database
             organizationDB = OrganizationDataBase(orgId)
             if organizationDB.status_code != 200:
@@ -164,7 +187,6 @@ class finetune():
                     "status_code": path.get("status_code"),
                     "detail": path.get("detail")
                 }
-            print("kbdf",path)
             dataset_path = path.get("dataset_path")
 
             start_time = datetime.now()
@@ -187,12 +209,15 @@ class finetune():
                 "model_id": model_id,
                 "dataset_path": dataset_path
             }
-            # info =await organizationDB.config_record(config_data)
+            await organizationDB.config_record(config_data)
             # Step 2: Prepare Datasets
             prepare_response = await self.prepare_data(dataset_path, seed,prompt,model_id)
-            print(prepare_response)
             
             if not prepare_response or prepare_response.get("status_code") != 200:
+
+                self.tasks[process_id]["status"] = "Failed"
+                status_record["status"] = "Failed "
+                await organizationDB.update_status_in_mongo(status_record)
                 return {
                     "status_code": prepare_response.get("status_code"),
                     "detail": prepare_response.get("detail")
@@ -204,11 +229,15 @@ class finetune():
             test_payload = await self.request_data(self.userId,model_id,num_epochs,splitdataset_Path,weight_decays,learning_rates,batch_sizes,high_memory,r_values,alpha_values,dropout_values)
             print("dataa ----",test_payload)
             if not test_payload or test_payload.get("status_code") != 200:
-                            # await self.mongoinfo.store_session_metrics(self.user_id,process_id, self.session_metrics,self.model_id,target_loss)
-                        return{
-                                    "status_code": test_payload.get("status_code"),
-                                    "detail": test_payload.get("detail"),
-                                }
+                self.tasks[process_id]["status"] = "Failed"
+                status_record["status"] = "Failed "
+                await organizationDB.update_status_in_mongo(status_record)
+                
+                return{
+                        "status_code": test_payload.get("status_code"),
+                        "detail": test_payload.get("detail"),
+                        }
+            
             
             data = test_payload.get("payload")
                     # Send the POST request
@@ -216,17 +245,46 @@ class finetune():
             response = response.json()
             print(response)
             if not response or response.get("status_code") != 200:
+
+                self.tasks[process_id]["status"] = "Failed"
+                status_record["status"] = "Failed "
+                await organizationDB.update_status_in_mongo(status_record)
+
                 return {
                     "status_code": response.get("status_code"),
                     "detail": response.get("detail")
                 }
+            response_data = response.get("eval_loss")
 
-            return response
+            last_metrics = {
+                            "series_id": series_id,
+                            "r": r_values,
+                            "lora_alpha": alpha_values,
+                            "lora_dropout": dropout_values,
+                            "learning_rate": learning_rates,
+                            "batch_size": batch_sizes,
+                            "num_epochs": num_epochs,
+                            "weight_decay": weight_decays,
+                            "eval_loss": response_data,
+                        }
+            self.RL_metrics[process_id].append(last_metrics)
+            metrics = self.RL_metrics.get(process_id)
+            await organizationDB.store_session_metrics(self.userId,process_id, metrics,model_id,target_loss)
+            self.tasks[process_id]["status"] = "Failed"
+            status_record["status"] = "Failed "
+            await organizationDB.update_status_in_mongo(status_record)
+            return response_data
 
         except HTTPException as e:
+            self.tasks[process_id]["status"] = "Failed"
+            status_record["status"] = "Failed "
+            await organizationDB.update_status_in_mongo(status_record)
             logging.error(f"Error in training: {e}")
             raise e
         except Exception as e:
+            self.tasks[process_id]["status"] = "Failed"
+            status_record["status"] = "Failed "
+            await organizationDB.update_status_in_mongo(status_record)
             logging.error(f"Error in the DPO training part: {e}")
             raise HTTPException(500, f"An unexpected error occurred: {str(e)}")
 
@@ -356,7 +414,7 @@ class finetune():
             "status": "started"
             }
             self.tasks[process_id]["status"] = "In Progress"
-            status = await organizationDB.update_status_in_mongo(status_record)
+            await organizationDB.update_status_in_mongo(status_record)
             # Ensure the directory exists
             os.makedirs(os.path.dirname(csvftlog), exist_ok=True)
 
@@ -593,7 +651,8 @@ class finetune():
                         "num_epochs": num_epochs,
                         "weight_decay": weightdecay,
                         "eval_loss": eval_loss,
-                        "best_flag": best_flag  # Add the best_flag to indicate whether the loss is better (1) or worse (0)
+                        # Add the best_flag to indicate whether the loss is better (1) or worse (0)
+                        "best_flag": best_flag  
                     }
 
                     self.metric_results[process_id].append(current_metrics)
