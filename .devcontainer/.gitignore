@@ -1,0 +1,15 @@
+# Local development files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Docker volumes
+mongodb-data/
+
+# Logs
+*.log
+
+# IDE specific files
+.idea/
+.vscode-server/

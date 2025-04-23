@@ -19,3 +19,6 @@ rouge-score==0.1.2
 flask
 httpx
 psutil
+PyQt5==5.15.10
+office365
+office365-REST-Python-Client

@@ -1,233 +1,189 @@
-# Brillius Skill Practice App
+# Genx-Platform-Backend
 
-The Skill Practice App is divided into two main components: the UI and the Backend APIs.
+This is the backend for the Genx AI Platform.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
-- [UI Setup](#ui-setup)
-- [UI Configuration](#ui-configuration)
-- [Running in Network Host](#running-in-network-host)
-- [Credentials](#credentials)
-- [Setting Questions](#setting-questions)
-- [Backend Installation](#backend-installation)
-- [Backend Configuration](#backend-configuration)
+- [Development Container](#development-container)
+- [Manual Setup](#manual-setup)
 - [Running the Backend](#running-the-backend)
 - [Run using Docker](#run-using-docker)
+- [Project Structure](#project-structure)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
-- [License](#license)
-- [Support and Contact](#support-and-contact)
 
-## UI
-### Prerequisites
+## Prerequisites
 
 Before you start, make sure you have the following prerequisites installed:
 
-- [Node.js](https://nodejs.org/)
-- [Visual Studio Code (VS Code)](https://code.visualstudio.com/) (Optional but highly recommended)
-- [Conda](https://conda.io/projects/conda/en/latest/index.html) (Optional but highly recommended)
-- [Docker (Linux)](https://www.docker.com/) - Required for Linux systems.
-- [Docker Desktop (Windows)](https://www.docker.com/products/docker-desktop) - Required for Windows systems.
+- [Visual Studio Code (VS Code)](https://code.visualstudio.com/)
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [VS Code Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-### UI Setup
+## Development Container
 
-1. Clone the repository 
-    ```shell
-    git clone https://github.com/KumarBrillius/Brillius_Skill_Practice.git
-    ```
+This project includes a development container configuration that sets up a complete development environment with all the necessary dependencies. This is the recommended way to work with this project.
 
-2. Open the Command Prompt in VS Code (or your preferred terminal) and create a Conda environment (optional but recommended):
-    ```shell
-    conda create -n frontend
+### Using the Dev Container
 
-3. When the conda environment is created, activate it using 
-    ```shell
-    conda activate frontend
-    ```
+1. Open the project folder in VS Code
+2. VS Code will detect the dev container configuration and prompt you to reopen the project in a container. Click "Reopen in Container"
+3. Alternatively, you can click on the green icon in the bottom-left corner of VS Code and select "Remote-Containers: Reopen in Container"
+4. VS Code will build the container and set up the development environment (this may take a few minutes the first time)
+5. Once the container is built, you can start developing!
 
-4. Navigate to the frontend directory
+For more details about the dev container, see the [.devcontainer/README.md](.devcontainer/README.md) file.
 
-5. Now run
-    ```shell
-    npm install
-    ```
-6. After the node_modules are installed in the 'frontend' directory, now run 
-    ```shell
-    npm run build
-    ```
-    We can see the build folder createdin the frontend directory
+## Manual Setup
 
-7. Navigate to 'src' directory inside the frontend directory and run 
-    ```shell
-    node server.js
-    ```
-8. The console must say "Server is running on 0.0.0.0:3000" which means that the frontend server is up and running
+If you prefer not to use the dev container, you can set up the project manually:
 
-9.  Open your web browser and visit the URL: [localhost:3000](http://localhost:3000)
+1. Create a Python virtual environment:
+   ```shell
+   python -m venv venv
+   ```
 
-### UI Configuration
+2. Activate the virtual environment:
+   - On Windows:
+     ```shell
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```shell
+     source venv/bin/activate
+     ```
 
-1. Navigate to the 'src' directory located in the 'frontend' directory.
-2. Open 'constants' folder and go to the config.json and you can find various configurations including the "API URL". Keep the URL as {Your_device_IP_address}:5001
-3. There are various configurations including the sessions, modes, timer duration, destinations etc for setting them according to your convinience
-   You can change the logosource and logoalt by keeping the logo in the 'public' directory inside the frontend directory.
-   You can set the MaxTabSwitchingCount, FullScreenMode, CutCopyPasteMenu, SkipAll to your convinience.
+3. Install the required dependencies:
+   ```shell
+   pip install -r AIPlatform_backend/requirements.txt
+   ```
 
-### Running in network host
+4. Install the package in development mode:
+   ```shell
+   pip install -e AIPlatform_backend
+   ```
 
-After following the above steps to run in a network host. Go to the web browser and visit teh URL {your_system_IP_address}:3000
+5. Set up environment variables by copying the example file:
+   ```shell
+   cp AIPlatform_backend/.env.example AIPlatform_backend/.env
+   ```
+   
+6. Edit the `.env` file to configure your environment variables.
 
-### Credentials
-In the config folder of the project, we can see a register_config.yaml file, You can set the user and admin credentials to start with the   application. Please set the required credentials for the admin and user
+## Running the Backend
 
-1. Now take a different terminal and navigate to the 'backend' directory 
-    ```shell
-    python registration.py
-    ```
+To start the backend server:
 
-### Setting Questions
-We have a template for setting the questions in the 'backend' directory which is known as questions.yamltemplate. Follow the template and set the questions in the questions.yaml file in the 'config' directory of the project
+```shell
+cd AIPlatform_backend
+python main.py
+```
 
-
-## Backend
-
-### Backend Installation
-
-1. Navigate to the `backend` directory.
-
-2. Open a separate Command Prompt in VS Code (or your preferred terminal) and create a Conda environment (optional but recommended):
-    ```shell
-    conda create -n backend
-
-3. When the conda environment is created, activate it using 
-    ```shell
-    conda activate backend
-    ```
-3. Install the required dependencies using the following command:
-    ```shell
-    pip install -r requirements.txt
-    ```
-    If that does not work please try 
-    ```shell
-    pip install -r requirements.txt --user
-    ```
-
-4. After setting the questions in the format given and credentials for user and admin your server is now ready to start 
-
-### Configuration
-
-In `config.yaml` API endpoints for LLM (Large Language Model) and STT (Speech To Text) server are taken. Update them based on your requirement.
-Please refer the [AI-Accelerators](https://github.com/KumarBrillius/AI-Accelerators.git)
-
-We provide you with the STT and LLM services with the endpoints given with various customizations to select from
-
-### Running the Backend
-
-1. To start the Backend APIs, navigate to the 'backend' directory:
-    ```shell
-    python directoryAPI.py
-    ```
-
-This will launch the backend server.
+This will launch the FastAPI server on port 5000.
 
 ## Run using Docker
 
-1. Navigate to the project dicrectory and run the following command:
-    ```shell
-    docker-compose up --build
-    ```
+You can also run the project using Docker Compose:
+
+```shell
+docker-compose up --build
+```
+
+This will build and start the backend service as defined in the `docker-compose.yml` file.
+
+## Project Structure
+
+- `AIPlatform_backend/`: Main application package
+  - `AiManagement/`: AI model management and operations
+  - `ApplicationManagment/`: Application business logic
+  - `ApplicationRoutes/`: API routes and endpoints
+  - `Database/`: Database connections and models
+  - `UserManagment/`: User authentication and authorization
+  - `main.py`: Application entry point
 
 
-### Troubleshooting
+## Troubleshooting
 
-#### 1. Missing Dependencies
+### 1. MongoDB Connection Issues
 
-- **Issue**: You might encounter errors related to missing dependencies during the setup.
+- **Issue**: You might encounter errors related to MongoDB connection.
 
 - **Solution**:
-  - Double-check that you've installed Node.js and Python with the required packages as mentioned in the prerequisites.
-  - Make sure you're using the correct version of Node.js and Python.
-  - If you're using Conda, ensure that you've activated the appropriate environment.
+  - Ensure MongoDB is running and accessible at the IP address specified in your `.env` file.
+  - Check if the MongoDB port is open and not blocked by a firewall.
+  - If using the dev container, make sure the MongoDB host is correctly set to `host.docker.internal` or the appropriate service name.
 
-#### 2. Port Conflicts
+### 2. Port Conflicts
 
 - **Issue**: If you see a "Port already in use" error, it means the port specified for your application is already occupied.
 
 - **Solution**:
-  - Check if any other application is using the same port (e.g., port 3000 for the frontend). You can change the port in your application's configuration.
+  - Check if any other application is using the same port (e.g., port 5000 or 5001).
+  - You can change the port in `main.py` or in the Docker configuration.
 
-#### 3. API Configuration Errors
+### 3. Environment Variables
 
-- **Issue**: If the app is not working correctly, it may be due to incorrect API configurations.
-
-- **Solution**:
-  - Review the `config.yaml` file for API endpoint configurations and ensure they are correct.
-  - Check if the API endpoints you are using are accessible and responsive.
-
-#### 4. Question Setup
-
-- **Issue**: If questions are not appearing as expected in the app, the issue might be related to the question setup.
+- **Issue**: The application might not work correctly due to missing or incorrect environment variables.
 
 - **Solution**:
-  - Double-check the format of the questions in the `questions.yaml` file in the `config` directory.
-  - Ensure the YAML syntax is correct.
+  - Ensure all required environment variables are set in your `.env` file.
+  - If using Docker, check that the environment variables are correctly passed to the container.
+  - In the dev container, environment variables are set in the `devcontainer.json` file.
 
-#### 5. Permissions and Privileges
+### 4. Dependencies Installation
 
-- **Issue**: You might face permission issues when installing packages or running scripts.
-
-- **Solution**:
-  - Ensure you have the necessary permissions to install packages and run scripts on your system.
-  - If you encounter permission issues, you can try running commands with elevated privileges (e.g., using `sudo` for Linux).
-
-#### 6. Network Issues
-
-- **Issue**: If you can't access the app from a network host, it might be due to network or firewall issues.
+- **Issue**: You might face issues with installing dependencies.
 
 - **Solution**:
-  - Check your network and firewall settings to allow access to the app.
-  - Verify that your server's IP address is accessible from the network.
+  - Ensure you're using Python 3.8+ which is compatible with the dependencies.
+  - If using pip, try updating pip first: `pip install --upgrade pip`.
+  - If a specific package fails to install, check if it requires additional system libraries.
 
-If you encounter any other issues not mentioned here, consider checking the project's issue tracker on its GitHub repository, as the problem you're facing might have already been reported and resolved by other users or contributors.
+### 5. Dev Container Issues
 
-Remember that troubleshooting often requires patience and attention to detail. It's also a good practice to keep an eye on error messages, log files, and the developer console in your web browser to gather more information about the problem. If you still can't resolve the issue, don't hesitate to seek help from the project's community or maintainers.
+- **Issue**: Problems with the development container setup.
+
+- **Solution**:
+  - Ensure Docker is running before attempting to open the project in a container.
+  - Check the Docker logs for any errors during container build.
+  - Try rebuilding the container: Command Palette > Remote-Containers: Rebuild Container.
+  - Make sure the VS Code Remote - Containers extension is installed and up to date.
+
+### 6. PyQt5 Installation Issues
+
+- **Issue**: Errors related to missing qmake when installing PyQt5 or memory exhaustion during installation.
+
+- **Solution**:
+  - The development container has been configured with Qt development libraries (qtbase5-dev, qt5-qmake, qttools5-dev-tools, libqt5webkit5-dev, libsip-dev) to support PyQt5.
+  - PyQt5 is now pre-installed in the Docker container to avoid memory issues during container startup.
+  - If you're experiencing memory exhaustion during PyQt5 installation, the container has been configured with increased memory limits (4GB).
+  - If you're still experiencing issues, rebuild your development container: Command Palette > Remote-Containers: Rebuild Container.
+  - If you're setting up manually, install the Qt development libraries:
+    - On Ubuntu/Debian: `sudo apt-get install qtbase5-dev qt5-qmake qttools5-dev-tools libqt5webkit5-dev libsip-dev`
+    - On macOS: `brew install qt@5`
+    - On Windows: Install Qt from the [official website](https://www.qt.io/download) or use `pip install PyQt5-Qt5`
 
 
-### Contributing
+## Contributing
 
-We welcome and appreciate contributions from the community. Whether it's bug fixes, feature enhancements, or documentation improvements, your contributions help make the Brillius Skill Practice App better for everyone.
-
-If you're interested in contributing, please follow these guidelines:
+We welcome contributions to the Genx-Platform-Backend project! Here's how you can contribute:
 
 1. **Fork the Repository**: Start by forking the project on GitHub.
 
-2. **Create a Branch**: Create a new branch on your fork for the changes you intend to make. Use a descriptive branch name (e.g., `develop/new-branch`).
+2. **Create a Branch**: Create a new branch for your changes with a descriptive name (e.g., `feature/new-api-endpoint` or `fix/mongodb-connection`).
 
-3. **Make Changes**: Implement your changes or additions to the codebase. Ensure that your code adheres to coding standards and conventions.
+3. **Development Environment**: Use the provided dev container for a consistent development environment.
 
-4. **Write Tests**: If your changes include new features or modify existing ones, write tests to ensure that everything works as expected.
+4. **Code Style**: Follow the existing code style and conventions in the project.
 
-5. **Documentation**: If your contribution includes changes to the project's documentation, make sure to update the relevant documentation files.
+5. **Write Tests**: Add tests for new features or bug fixes to ensure they work as expected.
 
-6. **Commit and Push**: Commit your changes with clear and concise commit messages. Push your changes to your fork on GitHub.
+6. **Documentation**: Update documentation to reflect your changes, including docstrings and README updates.
 
-7. **Pull Request**: Open a pull request from your fork to the main repository. Be sure to provide a detailed description of the changes you've made.
+7. **Commit Messages**: Write clear, concise commit messages that explain your changes.
 
-8. **Code Review**: Your pull request will be reviewed by project maintainers. Be prepared to address feedback or make necessary changes.
+8. **Pull Request**: Submit a pull request with a clear description of the changes and any relevant issue numbers.
 
-9. **Testing**: Ensure that your changes pass all tests and do not introduce new issues.
+9. **Code Review**: Be open to feedback and be prepared to make changes to your pull request.
 
-10. **Merge**: Once your pull request is approved, it will be merged into the main repository.
-
-11. **Thank You**: Your contribution has been successfully merged! Thank you for helping improve the Brillius Skill Practice App.
-
-Please note that by contributing to this project, you agree to abide by the project's code of conduct and licensing terms. We appreciate your support and look forward to your contributions.
-
-If you have any questions or need assistance during the contribution process, feel free to reach out to us by [opening an issue](https://github.com/KumarBrillius/Brillius_Skill_Practice/issues).
-
-Thank you for contributing to the project.
-
-
-_Note: Please ensure that you have the necessary permissions and privileges to install packages and run scripts on your system._
-
-Feel free to update this README with more specific instructions or additional details about the Brillius Skill Practice App!
+Thank you for contributing to the Genx-Platform-Backend project!
