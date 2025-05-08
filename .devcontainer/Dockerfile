@@ -24,6 +24,8 @@ COPY AIPlatform_backend/requirements.txt .
 RUN pip install --upgrade pip setuptools wheel
 RUN pip install --no-cache-dir -r requirements.txt
 
+
+
 # Install development tools
 RUN pip install black flake8 pytest
 
