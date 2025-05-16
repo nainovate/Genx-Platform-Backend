@@ -47,7 +47,7 @@ ENV PATH="/root/.cargo/bin:$PATH"
 
 COPY . .
 
-# Temporary fix for .venv ignore
+# Temporary fix for .venv ignore in .dockerignore
 # RUN rm -rf .venv
 
 # CMD ["uv", "python", "--help"]
