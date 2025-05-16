@@ -6,7 +6,8 @@ Werkzeug==2.3.6
 pydantic==2.3.0
 pyyaml==6.0.1
 uvicorn==0.23.2
-psycopg2==2.9.9
+# psycopg2==2.9.9
+# psycopg2-binary==2.9.9
 logger
 cachetools
 python-jose
@@ -22,3 +23,4 @@ psutil
 PyQt5==5.15.10
 office365
 office365-REST-Python-Client
+datasets

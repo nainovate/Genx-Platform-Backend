@@ -1305,12 +1305,12 @@ class finetune():
 
                 if missing_fields:
                     logging.error(f"Missing required fields: {', '.join(missing_fields)}")
-                    yield f"data: {json.dumps({'status_code': status.HTTP_400_BAD_REQUEST, 'detail': f'Missing fields: {', '.join(missing_fields)}'})}\n\n"
+                    yield f"data: {json.dumps({'status_code': status.HTTP_400_BAD_REQUEST, 'detail': 'Missing fields: ' + ', '.join(missing_fields)})}\n\n"
                     return  # Stop execution
 
                 if empty_fields:
                     logging.error(f"Empty fields: {', '.join(empty_fields)}")
-                    yield f"data: {json.dumps({'status_code': status.HTTP_400_BAD_REQUEST, 'detail': f'Empty fields: {', '.join(empty_fields)}'})}\n\n"
+                    yield f"data: {json.dumps({'status_code': status.HTTP_400_BAD_REQUEST, 'detail': 'Empty fields: ' + ', '.join(empty_fields)})}\n\n"
                     return  # Stop execution
                 orgId = data["orgId"]
                 if not orgId in self.orgIds:

@@ -2,44 +2,38 @@ version: '3'
 
 services:
   app:
-    platform: linux/amd64
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/workspace:cached
-    command: sleep infinity
-    deploy:
-      resources:
-        limits:
-          memory: 8G
-        reservations:
-          memory: 2G
-    environment:
-      - DEMO=false
-      - IP_ADDRESS=host.docker.internal
-      - MONGO_IP_ADDRESS=host.docker.internal
-      - AIServicesIp=host.docker.internal
-      - AIServerPort=4001
     ports:
-      - "5002:5000"
       - "5001:5001"
+      - "5002:5000"
+    depends_on:
+      - mongodb
+    environment:
+      DEMO: "false"
+      IP_ADDRESS: "0.0.0.0"
+      MONGO_IP_ADDRESS: "mongodb"
+      AIServicesIp: "localhost"
+      AIServerPort: "4001"
     networks:
-      - genx-network
+      - genx-platform-network
 
-  # You can uncomment this if you want to run MongoDB locally in the dev container
-  # mongodb:
-  #   image: mongo:latest
-  #   ports:
-  #     - "27017:27017"
-  #   volumes:
-  #     - mongodb-data:/data/db
-  #   networks:
-  #     - genx-network
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - genx-platform-network
 
 networks:
-  genx-network:
+  genx-platform-network:
+    name: genx-platform-network
     driver: bridge
 
-# volumes:
-#   mongodb-data:
+volumes:
+  mongodb-data:

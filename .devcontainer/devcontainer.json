@@ -6,36 +6,23 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-azuretools.vscode-docker",
-        "njpwerner.autodocstring",
-        "streetsidesoftware.code-spell-checker",
         "matangover.mypy"
-      ],
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "python.linting.enabled": true,
-        "python.linting.flake8Enabled": true,
-        "python.formatting.provider": "black",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-          "source.organizeImports": true
-        }
-      }
+      ]
     }
   },
-  "forwardPorts": [5001, 5002],
-  "remoteUser": "vscode",
+  "forwardPorts": [5001, 5002, 27017],
+  // "remoteUser": "vscode",
   "remoteEnv": {
+    // "USERNAME": "vscode",
     "DEMO": "false",
-    "IP_ADDRESS": "host.docker.internal",
-    "MONGO_IP_ADDRESS": "host.docker.internal",
-    "AIServicesIp": "host.docker.internal",
+    "IP_ADDRESS": "localhost",
+    "MONGO_IP_ADDRESS": "mongodb",
+    "AIServicesIp": "localhost",
     "AIServerPort": "4001",
     "PYTHONPATH": "${containerWorkspaceFolder}"
   },
-  "postCreateCommand": "pip install -r AIPlatform_backend/requirements.txt && echo 'export PYTHONPATH=$PYTHONPATH:/workspace' >> ~/.bashrc && echo 'PyQt5 is pre-installed in the container'",
+  // "postCreateCommand": "echo hi",
+  "postCreateCommand": "chmod +x init-db.sh && ./init-db.sh && uv venv && . .venv/bin/activate && uv pip install -r AIPlatform_backend/requirements.txt && uv run AIPlatform_backend/main.py",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
