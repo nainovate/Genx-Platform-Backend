@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM ubuntu:22.04
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -22,9 +22,9 @@ RUN apt-get update && \
     gnupg && \
     rm -rf /var/lib/apt/lists/*
 
-# Install mongodb tools
+# Install MongoDB tools
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | gpg --dearmor > /usr/share/keyrings/mongodb-server.gpg && \
-    echo "deb [signed-by=/usr/share/keyrings/mongodb-server.gpg] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/6.0 main" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list && \
+    echo "deb [signed-by=/usr/share/keyrings/mongodb-server.gpg] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list && \
     apt-get update && \
     apt-get install -y mongodb-database-tools && \
     rm -rf /var/lib/apt/lists/*
@@ -33,22 +33,7 @@ RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | gpg --dearmor
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.cargo/bin:$PATH"
 
-# # Create user
-# ARG USERNAME=vscode
-# ARG USER_UID=1000
-# ARG USER_GID=1000
-
-# RUN groupadd --gid $USER_GID $USERNAME && \
-#     useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && \
-#     echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME && \
-#     chmod 0440 /etc/sudoers.d/$USERNAME
-
-# USER $USERNAME
-
 COPY . .
-
-# Temporary fix for .venv ignore in .dockerignore
-# RUN rm -rf .venv
 
 # CMD ["uv", "python", "--help"]
 CMD ["sleep", "infinity"]
