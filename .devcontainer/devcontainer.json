@@ -22,7 +22,7 @@
     "PYTHONPATH": "${containerWorkspaceFolder}"
   },
   // "postCreateCommand": "echo hi",
-  "postCreateCommand": "chmod +x init-db.sh && ./init-db.sh && uv venv && . .venv/bin/activate && uv pip install -r AIPlatform_backend/requirements.txt && uv run AIPlatform_backend/main.py",
+  "postCreateCommand": "chmod +x init-db.sh && ./init-db.sh && uv python pin 3.11 && uv pip install --system --python 3.11 -r AIPlatform_backend/requirements.txt && uv run --system --python 3.11 AIPlatform_backend/main.py",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
