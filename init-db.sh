@@ -40,14 +40,18 @@ done
 echo "MongoDB is up! Importing data..."
 
 # -- 4. Import your JSON collections --
-mongoimport --uri="mongodb://mongodb:27017/applicationDB" \
-  --collection=userCredentials \
-  --file="/workspace/applicationDB/applicationDB/applicationDB.userCredentials.json" \
-  --jsonArray --drop
+IMPORT_DIR="/workspace/applicationDB/applicationDB"
 
-mongoimport --uri="mongodb://mongodb:27017/applicationDB" \
-  --collection=users \
-  --file="/workspace/applicationDB/applicationDB/applicationDB.users.json" \
-  --jsonArray --drop
+for file in "$IMPORT_DIR"/*.json; do
+  filename=$(basename "$file")
+  db_name="${filename%%.*}"                # applicationDB
+  collection_name="${filename#*.}"         # users.json
+  collection_name="${collection_name%%.*}" # users
+  echo "Importing $file into $db_name.$collection_name"
+  mongoimport --uri="mongodb://mongodb:27017/$db_name" \
+    --collection="$collection_name" \
+    --file="$file" \
+    --jsonArray --drop
+done
 
 echo "DB Import complete."

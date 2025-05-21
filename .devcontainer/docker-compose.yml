@@ -7,9 +7,6 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/workspace:cached
-    ports:
-      - "5001:5001"
-      - "5002:5000"
     depends_on:
       - mongodb
     environment:
@@ -23,8 +20,6 @@ services:
 
   mongodb:
     image: mongo:latest
-    ports:
-      - "27017:27017"
     volumes:
       - mongodb-data:/data/db
     networks:
@@ -33,7 +28,8 @@ services:
 networks:
   genx-platform-network:
     name: genx-platform-network
-    driver: bridge
+    # driver: bridge
+    external: true
 
 volumes:
   mongodb-data:

@@ -10,19 +10,20 @@
       ]
     }
   },
-  "forwardPorts": [5001, 5002, 27017],
+  "forwardPorts": [],
   // "remoteUser": "vscode",
   "remoteEnv": {
     // "USERNAME": "vscode",
     "DEMO": "false",
-    "IP_ADDRESS": "localhost",
+    "IP_ADDRESS": "app",
     "MONGO_IP_ADDRESS": "mongodb",
-    "AIServicesIp": "localhost",
+    "AIServicesIp": "app",
     "AIServerPort": "4001",
     "PYTHONPATH": "${containerWorkspaceFolder}"
   },
   // "postCreateCommand": "echo hi",
-  "postCreateCommand": "chmod +x init-db.sh && ./init-db.sh && uv python pin 3.11 && uv pip install --system --python 3.11 -r AIPlatform_backend/requirements.txt && uv run --system --python 3.11 AIPlatform_backend/main.py",
+  "initializeCommand": "docker network inspect genx-platform-network >nul 2>&1 || docker network create genx-platform-network",
+  "postCreateCommand": "chmod +x init-db.sh && ./init-db.sh && uv python pin 3.11 && uv pip install --system --python 3.11 -r AIPlatform_backend/requirements.txt && uv run AIPlatform_backend/main.py",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
