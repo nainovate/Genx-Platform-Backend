@@ -37,8 +37,6 @@ def generate_hierarchy_id():
 
 
 
-
-
 class Prompts:
     def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Body, FastAPI
-
+from ApplicationManagment.Notification import NotificationManager
 from UserManagment.authorization import *
 from UserManagment.authentication import *
 from ApplicationManagment.usecases import *
@@ -33,6 +33,7 @@ evaluation_instance = {}
 dataset_instance = {}
 finetuning_instance = {}
 scheduler_instance ={}
+notification_instance = {}
 
 
 
@@ -49,6 +50,7 @@ async def login(request_data: dict = Body(...)):
             sessionId = request_data["sessionId"]
             # Check if sessionId already exists
             if sessionId not in authentication_instances:
+                print(f"Creating new session for sessionId: {sessionId}")
                 userName = data["userName"]
                 userId = data["userId"]
                 role = data["role"]
@@ -61,8 +63,10 @@ async def login(request_data: dict = Body(...)):
                     
                 # Populate the instances
                 authentication_instances[sessionId] = Authentication(username=userName, userId=userId, refreshToken=refreshToken)
+
+                notification_instance[sessionId] = NotificationManager(userId=userId, role=role)
+                print(f"Added to notification_instance: {list(notification_instance.keys())}")
                 
- 
                 # Role-based instance creation
                 if "superadmin" in role:
                     organization_instance[sessionId] = Organization(userId=userId, role=role)

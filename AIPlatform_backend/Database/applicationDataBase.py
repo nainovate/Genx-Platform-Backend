@@ -10,6 +10,8 @@ from pymongo import MongoClient, DESCENDING
 from fastapi import status
 from pymongo.errors import OperationFailure
 from werkzeug.security import check_password_hash
+from bson import ObjectId
+from datetime import datetime
 from db_config import config
 from Database.organizationDataBase import OrganizationDataBase
 
@@ -920,10 +922,12 @@ class ApplicationDataBase:
                 logging.error("ApplicationDB is not initialized.")
                 return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, "detail": "Internal server error"}, None
             # Attempt to find the user in the users table
+            print("user", self.applicationDB["users"])
+
             user = self.applicationDB["users"].find_one(
                 {"username": username}
             )
-            
+
             # Check if the user exists
             if not user:
                 logging.info("User not found.")
@@ -2515,3 +2519,151 @@ class ApplicationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving spaces: {e}")
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
+        
+    # notification collection functionalities
+   
+    def create(self, data: dict):
+        # Optional/default fields
+        data.setdefault("title", "Notification")
+        data.setdefault("type", "info")          # info, warning, error, success
+        data.setdefault("priority", "low")       # low, medium, high
+        data.setdefault("action_url", None)
+
+        data["is_read"] = False
+        data["hasSeenHeader"] = False
+        data["created_at"] = self.get_current_timestamp()
+
+        try:
+         result = self.applicationDB["notifications"].insert_one(data)
+         return {
+            "status_code": 200,
+            "detail": "Notification created",
+            "id": str(result.inserted_id)
+            }
+        except Exception as e:
+         return {
+            "status_code": 500,
+            "detail": f"Database error: {str(e)}"
+         }
+        
+    def get_unread_counts_by_context(self, data: dict):
+        user_id = data.get("userId")
+        try:
+            pipeline = [
+                {
+                    "$match": {
+                        "userId": user_id,
+                        "is_read": False,
+                        "hasSeenHeader": False  # Include only unseen header notifications
+                    }
+                },
+                {
+                    "$group": {
+                        "_id": "$context",
+                        "count": {"$sum": 1}
+                    }
+                },
+                {
+                    "$project": {
+                        "context": "$_id",
+                        "count": 1,
+                        "_id": 0
+                    }
+                }
+            ]
+            print("pipeline",pipeline)
+
+            results = self.applicationDB["notifications"].aggregate(pipeline).to_list(length=None)
+            print("results",results)
+
+            return {
+                "status_code": 200,
+                "detail": "Unread counts fetched",
+                "data": results  # Example: [{"context": "Dashboard", "count": 2}, ...]
+            }
+
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "detail": f"Error fetching unread counts: {str(e)}"
+            }
+
+
+    def fetch_notifications(self, user_id: str, context: str, page: int, limit: int):
+        try:
+            skip = (page - 1) * limit
+            query = {"userId": user_id}
+
+            if context != "All":
+                query["context"] = context
+
+            total =  self.applicationDB["notifications"].count_documents(query)
+            unread_count = self.applicationDB["notifications"].count_documents({**query, "is_read": False})
+
+            cursor = (
+                self.applicationDB["notifications"]
+                .find(query)
+                .sort("created_at", DESCENDING)
+                .skip(skip)
+                .limit(limit)
+            )
+            notifications = cursor.to_list(length=limit)
+
+            for notif in notifications:
+                notif["id"] = str(notif["_id"])
+                notif.pop("_id", None)
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": "Notifications fetched",
+                "data": {
+                    "context": context,
+                    "notifications": notifications,
+                    "page": page,
+                    "limit": limit,
+                    "total": total,
+                    "unread_count": unread_count
+                }
+            }
+
+        except Exception as e:
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Database error: {str(e)}"
+            }
+
+
+    def mark_read(self, notification_id: str):
+        result = self.applicationDB["Notifications"].collection.update_one(
+            {"_id": ObjectId(notification_id)},
+            {"$set": {"is_read": True, "read_at":self.get_current_timestamp()}}
+        )
+        if result.modified_count:
+            return {
+                "status_code": 200,
+                "detail": "Marked as read"
+            }
+        return {
+            "status_code": 404,
+            "detail": "Notification not found"
+        }
+
+    def delete_notifications(self, object_ids: list):
+        try:
+            result =  self.applicationDB["notifications"].delete_many({"_id": {"$in": object_ids}})
+            if result.deleted_count == 0:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "No matching notifications found"
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": f"Deleted {result.deleted_count} notification(s)"
+            }
+
+        except Exception as e:
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Database error: {str(e)}"
+            }
