@@ -7,6 +7,7 @@ import time
 from bson import ObjectId
 from pymongo import UpdateOne
 from pymongo import MongoClient, DESCENDING
+from collections import defaultdict
 from fastapi import status
 from pymongo.errors import OperationFailure
 from werkzeug.security import check_password_hash
@@ -2546,40 +2547,41 @@ class ApplicationDataBase:
             "detail": f"Database error: {str(e)}"
          }
         
+
     def get_unread_counts_by_context(self, data: dict):
         user_id = data.get("userId")
         try:
-            pipeline = [
-                {
-                    "$match": {
-                        "userId": user_id,
-                        "is_read": False,
-                        "hasSeenHeader": False  # Include only unseen header notifications
-                    }
-                },
-                {
-                    "$group": {
-                        "_id": "$context",
-                        "count": {"$sum": 1}
-                    }
-                },
-                {
-                    "$project": {
-                        "context": "$_id",
-                        "count": 1,
-                        "_id": 0
-                    }
-                }
-            ]
-            print("pipeline",pipeline)
+            cursor = self.applicationDB["notifications"].find({
+                "userId": user_id,
+                "is_read": False
+            })
 
-            results = self.applicationDB["notifications"].aggregate(pipeline).to_list(length=None)
-            print("results",results)
+            notifications =  cursor.to_list(length=None)
+
+            context_counts = defaultdict(int)
+            context_has_seen_false = defaultdict(bool)
+
+            for notification in notifications:
+                context = notification.get("context", "unknown")
+                context_counts[context] += 1
+
+                # If any notification has hasSeenHeader == False, mark True for that context
+                if notification.get("hasSeenHeader") == False:
+                    context_has_seen_false[context] = True
+
+            result = [
+                {
+                    "context": context,
+                    "count": count,
+                    "hasSeenHeaderFalseExists": context_has_seen_false.get(context, False)
+                }
+                for context, count in context_counts.items()
+            ]
 
             return {
                 "status_code": 200,
                 "detail": "Unread counts fetched",
-                "data": results  # Example: [{"context": "Dashboard", "count": 2}, ...]
+                "data": result
             }
 
         except Exception as e:
@@ -2587,6 +2589,45 @@ class ApplicationDataBase:
                 "status_code": 500,
                 "detail": f"Error fetching unread counts: {str(e)}"
             }
+        
+    def mark_has_seen_header(self, data: dict):
+        user_id = data.get("userId")
+        context = data.get("context")  # Optional: filter by context
+
+        try:
+            query = {
+                "userId": user_id,
+                "is_read": False,
+                "hasSeenHeader": False
+            }
+            if context:
+                query["context"] = context
+
+            result = self.applicationDB["notifications"].update_many(
+                query,
+                {"$set": {"hasSeenHeader": True}}
+            )
+            print("result",result)
+
+            if result.modified_count > 0:
+                return {
+                    "status_code": 200,
+                    "detail": f"Marked {result.modified_count} notifications as seen",
+                    "data": {"modified_count": result.modified_count}
+                }
+            else:
+                return {
+                    "status_code": 200,
+                    "detail": "No notifications to mark as seen",
+                    "data": {"modified_count": 0}
+                }
+
+        except Exception as e:
+            return {
+                "status_code": 500,
+                "detail": f"Error marking notifications as seen: {str(e)}"
+            }
+
 
 
     def fetch_notifications(self, user_id: str, context: str, page: int, limit: int):
@@ -2633,20 +2674,45 @@ class ApplicationDataBase:
             }
 
 
-    def mark_read(self, notification_id: str):
-        result = self.applicationDB["Notifications"].collection.update_one(
-            {"_id": ObjectId(notification_id)},
-            {"$set": {"is_read": True, "read_at":self.get_current_timestamp()}}
-        )
-        if result.modified_count:
+    def mark_read(self, data: dict):
+        try:
+            user_id = data.get("userId")  
+            context = data.get("context")
+            print("user_id",user_id)
+            print("context",context)
+            result = self.applicationDB["notifications"].update_many(
+                {
+                    "userId": user_id,
+                    "context": context,
+                    "is_read": False
+                },
+                {
+                    "$set": {
+                        "is_read": True,
+                        "hasSeenHeader": True,
+                        "read_at": self.get_current_timestamp()
+                    }
+                }
+            )
+            print("result",result)
+            if result.modified_count > 0:
+                return {
+                    "status_code": 200,
+                    "detail": f"{result.modified_count} notifications marked as read."
+                }
+            else:
+                return {
+                    "status_code": 404,
+                    "detail": "No unread notifications found for this context."
+                }
+
+        except Exception as e:
             return {
-                "status_code": 200,
-                "detail": "Marked as read"
+                "status_code": 500,
+                "detail": f"Error marking notifications as read: {str(e)}"
             }
-        return {
-            "status_code": 404,
-            "detail": "Notification not found"
-        }
+
+
 
     def delete_notifications(self, object_ids: list):
         try:

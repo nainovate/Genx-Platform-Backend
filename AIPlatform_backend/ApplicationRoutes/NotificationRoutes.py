@@ -26,7 +26,23 @@ async def get_unread_notifications(request_data: dict = Body(...)):
         return await notification.get_unread_notifications(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))
-
+    
+@router.post("/api/mark_read")
+async def get_unread_notifications(request_data: dict = Body(...)):
+    try:
+        notification = notification_instance[request_data["sessionId"]]
+        return await notification.mark_read(request_data["data"])
+    except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
+    
+@router.post("/api/mark-has-seen-header")
+async def mark_has_seen_header(request_data: dict = Body(...)):
+    try:
+        notification = notification_instance[request_data["sessionId"]]
+        return await notification.mark_has_seen_header(request_data["data"])
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
 @router.post("/api/get_all-notifications")
 async def get_all_notifications(request_data: dict = Body(...)):
     try:

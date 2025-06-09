@@ -59,6 +59,50 @@ class NotificationManager:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": str(e)
             }
+    
+    async def mark_has_seen_header(self, data: dict):
+        try:
+            if not data.get("userId"):
+                logger.error("userId is required.")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "userId is required."
+                }
+
+            return self.applicationDB.mark_has_seen_header(data)
+
+        except Exception as e:
+            logger.error(f"Mark Has Seen Header Error: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Error marking notifications as seen: {str(e)}"
+            }
+        
+    async def mark_read(self, data: dict):
+        try:
+            if not data.get("userId"):
+                logger.error("userId is required.")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "userId is required."
+                }
+
+            if not data.get("context"):
+                logger.error("context is required.")
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "context is required."
+                }
+
+            # Delegating to the DB function
+            return  self.applicationDB.mark_read(data)
+
+        except Exception as e:
+            logger.error(f"Mark As Read By Context Error: {str(e)}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Error marking notifications as read: {str(e)}"
+            }
         
     async def get_all_notifications(self, data: dict):
             if not data:
@@ -125,11 +169,8 @@ class NotificationManager:
             return {
                 "status_code": 500,
                 "detail": f"Database error: {str(e)}"
-            }
-    
-
-   
-
+            }  
+        
     async def delete_notifications(self, data: dict):
             if "notification_id" not in data:
                 return {
