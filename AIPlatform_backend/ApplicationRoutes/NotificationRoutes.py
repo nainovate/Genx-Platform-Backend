@@ -23,6 +23,7 @@ async def create_notification(request_data: dict = Body(...)):
 async def get_unread_notifications(request_data: dict = Body(...)):
     try:
         notification = notification_instance[request_data["sessionId"]]
+        print(f"Notification Instance: {notification}")
         return await notification.get_unread_notifications(request_data["data"])
     except Exception as e:
         return HTTPException(status_code=500, detail=str(e))

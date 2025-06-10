@@ -44,7 +44,8 @@ class NotificationManager:
 
     async def get_unread_notifications(self,data: dict):
         try:
-            if not data["userId"]:
+            print(f"Data received: {data}")
+            if not data["orgIds"]:
                 logger.error("userId is required.")
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
@@ -105,71 +106,32 @@ class NotificationManager:
             }
         
     async def get_all_notifications(self, data: dict):
-            if not data:
-             return {
+        if not data:
+            return {
                 "status_code": status.HTTP_400_BAD_REQUEST,
                 "detail": "Request body cannot be empty"
-                }
-            # Validate required fields
-            required_fields = ["userId", "page", "limit"]
-            missing = [field for field in required_fields if field not in data]
-            if missing:
-                return {
-                    "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": f"Missing required field(s): {', '.join(missing)}"
-                }
-
-            user_id = data["userId"]
-            context = data.get("context", "All")
-            page = data["page"]
-            limit = data["limit"]
-
-            if not isinstance(page, int) or not isinstance(limit, int) or page < 1 or limit < 1:
-                return {
-                    "status_code": status.HTTP_422_UNPROCESSABLE_ENTITY,
-                    "detail": "Page and limit must be positive integers"
-                }
-
-            return  self.applicationDB.fetch_notifications(user_id, context, page, limit)
-
-
-    async def get(self, user_id: str, context: str = "All", page: int = 1, limit: int = 10):
-        try:
-            skip = (page - 1) * limit
-
-            query = {"userId": user_id}
-            if context != "All":
-                query["context"] = context
-
-            total = await self.applicationDB["notifications"].count_documents(query)
-            unread_count = await self.applicationDB["notifications"].count_documents({**query, "is_read": False})
-
-            cursor = self.applicationDB["notifications"].find(query).sort("created_at", DESCENDING).skip(skip).limit(limit)
-            notifications = await cursor.to_list(length=limit)
-
-            # Convert ObjectId and timestamps
-            for notif in notifications:
-                notif["id"] = str(notif["_id"])
-                notif.pop("_id", None)
-
-            return {
-                "status_code": 200,
-                "detail": "Notifications fetched",
-                "data": {
-                    "context": context,
-                    "notifications": notifications,
-                    "page": page,
-                    "limit": limit,
-                    "total": total,
-                    "unread_count": unread_count
-                }
             }
 
-        except Exception as e:
+        required_fields = ["page", "limit", "orgIds"]
+        missing = [field for field in required_fields if field not in data]
+        if missing:
             return {
-                "status_code": 500,
-                "detail": f"Database error: {str(e)}"
-            }  
+                "status_code": status.HTTP_400_BAD_REQUEST,
+                "detail": f"Missing required field(s): {', '.join(missing)}"
+            }
+
+        org_ids = data["orgIds"]  # <-- now expecting list
+        context = data.get("context", "All")
+        page = data["page"]
+        limit = data["limit"]
+
+        if not isinstance(page, int) or not isinstance(limit, int) or page < 1 or limit < 1:
+            return {
+                "status_code": status.HTTP_422_UNPROCESSABLE_ENTITY,
+                "detail": "Page and limit must be positive integers"
+            }
+
+        return self.applicationDB.fetch_notifications(org_ids, context, page, limit)
         
     async def delete_notifications(self, data: dict):
             if "notification_id" not in data:

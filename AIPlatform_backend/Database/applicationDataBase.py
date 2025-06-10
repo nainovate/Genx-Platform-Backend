@@ -2546,17 +2546,19 @@ class ApplicationDataBase:
             "status_code": 500,
             "detail": f"Database error: {str(e)}"
          }
-        
 
     def get_unread_counts_by_context(self, data: dict):
-        user_id = data.get("userId")
+        org_ids = data.get("orgIds")
+        print("org_ids", org_ids)
+
         try:
+            # Use $in to match any orgId from the list
             cursor = self.applicationDB["notifications"].find({
-                "userId": user_id,
+                "orgId": {"$in": org_ids},
                 "is_read": False
             })
 
-            notifications =  cursor.to_list(length=None)
+            notifications = cursor.to_list(length=None)
 
             context_counts = defaultdict(int)
             context_has_seen_false = defaultdict(bool)
@@ -2565,8 +2567,7 @@ class ApplicationDataBase:
                 context = notification.get("context", "unknown")
                 context_counts[context] += 1
 
-                # If any notification has hasSeenHeader == False, mark True for that context
-                if notification.get("hasSeenHeader") == False:
+                if not notification.get("hasSeenHeader", True):
                     context_has_seen_false[context] = True
 
             result = [
@@ -2577,6 +2578,7 @@ class ApplicationDataBase:
                 }
                 for context, count in context_counts.items()
             ]
+            print("result",result)
 
             return {
                 "status_code": 200,
@@ -2589,40 +2591,46 @@ class ApplicationDataBase:
                 "status_code": 500,
                 "detail": f"Error fetching unread counts: {str(e)}"
             }
+
         
     def mark_has_seen_header(self, data: dict):
-        user_id = data.get("userId")
-        context = data.get("context")  # Optional: filter by context
+        org_ids = data.get("orgIds")
+        context = data.get("context")  # Optional
+
+        if not org_ids or not isinstance(org_ids, list):
+            return {
+                "status_code": 400,
+                "detail": "orgIds must be provided as a list"
+            }
+
+        total_modified = 0
 
         try:
-            query = {
-                "userId": user_id,
-                "$or": [
-                    {"hasSeenHeader": False},
-                    {"hasSeenHeader": None}  # Handle null case
-                ]
+            for org_id in org_ids:
+                query = {
+                    "orgId": org_id,
+                    "$or": [
+                        {"hasSeenHeader": False},
+                        {"hasSeenHeader": None}
+                    ]
+                }
+
+                if context:
+                    query["context"] = context
+
+                result = self.applicationDB["notifications"].update_many(
+                    query,
+                    {"$set": {"hasSeenHeader": True}}
+                )
+
+                print(f"mark_has_seen_header: Updated {result.modified_count} notifications for orgId: {org_id}, context: {context}")
+                total_modified += result.modified_count
+
+            return {
+                "status_code": 200,
+                "detail": f"Marked {total_modified} notifications as seen",
+                "data": {"modified_count": total_modified}
             }
-            if context:
-                query["context"] = context
-
-            result = self.applicationDB["notifications"].update_many(
-                query,
-                {"$set": {"hasSeenHeader": True}}
-            )
-            print(f"mark_has_seen_header: Updated {result.modified_count} notifications for user_id: {user_id}, context: {context}")
-
-            if result.modified_count > 0:
-                return {
-                    "status_code": 200,
-                    "detail": f"Marked {result.modified_count} notifications as seen",
-    "data": {"modified_count": result.modified_count}
-                }
-            else:
-                return {
-                    "status_code": 200,
-                    "detail": "No notifications to mark as seen",
-                    "data": {"modified_count": 0}
-                }
 
         except Exception as e:
             print(f"Error marking notifications as seen: {str(e)}")
@@ -2631,16 +2639,15 @@ class ApplicationDataBase:
                 "detail": f"Error marking notifications as seen: {str(e)}"
             }
 
-
-    def fetch_notifications(self, user_id: str, context: str, page: int, limit: int):
+    def fetch_notifications(self, org_ids: list, context: str, page: int, limit: int):
         try:
             skip = (page - 1) * limit
-            query = {"userId": user_id}
+            query = {"orgId": {"$in": org_ids}}
 
             if context != "All":
                 query["context"] = context
 
-            total =  self.applicationDB["notifications"].count_documents(query)
+            total = self.applicationDB["notifications"].count_documents(query)
             unread_count = self.applicationDB["notifications"].count_documents({**query, "is_read": False})
 
             cursor = (
@@ -2651,7 +2658,7 @@ class ApplicationDataBase:
                 .limit(limit)
             )
             notifications = cursor.to_list(length=limit)
-
+            print("notifications",notifications)
             for notif in notifications:
                 notif["id"] = str(notif["_id"])
                 notif.pop("_id", None)
