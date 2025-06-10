@@ -2597,8 +2597,10 @@ class ApplicationDataBase:
         try:
             query = {
                 "userId": user_id,
-                "is_read": False,
-                "hasSeenHeader": False
+                "$or": [
+                    {"hasSeenHeader": False},
+                    {"hasSeenHeader": None}  # Handle null case
+                ]
             }
             if context:
                 query["context"] = context
@@ -2607,13 +2609,13 @@ class ApplicationDataBase:
                 query,
                 {"$set": {"hasSeenHeader": True}}
             )
-            print("result",result)
+            print(f"mark_has_seen_header: Updated {result.modified_count} notifications for user_id: {user_id}, context: {context}")
 
             if result.modified_count > 0:
                 return {
                     "status_code": 200,
                     "detail": f"Marked {result.modified_count} notifications as seen",
-                    "data": {"modified_count": result.modified_count}
+    "data": {"modified_count": result.modified_count}
                 }
             else:
                 return {
@@ -2623,11 +2625,11 @@ class ApplicationDataBase:
                 }
 
         except Exception as e:
+            print(f"Error marking notifications as seen: {str(e)}")
             return {
                 "status_code": 500,
                 "detail": f"Error marking notifications as seen: {str(e)}"
             }
-
 
 
     def fetch_notifications(self, user_id: str, context: str, page: int, limit: int):
