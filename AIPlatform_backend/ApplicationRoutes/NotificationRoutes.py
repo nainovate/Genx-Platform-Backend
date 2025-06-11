@@ -8,6 +8,7 @@ router = APIRouter(prefix="/notifications", tags=["Notifications"])
 async def create_notification(request_data: dict = Body(...)):
     try:
         session_id = request_data["sessionId"]
+        print(f"Session ID: {session_id}")
         if session_id not in notification_instance:
             raise ValueError(f"Session ID '{session_id}' not found in notification_instance")
         

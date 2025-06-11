@@ -50,7 +50,6 @@ async def login(request_data: dict = Body(...)):
             sessionId = request_data["sessionId"]
             # Check if sessionId already exists
             if sessionId not in authentication_instances:
-                print(f"Creating new session for sessionId: {sessionId}")
                 userName = data["userName"]
                 userId = data["userId"]
                 role = data["role"]

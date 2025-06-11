@@ -23,6 +23,7 @@ class NotificationManager:
     async def create_notification(self, data: dict):
         try:
             required_keys = {"userId", "orgId", "message","context"}
+            print(f"Data received: {data}")
             missing_keys = required_keys - data.keys()
             print(f"Missing keys: {missing_keys}")
             if missing_keys:
@@ -63,11 +64,11 @@ class NotificationManager:
     
     async def mark_has_seen_header(self, data: dict):
         try:
-            if not data.get("userId"):
-                logger.error("userId is required.")
+            if not data.get("orgIds"):
+                logger.error("orgIds is required.")
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "userId is required."
+                    "detail": "orgIds is required."
                 }
 
             return self.applicationDB.mark_has_seen_header(data)
@@ -81,11 +82,11 @@ class NotificationManager:
         
     async def mark_read(self, data: dict):
         try:
-            if not data.get("userId"):
-                logger.error("userId is required.")
+            if not data.get("orgIds"):
+                logger.error("orgIds is required.")
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "userId is required."
+                    "detail": "orgIds is required."
                 }
 
             if not data.get("context"):

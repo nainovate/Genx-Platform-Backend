@@ -2525,14 +2525,11 @@ class ApplicationDataBase:
    
     def create(self, data: dict):
         # Optional/default fields
-        data.setdefault("title", "Notification")
-        data.setdefault("type", "info")          # info, warning, error, success
-        data.setdefault("priority", "low")       # low, medium, high
-        data.setdefault("action_url", None)
 
         data["is_read"] = False
         data["hasSeenHeader"] = False
         data["created_at"] = self.get_current_timestamp()
+        print("data",data)
 
         try:
          result = self.applicationDB["notifications"].insert_one(data)
@@ -2685,24 +2682,31 @@ class ApplicationDataBase:
 
     def mark_read(self, data: dict):
         try:
-            user_id = data.get("userId")  
+            org_ids = data.get("orgIds")  
             context = data.get("context")
-            print("user_id",user_id)
+            print("user_id",org_ids)
             print("context",context)
-            result = self.applicationDB["notifications"].update_many(
-                {
-                    "userId": user_id,
-                    "context": context,
-                    "is_read": False
-                },
-                {
-                    "$set": {
-                        "is_read": True,
-                        "hasSeenHeader": True,
-                        "read_at": self.get_current_timestamp()
+            for org_id in org_ids:
+                if not isinstance(org_id, str):
+                    return {
+                        "status_code": 400,
+                        "detail": "orgIds must be a list of strings"
                     }
-                }
-            )
+                
+                result = self.applicationDB["notifications"].update_many(
+                    {
+                        "orgId": org_id,
+                        "context": context,
+                        "is_read": False
+                    },
+                    {
+                        "$set": {
+                            "is_read": True,
+                            "hasSeenHeader": True,
+                            "read_at": self.get_current_timestamp()
+                        }
+                    }
+                )
             print("result",result)
             if result.modified_count > 0:
                 return {
