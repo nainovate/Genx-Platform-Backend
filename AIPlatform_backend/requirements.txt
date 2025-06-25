@@ -8,7 +8,7 @@ pyyaml==6.0.1
 uvicorn==0.23.2
 # psycopg2==2.9.9
 # psycopg2-binary==2.9.9
-logger
+# logger
 cachetools
 python-jose
 pymongo==4.9.2
@@ -16,11 +16,12 @@ motor==3.6.1
 openpyxl==3.1.5
 sentence-transformers==3.3.1
 bert-score==0.3.13
-rouge-score==0.1.2
+rouge-score==0.0.4
 flask
 httpx
 psutil
-PyQt5==5.15.10
+# PyQt5==5.15.10
 office365
 office365-REST-Python-Client
 datasets
+APScheduler==3.10.4
