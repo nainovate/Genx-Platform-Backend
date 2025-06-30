@@ -232,6 +232,7 @@ async def getPayloadDetails(request_data: dict = Body(...)):
         
         # Call the `getPromptsData` method of the corresponding instance
         response = payload.getPayloadDetails()
+        print("response", response)
         return response
 
     except KeyError as e:

@@ -63,6 +63,7 @@ class OrganizationDataBase:
             self.config_collection = self.organizationDB[eval_config['CONFIG_COLLECTION']]
             self.metrics_collection = self.organizationDB[eval_config['METRICS_COLLECTION']]
             self.llmPrompts_collection=self.organizationDB['LLMPrompts']
+            self.payloads_collection= self.organizationDB['payload']
 
             self.status_code = 200
         except OperationFailure as op_err:
@@ -971,6 +972,44 @@ class OrganizationDataBase:
         except Exception as e:
             logger.error(f"Error fetching prompts for org {self.orgId}: {e}")
             raise HTTPException(status_code=500, detail=f"Error fetching prompts for orgId {self.orgId}") 
+        
+   
+  
+    def get_payloads_data(self):
+        """
+        Fetches payloads data for a given organization (by orgId), excluding the 'payloads' field.
+
+        :return: List of payloads data or raises HTTPException if error occurs.
+        """
+        try:
+            if not self.orgId:
+                print("The org ids are:", self.orgId)
+                return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId' in request data"
+            
+            # Query with projection to exclude the 'payloads' field
+            payloads = self.payloads_collection.find(
+                {},  # Add filter if needed, like {"orgId": self.orgId}
+                {"payloads": 0}  # 0 means exclude this field
+            ).to_list(length=100)
+            
+            print(f"The payloads (without 'payloads' field) are: {payloads}")
+            logger.info(f"The payloads (without 'payloads' field) are: {payloads}")
+
+            if not payloads:
+                logger.warning(f"No payloads found for orgId {self.orgId}")
+                return [], 404
+
+            # Convert ObjectId to str
+            payloads = [
+                {k: (str(v) if isinstance(v, ObjectId) else v) for k, v in payload.items()}
+                for payload in payloads
+            ]
+
+            return payloads, 200
+
+        except Exception as e:
+            logger.error(f"Error fetching prompts for org {self.orgId}: {e}")
+            raise HTTPException(status_code=500, detail=f"Error fetching prompts for orgId {self.orgId}")  
             
     async def update_status_in_mongo(self, status_record):
         """ Update only the status field of a model in MongoDB """

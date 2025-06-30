@@ -48,6 +48,7 @@ class Payload:
     def __init__(self, role: dict, userId: str,orgIds:list):
         self.role = role
         self.userId = userId
+        self.orgIds = orgIds
         self.applicationDB = initilizeApplicationDB()  # Initialize the application database
         # self.organizationDB = initilizeOrganizationDB() 
     def addPayload(self, data: dict):
@@ -122,54 +123,62 @@ class Payload:
 
         
     def getPayloadDetails(self):
-                """
-                Fetches the Payloads data from the database.
+        """
+        Fetches the Payloads data from the database.
 
-                :return: A dictionary containing the status code and additional details.
-                """
-                try:
-                    # Call the database layer method to fetch LLM prompts data
-                    result = self.organizationDB.get_payload_details()
+        :return: A dictionary containing the status code and additional details.
+        """
+        try:
+            result = []
+            for org in self.orgIds:
+                print(f"Fetching payloads for organization: {org}")
+                organizationDB = OrganizationDataBase(org)
+                payloads, status_code = organizationDB.get_payloads_data()
+                
+                if status_code != 200:
+                    logger.warning(f"Failed to retrieve payloads for org {org}. Status: {status_code}")
+                    continue
+                
+                if payloads:
+                    result.extend(payloads)
+                    logger.info(f"Retrieved {len(payloads)} payloads for org {org}")
 
-                    # Handle cases where no data is returned
-                    if not result:
-                        logger.warning("No payloads found in the database.")
-                        return {
-                            "status_code": status.HTTP_404_NOT_FOUND,
-                            "detail": "No payloads found in the database."
-                        }
+            if not result:
+                logger.warning("No payloads found in the database.")
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "No payloads found in the database."
+                }
 
-                    # Successful data retrieval
-                    logger.info(f"Successfully retrieved {len(result)} payloads from the database.")
-                    return {
-                        "status_code": status.HTTP_200_OK,
-                        "detail": "payloads retrieved successfully.",
-                        "data": result
-                    }
+            logger.info(f"Successfully retrieved {len(result)} payloads from the database.")
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": "Payloads retrieved successfully.",
+                "data": result
+            }
 
-                except ConnectionError as e:
-                    # Handle connection errors
-                    logger.error(f"Database connection error: {e}")
-                    return {
-                        "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                        "detail": f"Database connection failed: {str(e)}"
-                    }
+        except ConnectionError as e:
+            logger.error(f"Database connection error: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Database connection failed: {str(e)}"
+            }
 
-                except KeyError as e:
-                    # Handle missing or malformed keys
-                    logger.error(f"KeyError while processing database data: {e}")
-                    return {
-                        "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                        "detail": f"Malformed data structure: Missing key {str(e)}"
-                    }
+        except KeyError as e:
+            logger.error(f"KeyError while processing database data: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Malformed data structure: Missing key {str(e)}"
+            }
 
-                except Exception as e:
-                    # Handle any other unexpected errors
-                    logger.error(f"Unexpected error occurred: {e}")
-                    return {
-                        "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-                        "detail": f"An unexpected error occurred: {str(e)}"
-                    }
+        except Exception as e:
+            logger.error(f"Unexpected error occurred: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"An unexpected error occurred: {str(e)}"
+            }
+
+                    
         
         
 
