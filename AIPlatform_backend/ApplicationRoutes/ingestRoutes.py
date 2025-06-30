@@ -1,23 +1,20 @@
 from fastapi import APIRouter, Body, HTTPException
-from AiManagement.ingest import IngestManager  # Adjust based on your folder structure
+from ApplicationRoutes.authenticationRoutes import ingest_instance
 router = APIRouter()
 
-ingest_instance = {}
+
     
-@router.post("/api/get-config")
+@router.post("/api/getingestConfig")
 async def get_config_details(request_data: dict = Body(...)):
-    session_id = request_data.get("sessionId")
-    if not session_id:
-        raise HTTPException(status_code=400, detail="Missing sessionId")
-
-    if session_id not in ingest_instance:
-        ingest_instance[session_id] = IngestManager()
-
-    manager = ingest_instance[session_id]
-    result = await manager.fetch_config_details(request_data)
-
-    if result["status_code"] != 200:
-        raise HTTPException(status_code=result["status_code"], detail=result["detail"])
-
-    return result["data"]
+  print(f"Request Data: {request_data}")  
+  try:
+        session_id = request_data["sessionId"]
+        print(f"Session ID: {session_id}")
+        if session_id not in ingest_instance:
+            raise ValueError(f"Session ID '{session_id}' not found in ingest_instance")
+        ingest = ingest_instance[request_data["sessionId"]]
+        print(f"Notification Instance: {ingest}")
+        return await ingest.fetch_config_details()
+  except Exception as e:
+        return HTTPException(status_code=500, detail=str(e))
 

@@ -63,6 +63,7 @@ class OrganizationDataBase:
             self.config_collection = self.organizationDB[eval_config['CONFIG_COLLECTION']]
             self.metrics_collection = self.organizationDB[eval_config['METRICS_COLLECTION']]
             self.llmPrompts_collection=self.organizationDB['LLMPrompts']
+            self.ingest_configuration = self.organizationDB['ingestConfigs']
 
             self.status_code = 200
         except OperationFailure as op_err:
@@ -1587,32 +1588,36 @@ class OrganizationDataBase:
             logging.error(f"Error while retrieving jobs: {e}")
             return None
         
-    from fastapi import status
-
-class OrganizationDB:
-    def __init__(self, db):
-        self.db = db  # MongoDB client
-
-    # Your other functions...
-
-    def get_config_by_session_id(self, session_id: str):
+  
+    
+    def get_ingestconfig(self):
         try:
-            result = self.db["config_sessions"].find_one(
-                {"sessionId": session_id},
-                {"configId": 1, "configName": 1, "_id": 0}
-            )
-            if not result:
-                return {
-                    "status_code": status.HTTP_404_NOT_FOUND,
-                    "detail": "Config not found for the provided sessionId"
-                }
+            if not self.orgId:
+                return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId' in request data"
 
-            return {
-                "status_code": status.HTTP_200_OK,
-                "data": result
-            }
+            # Query the collection
+            ingests = self.ingest_configuration.find(
+                {},  # Optionally add {"orgId": self.orgId} to filter
+                {"configuration_name": 1, "_id": 1}
+            ).to_list(length=100)
+
+            print(f"The ingest configs are: {ingests}")
+            logger.info(f"The ingest configs are: {ingests}")
+
+            if not ingests:
+                logger.warning(f"No ingest found for orgId {self.orgId}")
+                return [], 404
+
+            # Serialize ObjectId to str
+            ingests = [
+                {k: (str(v) if isinstance(v, ObjectId) else v) for k, v in ingest.items()}
+                for ingest in ingests
+            ]
+
+            return ingests, 200
 
         except Exception as e:
+            logger.error(f"Error fetching ingest configs: {e}")
             return {
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"Database error: {str(e)}"

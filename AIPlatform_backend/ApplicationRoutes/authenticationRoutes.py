@@ -14,7 +14,7 @@ from AiManagement.models import*
 from AiManagement.dataset import*
 from AiManagement.finetuning import*
 from AiManagement.scheduler import *
-from AiManagement.ingest import *
+from AiManagement.ingest import IngestManager
 
 
 router = APIRouter()
@@ -64,7 +64,9 @@ async def login(request_data: dict = Body(...)):
                 authentication_instances[sessionId] = Authentication(username=userName, userId=userId, refreshToken=refreshToken)
 
                 notification_instance[sessionId] = NotificationManager(userId=userId, role=role)
-                print(f"Added to notification_instance: {list(notification_instance.keys())}")
+                ingest_instance[sessionId] = IngestManager(role=role, userId=userId,orgIds=orgIds)
+                
+                print(f"Added to ingest_instance: {list(ingest_instance.keys())}")
                 
                 # Role-based instance creation
                 if "superadmin" in role:

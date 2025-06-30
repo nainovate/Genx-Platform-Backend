@@ -12,6 +12,7 @@ from ApplicationRoutes.aiEngineerRoutes import router as aiEngineerRoutes
 from ApplicationRoutes.ChatBotRoutes import router as chatBotRoutes
 from ApplicationRoutes.schedulerRoutes import router as schedulerRoutes
 from ApplicationRoutes.NotificationRoutes import router as NotificationRoutes
+from ApplicationRoutes.ingestRoutes import router as IngestRoutes
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -66,6 +67,7 @@ app.include_router(schedulerRoutes)
 
 app.include_router(NotificationRoutes)  # Assuming setup.py has a router defined
 
+app.include_router(IngestRoutes)
 
 # Entry point
 if __name__ == "__main__":
