@@ -1622,3 +1622,97 @@ class OrganizationDataBase:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"Database error: {str(e)}"
             }
+        
+    # in organizationDataBase.py
+
+def get_embedding_models(self):
+    try:
+        if not self.orgId:
+            return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId'"
+
+        models = self.embedding_models.find(
+            {},  # Add filter if needed: {"orgId": self.orgId}
+            {
+                "_id": 1,
+                "type": 1,
+                "model_name": 1,
+                "tags": 1,
+                "projectNames": 1,
+                "timestamp": 1
+            }
+        ).to_list(length=100)
+
+        if not models:
+            return [], 404
+
+        models = [
+            {k: (str(v) if isinstance(v, ObjectId) else v) for k, v in model.items()}
+            for model in models
+        ]
+        return models, 200
+
+    except Exception as e:
+        logger.error(f"Error fetching embedding models: {e}")
+        return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, "detail": str(e)}
+
+
+def get_splitter_config(self):
+    try:
+        if not self.orgId:
+            return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId'"
+
+        splitters = self.splitter_config.find(
+            {},
+            {
+                "_id": 1,
+                "framework": 1,
+                "configuration_name": 1,
+                "splitter_type": 1,
+                "splitter_params": 1,
+                "timestamp": 1
+            }
+        ).to_list(length=100)
+
+        if not splitters:
+            return [], 404
+
+        splitters = [
+            {k: (str(v) if isinstance(v, ObjectId) else v) for k, v in s.items()}
+            for s in splitters
+        ]
+        return splitters, 200
+
+    except Exception as e:
+        logger.error(f"Error fetching splitter config: {e}")
+        return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, "detail": str(e)}
+
+
+def get_vector_config(self):
+    try:
+        if not self.orgId:
+            return status.HTTP_400_BAD_REQUEST, False, "Missing 'orgId'"
+
+        vectors = self.vector_config.find(
+            {},
+            {
+                "_id": 1,
+                "configuration_name": 1,
+                "vector_store_config": 1,
+                "timestamp": 1,
+                "embedding_model": 1,
+                "framework": 1
+            }
+        ).to_list(length=100)
+
+        if not vectors:
+            return [], 404
+
+        vectors = [
+            {k: (str(v) if isinstance(v, ObjectId) else v) for k, v in vconfig.items()}
+            for vconfig in vectors
+        ]
+        return vectors, 200
+
+    except Exception as e:
+        logger.error(f"Error fetching vector config: {e}")
+        return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, "detail": str(e)}
