@@ -14,7 +14,7 @@ from AiManagement.models import*
 from AiManagement.dataset import*
 from AiManagement.finetuning import*
 from AiManagement.scheduler import *
-
+from AiManagement.ingest import *
 
 
 router = APIRouter()
@@ -34,8 +34,8 @@ dataset_instance = {}
 finetuning_instance = {}
 scheduler_instance ={}
 notification_instance = {}
-
-
+organization_instance = {}
+ingest_instance = {}
 
 
 # authentication_instances["resetPassword"] = Authentication()

@@ -47,10 +47,10 @@ class NotificationManager:
         try:
             print(f"Data received: {data}")
             if not data["orgIds"]:
-                logger.error("userId is required.")
+                logger.error("orgIds is required.")
                 return {
                     "status_code": status.HTTP_400_BAD_REQUEST,
-                    "detail": "userId is required."
+                    "detail": "orgIds is required."
                 }
             
             return  self.applicationDB.get_unread_counts_by_context(data)
