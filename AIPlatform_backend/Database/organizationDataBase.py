@@ -1586,3 +1586,34 @@ class OrganizationDataBase:
         except Exception as e:
             logging.error(f"Error while retrieving jobs: {e}")
             return None
+        
+    from fastapi import status
+
+class OrganizationDB:
+    def __init__(self, db):
+        self.db = db  # MongoDB client
+
+    # Your other functions...
+
+    def get_config_by_session_id(self, session_id: str):
+        try:
+            result = self.db["config_sessions"].find_one(
+                {"sessionId": session_id},
+                {"configId": 1, "configName": 1, "_id": 0}
+            )
+            if not result:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": "Config not found for the provided sessionId"
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "data": result
+            }
+
+        except Exception as e:
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Database error: {str(e)}"
+            }
