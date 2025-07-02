@@ -29,8 +29,13 @@ class RAG:
  
     def rag(self, data: dict):
         try:
-            res = self.RagRetrival.ragRetrievalResult(userId=self.userId, question=data["query"], clientApiKey= data["clientApiKey"], deployId=data["deployId"])
-            return res
+            # res = self.RagRetrival.ragRetrievalResult(userId=self.userId, question=data["query"], clientApiKey= data["clientApiKey"], deployId=data["deployId"])
+            # return res
+            orgId = data["orgId"]
+            deployId = data["deployId"]
+            organizationDB = OrganizationDataBase(orgId)
+            url = organizationDB.getLangflowUrl(deployId=deployId)
+            print(url)
 
         except HTTPException as http_exception:
             raise http_exception  # Re-raise HTTPException for proper response

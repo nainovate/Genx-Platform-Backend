@@ -1691,3 +1691,21 @@ class OrganizationDataBase:
         except Exception as e:
             logger.error(f"Error fetching vector config: {e}")
             return {"status_code": status.HTTP_500_INTERNAL_SERVER_ERROR, "detail": str(e)}
+        
+    def getLangflowUrl(self, deployId: str):
+        try:
+            result = self.organizationDB["DeploymentConfig"].find_one({"_id": ObjectId(deployId)})
+            
+            if result and "langflow_url" in result:
+                return result["langflow_url"]
+            else:
+                return None
+
+        except Exception as e:
+            logging.error(f"Error fetching langflow_url for deployId {deployId}: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": "Internal server error"
+            }
+
+        
