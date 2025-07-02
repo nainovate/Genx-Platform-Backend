@@ -3,6 +3,8 @@ from fastapi import HTTPException
 import logging
 from AiManagement.rag import *
 from Database.organizationDataBase import *
+import requests
+
 
 # Set up logging
 projectDirectory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -35,8 +37,14 @@ class RAG:
             deployId = data["deployId"]
             organizationDB = OrganizationDataBase(orgId)
             url = organizationDB.getLangflowUrl(deployId=deployId)
-            print(url)
-
+            data = {
+                "input_value": data["query"],
+                "input_type": "text",
+                "output_type": "text",
+            }
+            response = requests.post(url, json = data)
+            output = response.json()['outputs'][0]['outputs'][0]['outputs']['text']['message']
+            return {"responseText":output}
         except HTTPException as http_exception:
             raise http_exception  # Re-raise HTTPException for proper response
         except Exception as e:
