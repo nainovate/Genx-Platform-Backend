@@ -132,7 +132,6 @@ class Authentication:
                     "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                     "detail": "Internal server error",
                 }
-
             if not password:
                 '''status_code, userId = self.applicationDB.checkDeviceLogin(
                     activeStatus="active", deviceHash=deviceHash
