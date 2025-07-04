@@ -64,7 +64,7 @@ async def login(request_data: dict = Body(...)):
                 authentication_instances[sessionId] = Authentication(username=userName, userId=userId, refreshToken=refreshToken)
 
                 notification_instance[sessionId] = NotificationManager(userId=userId, role=role)
-                # ingest_instance[sessionId] = IngestManager(role=role, userId=userId,orgIds=orgIds)
+                ingest_instance[sessionId] = IngestManager(role=role, userId=userId,orgIds=orgIds)
                 
                 print(f"Added to ingest_instance: {list(ingest_instance.keys())}")
                 
