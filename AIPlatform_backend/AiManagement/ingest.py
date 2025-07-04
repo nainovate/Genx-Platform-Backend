@@ -76,6 +76,39 @@ class IngestManager:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"Error fetching config data: {str(e)}"
             }
+            
+    async def add_config_details(self, data):
+        try:
+            org_id = data.get("orgId")
+            if not org_id:
+                return {
+                    "status_code": status.HTTP_400_BAD_REQUEST,
+                    "detail": "orgIds is required."
+                }
+
+           
+            organizationDB = OrganizationDataBase(org_id)
+            configs = organizationDB.add_ingestconfig(data)
+
+            if not configs:
+                return {
+                    "status_code": status.HTTP_404_NOT_FOUND,
+                    "detail": f"No config data found for orgId '{org_id}'"
+                }
+
+            return {
+                "status_code": status.HTTP_200_OK,
+                "detail": "Config data retrieved successfully",
+                "data": configs
+            }
+
+        except Exception as e:
+            logger.error(f"Unexpected error during config fetch: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Error fetching config data: {str(e)}"
+            }
+     
 
     async def fetch_vector_config(self):
         try:

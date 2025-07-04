@@ -1624,7 +1624,44 @@ class OrganizationDataBase:
                 "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
                 "detail": f"Database error: {str(e)}"
             }
-        
+            
+    def add_ingestconfig(self, data):
+        try:
+            # Check for duplicate configuration_name
+            existing = self.ingest_configuration.find_one({
+                "configuration_name": data.get("configuration_name")
+            })
+
+            if existing:
+                logger.warning(f"Duplicate config name found: {data.get('configuration_name')}")
+                return {
+                    "status_code": status.HTTP_409_CONFLICT,
+                    "detail": f"Configuration '{data.get('configuration_name')}' already exists."
+                }
+
+            # Insert the document
+            result = self.ingest_configuration.insert_one(data)
+
+            if result.inserted_id:
+                logger.info(f"Successfully added ingest config: {str(result.inserted_id)}")
+                return {
+                    "status_code": status.HTTP_201_CREATED,
+                    "detail": "Ingest config added successfully.",
+                }
+            else:
+                logger.warning("Insert operation did not return an inserted_id.")
+                return {
+                    "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    "detail": "Insert failed with unknown reason."
+                }
+
+        except Exception as e:
+            logger.error(f"Error adding ingest config: {e}")
+            return {
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "detail": f"Database error: {str(e)}"
+            }      
+            
     # in organizationDataBase.py
 
     def get_embedding_models(self):
