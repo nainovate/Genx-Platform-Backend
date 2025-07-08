@@ -916,7 +916,6 @@ class ApplicationDataBase:
 
     def checkUserCredentials(self, username: str, password: str):
         try:
-            print("username", username, password)
             # Ensure applicationDB is properly initialized
             if not hasattr(self, 'applicationDB') or self.applicationDB is None:
                 print("not initialized")
