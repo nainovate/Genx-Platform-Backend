@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "67a5d4aebf407c4c59679d5c"
+  },
+  "roleName": "Recruiter",
+  "description": "",
+  "spaceIds": [
+    "67a5acbabf407c4c59679c21"
+  ],
+  "createdBy": "67a5ad81bf407c4c59679c31"
+}]

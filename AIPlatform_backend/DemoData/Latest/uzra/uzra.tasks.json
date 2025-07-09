@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67cc55adffe920a13cbc848d"
+  },
+  "taskName": "Candidate Selection",
+  "description": "This task helps in giving you the percentage match of the particular candidate for particular job",
+  "roleIds": [
+    "67cc5534ffe920a13cbc8481"
+  ],
+  "createdBy": "67ced658a8dcd22f62506fee",
+  "agentId": "67cc5500efe6a127841747b2",
+  "clientApiKey": "HKGW-V8YJ-S1PF-Z3HU"
+},
+{
+  "_id": {
+    "$oid": "67d972411157fc1dab09dbe9"
+  },
+  "taskName": "Candidate Selection V2",
+  "description": "",
+  "roleIds": [
+    "67cc5534ffe920a13cbc8481"
+  ],
+  "createdBy": "67ced658a8dcd22f62506fee",
+  "agentId": "67d90019036f39db55110b7f",
+  "clientApiKey": "HKGW-V8YJ-S1PF-Z3HU"
+}]

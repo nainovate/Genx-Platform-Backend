@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39ef"
+  },
+  "userid": "XXXX",
+  "firstname": "superadminfirst",
+  "lastname": "superadminlast",
+  "username": "superadmin",
+  "password": "a",
+  "email": "superadmin@gmail.com",
+  "number": "9876543210",
+  "role": "superadmin",
+  "tempOTP": "",
+  "tempOTPtimestamp": "",
+  "OTPattempts": "",
+  "OTPlocked": false,
+  "OTPlockedtill": ""
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a15"
+  },
+  "userid": "GF8S",
+  "firstname": "adminfirst",
+  "lastname": "adminlast",
+  "username": "admin",
+  "password": "a",
+  "email": "admin@gmail.com",
+  "number": "9876543210",
+  "role": "admin",
+  "tempOTP": "",
+  "tempOTPtimestamp": "",
+  "OTPattempts": "",
+  "OTPlocked": false,
+  "OTPlockedtill": "",
+  "organisation": "2928"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a16"
+  },
+  "userid": "Z3QR",
+  "firstname": "userfirst",
+  "lastname": "userlast",
+  "username": "user",
+  "password": "a",
+  "email": "user@mail.com",
+  "number": "9876543210",
+  "role": "user",
+  "tempOTP": "",
+  "tempOTPtimestamp": "",
+  "OTPattempts": "",
+  "OTPlocked": false,
+  "OTPlockedtill": "",
+  "organisation": "caek"
+}]

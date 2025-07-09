@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a00"
+  },
+  "deviceType": "cpu"
+},
+{
+  "_id": {
+    "$oid": "66877f18969732e054fc3a45"
+  },
+  "deviceType": "cuda"
+}]

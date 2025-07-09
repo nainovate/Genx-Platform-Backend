@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "67a5a3f375a616a45984d578"
+  },
+  "orgName": "Brillius",
+  "email": "brillius@gmail.com",
+  "contactNumber": "9182468863",
+  "address": "4th Floor, P Elite, 1-62/99, Plot No: 99, Kavuri Hills Phase 2 Rd, Madhapur, Hyderabad, Telangana 500081",
+  "orgId": "caek",
+  "createdBy": {
+    "$oid": "6719f2b4a819e54ab9a68d63"
+  }
+},
+{
+  "_id": {
+    "$oid": "67a5cd78bf407c4c59679c44"
+  },
+  "orgName": "Bakers Fun",
+  "email": "bakersfun@gmail.com",
+  "contactNumber": "9182468863",
+  "address": "D.No: 5-5-91/A, 1st Floor 5/14 Brodipet, Guntur 522002, Andhra Pradesh",
+  "orgId": "ubrr",
+  "createdBy": {
+    "$oid": "6719f2b4a819e54ab9a68d63"
+  }
+},
+{
+  "_id": {
+    "$oid": "67a5cde8bf407c4c59679c47"
+  },
+  "orgName": "Savills",
+  "email": "savills@gmail.com",
+  "contactNumber": "9182468863",
+  "address": "Plot number 14 & 15, DivyaSree Solitaire, 5th Floor, Software Units Layout, Vittal Rao Nagar, Madhapur, Hyderabad, Telangana 500081",
+  "orgId": "erad",
+  "createdBy": {
+    "$oid": "6719f2b4a819e54ab9a68d63"
+  }
+}]

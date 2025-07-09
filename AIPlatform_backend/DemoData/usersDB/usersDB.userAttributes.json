@@ -1,0 +1,7440 @@
+[{
+  "_id": {
+    "$oid": "66877f2ece0b0ae08d3e51f5"
+  },
+  "userId": "LB1Z",
+  "deviceHash": null,
+  "activeStatus": "inactive"
+},
+{
+  "_id": {
+    "$oid": "66928ad7d2c4d7ec4cdc2907"
+  },
+  "userId": "F4KX",
+  "deviceHash": "f91350d00db4d43bacaa6c60de4151ff",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66928b59d2c4d7ec4cdc2917"
+  },
+  "userId": "4UXI",
+  "deviceHash": "f91350d00db4d43bacaa6c60de4151ff",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66928bb8d2c4d7ec4cdc292b"
+  },
+  "userId": "F4KX",
+  "deviceHash": "f91350d00db4d43bacaa6c60de4151ff",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66928c00d2c4d7ec4cdc293b"
+  },
+  "userId": "F4KX",
+  "deviceHash": "f91350d00db4d43bacaa6c60de4151ff",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66928f2ad2c4d7ec4cdc2955"
+  },
+  "userId": "4UXI",
+  "deviceHash": "f91350d00db4d43bacaa6c60de4151ff",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669dfdf03bbd0df1b4f27b5f"
+  },
+  "userId": "F4KX",
+  "deviceHash": "7-twoTxL6_XRoQa-XVfSe",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669dfe083bbd0df1b4f27b69"
+  },
+  "userId": "0UXI",
+  "deviceHash": "hJZStVRh1QnIL_NuyPNUT",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669dfe900ae3aa544d5d061b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HwQxZz3N_Cd2Qscwj0egn",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e04120ae3aa544d5d0626"
+  },
+  "userId": "0UXI",
+  "deviceHash": "QhnvYpnKIy2ksUjOL85Yr",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e06060ae3aa544d5d0630"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Y7Wd8tunjzJcT6tBdMoW5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e06e60ae3aa544d5d063a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "0jFDYBuYG2Ro7_xIaMmYK",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e081a0ae3aa544d5d0644"
+  },
+  "userId": "0UXI",
+  "deviceHash": "rFBTb38xL9Ak3gq8TucmN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e08890ae3aa544d5d064e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HUOF8yb_n3qEwvbZKU6eb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e097f0ae3aa544d5d0658"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Pvit3sc1kKJmXLzzvxeIL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e0a130ae3aa544d5d0662"
+  },
+  "userId": "0UXI",
+  "deviceHash": "lsc9HaDAn6FYQ3U-oenhO",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e0b810ae3aa544d5d066c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "gty1gCy02swPLB2uoMMNK",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e1ee242418161fc3de92c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "8iYtZo1gODWXBP_7vpwNZ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e1f4f42418161fc3de936"
+  },
+  "userId": "0UXI",
+  "deviceHash": "K8cXcNpjLDg0IKSH9yqpq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e24a72d171586853e8550"
+  },
+  "userId": "0UXI",
+  "deviceHash": "JsEQvsEu-QC0kGGhRplUp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e26152d171586853e855a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fEOIS1EzI5JNBsal3szTM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e26ae2d171586853e8564"
+  },
+  "userId": "0UXI",
+  "deviceHash": "flulHnF73w9JqOiPk3-wy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e27012d171586853e856e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "g_mFEGkNPgBZ8p0OEviyh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e2af29fddd6c824976c2b"
+  },
+  "userId": "3UXI",
+  "deviceHash": "FYYY2QXX0TM4gKshju3wB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e2f7ca8fd1d9815fa3353"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-XP8HK4BkLyuM8Qm-k1bB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e31863491bdd03a84ceb2"
+  },
+  "userId": "1UXI",
+  "deviceHash": "W8PPd-_67QadW1n447HDX",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e33f23491bdd03a84cee7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "76Ksm5KTt8T7TuYdC8Pnw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e34193491bdd03a84cef6"
+  },
+  "userId": "1UXI",
+  "deviceHash": "_WXnUTG1P8F54s6mZ7-Xg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e399d79d8224b09399cf5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Mxg84I9c1-j573-Xg3agl",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3b9479d8224b09399d17"
+  },
+  "userId": "0UXI",
+  "deviceHash": "IhJLtRMNCv8NN7fGDM8O6",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3bc979d8224b09399d27"
+  },
+  "userId": "0UXI",
+  "deviceHash": "e06rC4n4a6lI3SSCeKuLi",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3bfd79d8224b09399d37"
+  },
+  "userId": "0UXI",
+  "deviceHash": "wxeNfzE9LiomxCh5klxG3",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3ca379d8224b09399d47"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BSSk3UDh3Yxm7XQ7sMam8",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3d4079d8224b09399d59"
+  },
+  "userId": "0UXI",
+  "deviceHash": "dBZ5STUqpRoqXLfxaTtY8",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3dc079d8224b09399d69"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1XixVA7kaRcQTgiEm8c6V",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3f0879d8224b09399d79"
+  },
+  "userId": "0UXI",
+  "deviceHash": "XQnTtNI2YGKT-rMkMjUXi",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e3fb079d8224b09399d89"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Y_KlihS4z6fori24wuuO4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e430e5d3f6e4c3aa248c5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kVQCqR58z0mIoDmBhxL3x",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e4a86460b32efb7481c4c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "h4oMqjuYOMRLZmT3DZLJ1",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e56e0460b32efb7481e3a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "3Fwzp481jJ5G0gQ2SyWxQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e66f4460b32efb7481ecd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "wH3Mz_pA0bTAI_pVTK02F",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669e6d05460b32efb7481f0d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-Oi0XIDBahHcBz8DlT3ya",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669f83814abbaefa265a31ad"
+  },
+  "userId": "1UXI",
+  "deviceHash": "_0VFZrAGxM5_Ad3T_M0sg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "669f86ac4abbaefa265a31d7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "5exkfaoWRCRfTuvePvekv",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a0a039a49aa092cfa9e343"
+  },
+  "userId": "4UXI",
+  "deviceHash": "f91350d00db4d43bacaa6c60de4151ff",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a0d22ce7b903a98c5aa864"
+  },
+  "userId": "1UXI",
+  "deviceHash": "nuJDHCzC2uMcHgwwjZs6P",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a0de62e7b903a98c5aa887"
+  },
+  "userId": "0UXI",
+  "deviceHash": "SptH4TvQ1VDsuAALjhvRX",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a0f616e7b903a98c5aa95a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "SoEAOVjR1Ij6C_2D83KDb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a0f859e7b903a98c5aa983"
+  },
+  "userId": "0UXI",
+  "deviceHash": "IwRimJiTivuJdxyy1g-oh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a0fc4cd4b6ddbfdce9105f"
+  },
+  "userId": "4UXI",
+  "deviceHash": "f91350d00db4d43bacaa6c60de4151ff",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a104c0d4b6ddbfdce910ab"
+  },
+  "userId": "0UXI",
+  "deviceHash": "N0wQ2eH8mr2o2MnFrrb-N",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a10596d4b6ddbfdce910ca"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-u5NGZjqNef5XOrh2pRuW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a10614d4b6ddbfdce910f2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "jWzu-M82yKiii9kMgaY8g",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a10629d4b6ddbfdce91107"
+  },
+  "userId": "1UXI",
+  "deviceHash": "Iwc6HiJe897u9X_eddwv9",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1069bd4b6ddbfdce91118"
+  },
+  "userId": "0UXI",
+  "deviceHash": "87rGFKn7qnJxruKy65iQj",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a10a31d4b6ddbfdce9116a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "6PD2_jZMhi1QAxzeRC12I",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a10aecd4b6ddbfdce9119c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "6NFSQG7-JvaQX3wKCw-6S",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a11101d4b6ddbfdce911f1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "lUdYHLaGwsweSciQA-LPL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a11174d4b6ddbfdce91223"
+  },
+  "userId": "0UXI",
+  "deviceHash": "VdIyTGjIitP3xIO-cBykp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a11236d4b6ddbfdce91246"
+  },
+  "userId": "0UXI",
+  "deviceHash": "j7_1fLmnJAdLuqXl6jodV",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a113e6d4b6ddbfdce9125f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "vvr-mT24bG_qNBHMB-2K3",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1140cd4b6ddbfdce91274"
+  },
+  "userId": "0UXI",
+  "deviceHash": "FfpB1BxkVqFDcsjU5GBky",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a11434d4b6ddbfdce9128a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "TmN46RM5rLU3INPEkFo_v",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a11605d4b6ddbfdce912cb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BaSlbvhgZnHknD1rrzFzP",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1168fd4b6ddbfdce912ee"
+  },
+  "userId": "0UXI",
+  "deviceHash": "M2l4ktcdTH5Ee_C1rcUsw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a116ddd4b6ddbfdce91302"
+  },
+  "userId": "0UXI",
+  "deviceHash": "JHkj-NvCHXUn_qHQ2-iZ4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a117c1d4b6ddbfdce91325"
+  },
+  "userId": "0UXI",
+  "deviceHash": "pqBCiLy1iZzlZjD-y1_ac",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1180fd4b6ddbfdce91348"
+  },
+  "userId": "0UXI",
+  "deviceHash": "SUt4mer6ZHxMA8lftcnXk",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a118c7d4b6ddbfdce9137f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "hipsBN9cX8mV5Z6_xxcVW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1192ad4b6ddbfdce9139f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "OAC0Pq58d8RXSoku7GdRm",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a11a48d4b6ddbfdce913b8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ojgy_mD56mJQU8Xg4dbYI",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f6542417e1f7e96c46c8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "AJyC0S-cdvk_PwA7L_4Za",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f6832417e1f7e96c46db"
+  },
+  "userId": "0UXI",
+  "deviceHash": "SlidTH-1xR4nH6ULn0Xob",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f6a12417e1f7e96c46fb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-DfmXozVbUXRm04v4WZTL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f7112417e1f7e96c4715"
+  },
+  "userId": "0UXI",
+  "deviceHash": "XWO64Rdj5sC1-xKvUTyL7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f7cb2417e1f7e96c4736"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fw6je2tT7zNbkz1r0nRPx",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f8652417e1f7e96c4756"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1J3BwNn-0GWcQkndGS5fj",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f9072417e1f7e96c4767"
+  },
+  "userId": "0UXI",
+  "deviceHash": "D6-INMKXv7kfoEsbXQVh-",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a1f9bc2417e1f7e96c478c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "xHz2Gdf-dLCT6C123cuwM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a7323f160f14dd287ae7e7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kxJ-LpwOg43CRXR30Qaik",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a73830160f14dd287ae7fc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sjtVBZfDT--Q3LhhLmdjq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a73ca4160f14dd287ae820"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HpqfYoT9xmTPDE49IgFjS",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a75910160f14dd287ae96a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "yAS6J7mcIsa4jDEimb4oA",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a759c7160f14dd287ae97e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "5Jns0XpoRRa9eIV2YeGjO",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a75a2d160f14dd287ae992"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ChcZKLQA4uCV_9BQxfkUA",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a76f0e160f14dd287aea34"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fp_oiW9aHuxP19ktOFVJT",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a8900a38fd50cb14740896"
+  },
+  "userId": "0UXI",
+  "deviceHash": "VU79-0P5VLSAImYhBS6rs",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a8bf4d38fd50cb14740a9f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "g5WVN_DVlEGQIphOe2wuW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66a9d2299088e1b59e006dd2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "RF1yv-gknzOXM1vZW4M_V",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66aa01b19088e1b59e006deb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66aa02e29088e1b59e006dfa"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66aa29d09088e1b59e006e0e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "aEDDzRaU4-jdj-pX3YQyR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab20c4a995790acbb59b00"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab213ca995790acbb59b16"
+  },
+  "userId": "0UXI",
+  "deviceHash": "",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2195a995790acbb59b2f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "123456",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab241ea995790acbb59b53"
+  },
+  "userId": "0UXI",
+  "deviceHash": "PLoCqCUWvYHf5u8R5WIMY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2ce3a995790acbb59bd2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "F_BUVu2c2xSO0BVFN-_V4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2d42a995790acbb59beb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "yOhkRN4OLCReU8Dzp0xMK",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2d6da995790acbb59c04"
+  },
+  "userId": "0UXI",
+  "deviceHash": "DmBTtZjkF3kWnxMjkdH_N",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2e1ba995790acbb59c1d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "G-4OGgupDVn2-bShGOtwa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2e24a995790acbb59c27"
+  },
+  "userId": "0UXI",
+  "deviceHash": "IUB2fBfOHldwg46uKJ5xd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2e2fa995790acbb59c31"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HXCGj3fDAigigtgJNCzqO",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2e81a995790acbb59c3b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "cyy01-ifv8Yg4GdcH6BWH",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2f05a995790acbb59c59"
+  },
+  "userId": "0UXI",
+  "deviceHash": "SZQ2XcB3cyyifJW88q4RQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2f5ea995790acbb59c63"
+  },
+  "userId": "0UXI",
+  "deviceHash": "_XFLr1GVXu5qlL3OXcu6h",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2fa2a995790acbb59c74"
+  },
+  "userId": "0UXI",
+  "deviceHash": "E_IqoF4xADK3yfO43Sg5f",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab2fdda995790acbb59c7e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "gXqcBgNX3xDXEdHpsJSBI",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab3004a995790acbb59c88"
+  },
+  "userId": "0UXI",
+  "deviceHash": "mDDQrfSzPZMJyiMFxPkrR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab301ea995790acbb59c92"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Ahd4ECjsiKQLgmeGDtXAi",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab3049a995790acbb59c9c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "DlKW-56ZN-VEUb98VFrk7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab3075a995790acbb59ca6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "RHxq0ppX3T-rsUwTJIIiy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab3137a995790acbb59cb2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "dITFquEQM9qTmgOE_a6nO",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab31aea995790acbb59ccb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab31d7a995790acbb59ccf"
+  },
+  "userId": "0UXI",
+  "deviceHash": "b9dY_2lyh7TQ4Go83hAP5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab3475a995790acbb59d13"
+  },
+  "userId": "0UXI",
+  "deviceHash": "plzWQSJMBldWHOe7N3o-q",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab35d9a995790acbb59d3e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "uHTDn4N-jsTG2YwW7nu85",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ab6462a995790acbb59eee"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac6df3d5e32a9b1731d49b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac6e61d5e32a9b1731d4af"
+  },
+  "userId": "0UXI",
+  "deviceHash": "VX_xnHK9u5OdfYDxRIXuv",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac6eb9d5e32a9b1731d4cd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "c8lKF2UQu7mr0YnJKgpib",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac7095d5e32a9b1731d4e8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac7664d5e32a9b1731d4fb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac77d2d5e32a9b1731d50a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac7977d5e32a9b1731d514"
+  },
+  "userId": "0UXI",
+  "deviceHash": "q_7cZ5MzZ3Ojvwkq9tTEy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac7e35d5e32a9b1731d52c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac7f48d5e32a9b1731d53f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac8acfd5e32a9b1731d550"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ac9068d5e32a9b1731d560"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acad36d5e32a9b1731d63e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acadd5d5e32a9b1731d66f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acaec2d5e32a9b1731d681"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acb0a2d5e32a9b1731d69a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acb1aed5e32a9b1731d6ab"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acb443d5e32a9b1731d6e7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acb7d2d5e32a9b1731d727"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acb8c4d5e32a9b1731d748"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acba11d5e32a9b1731d776"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acba6cd5e32a9b1731d785"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acbabad5e32a9b1731d794"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acbfdcd5e32a9b1731d7e1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acc119d5e32a9b1731d804"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acc16cd5e32a9b1731d813"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acc229d5e32a9b1731d822"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acc300d5e32a9b1731d831"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acc548d5e32a9b1731d844"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66accb8ed5e32a9b1731d87b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66acd5a8d5e32a9b1731d8a0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "770dd640afaaf22f",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b065a09f8d405816eeb059"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b0660d9f8d405816eeb072"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b066339f8d405816eeb081"
+  },
+  "userId": "0UXI",
+  "deviceHash": "wj6df5a9xwPxJOD7tSEeo",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b0666e9f8d405816eeb095"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b067449f8d405816eeb0cc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b067779f8d405816eeb0db"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b067b89f8d405816eeb0ea"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b068b19f8d405816eeb109"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b0701d9f8d405816eeb12c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b0707b9f8d405816eeb13b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b072709f8d405816eeb14a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "XeCsh35D3OGC8-ZqNBX8H",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b076059f8d405816eeb1e2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b077139f8d405816eeb1f3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b077889f8d405816eeb20e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b078c39f8d405816eeb21d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b07c169f8d405816eeb23b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "xdtWZc9Rubo1T-ZUBbLOe",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b0c1ab9f8d405816eeb513"
+  },
+  "userId": "0UXI",
+  "deviceHash": "DTq57xwIL7Fuk2WTTVkP2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1b452dc248d009aac9fd8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1b7d9dc248d009aaca02f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kS9yb-Gxi3_TE9x5J3Dhi",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1b94edc248d009aaca06a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1bd70dc248d009aaca0d6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c2f7dc248d009aaca158"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c316dc248d009aaca162"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c345dc248d009aaca16e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c366dc248d009aaca178"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c398dc248d009aaca182"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c5fcdc248d009aaca1fd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c626dc248d009aaca207"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c688dc248d009aaca237"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2HkrJTy4749UWBybv5DmV",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1c7b9dc248d009aaca2e8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b1e5ccdc248d009aaca3f9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b208706d0b56de50369204"
+  },
+  "userId": "0UXI",
+  "deviceHash": "cqT5-qnqxcfV1miJrKA1h",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b208e36d0b56de5036921c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2093f6d0b56de50369231"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b20e246d0b56de50369240"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b20e956d0b56de5036924f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b20eed6d0b56de5036925e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b20f446d0b56de5036926d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219856d0b56de503692f4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219856d0b56de503692fe"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219856d0b56de50369302"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219856d0b56de50369306"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de5036930a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de5036930e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de50369312"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de50369316"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de5036931a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de5036931e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de50369322"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de50369326"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219866d0b56de5036932a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219876d0b56de5036932e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219876d0b56de50369332"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219876d0b56de50369336"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219876d0b56de5036933a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219876d0b56de5036933e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219876d0b56de50369342"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219876d0b56de50369346"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199e6d0b56de5036934a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199e6d0b56de5036934e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199e6d0b56de50369352"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199e6d0b56de50369356"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199e6d0b56de5036935a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199e6d0b56de5036935e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de50369362"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de50369366"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de5036936a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de5036936e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de50369372"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de50369376"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de5036937a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de5036937e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de50369382"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2199f6d0b56de50369386"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219a06d0b56de5036938a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219a06d0b56de5036938e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219a06d0b56de50369392"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b219a06d0b56de50369396"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21a416d0b56de5036939a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b216d0b56de503693a9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b216d0b56de503693ad"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b216d0b56de503693b1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693b5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693b9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693bd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693c1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693cb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693cf"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693d3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693d7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b226d0b56de503693db"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693df"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693e3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693e7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693eb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693ef"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693f3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693f7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b236d0b56de503693fb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b9f6d0b56de5036945d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b9f6d0b56de50369461"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b9f6d0b56de50369465"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21b9f6d0b56de50369469"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de5036946d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de50369471"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de50369475"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de50369479"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de5036947d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de50369481"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de50369485"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de50369489"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de5036948d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba06d0b56de50369491"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba16d0b56de50369495"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba16d0b56de50369499"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba16d0b56de5036949d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba16d0b56de503694a1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba16d0b56de503694a5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21ba16d0b56de503694a9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de50369511"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de50369515"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de50369519"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de5036951d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de50369521"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de50369525"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de50369529"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de5036952d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0c6d0b56de50369531"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369535"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369539"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de5036953d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369541"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369545"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369549"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de5036954d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369551"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369555"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0d6d0b56de50369559"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21c0e6d0b56de5036955d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d476d0b56de503695c5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4a6d0b56de503695d4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4a6d0b56de503695d8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4a6d0b56de503695dc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4a6d0b56de503695e0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4a6d0b56de503695e4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4a6d0b56de503695e8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4a6d0b56de503695ec"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de503695f0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de503695f4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de503695f8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de503695fc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de50369600"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de50369604"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de50369608"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de5036960c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4b6d0b56de50369610"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4c6d0b56de50369614"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4c6d0b56de50369618"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4c6d0b56de5036961c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21d4c6d0b56de50369620"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4d6d0b56de5036968a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de5036968e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de50369692"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de50369696"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de5036969a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de5036969e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de503696a2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de503696a6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de503696aa"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de503696ae"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4e6d0b56de503696b2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696b6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696ba"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696be"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696c2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696c6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696ca"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696ce"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696d2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b21e4f6d0b56de503696d6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de50369740"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de50369744"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de5036974b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de5036974f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de50369753"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de50369757"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de5036975b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221d6d0b56de5036975f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de50369763"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de50369767"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de5036976b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de5036976f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de50369773"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de50369798"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de5036979c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de503697a0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221e6d0b56de503697a4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221f6d0b56de503697a8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221f6d0b56de503697ac"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b2221f6d0b56de503697b0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a16d0b56de503697f4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de503697f8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de503697fc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de50369800"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de50369804"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de50369808"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de5036980c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de50369810"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de50369814"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de50369818"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a26d0b56de5036981c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de50369820"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de50369824"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de5036984c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de50369850"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de50369854"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de50369858"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de5036985c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de50369860"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b223a36d0b56de50369864"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1234",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b4a0425f3c89e7cfe66210"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b4a5ec5f3c89e7cfe6621f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b5a82225d13e963e3af97e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b5b26525d13e963e3af9ac"
+  },
+  "userId": "0UXI",
+  "deviceHash": "jXrLsc863YPwiyFSDFL0i",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b5b33325d13e963e3af9c0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "C-37uMSUBQqNHC-t8pjKw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9a42616d91f9d7ea22872"
+  },
+  "userId": "0UXI",
+  "deviceHash": "MMVW2egoFw6-EH_Ut8wka",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9a72c16d91f9d7ea22886"
+  },
+  "userId": "0UXI",
+  "deviceHash": "75a06ea4c1ed5983",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9aa1816d91f9d7ea2289a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9b03616d91f9d7ea228af"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9b06616d91f9d7ea228be"
+  },
+  "userId": "0UXI",
+  "deviceHash": "b9c0f9e7b6a7ac2d",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9b58b16d91f9d7ea22903"
+  },
+  "userId": "0UXI",
+  "deviceHash": "bPNLua-njmEQU09WlAo9q",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9bb6916d91f9d7ea22922"
+  },
+  "userId": "0UXI",
+  "deviceHash": "b9c0f9e7b6a7ac2d",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9bb8216d91f9d7ea22931"
+  },
+  "userId": "0UXI",
+  "deviceHash": "3ALiUnbK0PTAj6AmzHJip",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9bb9b16d91f9d7ea22945"
+  },
+  "userId": "0UXI",
+  "deviceHash": "b9c0f9e7b6a7ac2d",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9c1c016d91f9d7ea22954"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ZL5ZWpu5PUp3YPoawZDzD",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9c43b16d91f9d7ea22978"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9e3bd16d91f9d7ea229a3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "XjewheG41Vn9lXmTFqIu3",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9e40116d91f9d7ea229ad"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HOPINehHciJUYlE3X7YA4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9e41816d91f9d7ea229b7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "LuXQO5BykDhbwAIhSAkn7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9ee3316d91f9d7ea229d0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9f23616d91f9d7ea22a00"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9f2c116d91f9d7ea22a14"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9f7f316d91f9d7ea22a27"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9fc9816d91f9d7ea22a6b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9fcd916d91f9d7ea22a7a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9feca16d91f9d7ea22ac0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66b9ffd016d91f9d7ea22acf"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba001516d91f9d7ea22ade"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba01fa16d91f9d7ea22b15"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba02dd16d91f9d7ea22b3e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba042f16d91f9d7ea22b52"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba042f16d91f9d7ea22b5c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba042f16d91f9d7ea22b66"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba043c16d91f9d7ea22b70"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba060216d91f9d7ea22b89"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ba064d16d91f9d7ea22b98"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66baf79f2013df64598b59b2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb29392013df64598b5b2e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb29ea2013df64598b5b63"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb2ab72013df64598b5b72"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb344f2013df64598b5d1a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb358c2013df64598b5d3d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb35d12013df64598b5d4e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb36192013df64598b5d76"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb37282013df64598b5de0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "7efc8c90f35c6ea6",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb39712013df64598b5df1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb3e602013df64598b5e02"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb3f8e2013df64598b5e15"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb42b02013df64598b5e24"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb5b782013df64598b5f6f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "770dd640afaaf22f",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bb5e492013df64598b5fb0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "92d6fd40a77f8555",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc4d8bd1f81f6c69c2903e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "cLJX-2dD0O_fYKxM4XLa9",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc4dd7d1f81f6c69c29052"
+  },
+  "userId": "0UXI",
+  "deviceHash": "O6VRTKHi9dUUQPtd3DCVn",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc4dded1f81f6c69c29066"
+  },
+  "userId": "0UXI",
+  "deviceHash": "asSEX0L4xo6f8ojzInMJp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc5077d1f81f6c69c29092"
+  },
+  "userId": "0UXI",
+  "deviceHash": "gAYMFfgSSwrLrQ-dCdzof",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc50aad1f81f6c69c2909c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "IBEQ6OESugLnPmYlYZOH5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc50c9d1f81f6c69c290b0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sSpgYpG_4ByxRs7BxCXYa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc5121d1f81f6c69c290c4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "dIKuDtFvN3jsGsezEGmic",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc53c6d1f81f6c69c290d8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "wY9C7CRLfUWEWzEcgx8m2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8971d1f81f6c69c29100"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ibW8caEp-ndzGx1E_4IX_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc89cdd1f81f6c69c29114"
+  },
+  "userId": "0UXI",
+  "deviceHash": "f4afzoOwikX2XM-DLarCa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc89efd1f81f6c69c29128"
+  },
+  "userId": "0UXI",
+  "deviceHash": "z7fCzvpQgfxz_tnozPDeM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8a6bd1f81f6c69c2913c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Q6MfcHxwinxImiNGiiJt5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8ad8d1f81f6c69c29152"
+  },
+  "userId": "0UXI",
+  "deviceHash": "LILcSRDq_a23gSwQ4fUfh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8b01d1f81f6c69c29166"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Q-x5aTo46RFvlvzCDHM--",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8b2fd1f81f6c69c2917a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "qSiYYJ82GM5eZ_6wTPzUr",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8ba0d1f81f6c69c2918e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "LTQuJ_AYfFRmSs4wawxAD",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8c06d1f81f6c69c291a2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "q3TgwRqPolWq6iFzLOL1T",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8c2bd1f81f6c69c291b6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "3lC2ZfZpMsYNnM26h-4FN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8c72d1f81f6c69c291ca"
+  },
+  "userId": "0UXI",
+  "deviceHash": "VplU7_qPHVF4YjtqroOcu",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc8dc3d1f81f6c69c291ee"
+  },
+  "userId": "0UXI",
+  "deviceHash": "wqTA_MWsD29jKaSSrVynO",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc9021d1f81f6c69c2920e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "d7f7rk1a3R7xxjRyH3dfK",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc905bd1f81f6c69c29226"
+  },
+  "userId": "0UXI",
+  "deviceHash": "MO8gk-13BGSXofkbJNHf7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc90f4d1f81f6c69c2923e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Hczlyvr0eded80Fyyce0q",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc9289d1f81f6c69c2925a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "9DkRNfHi6_fJUo9YsDEdm",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc92e5d1f81f6c69c29278"
+  },
+  "userId": "0UXI",
+  "deviceHash": "4w_ZJ1kxlZHZYD00frNxs",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc9386d1f81f6c69c29290"
+  },
+  "userId": "0UXI",
+  "deviceHash": "VkS8jwwoC-8OCi8KFqbE_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc93e2d1f81f6c69c292ae"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HB6ttX_VvyvZE3sVKtNXt",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc95aad1f81f6c69c292e1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "KisDrU8CY-v1Wz4MdQhC_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc971ed1f81f6c69c29304"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ACmC4dsq1Fj4pwCTPBSWY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc977dd1f81f6c69c2932c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WLw1DhhtfxbAfc2u8_LA7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bc98dcd1f81f6c69c29375"
+  },
+  "userId": "0UXI",
+  "deviceHash": "_JdrQe3Nav5l0I1Odz_M4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bee38897da8feb646f43a8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "CpYyTpmQ05dRtr5m-kQVB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bee54397da8feb646f43d0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "b1Y5yKycNuKHiS-12Ptkq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bee5c297da8feb646f43fe"
+  },
+  "userId": "0UXI",
+  "deviceHash": "MPU8bN_QCEYeXVslvbv8s",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bee62497da8feb646f4412"
+  },
+  "userId": "0UXI",
+  "deviceHash": "nOUW8_STXnrwd4CQ6_YcL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bee67997da8feb646f444f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "M_pdXogJ1l9sV-Xuzrlvh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bee97997da8feb646f44a2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Aj9peNv5MY49JBs8I988A",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66beebae97da8feb646f4527"
+  },
+  "userId": "0UXI",
+  "deviceHash": "oE0ppFCK0o8derZ6P4aNp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66beec1997da8feb646f454e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kvzxahEtDFI1_E8caEACQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66beef2597da8feb646f4598"
+  },
+  "userId": "0UXI",
+  "deviceHash": "4d-zrueklECpD8qms9fif",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66beef8f97da8feb646f45b6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "yLFDCrOFO4CpL2XhSfMi5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bef30297da8feb646f45fd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Kq20iduBQqKk-P7cqKIf5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bef7d297da8feb646f463a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bef7e697da8feb646f4649"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66beff7997da8feb646f4662"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66beff8197da8feb646f4671"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66beff8d97da8feb646f4680"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf1cd897da8feb646f468f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf1d4097da8feb646f469e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf1dc497da8feb646f46ad"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf1eef97da8feb646f46bc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf1f3797da8feb646f46cf"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf1f5497da8feb646f46de"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf1f9297da8feb646f46ed"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf207997da8feb646f46fc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf20ae97da8feb646f470b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf20d497da8feb646f471a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf22b297da8feb646f4729"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf23e197da8feb646f4738"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf31e197da8feb646f475a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "88aa9442290764ec",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf401d97da8feb646f4794"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf438997da8feb646f47ad"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf452197da8feb646f47cc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf47a097da8feb646f47ea"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf4d0997da8feb646f4815"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf4da597da8feb646f4826"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf505397da8feb646f483d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66bf665f97da8feb646f487a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c43f1511ec8dbd22db0713"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c4400111ec8dbd22db071d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c4431e11ec8dbd22db072c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "yKvUPSPbrpGzt0q7cgDyd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c45a869f00e9c692bd544a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "eKUS5rOulsLFlq2pTsmt2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c45ac69f00e9c692bd545e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Ip8lPSj4WZwaTeDQue0kR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c45ea29f00e9c692bd5492"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sbmesNz8kb9OdJ2oF9yeo",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c45efb9f00e9c692bd54e7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "mhq00hStB_XSVAiHq3yTd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c45fcc9f00e9c692bd5558"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BowZJ6uor0AwWgNAcswZR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c4606f9f00e9c692bd557b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sR_oRi3gEolcmtvvFwHBl",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c465bc54a28ef6c7749f38"
+  },
+  "userId": "0UXI",
+  "deviceHash": "_EUCu7N3s2b4PFKrlDKNb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c465fa54a28ef6c7749f52"
+  },
+  "userId": "0UXI",
+  "deviceHash": "18qKnEycmK7na4LdW5m1e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c4666e54a28ef6c7749f6c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efz1hhzandi1XTBRbh1-C",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c466b454a28ef6c7749f94"
+  },
+  "userId": "0UXI",
+  "deviceHash": "69F2ihLgAGt9GnAOfywA5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c4670c54a28ef6c7749fac"
+  },
+  "userId": "0UXI",
+  "deviceHash": "4ZMF3cK_1vCM2I8mKX0ZY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c4674f54a28ef6c7749fc4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "0VSDHItwkGCTJylnt32Tb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c467bc54a28ef6c7749fdc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "GhPb--7MoOgHxBAQ63YBH",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c4681654a28ef6c7749ff6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1tfXm-AAZq4bfBT8Q_DLN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c46d36bc7ed1a9b5a728d6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "cp3DnYWD9liUQNJa27n4K",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c46da2bc7ed1a9b5a728fa"
+  },
+  "userId": "0UXI",
+  "deviceHash": "u9z_5kY-ZA8sG6RUNp7e5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c46e9ebc7ed1a9b5a72976"
+  },
+  "userId": "0UXI",
+  "deviceHash": "rEdVkOQsh46cHOLQrmf5Q",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c46f11bc7ed1a9b5a729ae"
+  },
+  "userId": "0UXI",
+  "deviceHash": "DQfuwU_w5Zkf2dbtSBki_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c46f9cbc7ed1a9b5a729e6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "EWhYWM93S9FtjxYSDdcR0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c46ffabc7ed1a9b5a72a19"
+  },
+  "userId": "0UXI",
+  "deviceHash": "RILGN8ouL9KVwC2Kx6RY6",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c47062bc7ed1a9b5a72a4c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "95Y1EAOW2Knk8E9Eik3B_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c470c6bc7ed1a9b5a72a89"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ie1vvCrb3q4ANoykxtmSg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c47241bc7ed1a9b5a72acd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "eqMg4_Ys7JIalqSdsblBE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c474f8bc7ed1a9b5a72b13"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BQXJ7q5ugLziSIkjRYI56",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c48165bc7ed1a9b5a72b4a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kkhLxomg49FW5MuZs8Q63",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c490cabc7ed1a9b5a72b81"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ZgY6gbGYVJhZH7yOA4Aab",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c49134bc7ed1a9b5a72bc9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "72t1-lvUOdEosZFp-ffXn",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c57fad64f5e4840dabc690"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c583e764f5e4840dabc6db"
+  },
+  "userId": "0UXI",
+  "deviceHash": "n1y-Vn9iu3TOq9inPjPeT",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5852364f5e4840dabc71f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c585f164f5e4840dabc72e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "_wcLp4DtsdGiQSJJTySMt",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c586cb64f5e4840dabc772"
+  },
+  "userId": "0UXI",
+  "deviceHash": "dS3wp-fawTbkjfX0nHDOV",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5874e64f5e4840dabc796"
+  },
+  "userId": "0UXI",
+  "deviceHash": "R72fjl5RFc6vf_LyErSyQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5879164f5e4840dabc7b4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "vUuXwWejNQrTbiLGWe03P",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5896264f5e4840dabc80a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "KOHwU-KXMNmzfoTUnnXsS",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c589cc64f5e4840dabc83c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "IB9klcMpTjTdrlOL5eKoa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c58ad264f5e4840dabc88a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "a255hkoS4j-O8yaMgoXJ3",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c58b6b64f5e4840dabc8ca"
+  },
+  "userId": "0UXI",
+  "deviceHash": "8lP08YtbXRHHkDz4N6Ggu",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c58c4164f5e4840dabc906"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Fz71P_DrDBeLkGtsKnTh2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c58cef64f5e4840dabc94b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "x-8q9iPry5__j5XtETLS9",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5937164f5e4840dabca41"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Dztbn8caa8ozd9lbTZR13",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5975664f5e4840dabcaac"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5988d64f5e4840dabcb70"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ac8d64f5e4840dabcb7f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ad1064f5e4840dabcb8e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ad6864f5e4840dabcba7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "20Tv-WaPKQ7fyxEImYb1p",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ae3064f5e4840dabcbe6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "_vdgv4yNrMpLLT1k8NLxi",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5b34b64f5e4840dabcd07"
+  },
+  "userId": "0UXI",
+  "deviceHash": "l-8uVO9lXXt85uTxhFDL5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5b88864f5e4840dabce7a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "IiyXSc4DJwV8zd0kQ9WkJ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5b91b64f5e4840dabcec0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fp8OQ02jBSOgID9CTeOeg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ba0664f5e4840dabcef3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ba1464f5e4840dabcf02"
+  },
+  "userId": "0UXI",
+  "deviceHash": "dUZDeoOa93R00CJo6q51U",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ba2e64f5e4840dabcf20"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ba4264f5e4840dabcf2f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5ba6a64f5e4840dabcf78"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bb5e64f5e4840dabcf8c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ncEXgV-ZA1bgP-dDb1wP-",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bb9d64f5e4840dabcfb8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "oqvAiyHAvT9AgC0KBn0Cm",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bbfd64f5e4840dabcfe6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "t8IeMuDk2jalISFw17otm",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bc4464f5e4840dabd024"
+  },
+  "userId": "0UXI",
+  "deviceHash": "yuW7SG9_NnT4TWWJgObSN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bcd164f5e4840dabd05d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1UIxrPkNV69nc-zuw1z7d",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bdad64f5e4840dabd109"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BAYuK3fPnl7u5TtaWmHVp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5be0664f5e4840dabd12f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sD9jfbOsmxrAyNAuBLtwE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5be5764f5e4840dabd168"
+  },
+  "userId": "0UXI",
+  "deviceHash": "nwKMGJxXQocZ7e-8jumZb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bec864f5e4840dabd195"
+  },
+  "userId": "0UXI",
+  "deviceHash": "qO8dTzjNNVYx8Elvnz9aW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5bfa464f5e4840dabd1be"
+  },
+  "userId": "0UXI",
+  "deviceHash": "s13F0ufRjTrZo-CRCtT_1",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c02664f5e4840dabd206"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c03f64f5e4840dabd24b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c1e564f5e4840dabd31c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ulQTL8Bb-xuZtV2oFsV7C",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c24b64f5e4840dabd340"
+  },
+  "userId": "0UXI",
+  "deviceHash": "y4LyNn0LUpl7u8WlsIy5Y",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c2c164f5e4840dabd429"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Lecp4-cOJZ4JSMW3fCNn1",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c2e364f5e4840dabd464"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WjGL-ccCsfm1oa4LfaNPz",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c30d64f5e4840dabd478"
+  },
+  "userId": "0UXI",
+  "deviceHash": "g4gErJ6d1ySoblDWE8yV9",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c33464f5e4840dabd48c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "KUPHFiFZdvVwy0OLoEtjl",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c36464f5e4840dabd4af"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ZKt9ixbVgFyf6L5xdPHvV",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c39c64f5e4840dabd4d1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fCpPYlIr82w0ALSB5YStx",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c3e464f5e4840dabd4eb"
+  },
+  "userId": "0UXI",
+  "deviceHash": "nqOantbSX185ss5yxHkAy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c43564f5e4840dabd522"
+  },
+  "userId": "0UXI",
+  "deviceHash": "qeGPIAMvkwpE9kC_ZfWZd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c47664f5e4840dabd54a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "bKwI4-Co_Oa3rJzeytDqj",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c4b864f5e4840dabd562"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sxGcXydz3-G3r0FZIwF1T",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c68764f5e4840dabd60e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sIfqcIHmOx7wyFLcCf4xC",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c8ca64f5e4840dabd686"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5c8dd64f5e4840dabd690"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5cc5c64f5e4840dabd6a9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5cc6c64f5e4840dabd6bd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c5cc8f64f5e4840dabd6d2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6cd106455bea94c654a92"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6d24b6455bea94c654af3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6d2666455bea94c654b25"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6d4f76455bea94c654bf7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "PBO3RXZ63HvRVp1KMEa8r",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6d65c6455bea94c654c1c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6d6706455bea94c654c2b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6f9926455bea94c654fb4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "JCzVJL24QGwgLMh_9djtN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6faee6455bea94c654fd2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "bXPunQQJpipugXopxFcje",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6fbcc6455bea94c654ff0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "MTRTGLJWoW3h4GDFMp6rQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6fbe36455bea94c655004"
+  },
+  "userId": "0UXI",
+  "deviceHash": "AKqzdi-oQmBblQVQu3zly",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6fc546455bea94c65501d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "xUs4XRI5NVCFVnWeVjxu9",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6fc796455bea94c655031"
+  },
+  "userId": "0UXI",
+  "deviceHash": "VSx9rZepOOuaZw_ww_q8g",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6fd406455bea94c65505f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "rPpteGwW2WaQUgBqlhyFj",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6fda56455bea94c65507d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Zd2HiDbqiMBgJzHYsUmep",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6fef06455bea94c6550b7"
+  },
+  "userId": "0UXI",
+  "deviceHash": "9xQmC0MLpt879HpSSOjJH",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6ff6f6455bea94c6550dd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "zwnu36fxqykP9JqTHK5lk",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c6ffbb6455bea94c6550f5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "RqVTe2Bzank1vwGOH-sjB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c700156455bea94c65510d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "mZpFKfuVJzL1RXZmPBrfg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c7004c6455bea94c655125"
+  },
+  "userId": "0UXI",
+  "deviceHash": "EaqchQfg9g6kEj5S0uboR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c700806455bea94c65513d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Q0rthp4HaWQXofmAv0P9Q",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c700b86455bea94c655155"
+  },
+  "userId": "0UXI",
+  "deviceHash": "6I1C9iZXUAkzX68cXQLea",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c700ee6455bea94c655173"
+  },
+  "userId": "0UXI",
+  "deviceHash": "VokGLJb_6sWEGe8tgm_AC",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c7017d6455bea94c655228"
+  },
+  "userId": "0UXI",
+  "deviceHash": "lbpzhQNjJZz94sVbE8Hn_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c701bb6455bea94c655240"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kRrNEh-54-DRGdLbxK_j9",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c7023e6455bea94c655258"
+  },
+  "userId": "0UXI",
+  "deviceHash": "4683g-IzfPn_JQnJ5-yI9",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c704986455bea94c655276"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Evqfz3MpQaTrDRCKy7CmJ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c705196455bea94c655294"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2EgmKNq_ZOhFByOYF-VdI",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c705cc6455bea94c6552b2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "LsGcTkpTWCXnfxc7F_9Xa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c706296455bea94c6552d0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WHvs1Bg3wHFbadxiUhuEU",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c707556455bea94c655359"
+  },
+  "userId": "0UXI",
+  "deviceHash": "zEKIs5cxNtWT6TC9wNPf0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c707f86455bea94c655393"
+  },
+  "userId": "0UXI",
+  "deviceHash": "aTUXST6tRspdr-DbL6Et0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c70d2b6455bea94c65550d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "7GtoQQQ018vPwfVsOU7le",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c70d976455bea94c655531"
+  },
+  "userId": "0UXI",
+  "deviceHash": "P5NhmrwFuziIegHljnKs0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c70e6a6455bea94c65555e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WEgBY47NgXkCQWZMagGrg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c70fee6455bea94c65557c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "O28ftPn23qwuoTtWWvWd2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c7104b6455bea94c65559a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "mrWl-mzLtil3BKhXpT6AM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c710ad6455bea94c6555b2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "EYDy3qiGhzA1IMfvKW4rJ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c710eb6455bea94c6555ca"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Qbkrsao0ch-Rgsi4PRY6l",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c711526455bea94c6555e2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-oi1fCSRlVZGzZkbfsBr-",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c712656455bea94c655641"
+  },
+  "userId": "0UXI",
+  "deviceHash": "tTv0OQ06RYXrIa43l8mUg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c712bb6455bea94c655659"
+  },
+  "userId": "0UXI",
+  "deviceHash": "hWBi38tw4snAbsVuTrDXf",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c7130c6455bea94c655671"
+  },
+  "userId": "0UXI",
+  "deviceHash": "hyVHF-CJsqn3c64YJdL_o",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c713436455bea94c655689"
+  },
+  "userId": "0UXI",
+  "deviceHash": "p_8mAlKV2_zgVCs9mKiFg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c713806455bea94c6556a1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "160bXgcbzv5SZYieu-FSU",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c713e16455bea94c6556b9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Wj1RZcVI77T7Hy_DdEnu2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c714906455bea94c65570b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "6G-eDLyetMqpxqgVAypIJ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c714c96455bea94c655723"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kscc6g19a4PbkprUXVGZb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c7151a6455bea94c65573b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "T1a5ddZYqRN4XkL6IhVRf",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c715856455bea94c655753"
+  },
+  "userId": "0UXI",
+  "deviceHash": "myWnkMguQI5xBl5J2F0LZ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c715cf6455bea94c65576b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "uoX5z3pYlpaTHsaYj0vIM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c716316455bea94c655783"
+  },
+  "userId": "0UXI",
+  "deviceHash": "TnO2hCoNzBK0a-KkzMTIJ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c717396455bea94c6557de"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fnYrNAAtA-55ULofl1l7a",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c724c16455bea94c655825"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c8308d39f621a4f4a9f53b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "oqnO4khduHIRN7khUJy3D",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c84c0239f621a4f4a9f54f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "2b07203d3106d56e",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c84dfa39f621a4f4a9f55e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "efb9db8fab147950",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c8677339f621a4f4a9f56d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "3mNtZqiXJZirwd8mc62YL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c867b239f621a4f4a9f585"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WZfaNipt-jVo9pyFek2N5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c867f539f621a4f4a9f5a3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "tTZHMceB2dwKSgOfQyd8R",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c8682739f621a4f4a9f5c1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ZgtvLplcf5YtQokV-G9HN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c868b839f621a4f4a9f610"
+  },
+  "userId": "0UXI",
+  "deviceHash": "K1Xf_av05VGukPCe98QRx",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c8690d39f621a4f4a9f628"
+  },
+  "userId": "0UXI",
+  "deviceHash": "mnMqxUK7xE1Ek4ADMkzbT",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c86a6639f621a4f4a9f651"
+  },
+  "userId": "0UXI",
+  "deviceHash": "CnJouCYsOQKKk4j6c5x7l",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c86b3139f621a4f4a9f66f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "8RBGyGG3juhzl3BLBwhev",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c86bec39f621a4f4a9f68d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "twF7FeRsCHDLze5hYwfEv",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c86d0d39f621a4f4a9f6f1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "adMVYKR5mNCXR8u4V0vfk",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66c86ee539f621a4f4a9f70f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Vb2N6_ZH7jzBbV0QFiTaB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc1c94a82ee5625e660954"
+  },
+  "userId": "0UXI",
+  "deviceHash": "u-efON5Mor0rENSi2mV2L",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc1cd8a82ee5625e660982"
+  },
+  "userId": "0UXI",
+  "deviceHash": "jbePqKC1PIUvYJT5Eu6T6",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc2089a82ee5625e6609d4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "AawY8Mk4horVqxu2PV9Hs",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc210ca82ee5625e6609fc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "erXH2lNypifuE3PQkp37h",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc2198a82ee5625e660a29"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kQg9FPGMkb-deNO04vyhP",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc22d5a82ee5625e660a6f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "UL_Enl_X5R-LGbF6e_TK8",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc2541a82ee5625e660b06"
+  },
+  "userId": "0UXI",
+  "deviceHash": "zKAT6f4tM8lEqPnzTB5OM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc2899a82ee5625e660bc8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "sA7VLkyDKfGA_zJGbdntG",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc2afba82ee5625e660c35"
+  },
+  "userId": "0UXI",
+  "deviceHash": "R-MvxmHubE44G87Po3fm1",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc3be3a82ee5625e660c88"
+  },
+  "userId": "0UXI",
+  "deviceHash": "DEGeF4LSX_LkFTqJw2MAU",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc5a46a82ee5625e660ef1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BhTsiHDxYUd5PPwpMSnbB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc5cb8a82ee5625e660f52"
+  },
+  "userId": "0UXI",
+  "deviceHash": "AmAY-vpRLA1zxN4OEDztj",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cc770fa82ee5625e661070"
+  },
+  "userId": "0UXI",
+  "deviceHash": "hV2uKVBsHpDfFpfS9fXXW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cd9053eb1e5042d9fb5a61"
+  },
+  "userId": "0UXI",
+  "deviceHash": "24e568832ac969fe9811ac0e84404733265a3d0d82c3e403f038dbd8697c9e0b",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cd9246eb1e5042d9fb5a6b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "24e568832ac969fe9811ac0e84404733265a3d0d82c3e403f038dbd8697c9e0b",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cda862eb1e5042d9fb5a71"
+  },
+  "userId": "0UXI",
+  "deviceHash": "o1NmKn12EFeiWS7R4B-lS",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cda8dfeb1e5042d9fb5a7b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "w1t2rfDwaiLQxkAkVaU7h",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cda8e1eb1e5042d9fb5a85"
+  },
+  "userId": "0UXI",
+  "deviceHash": "PCICB4GAx27xwT5LedebZ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cda8e1eb1e5042d9fb5a8f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "YtJRfQ7Lqs7q0fP5Cf520",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdb237eb1e5042d9fb5a9e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "NYeJe1Kgj_DDn65xl_MP5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdb245eb1e5042d9fb5aa8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "QbI3V3lJmBIHI33fzkpPx",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdb343eb1e5042d9fb5ab6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "mA3aocDf9FNvVqF5EwE56",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdb34eeb1e5042d9fb5ac0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "p_iF2stKf8ra6dQkIjLv0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdb974eb1e5042d9fb5aca"
+  },
+  "userId": "0UXI",
+  "deviceHash": "KiL7D7BstUeaZwo9LWgfq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdb976eb1e5042d9fb5ad4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "CzG22Gqi4iYnOtdOT9Rru",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdc64beb1e5042d9fb5ae4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1Qg5YfUmD5Ffec8MIBwoR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cdc64feb1e5042d9fb5aee"
+  },
+  "userId": "0UXI",
+  "deviceHash": "_0_kh3NKtBjGDKvSGm_n1",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cf0975eb1e5042d9fb5fd0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-Z3mzkSuCELSF4N9iDqzV",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cf0b6deb1e5042d9fb6065"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Lv5liday6loeIeg5VWYF2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66cf129eeb1e5042d9fb60b5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "uh4KPYr9ZgP2tFTeSGvsu",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d050f583ff513af4764f65"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WGrCxayGi0r3JHSvsJrCn",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d06e4983ff513af4765065"
+  },
+  "userId": "0UXI",
+  "deviceHash": "vgxb-NkDS1ZXGP_LTIwBg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d15d3d80ad5a126304bdbd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "_Yh79iBxO_TXKT9LsKj9l",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d15e9380ad5a126304bddd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "0ptX8uZIiG3TKTwbIMS4v",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d15e9f80ad5a126304bdf1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "oEBBEM5f7Dpx6DBLdVVrQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d15f5180ad5a126304be37"
+  },
+  "userId": "0UXI",
+  "deviceHash": "00-3jAU4kyDoe0eS6bOV5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d15fbd80ad5a126304be51"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WpXXP86jkHLEmaF8Elahf",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d1618580ad5a126304be7b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "KOSQTI6cLyjglcy9YQbnb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d1621380ad5a126304bea5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "B-_HLX5pFr_mrExpHejGM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d1647c80ad5a126304beb9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HzrUilyYmVqX7G77lOIMC",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d16b9280ad5a126304bed9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "bEkj0z72Ce12SdGmGPx3p",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d16f1880ad5a126304bf31"
+  },
+  "userId": "0UXI",
+  "deviceHash": "uCufQHPt6DMrgjzcXCNFN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d172f380ad5a126304bf74"
+  },
+  "userId": "0UXI",
+  "deviceHash": "LlgILGxwAI33tgIl_xoJr",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d17a8780ad5a126304bf93"
+  },
+  "userId": "0UXI",
+  "deviceHash": "j2RGh4zuZQvJwXbU7ShAb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d1920e80ad5a126304bfad"
+  },
+  "userId": "0UXI",
+  "deviceHash": "0oEpvklTzM7Fynr8O5ShY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d1af7080ad5a126304bfc1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "F4nxEukPBpprgWjZaQUDj",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d1b4c880ad5a126304bfd5"
+  },
+  "userId": "0UXI",
+  "deviceHash": "5YCKPa2u0LsQvCuMo6ZAG",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d1b61f80ad5a126304bfe9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "lHDRPtItel8OPTGvO86nW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d550e2121d74365546b13b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "LrBtAka5WQ1mkjv7byswx",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d5516e121d74365546b169"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1tdnnxQF7MZd2x-o3UZVk",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d554e8121d74365546b1a6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "KNDnEKrQd3HepRAplgFwh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d6ec872b2835791ef0181e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "wdOMXJD2PIr6TiwOEZaPq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d6f0a02b2835791ef01832"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WzdF0vtViabSAjpfcFS6g",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d6f2682b2835791ef01846"
+  },
+  "userId": "0UXI",
+  "deviceHash": "H7QgESAxDrz82zZLtQSo5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d97cc76a662d12f28ec4ef"
+  },
+  "userId": "0UXI",
+  "deviceHash": "G1MVsIbiwJXVipOo0n6F7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d97df96a662d12f28ec50b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "RDwCfVKesl0WdAfx8YbzE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d980cf6a662d12f28ec561"
+  },
+  "userId": "0UXI",
+  "deviceHash": "B-WQNKt68X-hIetM7tTsB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66d9936d6a662d12f28ec57d"
+  },
+  "userId": "0UXI",
+  "deviceHash": "B7fyl6I4nLsNPMf9ZM5wu",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66da949fa193d4b264c51514"
+  },
+  "userId": "0UXI",
+  "deviceHash": "3W5H5LkASHPQqgI6vOxuo",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66da95efa193d4b264c51528"
+  },
+  "userId": "3UXI",
+  "deviceHash": "YcuwSocg6ONoWaNczTgc5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66da97b5a193d4b264c5153c"
+  },
+  "userId": "3UXI",
+  "deviceHash": "S8PNFSN97xskeJMD7_ptR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e15bc61f8e43f00ac8a994"
+  },
+  "userId": "0UXI",
+  "deviceHash": "JG6hp6sVxn7m04OC-KqLE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e15bf41f8e43f00ac8a99e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "7rsN_DhwEPPG14C2Fir6Z",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e15bf61f8e43f00ac8a9a8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "8UUF5gsUXv97p6deEwl0N",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e15bf61f8e43f00ac8a9b2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "RikYF-g0nCkPS1WpwRvRg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e15dfc1f8e43f00ac8a9bc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "T4Nje9A3TJpKLdL-PgWeE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e15dfe1f8e43f00ac8a9c6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "q_3jDaVdzBGCZVBH0ui6D",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e1607e1f8e43f00ac8a9d0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "WVgecjOoYiWLNhJP5V8Qp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e160831f8e43f00ac8a9da"
+  },
+  "userId": "0UXI",
+  "deviceHash": "xqpkjx9dfxS2GtTsy1fta",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e160901f8e43f00ac8a9e4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ZH7yZFIOtbnOGty6cnAu4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e160b51f8e43f00ac8a9ee"
+  },
+  "userId": "0UXI",
+  "deviceHash": "10HcS6tR3qtb7zNqgMinE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e160c21f8e43f00ac8a9f8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "jPsGudsRyUe07SwXGisle",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e160ce1f8e43f00ac8aa02"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-eAk5YO-M7g6D_4zzOH0p",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e160d31f8e43f00ac8aa0c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "nGUUf-nfU28ea3ZvOQM0j",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e160ea1f8e43f00ac8aa16"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BiPdKXQ6oOrjpOVDjNW_Z",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e1613a1f8e43f00ac8aa20"
+  },
+  "userId": "0UXI",
+  "deviceHash": "tdaeLkuB3IVy4Y7FzGNvE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161701f8e43f00ac8aa2a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "vzib-O4cg_T-c4eaANNqx",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161761f8e43f00ac8aa34"
+  },
+  "userId": "0UXI",
+  "deviceHash": "p20j2yHRctN-bV7o9ipaa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161761f8e43f00ac8aa3e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "BmxllssZjZmLWpLABjPrn",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161761f8e43f00ac8aa48"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Ny4ZLYrtv3mrG3ckuEYTh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161771f8e43f00ac8aa52"
+  },
+  "userId": "0UXI",
+  "deviceHash": "DHxGBAuOUqEPy1QCkEJNS",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161771f8e43f00ac8aa5c"
+  },
+  "userId": "0UXI",
+  "deviceHash": "1cNwN73yWLsfg1eabl4Dy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161771f8e43f00ac8aa66"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fdtqXWcJcCYuaGuGb7Bep",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161771f8e43f00ac8aa70"
+  },
+  "userId": "0UXI",
+  "deviceHash": "aEt-rgTDyjkjS5AEfgosM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161781f8e43f00ac8aa7a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ziSP3MNo85veQLUmqAxUk",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161781f8e43f00ac8aa84"
+  },
+  "userId": "0UXI",
+  "deviceHash": "OpY205b47blOhLJ-bHApz",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161781f8e43f00ac8aa8e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "fJODQ5yYr9EGijNFZIV7P",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161791f8e43f00ac8aa98"
+  },
+  "userId": "0UXI",
+  "deviceHash": "mEDXQnDbTUlxU5iwqqyl0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161791f8e43f00ac8aaa2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "HT34GyA30rO8DUA3UHS6L",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e161ea1f8e43f00ac8aaac"
+  },
+  "userId": "0UXI",
+  "deviceHash": "moOWRHcBvH7jbutvMKMbd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e162311f8e43f00ac8aab6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Q3lzlsR2zSIrDJDhwvA2H",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e162a61f8e43f00ac8aac0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "cByGGQUM6E6qQMdzL5EYb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e162f41f8e43f00ac8aaca"
+  },
+  "userId": "0UXI",
+  "deviceHash": "L5e5jz5-ErOO6v5i5slYE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e1635b1f8e43f00ac8aad4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "zZ3iMNAPUPZg5abksKYBK",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e163981f8e43f00ac8aade"
+  },
+  "userId": "0UXI",
+  "deviceHash": "QxX1wVIeOnIWMgrOvKDW5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e163a71f8e43f00ac8aae8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "PB9ZX0mRhZpWfqz3uCXEw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e163ac1f8e43f00ac8aaf2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "JdI1fb-E-9zFX-cu_1QM4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e16a261f8e43f00ac8aafc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "iBr8L_GGMelRKGEcqwk5f",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e16a2a1f8e43f00ac8ab06"
+  },
+  "userId": "0UXI",
+  "deviceHash": "LRuK3OxJdPWrIy8Rp21GQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e27db586bdd92e430d718b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "s3GtNBqXpmdLBqdsIKiOs",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e27dbb86bdd92e430d7195"
+  },
+  "userId": "0UXI",
+  "deviceHash": "uKaUnJ8LPs5BnGr_Xv6op",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e2861686bdd92e430d719f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "uKNUa6Ej5KVYCDIc4rowE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e2865486bdd92e430d71a9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-0lowKwf5a5topt68pPTc",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e28d7486bdd92e430d71b3"
+  },
+  "userId": "0UXI",
+  "deviceHash": "SbyIGi8USf9IbfWFqlqz0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e28d7886bdd92e430d71bd"
+  },
+  "userId": "0UXI",
+  "deviceHash": "vDWoj3J_qH3HvuXNo1jKc",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e816581e9068ea9734a558"
+  },
+  "userId": "27J4",
+  "deviceHash": "3699b81bd22089b4b7b1eac0a8bbc41d",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e81ab71e9068ea9734a566"
+  },
+  "userId": "27J4",
+  "deviceHash": "E_hKiylDzhcxxzt8GBOuM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e81c031e9068ea9734a574"
+  },
+  "userId": "27J4",
+  "deviceHash": "BYjQohdfb9RgHLSp6OCjN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e823ce1e9068ea9734a582"
+  },
+  "userId": "27J4",
+  "deviceHash": "7RhMGZqlYIBQvq7a4w4Rg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e824171e9068ea9734a590"
+  },
+  "userId": "27J4",
+  "deviceHash": "nIGde6p2Uo7Rs-lzZzD8A",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e824cf1e9068ea9734a59e"
+  },
+  "userId": "27J4",
+  "deviceHash": "UxiOwhcreXOy9a0kWqhlX",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e8250f1e9068ea9734a5ac"
+  },
+  "userId": "27J4",
+  "deviceHash": "O3P_POg71-MmupiSM4XA2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e8254d1e9068ea9734a5ba"
+  },
+  "userId": "27J4",
+  "deviceHash": "pr-2kCiAQi84nD3l3SyCl",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e825911e9068ea9734a5c8"
+  },
+  "userId": "27J4",
+  "deviceHash": "WBhN5MumqETOF2_V3K9Io",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e825b51e9068ea9734a5d8"
+  },
+  "userId": "F4KX",
+  "deviceHash": "d0uWlzeD-n4DW2PzFWIEZ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e826351e9068ea9734a5e2"
+  },
+  "userId": "F4KX",
+  "deviceHash": "Abu8NNAJVAQtxUSH2xreA",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e826631e9068ea9734a5ec"
+  },
+  "userId": "27J4",
+  "deviceHash": "YdRZdL4yhVFfPiy0nK8Yq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66e92f89fce017dabd0461f9"
+  },
+  "userId": "0UXI",
+  "deviceHash": "gldhC5sb0Yws95GlEdtWb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea695afe8d39c0b610555e"
+  },
+  "userId": "27J4",
+  "deviceHash": "VxHvUyRxkIDYv-nAkXZ7D",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea763cfe8d39c0b6105576"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ScmdrOrmspyrAtyhCCtny",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea765afe8d39c0b6105580"
+  },
+  "userId": "0UXI",
+  "deviceHash": "tGTBkbL-m6gDY567NC4E4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea7664fe8d39c0b610558a"
+  },
+  "userId": "0UXI",
+  "deviceHash": "jQtG5pN0YaIR4ybpkcsOs",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea76ecfe8d39c0b6105594"
+  },
+  "userId": "0UXI",
+  "deviceHash": "MSVWX1n-lj6y1Ccogz_7W",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea76edfe8d39c0b610559e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ABiUla5DLwq17uxIUONnw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea77a1fe8d39c0b61055be"
+  },
+  "userId": "0UXI",
+  "deviceHash": "DVH4l6fiFiEYzjwLHXgl_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea77b4fe8d39c0b61055c8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "5o8DkFSG2SVJBfQuo_wdr",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea78b2fe8d39c0b61055d2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "JGsb-n5Pj68aiS1mSYdpd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea78b3fe8d39c0b61055dc"
+  },
+  "userId": "0UXI",
+  "deviceHash": "oSZDWe4HfJEULmz3S5owm",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea78e4fe8d39c0b61055e6"
+  },
+  "userId": "0UXI",
+  "deviceHash": "rxNdQLYzV6opE3yHdHUbq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea7917fe8d39c0b61055f0"
+  },
+  "userId": "0UXI",
+  "deviceHash": "isXaiDrYnUpCuIebTZkKW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea7b32fe8d39c0b61055fa"
+  },
+  "userId": "0UXI",
+  "deviceHash": "YVQZ3BVIJnO7Z39yw5q3J",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ea7d68fe8d39c0b6105604"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Jkm9TTp8ZDRIwLIXejFi-",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66eab827fe8d39c0b610561a"
+  },
+  "userId": "TR2W",
+  "deviceHash": "KQk6Wu3nRS6gCcrVu_GHH",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66eaba9afe8d39c0b6105628"
+  },
+  "userId": "27J4",
+  "deviceHash": "KHu1W1RrkKiZ-doZIXEoO",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66eabab7fe8d39c0b6105636"
+  },
+  "userId": "TR2W",
+  "deviceHash": "CIlwd84kLLgVf-ml7TH_l",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ebb485128c67602089aa51"
+  },
+  "userId": "TR2W",
+  "deviceHash": "ut1cjTyiLef12A-U-pZZX",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ebbe04128c67602089aa61"
+  },
+  "userId": "27J4",
+  "deviceHash": "xwY4-FulmMAqHSSF1gWMA",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ebc17e128c67602089aa7a"
+  },
+  "userId": "F4KX",
+  "deviceHash": "5a8oWh0Jfn2DlmNUjlFK5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ebcc34128c67602089aa84"
+  },
+  "userId": "F4KX",
+  "deviceHash": "OxGxLsu4pe3gqB_RwyO0j",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ebcc82128c67602089aa8e"
+  },
+  "userId": "27J4",
+  "deviceHash": "Msv2OdsZfu9GdeNthElYF",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ebcf27128c67602089aa9c"
+  },
+  "userId": "F4KX",
+  "deviceHash": "lbfCLxRgcDqN89eHOm9lw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ec16b6128c67602089aaaa"
+  },
+  "userId": "F4KX",
+  "deviceHash": "Qiq_jKQuijVFlFJfGpz1F",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ec19a9128c67602089aab6"
+  },
+  "userId": "27J4",
+  "deviceHash": "ZF1A6UtyiL-j2KfPF9kDe",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ec1bb2128c67602089aac4"
+  },
+  "userId": "27J4",
+  "deviceHash": "15Nmb0oK2S6vyruzM-k2m",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ec1fda128c67602089aade"
+  },
+  "userId": "27J4",
+  "deviceHash": "x7-BDNhGcmDhQuZYf0D1U",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ec28d4128c67602089aaec"
+  },
+  "userId": "TR2W",
+  "deviceHash": "UZkOCRZgxNk3HQdw4TmJO",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ec2c14128c67602089aafa"
+  },
+  "userId": "27J4",
+  "deviceHash": "0onLBPExd9qQTbd-YODY3",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed1119631dd8b74d3547eb"
+  },
+  "userId": "TR2W",
+  "deviceHash": "3ZBtz9l-qMvwYlAUi8S6V",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed1f0e631dd8b74d3547fa"
+  },
+  "userId": "TR2W",
+  "deviceHash": "esrZiE_pO6c7QLokduF-1",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed243c631dd8b74d35480e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "lDQ5UpPm6D9gSbh0APa4G",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed2457631dd8b74d35481a"
+  },
+  "userId": "27J4",
+  "deviceHash": "WSbUILn4D95gs_l0o3Si3",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed281b631dd8b74d354833"
+  },
+  "userId": "TR2W",
+  "deviceHash": "W5ME001yIsCDqJxFAnMYM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed299c631dd8b74d354842"
+  },
+  "userId": "27J4",
+  "deviceHash": "UmVUbkixeKCz8WDiNrgn_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed2c27631dd8b74d354859"
+  },
+  "userId": "F4KX",
+  "deviceHash": "2IFQKDH0WAQ9Rgex2QobP",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed2dab631dd8b74d354865"
+  },
+  "userId": "27J4",
+  "deviceHash": "ryh_dkRbEwJbpz7YxVrde",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed2f41631dd8b74d354875"
+  },
+  "userId": "F4KX",
+  "deviceHash": "yoHTreY7kRmS8rJFGauRq",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed2f7b631dd8b74d354881"
+  },
+  "userId": "27J4",
+  "deviceHash": "WmEp-DVK3pvXWHLj5KPI-",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ed309d631dd8b74d354890"
+  },
+  "userId": "4UXI",
+  "deviceHash": "Xm9EyWS5BNX7ML6PP7QWn",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f3b45d78d75a24934331ee"
+  },
+  "userId": "27J4",
+  "deviceHash": "-u4gPt6326-zyl632gvcC",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f3b53678d75a24934331fc"
+  },
+  "userId": "TR2W",
+  "deviceHash": "V6_uJn8qnO83UMlrOyT5w",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f3d4a278d75a2493433208"
+  },
+  "userId": "TR2W",
+  "deviceHash": "PQVXEIJWV_PPMCG4W6cyg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f3d4d378d75a2493433214"
+  },
+  "userId": "TR2W",
+  "deviceHash": "_xehjyglLc2L-29DwPA4i",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f3fa2378d75a2493433220"
+  },
+  "userId": "TR2W",
+  "deviceHash": "5P0rtD8J00BB_D6ckue58",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f3fb9078d75a249343322c"
+  },
+  "userId": "TR2W",
+  "deviceHash": "RU7yAL8kzS6umMoITkFuQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f4f0563c0c4143b013da2e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "4hLmDtlzybSIg-WEEBtw-",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66f648f50326872e701e7c3e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "_S7Lr0CUmA9MdGdcRVzlA",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66fb8f1f1934009fa4430df5"
+  },
+  "userId": "TR2W",
+  "deviceHash": "zYdKxVXXZvGdP-za21M1t",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66fe2ebe7b8161af56e037f2"
+  },
+  "userId": "TR2W",
+  "deviceHash": "BwKAMgne6M9rpv2nES7Yy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66fe71e97b8161af56e03802"
+  },
+  "userId": "TR2W",
+  "deviceHash": "vFkhEeIkVHFfzKv8uUuZy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66fe74af7b8161af56e0380e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "-t0TEHB9ANHWdbzrgH9UA",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66fe94267b8161af56e0381a"
+  },
+  "userId": "27J4",
+  "deviceHash": "bYL3bTeRswHzYTFzSMWDV",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ff8bb6eabc22fb33b9ac44"
+  },
+  "userId": "TR2W",
+  "deviceHash": "W_SQ-u0ikrtjvBn5xbVQc",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ff8d39eabc22fb33b9ac50"
+  },
+  "userId": "27J4",
+  "deviceHash": "Eoh6mo4y0f31a6xWN3tJw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ffb84deabc22fb33b9ac5e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "bJq0C5CJbAvtbsp_lIIGM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ffb89aeabc22fb33b9ac6a"
+  },
+  "userId": "27J4",
+  "deviceHash": "66aXHEzyr8utNeR-h5BHS",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ffc6bfeabc22fb33b9ac78"
+  },
+  "userId": "TR2W",
+  "deviceHash": "QOgWX1OLfHVUPjF3z6RRi",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ffc7e0eabc22fb33b9ac8d"
+  },
+  "userId": "27J4",
+  "deviceHash": "1sZz7fE_FE1hjUWI2shlT",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ffd4f9eabc22fb33b9ac9c"
+  },
+  "userId": "TR2W",
+  "deviceHash": "ZFXfxMe1vRcx0QhkHRaoY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ffd52beabc22fb33b9aca9"
+  },
+  "userId": "27J4",
+  "deviceHash": "MG-z_sArCv77UmBLlo1ia",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "66ffe936eabc22fb33b9acba"
+  },
+  "userId": "TR2W",
+  "deviceHash": "HZZefVmf7vouzAmQKCOXE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6703741bdb35cbf2a08fa49a"
+  },
+  "userId": "TR2W",
+  "deviceHash": "1D8n1GYMJk8RCBTziLRJ6",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6703860cdb35cbf2a08fa4a6"
+  },
+  "userId": "27J4",
+  "deviceHash": "gw5gDnYwkHUPTyhyTP6cY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6703863cdb35cbf2a08fa4b4"
+  },
+  "userId": "TR2W",
+  "deviceHash": "uQt-JaAXcVimoxME9gTpK",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67038654db35cbf2a08fa4c0"
+  },
+  "userId": "27J4",
+  "deviceHash": "aBCuRs-cRzcmUXfaqBucE",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670387a3db35cbf2a08fa4ce"
+  },
+  "userId": "TR2W",
+  "deviceHash": "UqSylSaI9a3FZ5SbBgltD",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6703a42bdb35cbf2a08fa4de"
+  },
+  "userId": "27J4",
+  "deviceHash": "XIbejN-lBmUkKQaVwFZSn",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6703d559db35cbf2a08fa4f2"
+  },
+  "userId": "TR2W",
+  "deviceHash": "J0-yngg0c9Scic1pUL5G_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6703d7c8db35cbf2a08fa4fe"
+  },
+  "userId": "27J4",
+  "deviceHash": "hltLhQMzkGvfN_vHBSYQB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6703f206db35cbf2a08fa50c"
+  },
+  "userId": "TR2W",
+  "deviceHash": "_RWe4kDr9nWthFP2KjMTY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6704cf61c15606c9d7a19c14"
+  },
+  "userId": "TR2W",
+  "deviceHash": "Up2hiPSHDzU7v61AbWYhj",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6704e201c15606c9d7a19c20"
+  },
+  "userId": "27J4",
+  "deviceHash": "uoc41bVnjNao8UF21ft2H",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67050280c15606c9d7a19c2e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "3AgvsQkRruZQC0xi_lmUs",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6705029ac15606c9d7a19c3a"
+  },
+  "userId": "27J4",
+  "deviceHash": "ho7mAepK26zdlTLr2tzfY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670670245a6eb837c279fca4"
+  },
+  "userId": "TR2W",
+  "deviceHash": "AWbXcF1DZ0Yw4NM3YMzqh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6707c7375c6748e49d19b02e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "_CRrLNTl3sahleM1kFF9n",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670e1312194c22a3fa006c2e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "dx2RdsS3reVznmeUUrokD",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670e1d1c194c22a3fa006c3a"
+  },
+  "userId": "27J4",
+  "deviceHash": "6VtIu4Bv2q2a08FzKZcte",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670e3f69194c22a3fa006c48"
+  },
+  "userId": "TR2W",
+  "deviceHash": "dpLi2cF2re_NYdd_ywH0L",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670e46f9194c22a3fa006c55"
+  },
+  "userId": "TR2W",
+  "deviceHash": "qvY_MlwK4x0sGguJayRgN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670e4a36194c22a3fa006c61"
+  },
+  "userId": "27J4",
+  "deviceHash": "YM0GR8SNM7xxEUBHfYSlN",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670f5df863c3fecf9d3943cb"
+  },
+  "userId": "TR2W",
+  "deviceHash": "k9s4mzTyEwWv1s-AVPdWu",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "670f926263c3fecf9d3943d7"
+  },
+  "userId": "27J4",
+  "deviceHash": "E89Xj3HDGcEmngnRVPpBy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6710d02b98fd22facb6d7d18"
+  },
+  "userId": "TR1W",
+  "deviceHash": "F62gdco4gBfMG9Zr0lHk7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6710d08798fd22facb6d7d22"
+  },
+  "userId": "TR1W",
+  "deviceHash": "32PaM-Y7hOmOVGeqKubaS",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6710e40b98fd22facb6d7d2e"
+  },
+  "userId": "TR1W",
+  "deviceHash": "vk4UtRmFAPGw4_DPM4Fe8",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6712031aeb4555a01ee9b811"
+  },
+  "userId": "0UXI",
+  "deviceHash": "3ZQTBD6XDmxsZFH4QdTy0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6712423eeb4555a01ee9b83d"
+  },
+  "userId": "TR2W",
+  "deviceHash": "s3gHdNsU8SLoFAyfZcFng",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "671243e3eb4555a01ee9b849"
+  },
+  "userId": "TR2W",
+  "deviceHash": "9AxQ0qILzXfFiWbJSrhmh",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "671244b2eb4555a01ee9b855"
+  },
+  "userId": "TR2W",
+  "deviceHash": "6mC1fNAGbGeIoZC-bJeLv",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67135191eb4555a01ee9b864"
+  },
+  "userId": "0UXI",
+  "deviceHash": "AOD9EQPraFMw8UzMJ8eYo",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67138af7eb4555a01ee9b8fb"
+  },
+  "userId": "TR2W",
+  "deviceHash": "wtFLhxPtYcupspMUhCihp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67139016eb4555a01ee9b914"
+  },
+  "userId": "LPUN",
+  "deviceHash": "GadPdvL5ojpWuLJv6-AJ7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "671393cceb4555a01ee9b922"
+  },
+  "userId": "27J4",
+  "deviceHash": "0yf-rjTyIo0Bl4u99vg6n",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "671397fbeb4555a01ee9b930"
+  },
+  "userId": "TR2W",
+  "deviceHash": "a0crjPptLE1SrcqdLZD16",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67139f73eb4555a01ee9b93c"
+  },
+  "userId": "27J4",
+  "deviceHash": "DIv_hE360pNXIUdpKRZue",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6716265d3275e06c661010cd"
+  },
+  "userId": "27J4",
+  "deviceHash": "6g2O1p7zK74ZhEEwmLXI_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "671626d13275e06c661010db"
+  },
+  "userId": "TR2W",
+  "deviceHash": "41KQAsSh0dXVwd222p7cQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6716270a3275e06c661010e7"
+  },
+  "userId": "TR2W",
+  "deviceHash": "ZA_IjT481W3Qt8KejhtOW",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6717385bc8fc635edefc06a4"
+  },
+  "userId": "0UXI",
+  "deviceHash": "ohlgfCaqhtRCHdSIFgazL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67177695c8fc635edefc0701"
+  },
+  "userId": "0UXI",
+  "deviceHash": "0ifFpUyfB-9onfvlWcfwg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6719df5e1c8c680396dc85d1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "nrlCyQbeCsCdzCmo8Zktw",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "671b8025e34bd30df65f6c3f"
+  },
+  "userId": "TR2W",
+  "deviceHash": "PAGQLFVNPeNe3q6-TvZip",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67207e83a54b0b0711064030"
+  },
+  "userId": "27J4",
+  "deviceHash": "bV70PZl-0jIrIDDVf50Ue",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67207fe9a54b0b071106403e"
+  },
+  "userId": "TR2W",
+  "deviceHash": "SUTYZcOLHl5uqNg-O_n_r",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67208115a54b0b071106404f"
+  },
+  "userId": "KPZW",
+  "deviceHash": "5T06UIXyfHAfSrLIlsuqa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6720815aa54b0b071106405b"
+  },
+  "userId": "KPZW",
+  "deviceHash": "R3ZA00bJaSi8kfZzFzS0U",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67208617a54b0b0711064067"
+  },
+  "userId": "27J4",
+  "deviceHash": "ZGPIXnyVoDiq5j5KCwoT7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67208eeaa54b0b0711064075"
+  },
+  "userId": "KPZW",
+  "deviceHash": "yLAeEIp97TvkcbF3sk5wu",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67208f2aa54b0b071106407d"
+  },
+  "userId": "27J4",
+  "deviceHash": "uLwN9uQkf-spFv3Ugox6L",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6720bd5fa54b0b071106408b"
+  },
+  "userId": "TR2W",
+  "deviceHash": "7Hqv-Tl9hCPPFEDUMkvH8",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6720d32aa54b0b0711064097"
+  },
+  "userId": "27J4",
+  "deviceHash": "STancUbggiJbK1O39ZDKH",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6720d36fa54b0b07110640a5"
+  },
+  "userId": "TR2W",
+  "deviceHash": "IMLEktJ3rylEezXgbEANb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6720d385a54b0b07110640b1"
+  },
+  "userId": "27J4",
+  "deviceHash": "nVFtMqflhmlLuYGZ1BIRB",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6720d48da54b0b07110640bf"
+  },
+  "userId": "TR2W",
+  "deviceHash": "cHEk5QRnpV_NbaQ4XGPzd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6721e8bc254cd214fc723f4d"
+  },
+  "userId": "27J4",
+  "deviceHash": "Ez50mBgqabWniYWDegi3X",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6721fc59254cd214fc723f5b"
+  },
+  "userId": "27J4",
+  "deviceHash": "o9Q25aD6LWCI3FHRX6TL2",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6721fcd3254cd214fc723f69"
+  },
+  "userId": "27J4",
+  "deviceHash": "wPY-O4SVGMZL-8EBNl_J7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67221a96254cd214fc723f77"
+  },
+  "userId": "27J4",
+  "deviceHash": "_A6bbkUnDMSuTy0qVlq9H",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6724761b0876b32a3c06bfea"
+  },
+  "userId": "TR2W",
+  "deviceHash": "Umb4S0cUF5Xknp1UyHmwM",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67247e330876b32a3c06bff6"
+  },
+  "userId": "27J4",
+  "deviceHash": "zAZeKnkoyphqmi8BlondT",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67289ac1dbd1fd680196c3b0"
+  },
+  "userId": "27J4",
+  "deviceHash": "sU_rpS02wglbnCIIob6p6",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67289ac4dbd1fd680196c3be"
+  },
+  "userId": "27J4",
+  "deviceHash": "y_YueY_JGCJ8WVXg34YJi",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672c5f79aec668acd11f70a5"
+  },
+  "userId": "TR2W",
+  "deviceHash": "WzkcrtzrjchkvBo5ZdkHa",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672c69c5aec668acd11f70b1"
+  },
+  "userId": "27J4",
+  "deviceHash": "1UUkj1wzvM09bEdLmJSJ0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672c884faec668acd11f70bf"
+  },
+  "userId": "TR2W",
+  "deviceHash": "yjqAloiDABZEGbAmpr885",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672c91b0aec668acd11f70cb"
+  },
+  "userId": "27J4",
+  "deviceHash": "IqstPwrW-c27uA_A9Cec3",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672dc72861ed4fc4dbb795a7"
+  },
+  "userId": "TR2W",
+  "deviceHash": "WACHUHcQ1Cs96H5IZJeBP",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672dc83261ed4fc4dbb795b3"
+  },
+  "userId": "TR2W",
+  "deviceHash": "iRDog_TQim44m1ElneLdy",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672dc93061ed4fc4dbb795c1"
+  },
+  "userId": "27J4",
+  "deviceHash": "FInvarY7-izqc73kaftgs",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672dd7b661ed4fc4dbb795d1"
+  },
+  "userId": "0UXI",
+  "deviceHash": "bx-SNrbJDN4Ulv7yg7xh7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672df97d5ed537b854d85c3b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "7BFhaidMEX6j4lhkU2w6K",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "672e191a5ed537b854d85d35"
+  },
+  "userId": "TR2W",
+  "deviceHash": "zWLlDwdKfKfX5O8c885wb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "673195114e98c250f4e004fa"
+  },
+  "userId": "TR2W",
+  "deviceHash": "qIb4khrd0V3UlCakzyLkp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6732e30d5974f1a9c49f9421"
+  },
+  "userId": "TR2W",
+  "deviceHash": "8JPVwLeoWOEuLlsQ5F9sQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6732e3415974f1a9c49f942d"
+  },
+  "userId": "27J4",
+  "deviceHash": "EYQP-9AxHQvT_rrLzx_WI",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6732f2b35974f1a9c49f943b"
+  },
+  "userId": "TR2W",
+  "deviceHash": "NH-bJMSTDNq3cMx8s3h5G",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6732f3145974f1a9c49f9447"
+  },
+  "userId": "27J4",
+  "deviceHash": "JiT7nJ-IFPXEkuwXNmwhp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6736cb55aca1043c93590f5f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "W-EsmoVJMgXRekJsVloEV",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6736ce8aaca1043c93590f78"
+  },
+  "userId": "0UXI",
+  "deviceHash": "wIGmLKlfkg-U21enXytrt",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "673d7960501a036aa6d1b06b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "MezZ-ZWCGLTra90x71YMT",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "673d7979501a036aa6d1b084"
+  },
+  "userId": "0UXI",
+  "deviceHash": "xSzfIopqaK18B5gmiWcA8",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "674d592e5ab4314361fb24c0"
+  },
+  "userId": "TR2W",
+  "deviceHash": "rsEfpfTTLJqHry2ER1hmG",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "674d59cc5ab4314361fb24cc"
+  },
+  "userId": "27J4",
+  "deviceHash": "whva0XcTg1rLEeUQ8OiVb",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675826d6c6261e681f0748d7"
+  },
+  "userId": "KPZW",
+  "deviceHash": "oNULRU2bIAfym2kr_BAyp",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675aa0374167b050ab9e47bd"
+  },
+  "userId": "KPZW",
+  "deviceHash": "AaCxI2HFKCOxmaHC7XI59",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675aa2174167b050ab9e47c5"
+  },
+  "userId": "KPZW",
+  "deviceHash": "0GJ2gf_NHGlM2XvddGsLL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675aa3944167b050ab9e47cf"
+  },
+  "userId": "KPZW",
+  "deviceHash": "PzCrdzTwIguBPYk9Wt8kL",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675aa3bc4167b050ab9e47d7"
+  },
+  "userId": "KPZW",
+  "deviceHash": "m3ZeC9VUrFYwRYq2S77il",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675aa74a4167b050ab9e47df"
+  },
+  "userId": "KPZW",
+  "deviceHash": "U7BWYu8vyovqrdb5Kj2w0",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675ac1344167b050ab9e47e7"
+  },
+  "userId": "KPZW",
+  "deviceHash": "dIHpGw5ET37GfwPbgTfm5",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675ac1604167b050ab9e47ef"
+  },
+  "userId": "27J4",
+  "deviceHash": "glSiMAmVUmjmTdsU4Lb4V",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "675ad4084167b050ab9e47fd"
+  },
+  "userId": "KPZW",
+  "deviceHash": "YbBHxW3VZkrCPebaBDeNJ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "676028755cd721673c53a5a0"
+  },
+  "userId": "27J4",
+  "deviceHash": "iGXZjXJSNFpUI7pF1esc7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6760293f5cd721673c53a5ae"
+  },
+  "userId": "KPZW",
+  "deviceHash": "kAWvOJNOFZ3UfkuGk_mIQ",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "676029695cd721673c53a5b6"
+  },
+  "userId": "KPZW",
+  "deviceHash": "5n4_Xk8bgFyG-DEZFvVLd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "6760299d5cd721673c53a5be"
+  },
+  "userId": "KPZW",
+  "deviceHash": "aPO2SqVOm244GQDH3A89U",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "678e59b439223870881da10b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "XMJNtCuH_lwy4eohALu_4",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "678e683839223870881da129"
+  },
+  "userId": "0UXI",
+  "deviceHash": "dZ2B0CmfHpHTgDAf4Kxku",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "678e8068435247fca8f8694f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "Ja0vwUc_KqTYMB5SA4n3_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e44ebd86097aad37b6fa2"
+  },
+  "userId": "0UXI",
+  "deviceHash": "kJBps1CRJJyHS_HfAcad8",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e4d62b31418aafff8d94f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "lakdu2wZKpK8hcrrzeHbd",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e4e656e617e6fc3aee146"
+  },
+  "userId": "0UXI",
+  "deviceHash": "AvccCODw4WIvjI13Jtvgg",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e4f986e617e6fc3aee15e"
+  },
+  "userId": "0UXI",
+  "deviceHash": "G3Ln-NuWl1S6CFzup5N_7",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e536793ca7f2afcb822c8"
+  },
+  "userId": "0UXI",
+  "deviceHash": "B734Nmi3er__znUL3RZ8o",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e57013a26195c6ebd52ac"
+  },
+  "userId": "0UXI",
+  "deviceHash": "C9jPd9GtuT-sNQ9A5OzkY",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e579e3a26195c6ebd52db"
+  },
+  "userId": "0UXI",
+  "deviceHash": "-ojn_drCC-GeaiS7HRzLR",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e5a3c3a26195c6ebd530b"
+  },
+  "userId": "0UXI",
+  "deviceHash": "EEaWuX5yJAkXWbHFFuG4_",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "679e5a443a26195c6ebd531f"
+  },
+  "userId": "0UXI",
+  "deviceHash": "TuLuyLsKwcB9aYwLSZP89",
+  "activeStatus": "active"
+},
+{
+  "_id": {
+    "$oid": "67a5eacee57c909016a78d19"
+  },
+  "userId": "0UXI",
+  "deviceHash": "3CY8GIrxv5_T0ZRyV0-jx",
+  "activeStatus": "active"
+}]

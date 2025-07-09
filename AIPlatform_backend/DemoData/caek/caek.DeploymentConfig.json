@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "67b884cff6abcf40a1d8563e"
+  },
+  "tagName": "LlmEvaluation",
+  "llm_model_config_id": {
+    "id": "67b6e743f6abcf40a1d85636",
+    "name": "TheBloke/Llama-2-7B-Chat-GGML"
+  },
+  "prompt_config_id": {
+    "id": "67a63502b1d21542b6c1e45a",
+    "name": "General Prompt"
+  },
+  "service": "LLM",
+  "timestamp": 1740145871
+},
+{
+  "_id": {
+    "$oid": "67c038361521310159b1db99"
+  },
+  "tagName": "Processing",
+  "llm_model_config_id": {
+    "id": "67af44af7fc8e908d3fbdddc",
+    "name": "GPT-4"
+  },
+  "prompt_config_id": {
+    "id": "67af006d84b662ec8f04a125",
+    "name": "PreScreening-Jobs"
+  },
+  "service": "RAG",
+  "timestamp": 1740650550,
+  "embedding_model_id": "67acbfd52c45e9ea7719a93f",
+  "framework": "llamaindex",
+  "vector_db_config_id": "67c036ea1521310159b1db98"
+},
+{
+  "_id": {
+    "$oid": "67c17e0b9c5d2df68bc91429"
+  },
+  "tagName": "Jobs_Resumes_Transcripts",
+  "llm_model_config_id": {
+    "id": "67af44af7fc8e908d3fbdddc",
+    "name": "GPT-4"
+  },
+  "prompt_config_id": {
+    "id": "67af006d84b662ec8f04a125",
+    "name": "PreScreening-Jobs"
+  },
+  "service": "RAG",
+  "timestamp": 1740733963,
+  "embedding_model_id": "67acbfd52c45e9ea7719a93f",
+  "framework": "llamaindex",
+  "vector_db_config_id": "67c035ab1521310159b1db94"
+},
+{
+  "_id": {
+    "$oid": "67cad92f54fe15aa4e01a36a"
+  },
+  "tagName": "CanditateEvaluation",
+  "llm_model_config_id": {
+    "id": "67af44af7fc8e908d3fbdddc",
+    "name": "GPT-4"
+  },
+  "prompt_config_id": {
+    "id": "67af006d84b662ec8f04a125",
+    "name": "PreScreening-Jobs"
+  },
+  "service": "RAG",
+  "timestamp": 1741347119,
+  "embedding_model_id": "67acbfd52c45e9ea7719a93f",
+  "framework": "llamaindex",
+  "vector_db_config_id": [
+    "67c0360c1521310159b1db96",
+    "67c035ab1521310159b1db94"
+  ]
+}]

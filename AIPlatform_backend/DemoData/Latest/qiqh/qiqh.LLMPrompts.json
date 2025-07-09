@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "67cfcba06a1749e344c81b4a"
+  },
+  "promptName": "BOQ",
+  "taskType": "simple",
+  "systemMessage": "You are a Q&A assistant. Your goal is to answer questions as accurately as possible based on the instructions and context provided.",
+  "aiMessage": "",
+  "humanMessage": "",
+  "inputData": {},
+  "timestamp": 1741671328
+}]

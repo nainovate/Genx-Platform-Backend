@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "67d2e6129d9afc3e70a3a777"
+  },
+  "roleName": "Sales Head",
+  "description": "",
+  "spaceIds": [
+    "67cfcb376a1749e344c81b13"
+  ],
+  "createdBy": "67ced658a8dcd22f62506fee"
+}]

@@ -1,0 +1,4389 @@
+[{
+  "_id": {
+    "$oid": "67a336f016ae6aec50851267"
+  },
+  "process_id": "a2d64c17",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.4545936584472656
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.4582765102386475
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.0299899578094482
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.4775264263153076
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0376942157745361
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8497034907341003
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7265411615371704
+    }
+  ],
+  "timestamp": "1738729880",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a3384a16ae6aec5085126a"
+  },
+  "process_id": "ee9013d9",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.6557068824768066
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.655484676361084
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.3983864784240723
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.002168893814087
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 1.4753758907318115
+    }
+  ],
+  "timestamp": "1738730226",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a339c716ae6aec5085126d"
+  },
+  "process_id": "bab0372c",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.827543020248413
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.8312363624572754
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.547905445098877
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.106325149536133
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 1.5640552043914795
+    }
+  ],
+  "timestamp": "1738730607",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a33bcd16ae6aec50851270"
+  },
+  "process_id": "b094ce32",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.754854202270508
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.7582814693450928
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.47224760055542
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.0419487953186035
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 1.5244203805923462
+    }
+  ],
+  "timestamp": "1738731125",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a34e0c7300a53ea12adad7"
+  },
+  "process_id": "a07b1079",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8704969882965088
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.875614881515503
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.340598702430725
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9729694128036499
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8291045427322388
+    }
+  ],
+  "timestamp": "1738735796",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a44f305aebc388c34c0718"
+  },
+  "process_id": "20ad1682",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.758967161178589,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.761291027069092,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.4761433601379395,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.0574073791503906,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 1.52163565158844,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1738801624",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a450c706222923f72ef30b"
+  },
+  "process_id": "db4c236c",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.686293125152588,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.6892480850219727,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.424919605255127,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.017191171646118,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 1.47917902469635,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738802031",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a452363a20797aa14195db"
+  },
+  "process_id": "7357fcc6",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.7858686447143555,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.7892136573791504,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.512970209121704,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.0936477184295654,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 1.576791524887085,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738802398",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a4594dfe0f18a2e525cc51"
+  },
+  "process_id": "fde52583",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.7138760089874268,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.7165184020996094,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.452023983001709,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 2.043854236602783,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 7,
+      "weight_decay": 0.01,
+      "eval_loss": 1.516983985900879,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738804213",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a488b3cc61d48f4cfd25a7"
+  },
+  "process_id": "1be45abf",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.382546901702881,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.3826348781585693,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.96376633644104,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.445407509803772,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0327743291854858,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8452049493789673,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738816347",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a488b3cc61d48f4cfd25a8"
+  },
+  "process_id": "1be45abf",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.382546901702881,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.3826348781585693,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.96376633644104,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.445407509803772,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0327743291854858,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8452049493789673,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738816347"
+},
+{
+  "_id": {
+    "$oid": "67a49c3a018a786c87d2d0ee"
+  },
+  "process_id": "52915431",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.3868391513824463,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.3877112865448,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.9750454425811768,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.4354665279388428,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0104358196258545,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8370380401611328,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738821346",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a49c3a018a786c87d2d0ef"
+  },
+  "process_id": "52915431",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.3868391513824463,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.3877112865448,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.9750454425811768,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.4354665279388428,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0104358196258545,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8370380401611328,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738821346"
+},
+{
+  "_id": {
+    "$oid": "67a49ede3552d1603825e805"
+  },
+  "process_id": "ad647037",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.893135905265808
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8933907747268677
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3737401962280273
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.027825117111206
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8835635781288147
+    }
+  ],
+  "timestamp": "1738822022",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a4a71e9ebc2109be070a5a"
+  },
+  "process_id": "a0a4b9ea",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8695604801177979,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8736152648925781,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3296663761138916,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9616534113883972,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8191404342651367,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738824134",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a4a9fde9ebe3f88f6da683"
+  },
+  "process_id": "2b5e5769",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8570276498794556,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8589346408843994,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.370055913925171,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0634459257125854,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9217811822891235,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8523551225662231,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7913833260536194,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7913833260536194,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.5,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8075568079948425,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.7,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8158565759658813,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1738824869",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a5a3bd9f7c4b80622f7e8f"
+  },
+  "process_id": "e7894df7",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8843085765838623,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8874067068099976,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3438502550125122,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9748403429985046,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8303705453872681,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7427499294281006,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738888805",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a5cd93ba3d54508a1fb642"
+  },
+  "process_id": "54e7d6c0",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.896249532699585,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8992913961410522,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3641011714935303,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9970911145210266,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8487550616264343,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7680307626724243,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6852531433105469,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738899515",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a5d80739ce7b563db08422"
+  },
+  "process_id": "bafb657f",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8866342306137085,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8889734745025635,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3569276332855225,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0048468112945557,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8530057668685913,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7681537866592407,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6795676350593567,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738902191"
+},
+{
+  "_id": {
+    "$oid": "67a5ddec1da572471826e3f3"
+  },
+  "process_id": "e0eb8100",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8518285751342773,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.853855013847351,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3443878889083862,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0143327713012695,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8739001154899597,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.800653874874115,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7343421578407288,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738903700",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a5f660afafe46f562d3bb8"
+  },
+  "process_id": "b2af4bfe",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.9290047883987427,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.9313284158706665,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.4441255331039429,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.1188348531723022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9745975136756897,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.896399199962616,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8112472891807556,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8112472891807556,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.5,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8318628072738647,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.7,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8469648957252502,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1738909960",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a60a54691a57e1365d94ea"
+  },
+  "process_id": "db3a8cd2",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.819645881652832,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8221158981323242,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3005650043487549,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9725886583328247,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8356003761291504,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7710970044136047,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7081030607223511,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738915068",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a611730de1f0b14de11731"
+  },
+  "process_id": "05a80f01",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8621559143066406,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8635762929916382,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3056128025054932,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9365070462226868,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8015650510787964,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.724574625492096,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738916891",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a61924bb123019cf35edd5"
+  },
+  "process_id": "31a3ec0d",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 7,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8925812244415283,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8956164121627808,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.373962640762329,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0444128513336182,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9014102220535278,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.821162223815918,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7294798493385315,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738918860",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a61bd4627339ab1a4ef4d0"
+  },
+  "process_id": "70e5b906",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 8,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8729318380355835,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8742413520812988,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3660098314285278,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0347462892532349,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8997160196304321,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8314343690872192,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7492650151252747,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7492650151252747,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1738919548",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a9c556ef81ea57fb01750f"
+  },
+  "process_id": "1b8a30e7",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 7,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.8637208938598633,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.862971305847168,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.3272209167480469,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9762402772903442,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8248785734176636,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7428547143936157,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7428547143936157,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739159550",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a9db470a852dcecfa20fd1"
+  },
+  "process_id": "5a91942e",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 10,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.90890634059906,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.9115461111068726,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.391696572303772,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 1.0504876375198364,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9172565937042236,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8459302186965942,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7670361995697021,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7670361995697021,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.5,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.7899589538574219,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.7,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 15,
+      "weight_decay": 0.01,
+      "eval_loss": 0.802219808101654,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1739165167",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67a9f6756fb455eb2ebb3207"
+  },
+  "process_id": "62fca008",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 10,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.456261396408081,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.459105968475342,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.050419569015503,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.5352461338043213,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.1174026727676392,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 64,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9479052424430847,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8434604406356812,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8434604406356812,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.5,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.853925347328186,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 128,
+      "lora_dropout": 0.7,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.8662778735160828,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1739172125",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ac8b98ae54eabe73254ee5"
+  },
+  "process_id": "e84990f7",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.289886236190796,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739341376",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ac8cb7ae54eabe73254ee8"
+  },
+  "process_id": "bf250e50",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 12,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.289886236190796,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739341663",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ad995ad2d34ddd3e3ac09e"
+  },
+  "process_id": "4abaa1e0",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.295935869216919,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739410434",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ad9c6b54e318a65207b023"
+  },
+  "process_id": "cd20ef98",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739411219",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ada06e2070fa586db4bf7d"
+  },
+  "process_id": "08f030ae",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 1,
+  "metrics": {
+    "08f030ae": [
+      {
+        "series_id": "biasedrandom_4",
+        "r": 64,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.290570020675659,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.2931039333343506,
+        "best_flag": 0
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 8,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 1.6074823141098022,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 16,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.9470843076705933,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      }
+    ]
+  },
+  "timestamp": "1739412246",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ada8d1ef10402269e430c8"
+  },
+  "process_id": "06c83b50",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 1,
+  "metrics": {
+    "06c83b50": [
+      {
+        "series_id": "biasedrandom_4",
+        "r": 64,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.290570020675659,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.2931039333343506,
+        "best_flag": 0
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 8,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 1.6074823141098022,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 16,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.9470843076705933,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      }
+    ]
+  },
+  "timestamp": "1739414393",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67adb63814c7f5c4fcc53937"
+  },
+  "process_id": "8dfc3b94",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 1,
+  "metrics": {
+    "8dfc3b94": [
+      {
+        "series_id": "biasedrandom_4",
+        "r": 64,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.290570020675659,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.2931039333343506,
+        "best_flag": 0
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 8,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 1.6074823141098022,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 16,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.9470843076705933,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      }
+    ]
+  },
+  "timestamp": "1739417824",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67adb8cec7615bafc72d08b0"
+  },
+  "process_id": "bf9adc9e",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 1,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739418486",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67adc6ee1f87e097a2327e06"
+  },
+  "process_id": "3c4be066",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739422102",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67adc9651f87e097a2327e09"
+  },
+  "process_id": "d1fd0bac",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739422733",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67adcab61f87e097a2327e0b"
+  },
+  "process_id": "d1fd0bac",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739423070"
+},
+{
+  "_id": {
+    "$oid": "67adcc79c9de54bbbc991d45"
+  },
+  "process_id": "ba9809e6",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 2,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1739423521"
+},
+{
+  "_id": {
+    "$oid": "67adcd9fc9de54bbbc991d49"
+  },
+  "process_id": "7038b6d6",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 2,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1739423815"
+},
+{
+  "_id": {
+    "$oid": "67add47af53b4c9784d6b709"
+  },
+  "process_id": "3b52a22a",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 1,
+  "metrics": {
+    "3b52a22a": [
+      {
+        "series_id": "biasedrandom_4",
+        "r": 64,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.290570020675659,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 4,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 2.2931039333343506,
+        "best_flag": 0
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 8,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 1.6074823141098022,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 16,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.9470843076705933,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      },
+      {
+        "series_id": "biasedrandom_4",
+        "r": 128,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "learning_rate": 0.00003,
+        "batch_size": 16,
+        "num_epochs": 10,
+        "weight_decay": 0.01,
+        "eval_loss": 0.6360479593276978,
+        "best_flag": 1
+      }
+    ]
+  },
+  "timestamp": "1739425570",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ade3dd09a304ee7a274faa"
+  },
+  "process_id": "6fea71c4",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739429509",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67ade4bd09a304ee7a274fae"
+  },
+  "process_id": "85bdad78",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 3,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739429733"
+},
+{
+  "_id": {
+    "$oid": "67b4664253ec034e246a5362"
+  },
+  "process_id": "bc5b2519",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.287813663482666,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739856106",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\metrics.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67b5b93b0cbb42f63750d446"
+  },
+  "process_id": "9502432a",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2901668548583984,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739942883"
+},
+{
+  "_id": {
+    "$oid": "67b5ba560cbb42f63750d449"
+  },
+  "process_id": "59f003c8",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.291440010070801,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739943166"
+},
+{
+  "_id": {
+    "$oid": "67b5bc700cbb42f63750d44c"
+  },
+  "process_id": "8cf32e5d",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2873847484588623,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739943704"
+},
+{
+  "_id": {
+    "$oid": "67b5c9ec11a07ba153296c40"
+  },
+  "process_id": "cdce1987",
+  "user_id": "120",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "Target_loss": 0.75,
+  "iterations_count": 6,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2944397926330566,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.9470843076705933,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 0.6360479593276978,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1739947156",
+  "results_path": "C:/Users/Admin/projects/Finetuning/results\\result_1739966956.xlsx"
+},
+{
+  "_id": {
+    "$oid": "67c00b0eb4d56aeb66a99321"
+  },
+  "process_id": "5d38c03b",
+  "user_id": "120",
+  "model_id": null,
+  "Target_loss": 0.75,
+  "iterations_count": 3,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 8,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 1.6074823141098022,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1740619190"
+},
+{
+  "_id": {
+    "$oid": "67c6b78fa7820627799a49ca"
+  },
+  "process_id": "40e17236",
+  "user_id": "120",
+  "model_id": null,
+  "Target_loss": 0.75,
+  "iterations_count": 2,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290762424468994,
+      "best_flag": 1
+    },
+    {
+      "series_id": "biasedrandom_4",
+      "r": 128,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.2931039333343506,
+      "best_flag": 0
+    }
+  ],
+  "timestamp": "1741056567"
+},
+{
+  "_id": {
+    "$oid": "67c6c4bab387c3abab34d8b6"
+  },
+  "process_id": "b1071990",
+  "user_id": "120",
+  "model_id": null,
+  "Target_loss": 0.75,
+  "iterations_count": 1,
+  "metrics": [
+    {
+      "series_id": "biasedrandom_4",
+      "r": 64,
+      "lora_alpha": 4,
+      "lora_dropout": 0.1,
+      "learning_rate": 0.00003,
+      "batch_size": 16,
+      "num_epochs": 10,
+      "weight_decay": 0.01,
+      "eval_loss": 2.290570020675659,
+      "best_flag": 1
+    }
+  ],
+  "timestamp": "1741059938"
+}]

@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67b21175ea108e9e3310a29b"
+  },
+  "taskName": "PreScreening ",
+  "description": "Processing Task",
+  "roleIds": [
+    "67a5d4aebf407c4c59679d5c"
+  ],
+  "createdBy": "67a5ad81bf407c4c59679c31",
+  "agentId": "67b2105f22ce5fce3c9b5bf9",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL"
+},
+{
+  "_id": {
+    "$oid": "67cb01ad3777b16c8f3567ad"
+  },
+  "taskName": "Candidate selection",
+  "description": "This task helps in providing the match percentage of a particular candidate to a specific job ID.",
+  "roleIds": [
+    "67a5d4aebf407c4c59679d5c"
+  ],
+  "createdBy": "67a5ad81bf407c4c59679c31",
+  "agentId": "67cad92f54fe15aa4e01a36a",
+  "clientApiKey": "R3AM-52JL-INUS-E5YL"
+}]

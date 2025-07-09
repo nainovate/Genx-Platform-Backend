@@ -504,6 +504,7 @@ def setup():
         # Set demo to True if the value is 'true', False otherwise
         demo = demo_value == 'true'
         if not demo:
+            print("Demo Mode Disabled")
             '''# Initialize application settings
             config_initialized, use_case_initialized, status_code = initialize_application()
             if status_code == 200:
@@ -608,6 +609,7 @@ def setup():
                         create_refresh_token(user_setup, refresh_token_data)
         else:
             global client
+            print("Demo Mode Enabled")
             MONGO_IP = os.environ.get("MONGO_IP_ADDRESS")
             MONGO_URI = "mongodb://"+MONGO_IP+":27017"
             client = MongoClient(MONGO_URI)

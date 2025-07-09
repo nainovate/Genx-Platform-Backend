@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "67a63502b1d21542b6c1e45a"
+  },
+  "orgId": "ubrr",
+  "promptName": "General Prompt",
+  "systemMessage": "You are an AI assistant who helps in answering the question from the given context",
+  "aiMessage": "",
+  "humanMessage": "question:{question}",
+  "inputData": {},
+  "timestamp": 1738945794,
+  "taskType": "simple"
+}]

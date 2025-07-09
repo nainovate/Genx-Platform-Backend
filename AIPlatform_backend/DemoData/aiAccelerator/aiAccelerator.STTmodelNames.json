@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39f2"
+  },
+  "modelType": "OpenAI",
+  "modelName": "large-v2",
+  "engine": "openai/whisper-large-v2"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a17"
+  },
+  "modelType": "OpenAI",
+  "modelName": "large",
+  "engine": "openai/whisper-large"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a1a"
+  },
+  "modelType": "OpenAI",
+  "modelName": "medium",
+  "engine": "openai/whisper-medium"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a1c"
+  },
+  "modelType": "OpenAI",
+  "modelName": "small",
+  "engine": "openai/whisper-small"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a1f"
+  },
+  "modelType": "OpenAI",
+  "modelName": "base",
+  "engine": "openai/whisper-base"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a22"
+  },
+  "modelType": "OpenAI",
+  "modelName": "tiny",
+  "engine": "openai/whisper-tiny"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a25"
+  },
+  "modelType": "Distil",
+  "modelName": "large-v2",
+  "engine": "distil-whisper/distil-large-v2"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a28"
+  },
+  "modelType": "Distil",
+  "modelName": "medium-en",
+  "engine": "distil-whisper/distil-medium.en"
+}]

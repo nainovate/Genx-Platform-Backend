@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "67d2f286b944be317cdb3c35"
+  },
+  "tagName": "BOQ Intelligence",
+  "llm_model_config_id": {
+    "id": "67d2ef42b944be317cdb3c34",
+    "name": "GPT-4"
+  },
+  "prompt_config_id": {
+    "id": "67cfcba06a1749e344c81b4a",
+    "name": "BOQ"
+  },
+  "service": "RAG",
+  "timestamp": 1741877894,
+  "embedding_model_id": "67d2e43ab944be317cdb3c33",
+  "framework": "llamaindex",
+  "vector_db_config_id": [
+    "67cff199e0cf467b4e71f86a"
+  ]
+}]

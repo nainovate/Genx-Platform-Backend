@@ -1,0 +1,1856 @@
+[{
+  "_id": {
+    "$oid": "677d0c0f1d8a052a089cdb08"
+  },
+  "user_id": "120",
+  "process_id": "00243bd1",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": {
+    "$date": "2025-01-07T16:42:15.028Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677e4d0419234d2b07521d12"
+  },
+  "user_id": "120",
+  "process_id": "8dc400e8",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": {
+    "$date": "2025-01-08T15:31:40.760Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677e54b786d59f6397160a8d"
+  },
+  "user_id": "120",
+  "process_id": "8c485629",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": {
+    "$date": "2025-01-08T16:04:31.396Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "677e8b657e93edaa24d44275"
+  },
+  "user_id": "120",
+  "process_id": "3eaa2d8e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736326669"
+},
+{
+  "_id": {
+    "$oid": "677e8c767e93edaa24d44277"
+  },
+  "user_id": "120",
+  "process_id": "8db45dbb",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736326942"
+},
+{
+  "_id": {
+    "$oid": "677e8ca17e93edaa24d44279"
+  },
+  "user_id": "120",
+  "process_id": "9cab445e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736326985"
+},
+{
+  "_id": {
+    "$oid": "677e8d327e93edaa24d4427b"
+  },
+  "user_id": "120",
+  "process_id": "26cd30d4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736327130"
+},
+{
+  "_id": {
+    "$oid": "6780bb4151c7895bcf8c3bbf"
+  },
+  "user_id": "120",
+  "process_id": "77acce49",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736469993"
+},
+{
+  "_id": {
+    "$oid": "6780bbfc12be043875f5a0ea"
+  },
+  "user_id": "120",
+  "process_id": "6164a997",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736470180"
+},
+{
+  "_id": {
+    "$oid": "6780bc676d03c29d0b7c6874"
+  },
+  "user_id": "120",
+  "process_id": "9a9bb20b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736470287"
+},
+{
+  "_id": {
+    "$oid": "6780bcf13f0d6c4f7f1f4a2f"
+  },
+  "user_id": "120",
+  "process_id": "4f9e83cd",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736470425"
+},
+{
+  "_id": {
+    "$oid": "6780bf380a0606025ba5df99"
+  },
+  "user_id": "120",
+  "process_id": "e76712ea",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736471008"
+},
+{
+  "_id": {
+    "$oid": "6780c2348a67974c69ed4468"
+  },
+  "user_id": "120",
+  "process_id": "e33e07ca",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736471772"
+},
+{
+  "_id": {
+    "$oid": "6780c3654ec1a11cb656a2fd"
+  },
+  "user_id": "120",
+  "process_id": "62783a2f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736472077"
+},
+{
+  "_id": {
+    "$oid": "6780f1548c049f36362a6617"
+  },
+  "user_id": "120",
+  "process_id": "9bec952a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736483836"
+},
+{
+  "_id": {
+    "$oid": "6780f1c2309bd793f0bdcd38"
+  },
+  "user_id": "120",
+  "process_id": "172aaa4f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736483946"
+},
+{
+  "_id": {
+    "$oid": "6780f29671b39c96ff970f75"
+  },
+  "user_id": "120",
+  "process_id": "466733ad",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736484158"
+},
+{
+  "_id": {
+    "$oid": "6780f3ec03d0b2a8a5de52ea"
+  },
+  "user_id": "120",
+  "process_id": "7c0aabc7",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736484500"
+},
+{
+  "_id": {
+    "$oid": "6780f60cd52a49e140ceff81"
+  },
+  "user_id": "120",
+  "process_id": "e68b525d",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736485044"
+},
+{
+  "_id": {
+    "$oid": "6780f6d7439f932e521a2d87"
+  },
+  "user_id": "120",
+  "process_id": "101f9a39",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736485247"
+},
+{
+  "_id": {
+    "$oid": "67810feff669e601d75f9257"
+  },
+  "user_id": "120",
+  "process_id": "5f0649a2",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736491671"
+},
+{
+  "_id": {
+    "$oid": "678115ac72f6fa119b0c1f75"
+  },
+  "user_id": "120",
+  "process_id": "0b9d9ccb",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736493140"
+},
+{
+  "_id": {
+    "$oid": "678118d47e7c2f236f033b98"
+  },
+  "user_id": "120",
+  "process_id": "4d039a46",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736493948"
+},
+{
+  "_id": {
+    "$oid": "67811a4db04b0ea717f8aebc"
+  },
+  "user_id": "120",
+  "process_id": "dfd9216d",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1736494325"
+},
+{
+  "_id": {
+    "$oid": "678f32a04da96f8c68284fcc"
+  },
+  "user_id": "120",
+  "process_id": "55640944",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737418056"
+},
+{
+  "_id": {
+    "$oid": "678f39d13ade92828c947171"
+  },
+  "user_id": "120",
+  "process_id": "509e9b21",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737419897"
+},
+{
+  "_id": {
+    "$oid": "678f4d6459656c68fb99a09f"
+  },
+  "user_id": "120",
+  "process_id": "b9228f1e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737424908"
+},
+{
+  "_id": {
+    "$oid": "678f57ab3899ac9bb532e0bb"
+  },
+  "user_id": "120",
+  "process_id": "a7428472",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737427539"
+},
+{
+  "_id": {
+    "$oid": "678f57c921b10edf8326388b"
+  },
+  "user_id": "120",
+  "process_id": "6e4692a6",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737427569"
+},
+{
+  "_id": {
+    "$oid": "678f687960d76ac3e909ec7a"
+  },
+  "user_id": "120",
+  "process_id": "12a48cf9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737431841"
+},
+{
+  "_id": {
+    "$oid": "678f68bcb23cb3c230f683cc"
+  },
+  "user_id": "120",
+  "process_id": "7c549a83",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737431908"
+},
+{
+  "_id": {
+    "$oid": "678f691210a23dfaa402e373"
+  },
+  "user_id": "120",
+  "process_id": "1b6499ad",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737431994"
+},
+{
+  "_id": {
+    "$oid": "678f695781e2539f0944afc8"
+  },
+  "user_id": "120",
+  "process_id": "104ff246",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737432063"
+},
+{
+  "_id": {
+    "$oid": "678f6998d8988bef5fd441d5"
+  },
+  "user_id": "120",
+  "process_id": "41714356",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737432128"
+},
+{
+  "_id": {
+    "$oid": "678f69b76f140f1767a39661"
+  },
+  "user_id": "120",
+  "process_id": "95763b90",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737432159"
+},
+{
+  "_id": {
+    "$oid": "678f6a164aefa72db8a9daf9"
+  },
+  "user_id": "120",
+  "process_id": "a355a80e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737432254"
+},
+{
+  "_id": {
+    "$oid": "678f6a598a91e536e9cfc357"
+  },
+  "user_id": "120",
+  "process_id": "0b213400",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737432321"
+},
+{
+  "_id": {
+    "$oid": "678f6b4656160329d82a621c"
+  },
+  "user_id": "120",
+  "process_id": "705f3d40",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737432558"
+},
+{
+  "_id": {
+    "$oid": "678f6eef1893758cf95101f5"
+  },
+  "user_id": "120",
+  "process_id": "a12b0cdd",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737433495"
+},
+{
+  "_id": {
+    "$oid": "678f72411893758cf95101f7"
+  },
+  "user_id": "120",
+  "process_id": "24c52346",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737434345"
+},
+{
+  "_id": {
+    "$oid": "678f73c160eb217bb52ed20e"
+  },
+  "user_id": "120",
+  "process_id": "1d524cc7",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737434729"
+},
+{
+  "_id": {
+    "$oid": "678f74b999aad7d267af8ef0"
+  },
+  "user_id": "120",
+  "process_id": "c48bb2b8",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737434977"
+},
+{
+  "_id": {
+    "$oid": "678f75897cb43bbff818d22d"
+  },
+  "user_id": "120",
+  "process_id": "8d3475f2",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737435185"
+},
+{
+  "_id": {
+    "$oid": "678f7c78e380ae4dc0397d01"
+  },
+  "user_id": "120",
+  "process_id": "6d52932a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737436960"
+},
+{
+  "_id": {
+    "$oid": "678f7cb4e380ae4dc0397d03"
+  },
+  "user_id": "120",
+  "process_id": "564dec13",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737437020"
+},
+{
+  "_id": {
+    "$oid": "678f7d4b12f323971a5de88c"
+  },
+  "user_id": "120",
+  "process_id": "c60573e1",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737437171"
+},
+{
+  "_id": {
+    "$oid": "678f7da433f8134b705ecdc1"
+  },
+  "user_id": "120",
+  "process_id": "1398985a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737437260"
+},
+{
+  "_id": {
+    "$oid": "678f7ddc33f8134b705ecdc4"
+  },
+  "user_id": "120",
+  "process_id": "bddb413b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737437316"
+},
+{
+  "_id": {
+    "$oid": "678f7e7f33f8134b705ecdc7"
+  },
+  "user_id": "120",
+  "process_id": "0ad14776",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737437479"
+},
+{
+  "_id": {
+    "$oid": "6790b64319dd0a31f56eeb71"
+  },
+  "user_id": "120",
+  "process_id": "8c551e4b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737517291"
+},
+{
+  "_id": {
+    "$oid": "6790b9a819dd0a31f56eeb73"
+  },
+  "user_id": "120",
+  "process_id": "ae1b6072",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737518160"
+},
+{
+  "_id": {
+    "$oid": "6790d55f3a2a7ae784d92c37"
+  },
+  "user_id": "120",
+  "process_id": "2189d81f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737525255"
+},
+{
+  "_id": {
+    "$oid": "6790d5933a2a7ae784d92c39"
+  },
+  "user_id": "120",
+  "process_id": "348af234",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737525307"
+},
+{
+  "_id": {
+    "$oid": "6790d6243a2a7ae784d92c3d"
+  },
+  "user_id": "120",
+  "process_id": "f4bcc450",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737525452"
+},
+{
+  "_id": {
+    "$oid": "6791efd570685a84030d25de"
+  },
+  "user_id": "120",
+  "process_id": "512503ff",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737597565"
+},
+{
+  "_id": {
+    "$oid": "6792030970685a84030d25e0"
+  },
+  "user_id": "120",
+  "process_id": "8ef8cdf8",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737602481"
+},
+{
+  "_id": {
+    "$oid": "6792035270685a84030d25e3"
+  },
+  "user_id": "120",
+  "process_id": "21a64d99",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737602554"
+},
+{
+  "_id": {
+    "$oid": "679206e970685a84030d25e5"
+  },
+  "user_id": "120",
+  "process_id": "59278ff3",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737603473"
+},
+{
+  "_id": {
+    "$oid": "6792077f70685a84030d25e8"
+  },
+  "user_id": "120",
+  "process_id": "d0c8bb5d",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737603623"
+},
+{
+  "_id": {
+    "$oid": "6793397ab39145a702451aaf"
+  },
+  "user_id": "120",
+  "process_id": "d274207a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737681954"
+},
+{
+  "_id": {
+    "$oid": "679339a8b39145a702451ab1"
+  },
+  "user_id": "120",
+  "process_id": "30a79f43",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737682000"
+},
+{
+  "_id": {
+    "$oid": "67933b2241d09cab85f345be"
+  },
+  "user_id": "120",
+  "process_id": "dd6c9562",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737682378"
+},
+{
+  "_id": {
+    "$oid": "679359743292c973f083d417"
+  },
+  "user_id": "120",
+  "process_id": "c72d74c4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737690140"
+},
+{
+  "_id": {
+    "$oid": "67935ce83c494fd7a8e7617c"
+  },
+  "user_id": "120",
+  "process_id": "75cb2d26",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737691024"
+},
+{
+  "_id": {
+    "$oid": "6793601c3c494fd7a8e76182"
+  },
+  "user_id": "120",
+  "process_id": "720fa074",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737691844"
+},
+{
+  "_id": {
+    "$oid": "679360923c494fd7a8e76185"
+  },
+  "user_id": "120",
+  "process_id": "8a2bc1b8",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737691962"
+},
+{
+  "_id": {
+    "$oid": "679363a33c494fd7a8e7618b"
+  },
+  "user_id": "120",
+  "process_id": "4a1d9cb3",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737692747"
+},
+{
+  "_id": {
+    "$oid": "67936faa421ff7322d60c99c"
+  },
+  "user_id": "120",
+  "process_id": "e8cb82c2",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737695826"
+},
+{
+  "_id": {
+    "$oid": "67937a96e14b7a20154f7cd8"
+  },
+  "user_id": "120",
+  "process_id": "e25eab80",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737698622"
+},
+{
+  "_id": {
+    "$oid": "67937aece14b7a20154f7cdb"
+  },
+  "user_id": "120",
+  "process_id": "4069989d",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737698708"
+},
+{
+  "_id": {
+    "$oid": "679386ad3ce06648c60def20"
+  },
+  "user_id": "120",
+  "process_id": "f353efed",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737701717"
+},
+{
+  "_id": {
+    "$oid": "6793894d3ce06648c60def24"
+  },
+  "user_id": "120",
+  "process_id": "98aae8cf",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737702389"
+},
+{
+  "_id": {
+    "$oid": "67938a5c3ce06648c60def27"
+  },
+  "user_id": "120",
+  "process_id": "f28d4d38",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737702660"
+},
+{
+  "_id": {
+    "$oid": "67938ae23ce06648c60def29"
+  },
+  "user_id": "120",
+  "process_id": "bb1bc8af",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737702794"
+},
+{
+  "_id": {
+    "$oid": "67938c50217628dd0b9078ec"
+  },
+  "user_id": "120",
+  "process_id": "5d39a9cd",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737703160"
+},
+{
+  "_id": {
+    "$oid": "67938cd3217628dd0b9078ee"
+  },
+  "user_id": "120",
+  "process_id": "b491a2eb",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737703291"
+},
+{
+  "_id": {
+    "$oid": "679390ff5e5a6ae87aded68a"
+  },
+  "user_id": "120",
+  "process_id": "c47dac8b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737704359"
+},
+{
+  "_id": {
+    "$oid": "679391f55e5a6ae87aded68e"
+  },
+  "user_id": "120",
+  "process_id": "505d7b45",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737704605"
+},
+{
+  "_id": {
+    "$oid": "679392265e5a6ae87aded690"
+  },
+  "user_id": "120",
+  "process_id": "7e44db42",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737704654"
+},
+{
+  "_id": {
+    "$oid": "67971f0f43d828f9ecf5b913"
+  },
+  "user_id": "120",
+  "process_id": "4bf8c55c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737937335"
+},
+{
+  "_id": {
+    "$oid": "67972b255655e0d6dd165eb4"
+  },
+  "user_id": "120",
+  "process_id": "3f8079c4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737940429"
+},
+{
+  "_id": {
+    "$oid": "67972f5878f40350b39900f3"
+  },
+  "user_id": "120",
+  "process_id": "684d1176",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737941504"
+},
+{
+  "_id": {
+    "$oid": "6797309e541c507ccc6a5e62"
+  },
+  "user_id": "120",
+  "process_id": "19e8866b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737941830"
+},
+{
+  "_id": {
+    "$oid": "6797323ab2526e2145c2c64b"
+  },
+  "user_id": "120",
+  "process_id": "f0792bb9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737942242"
+},
+{
+  "_id": {
+    "$oid": "679732a9b2526e2145c2c64e"
+  },
+  "user_id": "120",
+  "process_id": "97f52aaf",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737942353"
+},
+{
+  "_id": {
+    "$oid": "67973329b2526e2145c2c651"
+  },
+  "user_id": "120",
+  "process_id": "96a9c554",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737942481"
+},
+{
+  "_id": {
+    "$oid": "6797339db2526e2145c2c653"
+  },
+  "user_id": "120",
+  "process_id": "9eda156c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737942597"
+},
+{
+  "_id": {
+    "$oid": "67973519b2526e2145c2c657"
+  },
+  "user_id": "120",
+  "process_id": "c235e54e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737942977"
+},
+{
+  "_id": {
+    "$oid": "6797358fb2526e2145c2c659"
+  },
+  "user_id": "120",
+  "process_id": "fd57c05e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1737943095"
+},
+{
+  "_id": {
+    "$oid": "67989ce3774d86a6033b575a"
+  },
+  "user_id": "120",
+  "process_id": "65efab6c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738035083"
+},
+{
+  "_id": {
+    "$oid": "6798a2823bb13e0570de3102"
+  },
+  "user_id": "120",
+  "process_id": "9a7a15a4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738036522"
+},
+{
+  "_id": {
+    "$oid": "6798a2eb724cdb023cfca37c"
+  },
+  "user_id": "120",
+  "process_id": "215ca80f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738036627"
+},
+{
+  "_id": {
+    "$oid": "6798a464ab48d074f06ade84"
+  },
+  "user_id": "120",
+  "process_id": "1e34831b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738037004"
+},
+{
+  "_id": {
+    "$oid": "6798a4cc287133e9a58b3eaa"
+  },
+  "user_id": "120",
+  "process_id": "30768ade",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738037108"
+},
+{
+  "_id": {
+    "$oid": "6798a567d97853f29a90b711"
+  },
+  "user_id": "120",
+  "process_id": "2ffabda7",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738037263"
+},
+{
+  "_id": {
+    "$oid": "6798a959f03202248a54ff57"
+  },
+  "user_id": "120",
+  "process_id": "40336c7f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738038273"
+},
+{
+  "_id": {
+    "$oid": "6798aab5d24ad0d822c61923"
+  },
+  "user_id": "120",
+  "process_id": "2d6bb1c9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738038621"
+},
+{
+  "_id": {
+    "$oid": "6798ab7dd7c6a50b813c34d5"
+  },
+  "user_id": "120",
+  "process_id": "0dc8ccb9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738038821"
+},
+{
+  "_id": {
+    "$oid": "6798ae36d7c6a50b813c34d7"
+  },
+  "user_id": "120",
+  "process_id": "b8c68811",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738039518"
+},
+{
+  "_id": {
+    "$oid": "6798af08f8a7ac1b19fc831e"
+  },
+  "user_id": "120",
+  "process_id": "81fb85e6",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738039728"
+},
+{
+  "_id": {
+    "$oid": "6798b2bae68200d8e4b2014c"
+  },
+  "user_id": "120",
+  "process_id": "2d714c4b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738040674"
+},
+{
+  "_id": {
+    "$oid": "6798b411e68200d8e4b2014e"
+  },
+  "user_id": "120",
+  "process_id": "6476c9ac",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738041017"
+},
+{
+  "_id": {
+    "$oid": "6798b4a5e68200d8e4b20150"
+  },
+  "user_id": "120",
+  "process_id": "88a861e6",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738041165"
+},
+{
+  "_id": {
+    "$oid": "6798b55de68200d8e4b20152"
+  },
+  "user_id": "120",
+  "process_id": "17d412e9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738041349"
+},
+{
+  "_id": {
+    "$oid": "6798b96ce68200d8e4b20154"
+  },
+  "user_id": "120",
+  "process_id": "9438bc5e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738042388"
+},
+{
+  "_id": {
+    "$oid": "6798b9e8e68200d8e4b20156"
+  },
+  "user_id": "120",
+  "process_id": "7d7fa53b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738042512"
+},
+{
+  "_id": {
+    "$oid": "6798ba4ee68200d8e4b20158"
+  },
+  "user_id": "120",
+  "process_id": "9ddc3d16",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738042614"
+},
+{
+  "_id": {
+    "$oid": "6798bbaee2653acc15a24323"
+  },
+  "user_id": "120",
+  "process_id": "fc3bd42a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738042966"
+},
+{
+  "_id": {
+    "$oid": "6798bd6f8ff64581bd66daf4"
+  },
+  "user_id": "120",
+  "process_id": "df8842a8",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738043415"
+},
+{
+  "_id": {
+    "$oid": "6798bfccb07b9cead2a48771"
+  },
+  "user_id": "120",
+  "process_id": "058edb2f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738044020"
+},
+{
+  "_id": {
+    "$oid": "6798c013b07b9cead2a48773"
+  },
+  "user_id": "120",
+  "process_id": "334e78d1",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738044091"
+},
+{
+  "_id": {
+    "$oid": "6798c041b07b9cead2a48775"
+  },
+  "user_id": "120",
+  "process_id": "c30d0bd1",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738044137"
+},
+{
+  "_id": {
+    "$oid": "6798c09a6a4b8b0a4500048f"
+  },
+  "user_id": "120",
+  "process_id": "c2f78c56",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738044226"
+},
+{
+  "_id": {
+    "$oid": "6798c7dbbf6c336873905690"
+  },
+  "user_id": "120",
+  "process_id": "b2b0412e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738046083"
+},
+{
+  "_id": {
+    "$oid": "6798ca9c300bf87c9f003077"
+  },
+  "user_id": "120",
+  "process_id": "8efeb9ee",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738046788"
+},
+{
+  "_id": {
+    "$oid": "6798cb18fbdd4db17a7fb969"
+  },
+  "user_id": "120",
+  "process_id": "95c3cd49",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738046912"
+},
+{
+  "_id": {
+    "$oid": "6798cb6880bd01ee8da2985c"
+  },
+  "user_id": "120",
+  "process_id": "4d894ce5",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738046992"
+},
+{
+  "_id": {
+    "$oid": "6798cb879e9530b5478a70d9"
+  },
+  "user_id": "120",
+  "process_id": "16fa4635",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738047023"
+},
+{
+  "_id": {
+    "$oid": "6798cbe6e80e13d8597bdfef"
+  },
+  "user_id": "120",
+  "process_id": "364a583b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738047118"
+},
+{
+  "_id": {
+    "$oid": "6798cd0325fb1da34ecb2f0c"
+  },
+  "user_id": "120",
+  "process_id": "f6bd5787",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738047403"
+},
+{
+  "_id": {
+    "$oid": "6798d1e2a0b468b4046314c9"
+  },
+  "user_id": "120",
+  "process_id": "28ba3c8e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738048650"
+},
+{
+  "_id": {
+    "$oid": "6798d2a29ea07cc47d1e1bae"
+  },
+  "user_id": "120",
+  "process_id": "cae38906",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738048842"
+},
+{
+  "_id": {
+    "$oid": "6798d304b6919dbbde241346"
+  },
+  "user_id": "120",
+  "process_id": "847d83b2",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738048940"
+},
+{
+  "_id": {
+    "$oid": "6798d3d20bb5bf53d3f2f1d5"
+  },
+  "user_id": "120",
+  "process_id": "5b70cf29",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738049146"
+},
+{
+  "_id": {
+    "$oid": "6798d6d062b96a47745fc7b4"
+  },
+  "user_id": "120",
+  "process_id": "ef11ac1c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738049912"
+},
+{
+  "_id": {
+    "$oid": "6799ed4bd80dab6baaf702ac"
+  },
+  "user_id": "120",
+  "process_id": "e01d8e9c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738121203"
+},
+{
+  "_id": {
+    "$oid": "6799edf1124d5f9c17eac85f"
+  },
+  "user_id": "120",
+  "process_id": "a2c98751",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738121369"
+},
+{
+  "_id": {
+    "$oid": "6799f14a124d5f9c17eac861"
+  },
+  "user_id": "120",
+  "process_id": "1913c2f4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738122226"
+},
+{
+  "_id": {
+    "$oid": "6799f164124d5f9c17eac863"
+  },
+  "user_id": "120",
+  "process_id": "73772bdb",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738122252"
+},
+{
+  "_id": {
+    "$oid": "6799f381d901e6643c218623"
+  },
+  "user_id": "120",
+  "process_id": "4c6f6302",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738122793"
+},
+{
+  "_id": {
+    "$oid": "6799f3f7d901e6643c218625"
+  },
+  "user_id": "120",
+  "process_id": "25cf4ee9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738122911"
+},
+{
+  "_id": {
+    "$oid": "6799f419d901e6643c218627"
+  },
+  "user_id": "120",
+  "process_id": "ff089c03",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738122945"
+},
+{
+  "_id": {
+    "$oid": "6799f4d7d901e6643c218629"
+  },
+  "user_id": "120",
+  "process_id": "ecb1f3d7",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738123135"
+},
+{
+  "_id": {
+    "$oid": "6799f4f2d901e6643c21862b"
+  },
+  "user_id": "120",
+  "process_id": "93f88fa0",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738123162"
+},
+{
+  "_id": {
+    "$oid": "6799f55cd901e6643c21862d"
+  },
+  "user_id": "120",
+  "process_id": "d9b96143",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738123268"
+},
+{
+  "_id": {
+    "$oid": "6799f97b13e1419e5a884384"
+  },
+  "user_id": "120",
+  "process_id": "4cfd03ec",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738124323"
+},
+{
+  "_id": {
+    "$oid": "6799fa1f13e1419e5a884386"
+  },
+  "user_id": "120",
+  "process_id": "c57052d2",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738124487"
+},
+{
+  "_id": {
+    "$oid": "6799fad413e1419e5a884388"
+  },
+  "user_id": "120",
+  "process_id": "95930a1d",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738124668"
+},
+{
+  "_id": {
+    "$oid": "6799fb3f13e1419e5a88438a"
+  },
+  "user_id": "120",
+  "process_id": "a0a19dd9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738124775"
+},
+{
+  "_id": {
+    "$oid": "6799fbda13e1419e5a88438c"
+  },
+  "user_id": "120",
+  "process_id": "b092cec2",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738124930"
+},
+{
+  "_id": {
+    "$oid": "6799fc1a13e1419e5a88438e"
+  },
+  "user_id": "120",
+  "process_id": "2f067339",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738124994"
+},
+{
+  "_id": {
+    "$oid": "679a0e2ae5f4028bea5ad751"
+  },
+  "user_id": "120",
+  "process_id": "32553f2f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738129618"
+},
+{
+  "_id": {
+    "$oid": "679a17c5fa36f06171aad675"
+  },
+  "user_id": "120",
+  "process_id": "17ae17b1",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738132077"
+},
+{
+  "_id": {
+    "$oid": "679a18ddeff167c8aa65f9c4"
+  },
+  "user_id": "120",
+  "process_id": "296e3cd4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738132357"
+},
+{
+  "_id": {
+    "$oid": "679a318cea400412484de562"
+  },
+  "user_id": "120",
+  "process_id": "932a108a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738138676"
+},
+{
+  "_id": {
+    "$oid": "679a3b6bb5484b43a025b887"
+  },
+  "user_id": "120",
+  "process_id": "78836a88",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738141203"
+},
+{
+  "_id": {
+    "$oid": "679a40dfb5484b43a025b889"
+  },
+  "user_id": "120",
+  "process_id": "e1ed9285",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738142599"
+},
+{
+  "_id": {
+    "$oid": "679a4118b5484b43a025b88b"
+  },
+  "user_id": "120",
+  "process_id": "e0e39d66",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738142656"
+},
+{
+  "_id": {
+    "$oid": "679a45a8b5484b43a025b88d"
+  },
+  "user_id": "120",
+  "process_id": "108d9d39",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738143824"
+},
+{
+  "_id": {
+    "$oid": "679a45ebb5484b43a025b88f"
+  },
+  "user_id": "120",
+  "process_id": "cb169ed0",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738143891"
+},
+{
+  "_id": {
+    "$oid": "679a465a8375d392e40878c0"
+  },
+  "user_id": "120",
+  "process_id": "5ab1889c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738144002"
+},
+{
+  "_id": {
+    "$oid": "679a46a28375d392e40878c2"
+  },
+  "user_id": "120",
+  "process_id": "bf7b9d87",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738144074"
+},
+{
+  "_id": {
+    "$oid": "679a479d8375d392e40878c4"
+  },
+  "user_id": "120",
+  "process_id": "27acdaf3",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738144325"
+},
+{
+  "_id": {
+    "$oid": "679a47b28375d392e40878c6"
+  },
+  "user_id": "120",
+  "process_id": "ad7af11b",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738144346"
+},
+{
+  "_id": {
+    "$oid": "679a49b5323c0e1f0956bc97"
+  },
+  "user_id": "120",
+  "process_id": "bed16d08",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738144861"
+},
+{
+  "_id": {
+    "$oid": "679a4a480ead2121fc44bd4a"
+  },
+  "user_id": "120",
+  "process_id": "3aac0b76",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738145008"
+},
+{
+  "_id": {
+    "$oid": "679a4a620ead2121fc44bd4c"
+  },
+  "user_id": "120",
+  "process_id": "9fe5e8ae",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738145034"
+},
+{
+  "_id": {
+    "$oid": "679b079e7a6acb1cfd6c4055"
+  },
+  "user_id": "120",
+  "process_id": "3c384ffe",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738193478"
+},
+{
+  "_id": {
+    "$oid": "679b08363bca56532abc3f4c"
+  },
+  "user_id": "120",
+  "process_id": "1e766d6c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738193630"
+},
+{
+  "_id": {
+    "$oid": "679b08e06ac216aad3dd0525"
+  },
+  "user_id": "120",
+  "process_id": "8ac5da42",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738193800"
+},
+{
+  "_id": {
+    "$oid": "679b09bea2674be0aae89295"
+  },
+  "user_id": "120",
+  "process_id": "f2c26bae",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738194022"
+},
+{
+  "_id": {
+    "$oid": "679b0ab4b0727edf836c8186"
+  },
+  "user_id": "120",
+  "process_id": "8b8fc88a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738194268"
+},
+{
+  "_id": {
+    "$oid": "679b0ac4b0727edf836c8188"
+  },
+  "user_id": "120",
+  "process_id": "11c08d08",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738194284"
+},
+{
+  "_id": {
+    "$oid": "679b0b99b0727edf836c818a"
+  },
+  "user_id": "120",
+  "process_id": "dcbc2a56",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738194497"
+},
+{
+  "_id": {
+    "$oid": "679b0bf3b0727edf836c818c"
+  },
+  "user_id": "120",
+  "process_id": "025b4623",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738194587"
+},
+{
+  "_id": {
+    "$oid": "679b102ebc44767ddb74005d"
+  },
+  "user_id": "120",
+  "process_id": "2f02687a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738195670"
+},
+{
+  "_id": {
+    "$oid": "679b11debc44767ddb74005f"
+  },
+  "user_id": "120",
+  "process_id": "a7eec51e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738196102"
+},
+{
+  "_id": {
+    "$oid": "679b1435bc44767ddb740061"
+  },
+  "user_id": "120",
+  "process_id": "da9fd020",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738196701"
+},
+{
+  "_id": {
+    "$oid": "679b15a7bc44767ddb740063"
+  },
+  "user_id": "120",
+  "process_id": "0c73ab64",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738197071"
+},
+{
+  "_id": {
+    "$oid": "679b17eebc44767ddb740065"
+  },
+  "user_id": "120",
+  "process_id": "3d9b6f9a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738197654"
+},
+{
+  "_id": {
+    "$oid": "679b186abc44767ddb740067"
+  },
+  "user_id": "120",
+  "process_id": "b243e2ce",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738197778"
+},
+{
+  "_id": {
+    "$oid": "679b18eebc44767ddb740069"
+  },
+  "user_id": "120",
+  "process_id": "c010efcf",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738197910"
+},
+{
+  "_id": {
+    "$oid": "679b1997bc44767ddb74006b"
+  },
+  "user_id": "120",
+  "process_id": "6e44cb3a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198079"
+},
+{
+  "_id": {
+    "$oid": "679b19e5bc44767ddb74006d"
+  },
+  "user_id": "120",
+  "process_id": "73a6d96f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198157"
+},
+{
+  "_id": {
+    "$oid": "679b1a68bc44767ddb74006f"
+  },
+  "user_id": "120",
+  "process_id": "3aa7a45e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198288"
+},
+{
+  "_id": {
+    "$oid": "679b1a91bc44767ddb740071"
+  },
+  "user_id": "120",
+  "process_id": "df9b8376",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198329"
+},
+{
+  "_id": {
+    "$oid": "679b1af3bc44767ddb740073"
+  },
+  "user_id": "120",
+  "process_id": "6cb431e5",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198427"
+},
+{
+  "_id": {
+    "$oid": "679b1b21bc44767ddb740075"
+  },
+  "user_id": "120",
+  "process_id": "b8b8f0e1",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198473"
+},
+{
+  "_id": {
+    "$oid": "679b1bc5bc44767ddb740077"
+  },
+  "user_id": "120",
+  "process_id": "08c82735",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198637"
+},
+{
+  "_id": {
+    "$oid": "679b1bedbc44767ddb740079"
+  },
+  "user_id": "120",
+  "process_id": "a743e6a1",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198677"
+},
+{
+  "_id": {
+    "$oid": "679b1d2bbc44767ddb74007b"
+  },
+  "user_id": "120",
+  "process_id": "0f325ebe",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738198995"
+},
+{
+  "_id": {
+    "$oid": "679b1de2aec09bbae3ec3ed4"
+  },
+  "user_id": "120",
+  "process_id": "d3de920a",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738199178"
+},
+{
+  "_id": {
+    "$oid": "679df17906dc8cb6d5299a84"
+  },
+  "user_id": "120",
+  "process_id": "58fdfb68",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738384417"
+},
+{
+  "_id": {
+    "$oid": "679df31a06dc8cb6d5299a87"
+  },
+  "user_id": "120",
+  "process_id": "8534635e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738384834"
+},
+{
+  "_id": {
+    "$oid": "679df3ba06dc8cb6d5299a8a"
+  },
+  "user_id": "120",
+  "process_id": "0971d2e2",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "timestamp": "1738384994"
+}]

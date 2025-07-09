@@ -6,32 +6,4 @@ services:
       # context: ..
       dockerfile: Dockerfile
     ports:
-      - "5000:5000" 
-    # volumes:
-    #   - ..:/workspace:cached
-    depends_on:
-      - mongodb
-    environment:
-      DEMO: "false"
-      IP_ADDRESS: "0.0.0.0"
-      MONGO_IP_ADDRESS: "mongodb"
-      AIServicesIp: "localhost"
-      AIServerPort: "4001"
-    networks:
-      - genx-platform-network
-
-  mongodb:
-    image: mongo:latest
-    volumes:
-      - mongodb-data:/data/db
-    networks:
-      - genx-platform-network
-
-networks:
-  genx-platform-network:
-    name: genx-platform-network
-    # driver: bridge
-    external: true
-
-volumes:
-  mongodb-data:
+      - "5000:5000"

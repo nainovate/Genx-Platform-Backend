@@ -1,0 +1,98 @@
+[{
+  "_id": {
+    "$oid": "67a73051018a65a2f7b62798"
+  },
+  "modelId": "2528",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739010129
+},
+{
+  "_id": {
+    "$oid": "67a730fe018a65a2f7b62799"
+  },
+  "modelId": "6829",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739010302
+},
+{
+  "_id": {
+    "$oid": "67a7313f018a65a2f7b6279a"
+  },
+  "modelId": "5696",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739010367
+},
+{
+  "_id": {
+    "$oid": "67a7317b018a65a2f7b6279b"
+  },
+  "modelId": "8856",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739010427
+},
+{
+  "_id": {
+    "$oid": "67a7323d018a65a2f7b6279c"
+  },
+  "modelId": "5533",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739010621
+},
+{
+  "_id": {
+    "$oid": "67a73327018a65a2f7b6279d"
+  },
+  "modelId": "3998",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739010855
+},
+{
+  "_id": {
+    "$oid": "67a733d2018a65a2f7b6279e"
+  },
+  "modelId": "0848",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739011026
+}]

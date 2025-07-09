@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "67dd40785ccf67fcec36c55a"
+  },
+  "taskName": "BOQ Intelligence",
+  "description": "The BOQ Question-Answering Agent is designed to assist users in retrieving information from a Bill of Quantities (BOQ) Excel file. It helps in answering queries related to project costs, item descriptions, quantities, unit rates, and total pricing by intelligently extracting relevant data from the BOQ document.",
+  "roleIds": [
+    "67d2e6129d9afc3e70a3a777"
+  ],
+  "createdBy": "67ced658a8dcd22f62506fee",
+  "clientApiKey": "U8RH-KNZ5-QDFJ-4TBT",
+  "agentId": "67d2f286b944be317cdb3c35"
+}]

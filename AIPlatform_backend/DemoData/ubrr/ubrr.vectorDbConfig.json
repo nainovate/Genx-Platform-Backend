@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "67b2125022ce5fce3c9b5bfa"
+  },
+  "configuration_name": "Bakers Fun",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "http://172.10.10.26:6333",
+      "api_key": "dnzqodyhxpvbprzaqqeqqjaefwounwpm",
+      "collection_name": "Backers Fun",
+      "metadata": []
+    }
+  },
+  "timestamp": 1739731309,
+  "embedding_model": "67b2165022ce5fce3c9b5bfc",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1740466560
+}]

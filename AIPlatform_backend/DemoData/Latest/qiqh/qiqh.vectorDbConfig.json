@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "67cff199e0cf467b4e71f86a"
+  },
+  "configuration_name": "BOQ",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "https://fed606b4-424c-49b1-853b-911be3e646f0.us-east4-0.gcp.cloud.qdrant.io",
+      "api_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.OYCjKFCRjCZ7K4AEDXlCjaXZYDMPPQ2u1tqE-Fm-Amc",
+      "collection_name": "BOQ",
+      "metadata": []
+    }
+  },
+  "timestamp": 1741874474,
+  "embedding_model": "67d2e43ab944be317cdb3c33",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1741874460
+}]

@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "67d2e12db944be317cdb3c32"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "BOQ",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 700,
+    "chunk_overlap": 200
+  },
+  "timestamp": 1741873453
+}]

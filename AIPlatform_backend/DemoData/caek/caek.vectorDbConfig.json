@@ -1,0 +1,111 @@
+[{
+  "_id": {
+    "$oid": "67c035ab1521310159b1db94"
+  },
+  "configuration_name": "Jobs",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "http://172.10.10.26:6333",
+      "api_key": "dnzqodyhxpvbprzaqqeqqjaefwounwpm",
+      "collection_name": "Jobs",
+      "metadata": [
+        "jobName",
+        "jobId"
+      ]
+    }
+  },
+  "timestamp": 1740733656,
+  "embedding_model": "67acbfd52c45e9ea7719a93f",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1740733620
+},
+{
+  "_id": {
+    "$oid": "67c035d71521310159b1db95"
+  },
+  "configuration_name": "Resumes",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "api_key": "dnzqodyhxpvbprzaqqeqqjaefwounwpm",
+      "url": "http://172.10.10.26:6333",
+      "collection_name": "Resumes",
+      "metadata": [
+        "candidateName",
+        "candidateId"
+      ]
+    }
+  },
+  "timestamp": 1740733774,
+  "embedding_model": "67acbfd52c45e9ea7719a93f",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1740733740
+},
+{
+  "_id": {
+    "$oid": "67c0360c1521310159b1db96"
+  },
+  "configuration_name": "PreScreening_Transcripts",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "http://172.10.10.26:6333",
+      "api_key": "dnzqodyhxpvbprzaqqeqqjaefwounwpm",
+      "collection_name": "PreScreening_Transcripts",
+      "metadata": [
+        "jobId",
+        "candidateId"
+      ]
+    }
+  },
+  "timestamp": 1740733886,
+  "embedding_model": "67acbfd52c45e9ea7719a93f",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1740733860
+},
+{
+  "_id": {
+    "$oid": "67c036ea1521310159b1db98"
+  },
+  "configuration_name": "PreScreening_Jobs",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "api_key": "dnzqodyhxpvbprzaqqeqqjaefwounwpm",
+      "url": "http://172.10.10.26:6333",
+      "collection_name": "PreScreening_Jobs",
+      "metadata": [
+        "fileType",
+        "jobId",
+        "candidateId"
+      ]
+    }
+  },
+  "timestamp": 1740650381,
+  "embedding_model": "67acbfd52c45e9ea7719a93f",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1740650340
+},
+{
+  "_id": {
+    "$oid": "67cacec154fe15aa4e01a368"
+  },
+  "configuration_name": "test",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "https://",
+      "api_key": "hello",
+      "collection_name": "collection1",
+      "metadata": []
+    }
+  },
+  "timestamp": 1741344449,
+  "embedding_model": "63245123456789122'",
+  "framework": "langchainindex"
+}]

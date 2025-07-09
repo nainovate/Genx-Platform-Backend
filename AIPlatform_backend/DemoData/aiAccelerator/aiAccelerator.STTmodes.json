@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "6731e96d7eba4813b7aae9e0"
+  },
+  "mode": "Translate"
+},
+{
+  "_id": {
+    "$oid": "6731e96d7eba4813b7aae9e6"
+  },
+  "mode": "Transcribe"
+}]

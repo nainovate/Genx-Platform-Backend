@@ -1,0 +1,830 @@
+[{
+  "_id": {
+    "$oid": "67b067e3ee4b46ac1fcc43da"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "6a377cbf",
+  "process_name": "LlamaEvaluation",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b06769c24ee2ccf5b9ac9e"
+  },
+  "metric_id": "7f00de05",
+  "timestamp": 1739594379,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b0626f1612ec2e56a536ab",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "ad6c922f-862d-4c11-a925-787b9dcf54bb",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "smVqero5IUj3B_3H0vsM5",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the given question\n        if \"difference\" in question.lower():\n            return f",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "tag": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the given question\n        if \"difference\" in question.lower():\n            return f"
+            }
+          },
+          {
+            "test_id": "ad6c922f-862d-4c11-a925-787b9dcf54bb",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "smVqero5IUj3B_3H0vsM5",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that uses objects with states, behaviors, and identities for modeling real-world entities.\n\n    In OOP, classes define the blueprint for creating objects, while methods determine how those objects behave when certain actions occur. On the other hand, FP focuses on pure mathematical operations without side effects or mutable variables; it emphasizes immutability over",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "tag": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that uses objects with states, behaviors, and identities for modeling real-world entities.\n\n    In OOP, classes define the blueprint for creating objects, while methods determine how those objects behave when certain actions occur. On the other hand, FP focuses on pure mathematical operations without side effects or mutable variables; it emphasizes immutability over"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.1710662841796875,
+          "recall": 0.3326942026615143,
+          "f1": 0.06399330496788025
+        },
+        "MRR": {
+          "score": 0.6666666666666666
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b076dcbe933df4c2097413"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "d08badbd",
+  "process_name": "LlamaEvaluation",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b076c4c24ee2ccf5b9aca2"
+  },
+  "metric_id": "07b675c2",
+  "timestamp": 1739598212,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b0626f1612ec2e56a536ab",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "ade889fe-2183-45c2-bab0-d2b172ac2576",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "k4RBgbO58fYqhkZxMdvLs",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the given question\n        if \"difference\" in question.lower():\n            return f",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "tag": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the given question\n        if \"difference\" in question.lower():\n            return f"
+            }
+          },
+          {
+            "test_id": "ade889fe-2183-45c2-bab0-d2b172ac2576",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "k4RBgbO58fYqhkZxMdvLs",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that uses objects with states, behaviors, and identities for modeling real-world entities.\n\n    In OOP, classes define the blueprint for creating individual instances or objects. Each instance has its own set of attributes and methods, allowing you to represent complex systems as collections of interacting objects. On the other hand, FP focuses on pure functions",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "tag": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that uses objects with states, behaviors, and identities for modeling real-world entities.\n\n    In OOP, classes define the blueprint for creating individual instances or objects. Each instance has its own set of attributes and methods, allowing you to represent complex systems as collections of interacting objects. On the other hand, FP focuses on pure functions"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.18558856844902039,
+          "recall": 0.27894651889801025,
+          "f1": 0.030481413006782532
+        },
+        "MRR": {
+          "score": 0.6666666666666666
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b079761bb057e091bb282f"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "7dec58d5",
+  "process_name": "LlamaEvaluation",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b07964c24ee2ccf5b9aca4"
+  },
+  "metric_id": "5b74b894",
+  "timestamp": 1739598878,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b0626f1612ec2e56a536ab",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "ee34dfe3-0fdc-4eb5-a598-cc06558d9887",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "PpPK7LI-LX48jJFunaFck",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "tag": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "ee34dfe3-0fdc-4eb5-a598-cc06558d9887",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "PpPK7LI-LX48jJFunaFck",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "tag": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.2129436433315277,
+          "recall": 0.2684652805328369,
+          "f1": 0.011687010526657104
+        },
+        "MRR": {
+          "score": 0.6666666666666666
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b09c2bfac14c108765b1ce"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "083d435a",
+  "process_name": "LlamaEvaluation3",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b09b5ec24ee2ccf5b9aca8"
+  },
+  "metric_id": "138a198f",
+  "timestamp": 1739607763,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "dc9a546f-6bc2-44f2-9353-a1122985fbc6",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "Htvamt686bG8W9ND-HgBG",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "tag": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "dc9a546f-6bc2-44f2-9353-a1122985fbc6",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "Htvamt686bG8W9ND-HgBG",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "tag": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.2129436433315277,
+          "recall": 0.2684652805328369,
+          "f1": 0.011687010526657104
+        },
+        "MRR": {
+          "score": 0.6666666666666666
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b1db319376aee0775d63b7"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "0f2539d5",
+  "process_name": "LlamaEvaluation3",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b1bbadf3a87e7e6f88bb15"
+  },
+  "metric_id": "345d620a",
+  "timestamp": 1739689433,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "33eb8e4a-4a40-49ba-bf7f-ef6da8b02eed",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "2F1MXb_C2ghN87OnhwYRu",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "tag": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "33eb8e4a-4a40-49ba-bf7f-ef6da8b02eed",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "2F1MXb_C2ghN87OnhwYRu",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "tag": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          }
+        ],
+        "MRR": {
+          "score": 0.6666666666666666
+        },
+        "BERT_score": {
+          "precision": -0.2129436433315277,
+          "recall": 0.2684652805328369,
+          "f1": 0.011687010526657104
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b1dd429376aee0775d63c8"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "0f2539d5",
+  "process_name": "LlamaEvaluation3",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b1bbadf3a87e7e6f88bb15"
+  },
+  "metric_id": "977a2b9a",
+  "timestamp": 1739689962,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "33eb8e4a-4a40-49ba-bf7f-ef6da8b02eed",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "2F1MXb_C2ghN87OnhwYRu",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "tag": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "33eb8e4a-4a40-49ba-bf7f-ef6da8b02eed",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "2F1MXb_C2ghN87OnhwYRu",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "tag": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.2129436433315277,
+          "recall": 0.2684652805328369,
+          "f1": 0.011687010526657104
+        },
+        "MRR": {
+          "score": 0.6666666666666666
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b1e6629376aee0775d6662"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "51a68975",
+  "process_name": "LlamaEvaluation230",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b1e5b2f3a87e7e6f88bb1c"
+  },
+  "metric_id": "618c0abc",
+  "timestamp": 1739692302,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b1e1f27e8e02a004917f57",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "68c4508b-77bc-4361-8d61-31b9626605a4",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "4JW6UVWNzAFrMXC5dbwt2",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "AkhilAgent": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+              "Agent2": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "68c4508b-77bc-4361-8d61-31b9626605a4",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "4JW6UVWNzAFrMXC5dbwt2",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "AkhilAgent": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+              "Agent2": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.2129436433315277,
+          "recall": 0.2684652805328369,
+          "f1": 0.011687010526657104
+        },
+        "MRR": {
+          "score": 0.6666666666666666
+        },
+        "ROUGE_score": {
+          "ROUGE-1": 0.27980472764645425,
+          "ROUGE-2": 0.07788855260815382,
+          "ROUGE-L": 0.17711545049674546
+        }
+      }
+    },
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "68c4508b-77bc-4361-8d61-31b9626605a4",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "4JW6UVWNzAFrMXC5dbwt2",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "AkhilAgent": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+              "Agent2": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "68c4508b-77bc-4361-8d61-31b9626605a4",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "4JW6UVWNzAFrMXC5dbwt2",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "AkhilAgent": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+              "Agent2": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.2129436433315277,
+          "recall": 0.2684652805328369,
+          "f1": 0.011687010526657104
+        },
+        "MRR": {
+          "score": 0.6666666666666666
+        },
+        "ROUGE_score": {
+          "ROUGE-1": 0.27980472764645425,
+          "ROUGE-2": 0.07788855260815382,
+          "ROUGE-L": 0.17711545049674546
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b2b3a2c2bdf4f2596e9c14"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "26837f87",
+  "process_name": "Evaluation LLama 3.1",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b2b3522d28f0a77f5713d2"
+  },
+  "metric_id": "908dfacb",
+  "timestamp": 1739744842,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b2b2a837483eddd3e4707a",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "78afcb68-36ad-4574-be8e-1d3ce942a07a",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "3i8CxKJ3R4FnN3xqQOtkA",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "Llama 3.1 Evaluation": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "78afcb68-36ad-4574-be8e-1d3ce942a07a",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "3i8CxKJ3R4FnN3xqQOtkA",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "Llama 3.1 Evaluation": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          },
+          {
+            "test_id": "78afcb68-36ad-4574-be8e-1d3ce942a07a",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "3i8CxKJ3R4FnN3xqQOtkA",
+            "query": "What is the SOLID principle in object-oriented programming?",
+            "response": "The SOLID principles are a set of five design guidelines for creating software that can be easily maintained and extended. They were first introduced by Robert C. Martin (also known as Uncle Bob) in his book \"Agile Software Development, Principles, Patterns, and Practices\" published in 2003.\nThe acronym stands for:\n    S - Single Responsibility Principle\n    O - Open/Closed Principle\n    L - Liskov Substitution Principle\n    I - Interface Segregation Principle\n    D",
+            "status_code": 200,
+            "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes.",
+            "responses": {
+              "Llama 3.1 Evaluation": "The SOLID principles are a set of five design guidelines for creating software that can be easily maintained and extended. They were first introduced by Robert C. Martin (also known as Uncle Bob) in his book \"Agile Software Development, Principles, Patterns, and Practices\" published in 2003.\nThe acronym stands for:\n    S - Single Responsibility Principle\n    O - Open/Closed Principle\n    L - Liskov Substitution Principle\n    I - Interface Segregation Principle\n    D"
+            }
+          }
+        ],
+        "BERT_score": {
+          "precision": -0.14636047184467316,
+          "recall": 0.2563152611255646,
+          "f1": 0.043754059821367264
+        },
+        "MRR": {
+          "score": 0.7777777777777778
+        }
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b2daeac2bdf4f2596e9db8"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "67172988",
+  "process_name": "Test1",
+  "config_type": "LLM",
+  "eval_id": {
+    "$oid": "67b2d7b92d28f0a77f5713d4"
+  },
+  "metric_id": "becaf2d5",
+  "timestamp": 1739754898,
+  "ranges": {
+    "MRR": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    },
+    "ROUGE_score": {
+      "ROUGE-1": {
+        "Excellent": "0.45 - 1.0",
+        "Moderate": "0.30 - 0.45",
+        "Poor": "0 - 0.30"
+      },
+      "ROUGE-2": {
+        "Excellent": "0.25 - 1.0",
+        "Moderate": "0.15 - 0.25",
+        "Poor": "0 - 0.15"
+      },
+      "ROUGE-L": {
+        "Excellent": "0.40 - 1.0",
+        "Moderate": "0.25 - 0.40",
+        "Poor": "0 - 0.25"
+      }
+    },
+    "BERT_score": {
+      "Excellent": "0.8 - 1.0",
+      "Moderate": "0.5 - 0.8",
+      "Poor": "0 - 0.5"
+    }
+  },
+  "models": [
+    {
+      "model_id": "67b2b2a837483eddd3e4707a",
+      "metrics_results": {
+        "TruePositive": [
+          {
+            "test_id": "64cbe076-be7e-49ba-adf6-d81e20efceff",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "sYiEsD6NkmiPpEVePSHLB",
+            "query": "What is the difference between software engineering and computer science?",
+            "response": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return",
+            "status_code": 200,
+            "answer": "Software engineering is the application of engineering principles to software development",
+            "responses": {
+              "Llama 3.1 Evaluation": "1. Software Engineering focuses on developing practical solutions to real-world problems, while Computer Science explores theoretical concepts and principles.\n            2. Software Engineers often work with specific programming languages or frameworks, whereas Computer Scientists may study a broader range of technologies.\n\n    You can also use this template as inspiration for your own responses:\n    \n    ```python\n    import random\n    \n    def answer(question):\n        # Generate a response based on the inputted question\n        if \"difference\" in question.lower():\n            return"
+            }
+          },
+          {
+            "test_id": "64cbe076-be7e-49ba-adf6-d81e20efceff",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "sYiEsD6NkmiPpEVePSHLB",
+            "query": "Explain the difference between functional and object-oriented programming.",
+            "response": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it",
+            "status_code": 200,
+            "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism.",
+            "responses": {
+              "Llama 3.1 Evaluation": "Functional Programming is a style of building software where programs are constructed by applying functions to data, rather than modifying state. Object-Oriented Programming (OOP) is a paradigm that organizes code around objects which have both attributes and behaviors.\n\n    In OOP, you create classes with properties and methods, then instantiate them as objects. You can access their members through dot notation or call their methods directly on instances. This allows for more modular design because each class represents one concept within your program; it"
+            }
+          },
+          {
+            "test_id": "64cbe076-be7e-49ba-adf6-d81e20efceff",
+            "user_id": "67a5af08bf407c4c59679c35",
+            "uniqueId": "sYiEsD6NkmiPpEVePSHLB",
+            "query": "What is the SOLID principle in object-oriented programming?",
+            "response": "The SOLID principles are a set of five design guidelines for creating software that can be easily maintained and extended. They were first introduced by Robert C. Martin (also known as Uncle Bob) in his book \"Agile Software Development, Principles, Patterns, and Practices\" published in 2003.\nThe acronym stands for:\n    S - Single Responsibility Principle\n    O - Open/Closed Principle\n    L - Liskov Substitution Principle\n    I - Interface Segregation Principle\n    D",
+            "status_code": 200,
+            "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes.",
+            "responses": {
+              "Llama 3.1 Evaluation": "The SOLID principles are a set of five design guidelines for creating software that can be easily maintained and extended. They were first introduced by Robert C. Martin (also known as Uncle Bob) in his book \"Agile Software Development, Principles, Patterns, and Practices\" published in 2003.\nThe acronym stands for:\n    S - Single Responsibility Principle\n    O - Open/Closed Principle\n    L - Liskov Substitution Principle\n    I - Interface Segregation Principle\n    D"
+            }
+          }
+        ],
+        "ROUGE_score": {
+          "ROUGE-1": 0.3407653408190292,
+          "ROUGE-2": 0.11758226739533488,
+          "ROUGE-L": 0.202654081425691
+        }
+      }
+    }
+  ]
+}]

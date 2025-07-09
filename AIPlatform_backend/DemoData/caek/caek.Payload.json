@@ -1,0 +1,224 @@
+[{
+  "_id": {
+    "$oid": "67a71b6c018a65a2f7b62793"
+  },
+  "orgId": "caek",
+  "payloadName": "Evaluation Payload",
+  "timestamp": 1739004779,
+  "payloadPath": "/evaluationTest",
+  "payloads": [
+    {
+      "payloadName": "Payload1",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    },
+    {
+      "payloadName": "Payload2",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    },
+    {
+      "payloadName": "Payload3",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    },
+    {
+      "payloadName": "Payload4",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    }
+  ],
+  "taskType": "LLM"
+},
+{
+  "_id": {
+    "$oid": "67b47e7b37483eddd3e4707d"
+  },
+  "orgId": "caek",
+  "payloadName": "Evaluation Payload",
+  "timestamp": 1739882107,
+  "payloadPath": "/evaluationTest",
+  "payloads": [
+    {
+      "payloadName": "Payload1",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    },
+    {
+      "payloadName": "Payload2",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    },
+    {
+      "payloadName": "Payload3",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    },
+    {
+      "payloadName": "Payload4",
+      "items": [
+        {
+          "index": 1,
+          "question": "What is the difference between software engineering and computer science?",
+          "answer": "Software engineering is the application of engineering principles to software development"
+        },
+        {
+          "index": 2,
+          "question": "Explain the difference between functional and object-oriented programming.",
+          "answer": "Functional programming is a paradigm where computations are treated as mathematical functions, avoiding changing state and mutable data. It emphasizes immutability and pure functions. Object-oriented programming, on the other hand, organizes data as objects, which encapsulate data and behavior. It focuses on the interaction between objects and emphasizes concepts like inheritance, encapsulation, and polymorphism."
+        },
+        {
+          "index": 3,
+          "question": "What is the SOLID principle in object-oriented programming?",
+          "answer": "SOLID is an acronym representing five design principles: Single Responsibility Principle (S), Open/Closed Principle (O), Liskov Substitution Principle (L), Interface Segregation Principle (I), and Dependency Inversion Principle (D). These principles guide developers to write maintainable, scalable, and robust object-oriented code. For example, the Single Responsibility Principle states that a class should have only one reason to change, promoting high cohesion and low coupling between classes."
+        },
+        {
+          "index": 4,
+          "question": "what is python?",
+          "answer": "python is an programing Language used in the multiple applications such as Artificialinteligence, Datascience and Webpage applications "
+        }
+      ]
+    }
+  ],
+  "taskType": "LLM"
+}]

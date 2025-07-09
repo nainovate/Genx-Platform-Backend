@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39f3"
+  },
+  "modelType": "llama2",
+  "modeType": "Private"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a19"
+  },
+  "modelType": "mistral",
+  "modeType": "Private"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a1b"
+  },
+  "modelType": "vicuna",
+  "modeType": "Private"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a1e"
+  },
+  "modelType": "falcon",
+  "modeType": "Private"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a21"
+  },
+  "modelType": "gpt2",
+  "modeType": "Private"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a24"
+  },
+  "modelType": "Azure",
+  "modeType": "Cloud"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a27"
+  },
+  "modelType": "OpenAI",
+  "modeType": "Cloud"
+}]

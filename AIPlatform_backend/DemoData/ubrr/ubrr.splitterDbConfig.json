@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "67af583e7fc8e908d3fbdddf"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "BakersFun",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 800,
+    "chunk_overlap": 200
+  },
+  "timestamp": 1739544638
+}]

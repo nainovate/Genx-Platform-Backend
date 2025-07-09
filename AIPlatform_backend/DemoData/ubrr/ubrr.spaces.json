@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "67a5cf52bf407c4c59679c62"
+  },
+  "spaceName": "Customer Support",
+  "createdBy": "67a5a63875a616a45984d58b"
+},
+{
+  "_id": {
+    "$oid": "67a5cf5fbf407c4c59679c64"
+  },
+  "spaceName": "Sales Team",
+  "createdBy": "67a5a63875a616a45984d58b"
+}]

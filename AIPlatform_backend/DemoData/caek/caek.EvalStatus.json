@@ -1,0 +1,346 @@
+[{
+  "_id": {
+    "$oid": "67b078d9c24ee2ccf5b9aca3"
+  },
+  "process_id": "7dec58d5",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b0626f1612ec2e56a536ab",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "LlamaEvaluation",
+  "start_time": {
+    "$date": "2025-02-15T16:54:31.950Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "metrics": [
+    {
+      "metric_id": "5b74b894",
+      "models": [
+        {
+          "model_id": "67b0626f1612ec2e56a536ab",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "timestamp": 1739598872
+},
+{
+  "_id": {
+    "$oid": "67b0970cc24ee2ccf5b9aca5"
+  },
+  "process_id": "225eeaa6",
+  "end_time": {
+    "$date": "2025-02-15T19:03:06.449Z"
+  },
+  "models": [
+    {
+      "model_id": "67b0626f1612ec2e56a536ab",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "LlamaEvaluation1",
+  "start_time": {
+    "$date": "2025-02-15T19:00:46.848Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67b09ad2c24ee2ccf5b9aca7"
+  },
+  "process_id": "083d435a",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "LlamaEvaluation3",
+  "start_time": {
+    "$date": "2025-02-15T19:22:25.955Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "metrics": [
+    {
+      "metric_id": "138a198f",
+      "models": [
+        {
+          "model_id": "67b0983f1c3f9ef8a8971659",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "timestamp": 1739607746
+},
+{
+  "_id": {
+    "$oid": "67b1bb27f3a87e7e6f88bb14"
+  },
+  "process_id": "0f2539d5",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "LlamaEvaluation3",
+  "start_time": {
+    "$date": "2025-02-16T18:12:34.296Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "metrics": [
+    {
+      "metric_id": "345d620a",
+      "models": [
+        {
+          "model_id": "67b0983f1c3f9ef8a8971659",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "977a2b9a",
+      "models": [
+        {
+          "model_id": "67b0983f1c3f9ef8a8971659",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "timestamp": 1739689954
+},
+{
+  "_id": {
+    "$oid": "67b1e08ff3a87e7e6f88bb16"
+  },
+  "process_id": "0686972a",
+  "end_time": {
+    "$date": "2025-02-16T18:29:04.521Z"
+  },
+  "models": [
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "LlamaEvaluation23",
+  "start_time": {
+    "$date": "2025-02-16T18:26:48.626Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67b1e171f3a87e7e6f88bb18"
+  },
+  "process_id": "a7d233f4",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b1e1567e8e02a004917f55",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "process_name": "LlamaEvaluation150",
+  "start_time": {
+    "$date": "2025-02-16T18:30:35.162Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67b1e211f3a87e7e6f88bb19"
+  },
+  "process_id": "5c40de1f",
+  "end_time": {
+    "$date": "2025-02-16T18:35:30.442Z"
+  },
+  "models": [
+    {
+      "model_id": "67b1e1f27e8e02a004917f57",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "LlamaEvaluation250",
+  "start_time": {
+    "$date": "2025-02-16T18:33:14.991Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67b1e528f3a87e7e6f88bb1b"
+  },
+  "process_id": "51a68975",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b1e1f27e8e02a004917f57",
+      "model_name": "AkhilAgent",
+      "status": "Completed"
+    },
+    {
+      "model_id": "67b0983f1c3f9ef8a8971659",
+      "model_name": "Agent2",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "LlamaEvaluation230",
+  "start_time": {
+    "$date": "2025-02-16T18:51:32.100Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "metrics": [
+    {
+      "metric_id": "618c0abc",
+      "models": [
+        {
+          "model_id": "67b1e1f27e8e02a004917f57",
+          "status": "Metrics Calculation Completed"
+        },
+        {
+          "model_id": "67b0983f1c3f9ef8a8971659",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "timestamp": 1739692292
+},
+{
+  "_id": {
+    "$oid": "67b2b2cb2d28f0a77f5713d1"
+  },
+  "process_id": "26837f87",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b2b2a837483eddd3e4707a",
+      "model_name": "Llama 3.1 Evaluation",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "Evaluation LLama 3.1",
+  "start_time": {
+    "$date": "2025-02-17T09:27:01.003Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "metrics": [
+    {
+      "metric_id": "908dfacb",
+      "models": [
+        {
+          "model_id": "67b2b2a837483eddd3e4707a",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "timestamp": 1739744821
+},
+{
+  "_id": {
+    "$oid": "67b2d7302d28f0a77f5713d3"
+  },
+  "process_id": "67172988",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b2b2a837483eddd3e4707a",
+      "model_name": "Llama 3.1 Evaluation",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "Test1",
+  "start_time": {
+    "$date": "2025-02-17T12:14:58.687Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "metrics": [
+    {
+      "metric_id": "7ce99ac2",
+      "models": [
+        {
+          "model_id": "67b2b2a837483eddd3e4707a",
+          "status": "Metrics Calculation Failed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Failed"
+    },
+    {
+      "metric_id": "becaf2d5",
+      "models": [
+        {
+          "model_id": "67b2b2a837483eddd3e4707a",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "timestamp": 1739754898
+},
+{
+  "_id": {
+    "$oid": "67b2daa32d28f0a77f5713d5"
+  },
+  "process_id": "9a241bab",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67b2b2a837483eddd3e4707a",
+      "model_name": "Llama 3.1 Evaluation",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "process_name": "Test2",
+  "start_time": {
+    "$date": "2025-02-17T12:18:31.595Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "metrics": [
+    {
+      "metric_id": "92e4b0ac",
+      "models": [
+        {
+          "model_id": "67b2b2a837483eddd3e4707a",
+          "status": "Metrics Calculation Failed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Failed"
+    }
+  ],
+  "timestamp": 1739755111
+}]

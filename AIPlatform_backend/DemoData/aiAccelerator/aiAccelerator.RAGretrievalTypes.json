@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "6731e96d7eba4813b7aae9e2"
+  },
+  "retrievalType": "generalRetrieval",
+  "retrievalTechnique": [
+    "similarity_search",
+    "max_marginal_relevance_search"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6731e96e7eba4813b7aae9f9"
+  },
+  "retrievalType": "QAretrieval",
+  "chainTypes": [
+    "map_reduce",
+    "refine",
+    "map_rerank",
+    "stuff"
+  ]
+}]

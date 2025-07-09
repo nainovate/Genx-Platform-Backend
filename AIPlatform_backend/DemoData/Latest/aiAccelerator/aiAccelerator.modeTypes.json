@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39f1"
+  },
+  "type": "llm",
+  "modeType": "Private"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a18"
+  },
+  "type": "llm",
+  "modeType": "Cloud"
+}]

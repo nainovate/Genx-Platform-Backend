@@ -1,0 +1,260 @@
+[{
+  "_id": {
+    "$oid": "67bd98b74bf5b6229489bd07"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "ffc177f4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740478647
+},
+{
+  "_id": {
+    "$oid": "67bd9f1edb0873abc88174ef"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "5bed2839",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740480286
+},
+{
+  "_id": {
+    "$oid": "67bda19a473cc27ab5deed94"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "7ba3b325",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740480922
+},
+{
+  "_id": {
+    "$oid": "67bebe8ad4e725d52aa7290f"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "68706188",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740553866
+},
+{
+  "_id": {
+    "$oid": "67beea0c68d8d1aaf89d785e"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "88a5eff4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740565004
+},
+{
+  "_id": {
+    "$oid": "67beec3e073782d111ae38c0"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "7ae17ba4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740565566
+},
+{
+  "_id": {
+    "$oid": "67beed7c073782d111ae38c5"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "5d33e834",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740565884
+},
+{
+  "_id": {
+    "$oid": "67beef23ba0151a35e3a3fbe"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "4807cc55",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740566307
+},
+{
+  "_id": {
+    "$oid": "67bef1e9fa58f575a36c9cfb"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "a5701f7c",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740567017
+},
+{
+  "_id": {
+    "$oid": "67bef44c678f9f3910965a9c"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "19868f5f",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740567628
+},
+{
+  "_id": {
+    "$oid": "67bef624678f9f3910965aa2"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "5c119e0d",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740568100
+},
+{
+  "_id": {
+    "$oid": "67beffc8c1d3f85765993b2d"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "e597f233",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740570568
+},
+{
+  "_id": {
+    "$oid": "67bf01212e270ffc17775374"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "ffd25d21",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740570913
+},
+{
+  "_id": {
+    "$oid": "67bf044a74822b26775e2d16"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "1028ffb9",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740571722
+},
+{
+  "_id": {
+    "$oid": "67c007eea808596de61d3df3"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "d1170054",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740638190
+},
+{
+  "_id": {
+    "$oid": "67c00f19ef0ffe42daa5284f"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "6eef1090",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740640025
+},
+{
+  "_id": {
+    "$oid": "67c016d7ee5cd471e35af9b2"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "5fbcb7c7",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740642007
+},
+{
+  "_id": {
+    "$oid": "67c030ae787c6c2e0481ff75"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "e66a9129",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740648622
+},
+{
+  "_id": {
+    "$oid": "67c04df40dba798f6f9becbf"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "5dd24d92",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1740656116
+},
+{
+  "_id": {
+    "$oid": "67c6a04201c7f7e0c9e8e6f5"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "4a3f6c13",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1741070402
+},
+{
+  "_id": {
+    "$oid": "67c6a0ec3078bd212c14679c"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "efe63a86",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1741070572
+},
+{
+  "_id": {
+    "$oid": "67c6a17c440b626c5e8c184d"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "9c6fa5e0",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1741070716
+},
+{
+  "_id": {
+    "$oid": "67c6a1dcb367677a986ef181"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "555d959e",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1741070812
+},
+{
+  "_id": {
+    "$oid": "67c6a59fcc702e95c88459b6"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "c6528051",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1741071775
+},
+{
+  "_id": {
+    "$oid": "67c6b57c1499a308065553e8"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "b8d29741",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1741075836
+},
+{
+  "_id": {
+    "$oid": "67c6d0ae0528dcd50c861b71"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "3277c4bc",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "timestamp": 1741082798
+}]

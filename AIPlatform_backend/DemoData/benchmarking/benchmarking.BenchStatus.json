@@ -1,0 +1,426 @@
+[{
+  "_id": {
+    "$oid": "67359061a6889ee353e19c38"
+  },
+  "process_id": "b5832707",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "In Progress"
+    }
+  ],
+  "overall_status": "In Progress",
+  "start_time": {
+    "$date": "2024-11-14T11:23:48.502Z"
+  },
+  "user_id": "121"
+},
+{
+  "_id": {
+    "$oid": "6735917aa6889ee353e19c39"
+  },
+  "process_id": "1533eb0b",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-11-14T11:28:29.270Z"
+  },
+  "user_id": "12"
+},
+{
+  "_id": {
+    "$oid": "6735981aa6889ee353e19c3b"
+  },
+  "process_id": "6f9d9bab",
+  "end_time": {
+    "$date": "2024-11-14T12:06:30.953Z"
+  },
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-11-14T11:56:45.463Z"
+  },
+  "user_id": "12"
+},
+{
+  "_id": {
+    "$oid": "6735a249a6889ee353e19c3d"
+  },
+  "process_id": "17d148d1",
+  "end_time": {
+    "$date": "2024-11-14T12:42:31.108Z"
+  },
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-11-14T12:40:12.832Z"
+  },
+  "user_id": "12"
+},
+{
+  "_id": {
+    "$oid": "6735a97aa6889ee353e19c3f"
+  },
+  "process_id": "1f93ed1e",
+  "end_time": {
+    "$date": "2024-11-14T13:16:30.302Z"
+  },
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-11-14T13:10:54.034Z"
+  },
+  "user_id": "12"
+},
+{
+  "_id": {
+    "$oid": "6735b8b5a6889ee353e19c41"
+  },
+  "process_id": "3c15cd59",
+  "end_time": {
+    "$date": "2024-11-14T14:17:44.388Z"
+  },
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-11-14T14:15:53.112Z"
+  },
+  "user_id": "12"
+},
+{
+  "_id": {
+    "$oid": "673dc7324589be78030f9fb3"
+  },
+  "process_id": "1ab11a8a",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "In Progress"
+    }
+  ],
+  "overall_status": "In Progress",
+  "start_time": {
+    "$date": "2024-11-20T16:55:56.014Z"
+  },
+  "user_id": "12"
+},
+{
+  "_id": {
+    "$oid": "673dcd1e4589be78030f9fb4"
+  },
+  "process_id": "993ae14b",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-11-20T17:21:12.591Z"
+  },
+  "user_id": "101"
+},
+{
+  "_id": {
+    "$oid": "673dcf064589be78030f9fb6"
+  },
+  "process_id": "d92cb55d",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "In Progress"
+    }
+  ],
+  "overall_status": "In Progress",
+  "start_time": {
+    "$date": "2024-11-20T17:29:20.750Z"
+  },
+  "user_id": "101"
+},
+{
+  "_id": {
+    "$oid": "67738894efb3aab018e542aa"
+  },
+  "process_id": "d63369e0",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9134",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T11:30:57.709Z"
+  },
+  "user_id": "531"
+},
+{
+  "_id": {
+    "$oid": "677388fdefb3aab018e542ac"
+  },
+  "process_id": "03eb8232",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T11:32:42.250Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "67738ef8efb3aab018e542ae"
+  },
+  "process_id": "4ca0ad8b",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T11:58:14.105Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "67739027efb3aab018e542b0"
+  },
+  "process_id": "316429bf",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:03:17.109Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "67739065efb3aab018e542b2"
+  },
+  "process_id": "d93d1b91",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:04:18.555Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "67739090efb3aab018e542b4"
+  },
+  "process_id": "60257d81",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:04:56.761Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "6773908eefb3aab018e542b6"
+  },
+  "process_id": "4a50e0fa",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:05:00.000Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "6773943cefb3aab018e542b8"
+  },
+  "process_id": "46a51aab",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:20:41.414Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "6773943fefb3aab018e542ba"
+  },
+  "process_id": "58a9c016",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:20:44.867Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "6773943fefb3aab018e542bb"
+  },
+  "process_id": "06d42d45",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:20:44.867Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "6773943fefb3aab018e542bc"
+  },
+  "process_id": "1123441e",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:20:44.868Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "6773944befb3aab018e542c0"
+  },
+  "process_id": "9394507a",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:20:56.933Z"
+  },
+  "user_id": "500"
+},
+{
+  "_id": {
+    "$oid": "67739730efb3aab018e542c2"
+  },
+  "process_id": "6d72a885",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "9371",
+      "model_name": "new",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2024-12-31T12:33:18.202Z"
+  },
+  "user_id": "500"
+}]

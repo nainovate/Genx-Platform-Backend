@@ -1,0 +1,87 @@
+[{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee106"
+  },
+  "serviceName": "STT",
+  "agentId": "A1",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee107"
+  },
+  "serviceName": "RAG",
+  "agentId": "A1",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee108"
+  },
+  "serviceName": "LLM",
+  "agentId": "A1",
+  "ChatResetDeployId": "5268",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "LLMDeployId": "5268"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee109"
+  },
+  "serviceName": "STT",
+  "agentId": "A2",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee10a"
+  },
+  "serviceName": "RAG",
+  "agentId": "A2",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee10b"
+  },
+  "serviceName": "LLM",
+  "agentId": "A2",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "LLMDeployId": "1868",
+  "ChatResetDeployId": "1868"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee10c"
+  },
+  "agentId": "A3",
+  "serviceName": "STT",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "FFMPEG_FLAG": "0",
+  "SttDeployId": "6643"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee10d"
+  },
+  "agentId": "A3",
+  "serviceName": "RAG",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "RagFlag": "0"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee10e"
+  },
+  "agentId": "A3",
+  "serviceName": "LLM",
+  "ChatResetDeployId": "5268",
+  "ClientAPIKey": "R3AM-52JL-INUS-E5YL",
+  "LLMDeployId": "5268"
+}]

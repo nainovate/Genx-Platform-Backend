@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "67cc5500efe6a127841747b2"
+  },
+  "tagName": "Candidate Evaluation",
+  "llm_model_config_id": {
+    "id": "67cc52bfefe6a127841747af",
+    "name": "GPT-4"
+  },
+  "prompt_config_id": {
+    "id": "67cc510bffe920a13cbc8457",
+    "name": "PreScreening-Jobs"
+  },
+  "service": "RAG",
+  "timestamp": 1741444352,
+  "embedding_model_id": "67cc5283efe6a127841747ae",
+  "framework": "llamaindex",
+  "vector_db_config_id": [
+    "67cc51e0efe6a127841747ac",
+    "67cc5240efe6a127841747ad"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67d90019036f39db55110b7f"
+  },
+  "tagName": "Candidate Evaluation V2",
+  "llm_model_config_id": {
+    "id": "67cc52bfefe6a127841747af",
+    "name": "GPT-4"
+  },
+  "prompt_config_id": {
+    "id": "67d8fff1036f39db55110b7d",
+    "name": "PreScreening-Jobs"
+  },
+  "service": "RAG",
+  "timestamp": 1741444352,
+  "embedding_model_id": "67cc5283efe6a127841747ae",
+  "framework": "llamaindex",
+  "vector_db_config_id": [
+    "67cc51e0efe6a127841747ac",
+    "67cc5240efe6a127841747ad"
+  ]
+}]

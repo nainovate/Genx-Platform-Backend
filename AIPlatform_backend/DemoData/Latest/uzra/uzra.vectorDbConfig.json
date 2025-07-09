@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "67cc51e0efe6a127841747ac"
+  },
+  "configuration_name": "Jobs",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "http://172.10.10.26:6333",
+      "api_key": "dnzqodyhxpvbprzaqqeqqjaefwounwpm",
+      "collection_name": "Jobs",
+      "metadata": [
+        "jobName",
+        "jobId"
+      ]
+    }
+  },
+  "timestamp": 1741444252,
+  "embedding_model": "67cc5283efe6a127841747ae",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1741444200
+},
+{
+  "_id": {
+    "$oid": "67cc5240efe6a127841747ad"
+  },
+  "configuration_name": "PreScreening_Transcripts",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "http://172.10.10.26:6333",
+      "api_key": "dnzqodyhxpvbprzaqqeqqjaefwounwpm",
+      "collection_name": "PreScreening_Transcripts",
+      "metadata": [
+        "jobId",
+        "candidateId"
+      ]
+    }
+  },
+  "timestamp": 1742467413,
+  "embedding_model": "67cc5283efe6a127841747ae",
+  "framework": "llamaindex",
+  "dataIngested": true,
+  "dataIngestedTimestamp": 1742467380
+}]

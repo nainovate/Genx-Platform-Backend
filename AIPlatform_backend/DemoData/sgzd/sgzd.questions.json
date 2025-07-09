@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee10f"
+  },
+  "question": "What command can be used to display the current directory in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee110"
+  },
+  "question": "How can you list all files, including hidden ones, in a directory using the ls command?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee111"
+  },
+  "question": "What command is used to create a new directory in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee112"
+  },
+  "question": "How can you display the contents of a file in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee113"
+  },
+  "question": "What is the command to find files and directories based on their names in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee114"
+  },
+  "question": "How can you display the manual page for a specific command in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee115"
+  },
+  "question": "What command can be used to delete a file in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee116"
+  },
+  "question": "How do you change the permissions of a file in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee117"
+  },
+  "question": "What command can be used to search for a specific string within files in Linux?",
+  "selectedFlag": null
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee118"
+  },
+  "question": "How can you terminate a running process in Linux?",
+  "selectedFlag": null
+}]

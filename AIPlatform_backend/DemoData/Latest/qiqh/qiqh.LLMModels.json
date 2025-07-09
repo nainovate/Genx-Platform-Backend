@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "67d2ef42b944be317cdb3c34"
+  },
+  "modelId": "7516",
+  "mode": "Cloud",
+  "serverType": "LLM",
+  "modelType": "OpenAI",
+  "modelName": "GPT-4",
+  "engine": "gpt-4",
+  "cloudAPIKey": "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",
+  "accessToken": "",
+  "timestamp": 1741877058
+}]

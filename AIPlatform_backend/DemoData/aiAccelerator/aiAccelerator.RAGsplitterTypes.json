@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "6731e96d7eba4813b7aae9e3"
+  },
+  "splitterType": "RecursiveCharacterTextSplitter"
+},
+{
+  "_id": {
+    "$oid": "6731e96e7eba4813b7aae9fa"
+  },
+  "splitterType": "MarkdownHeaderTextSplitter"
+},
+{
+  "_id": {
+    "$oid": "6731e96e7eba4813b7aae9fb"
+  },
+  "splitterType": "CharacterTextSplitter"
+},
+{
+  "_id": {
+    "$oid": "6731e96e7eba4813b7aae9fc"
+  },
+  "splitterType": "TokenTextSplitter"
+}]

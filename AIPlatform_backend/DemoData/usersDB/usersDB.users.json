@@ -1,0 +1,161 @@
+[{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5314"
+  },
+  "userId": "TR2W",
+  "username": "superadmin",
+  "email": "superadmin@gmail.com",
+  "firstName": "super",
+  "lastName": "admin",
+  "contactNumber": 1234567890,
+  "password": "pbkdf2:sha256:600000$RVFczZrUECM6ovyd$ce084c01e144bc48a88b3c8482babf80d76eb4e808b00726b4bb716ac1dea2fb",
+  "role": {
+    "superadmin": []
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5315"
+  },
+  "userId": "27J4",
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "firstName": "Admin",
+  "lastName": "Admin",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$SRCMdnLkB476vdYv$7ddca69646a510bf513e23b307599383d2341011bdc210cbc0116c68a63976e0",
+  "role": {
+    "admin": [
+      "iknf"
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5316"
+  },
+  "userId": "F4KX",
+  "username": "user1",
+  "email": "user1@gmail.com",
+  "firstName": "user",
+  "lastName": "1",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$n8Yl191AehpCuwuY$ebf6ea8c9f07e68c240d41579e9a1b0de6ba8acd962c638d2df7a189b01bea3d",
+  "role": {
+    "user": {
+      "sgzd": "R1"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5317"
+  },
+  "userId": "4UXI",
+  "username": "user2",
+  "email": "user2@gmail.com",
+  "firstName": "user",
+  "lastName": "2",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$NbDVVOoSOR4ZoxR7$e63c3bbc4528be30f6451a1984a6aae507965e9f52139d6906e98fe01fd9231d",
+  "role": {
+    "user": {
+      "sgzd": "R2"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5318"
+  },
+  "userId": "0UXI",
+  "username": "demo",
+  "email": "demo@gmail.com",
+  "firstName": "demo",
+  "lastName": "demo",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$NbDVVOoSOR4ZoxR7$e63c3bbc4528be30f6451a1984a6aae507965e9f52139d6906e98fe01fd9231d",
+  "org": "demo",
+  "position": "demo",
+  "role": {
+    "user": {
+      "xyac": "R1"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5319"
+  },
+  "userId": "1UXI",
+  "username": "clientmanager",
+  "email": "clientmanager@gmail.com",
+  "firstName": "brillius",
+  "lastName": "brillius",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$NbDVVOoSOR4ZoxR7$e63c3bbc4528be30f6451a1984a6aae507965e9f52139d6906e98fe01fd9231d",
+  "org": "Brillius",
+  "position": "Client Manager",
+  "role": {
+    "user": {
+      "xyac": "R1"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a531a"
+  },
+  "userId": "2UXI",
+  "username": "recruiter",
+  "email": "recruiter@gmail.com",
+  "firstName": "brillius",
+  "lastName": "brillius",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$NbDVVOoSOR4ZoxR7$e63c3bbc4528be30f6451a1984a6aae507965e9f52139d6906e98fe01fd9231d",
+  "org": "Brillius",
+  "position": "Recruiter",
+  "role": {
+    "user": {
+      "xyac": "R1"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a531b"
+  },
+  "userId": "3UXI",
+  "username": "salesmanager",
+  "email": "salesmanager@gmail.com",
+  "firstName": "Bakers Fun",
+  "lastName": "Bakers Fun",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$NbDVVOoSOR4ZoxR7$e63c3bbc4528be30f6451a1984a6aae507965e9f52139d6906e98fe01fd9231d",
+  "org": "Bakers Fun",
+  "position": "Sales Manager",
+  "role": {
+    "user": {
+      "xyac": "R1"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a531c"
+  },
+  "userId": "5UXI",
+  "username": "support",
+  "email": "support@gmail.com",
+  "firstName": "Bakers Fun",
+  "lastName": "Bakers Fun",
+  "contactNumber": "1234567890",
+  "password": "pbkdf2:sha256:600000$NbDVVOoSOR4ZoxR7$e63c3bbc4528be30f6451a1984a6aae507965e9f52139d6906e98fe01fd9231d",
+  "org": "Bakers Fun",
+  "position": "Customer Support",
+  "role": {
+    "user": {
+      "xyac": "R1"
+    }
+  }
+}]

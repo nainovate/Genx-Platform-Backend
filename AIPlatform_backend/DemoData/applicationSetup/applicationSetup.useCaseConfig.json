@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee104"
+  },
+  "useCaseId": "GT1",
+  "useCaseName": "SkillPractice",
+  "agents": {
+    "A1": "Assessment",
+    "A2": "Feedback",
+    "A3": "PracticeScore"
+  },
+  "useCaseConfig": {
+    "Audio": [
+      "Assessment",
+      "Practice"
+    ],
+    "Video": [
+      "Assessment",
+      "Practice"
+    ]
+  },
+  "useCaseRoles": {
+    "R1": "Trainer",
+    "R2": "Trainee"
+  }
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee105"
+  },
+  "useCaseId": "CB1",
+  "useCaseName": "ChatBot",
+  "agents": {
+    "A1": {
+      "Name": "Recruitment - Resumes",
+      "org": "Brillius",
+      "Description": "",
+      "position": [
+        "Recruiter",
+        "Client Manager"
+      ]
+    },
+    "A2": {
+      "org": "Brillius",
+      "Name": "Recruitment - Pre Processing",
+      "Description": "",
+      "position": [
+        "Sales Manager"
+      ]
+    },
+    "A3": {
+      "org": "Bakers Fun",
+      "Name": "Bakers Fun - Sales Insight",
+      "Description": "",
+      "position": [
+        "Customer Support"
+      ]
+    },
+    "A4": {
+      "org": "Bakers Fun",
+      "Name": "Bakers Fun - Customer Support",
+      "Description": "",
+      "position": [
+        "Client Manager"
+      ]
+    },
+    "A5": {
+      "org": "Realestate",
+      "Name": "Realestate - BOQ",
+      "Description": "",
+      "position": [
+        "Recruiter",
+        "Client Manager"
+      ]
+    }
+  },
+  "useCaseRoles": {
+    "R1": "User"
+  }
+}]

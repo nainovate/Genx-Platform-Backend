@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39fd"
+  },
+  "modelName": "hkunlp/instructor-large"
+},
+{
+  "_id": {
+    "$oid": "66877f18969732e054fc3a3f"
+  },
+  "modelName": "hkunlp/instructor-xl"
+},
+{
+  "_id": {
+    "$oid": "66877f18969732e054fc3a40"
+  },
+  "modelName": "intfloat/e5-large-v2"
+},
+{
+  "_id": {
+    "$oid": "66877f18969732e054fc3a41"
+  },
+  "modelName": "intfloat/e5-base-v2"
+},
+{
+  "_id": {
+    "$oid": "66877f18969732e054fc3a42"
+  },
+  "modelName": "all-MiniLM-L6-v2"
+},
+{
+  "_id": {
+    "$oid": "66877f18969732e054fc3a43"
+  },
+  "modelName": "intfloat/multilingual-e5-large"
+},
+{
+  "_id": {
+    "$oid": "66877f18969732e054fc3a44"
+  },
+  "modelName": "intfloat/multilingual-e5-base"
+}]

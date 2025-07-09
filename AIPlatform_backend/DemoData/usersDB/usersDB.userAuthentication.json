@@ -1,0 +1,135 @@
+[{
+  "_id": {
+    "$oid": "678fb7b32353be50660a530b"
+  },
+  "userId": "TR2W",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a530c"
+  },
+  "userId": "27J4",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a530d"
+  },
+  "userId": "F4KX",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a530e"
+  },
+  "userId": "4UXI",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a530f"
+  },
+  "userId": "0UXI",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5310"
+  },
+  "userId": "1UXI",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5311"
+  },
+  "userId": "2UXI",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5312"
+  },
+  "userId": "3UXI",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+},
+{
+  "_id": {
+    "$oid": "678fb7b32353be50660a5313"
+  },
+  "userId": "5UXI",
+  "contactNumberVerification": false,
+  "oneTimePassword": null,
+  "otpAttemptsCount": 0,
+  "otpAttemptLocked": false,
+  "otpCoolDown": null,
+  "otpSendCount": 0,
+  "otpSendLastTimestamp": null,
+  "otpSendLock": false,
+  "otpSendLockedUntil": null
+}]

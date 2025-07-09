@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "67a73779018a65a2f7b627a3"
+  },
+  "modelId": "8018",
+  "mode": "Private",
+  "serverType": "STT",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-13b-Chat-GGUF",
+  "engine": "llama-2-13b-chat.Q4_K_M.gguf",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739011961
+},
+{
+  "_id": {
+    "$oid": "67b196137e8e02a004917f53"
+  },
+  "modelId": "1990",
+  "mode": "Private",
+  "serverType": "STT",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-7B-Chat-GGML",
+  "engine": "llama-2-7b-chat.ggmlv3.q4_0.bin",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739691539
+}]

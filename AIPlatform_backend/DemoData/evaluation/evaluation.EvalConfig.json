@@ -1,0 +1,1712 @@
+[{
+  "_id": {
+    "$oid": "67724dcc59f70a97f5ab0fff"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "b346d506",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524468
+},
+{
+  "_id": {
+    "$oid": "67724de659f70a97f5ab1001"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "8a64dd05",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524494
+},
+{
+  "_id": {
+    "$oid": "67724e2259f70a97f5ab1009"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "7d7631bc",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524554
+},
+{
+  "_id": {
+    "$oid": "67724e2b59f70a97f5ab1028"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "910e27a5",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524563
+},
+{
+  "_id": {
+    "$oid": "67724e3159f70a97f5ab1038"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "9f447b8f",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524569
+},
+{
+  "_id": {
+    "$oid": "67724e3e59f70a97f5ab105e"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "498663aa",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524582
+},
+{
+  "_id": {
+    "$oid": "67724e4c59f70a97f5ab108d"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "c1e67ea2",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524596
+},
+{
+  "_id": {
+    "$oid": "67724e5959f70a97f5ab10be"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "7e83bbdb",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524609
+},
+{
+  "_id": {
+    "$oid": "67724e5959f70a97f5ab10bf"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "a07ac94a",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524609
+},
+{
+  "_id": {
+    "$oid": "67724e6759f70a97f5ab10e7"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "035cec11",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524623
+},
+{
+  "_id": {
+    "$oid": "67724f5c59f70a97f5ab1127"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "a835717f",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735524868
+},
+{
+  "_id": {
+    "$oid": "677250c259f70a97f5ab112f"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "338fa0de",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735525226
+},
+{
+  "_id": {
+    "$oid": "677254e659f70a97f5ab115b"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "254a0666",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735526286
+},
+{
+  "_id": {
+    "$oid": "67725f5359f70a97f5ab1163"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "70b68c78",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735528955
+},
+{
+  "_id": {
+    "$oid": "6772602959f70a97f5ab116b"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "b1b62f96",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735529169
+},
+{
+  "_id": {
+    "$oid": "6772614b59f70a97f5ab1173"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "38862f7e",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735529459
+},
+{
+  "_id": {
+    "$oid": "67727da859f70a97f5ab1271"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "5a326a84",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735536720
+},
+{
+  "_id": {
+    "$oid": "67727e9f59f70a97f5ab1278"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "f5a69468",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735536967
+},
+{
+  "_id": {
+    "$oid": "67727faa59f70a97f5ab1295"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "0c53b44e",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735537234
+},
+{
+  "_id": {
+    "$oid": "67727fdb59f70a97f5ab129c"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "0d386a2a",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735537283
+},
+{
+  "_id": {
+    "$oid": "677280a959f70a97f5ab12a4"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "607d4659",
+  "process_name": "evaluation",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1735537489
+},
+{
+  "_id": {
+    "$oid": "677fa1fbd15eefb2fb42c851"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "05815fe9",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1736397987
+},
+{
+  "_id": {
+    "$oid": "678df0aabd6aa5d432561cbd"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "b73193ca",
+  "process_name": "new",
+  "model_id": [
+    "1868"
+  ],
+  "model_name": [
+    "feedback"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1737335634
+},
+{
+  "_id": {
+    "$oid": "678df1debd6aa5d432561cce"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "3002a7e3",
+  "process_name": "new",
+  "model_id": [
+    "1868"
+  ],
+  "model_name": [
+    "feedback"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1737335942
+},
+{
+  "_id": {
+    "$oid": "678df3ecbd6aa5d432561cde"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "a104f29f",
+  "process_name": "new",
+  "model_id": [
+    "1868"
+  ],
+  "model_name": [
+    "feedback"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1737336468
+},
+{
+  "_id": {
+    "$oid": "678df456bd6aa5d432561ce7"
+  },
+  "user_id": "531",
+  "process_id": "274ede29",
+  "process_name": "new",
+  "model_id": [
+    "1868"
+  ],
+  "model_name": [
+    "feedback"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/llm_Payload.yml",
+  "timestamp": 1737336574
+},
+{
+  "_id": {
+    "$oid": "6798cb76867f1251963f5899"
+  },
+  "user_id": "531",
+  "process_id": "c7f75408",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738047006
+},
+{
+  "_id": {
+    "$oid": "679c4d3e67e4a9c4435d00b0"
+  },
+  "user_id": "531",
+  "process_id": "6ce89f0a",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738276838
+},
+{
+  "_id": {
+    "$oid": "679c7e20fcf0c1bd0ad8e72c"
+  },
+  "user_id": "531",
+  "process_id": "b4a6a104",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738289352
+},
+{
+  "_id": {
+    "$oid": "679c7ff6fcf0c1bd0ad8e72e"
+  },
+  "user_id": "531",
+  "process_id": "200f964d",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738289822
+},
+{
+  "_id": {
+    "$oid": "679c8244fcf0c1bd0ad8e73a"
+  },
+  "user_id": "531",
+  "process_id": "ab5b528b",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738290412
+},
+{
+  "_id": {
+    "$oid": "679c8272fcf0c1bd0ad8e73e"
+  },
+  "user_id": "530",
+  "process_id": "ec14ce70",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738290458
+},
+{
+  "_id": {
+    "$oid": "679c83f9fcf0c1bd0ad8e740"
+  },
+  "user_id": "530",
+  "process_id": "d4e8ddd4",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738290849
+},
+{
+  "_id": {
+    "$oid": "679c8408fcf0c1bd0ad8e742"
+  },
+  "user_id": "530",
+  "process_id": "c2729a21",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738290864
+},
+{
+  "_id": {
+    "$oid": "679c9a86fcf0c1bd0ad8e762"
+  },
+  "user_id": "530",
+  "process_id": "16bca1e7",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738296622
+},
+{
+  "_id": {
+    "$oid": "679c9aa4fcf0c1bd0ad8e764"
+  },
+  "user_id": "530",
+  "process_id": "012a4b64",
+  "process_name": "APi",
+  "model_id": [
+    "9134"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738296652
+},
+{
+  "_id": {
+    "$oid": "679ca0d2fcf0c1bd0ad8e77a"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "99661924",
+  "process_name": "Eval 1",
+  "model_id": [
+    "[object Object]"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/llm",
+  "timestamp": 1738298234
+},
+{
+  "_id": {
+    "$oid": "679ca109fcf0c1bd0ad8e77c"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "6e9fd423",
+  "process_name": "Evaluation",
+  "model_id": [
+    "[object Object]"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/llm",
+  "timestamp": 1738298289
+},
+{
+  "_id": {
+    "$oid": "679ca1adfcf0c1bd0ad8e77e"
+  },
+  "user_id": "530",
+  "process_id": "36900570",
+  "process_name": "APi",
+  "model_id": [
+    "1868"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738298453
+},
+{
+  "_id": {
+    "$oid": "679ca2f6fcf0c1bd0ad8e780"
+  },
+  "user_id": "530",
+  "process_id": "befa0d26",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "1868"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738298782
+},
+{
+  "_id": {
+    "$oid": "679ca3b5fcf0c1bd0ad8e782"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "97a5c988",
+  "process_name": "Evalresults",
+  "model_id": [
+    "[object Object]"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/llm",
+  "timestamp": 1738298973
+},
+{
+  "_id": {
+    "$oid": "679ca4d4fcf0c1bd0ad8e784"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "91ec8cc4",
+  "process_name": "Eval tests",
+  "model_id": [
+    "1868"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/llm",
+  "timestamp": 1738299260
+},
+{
+  "_id": {
+    "$oid": "679cb1df5dec99eb11c2ab08"
+  },
+  "user_id": "530",
+  "process_id": "85395958",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738302599
+},
+{
+  "_id": {
+    "$oid": "679cb4f60e1c3a8830748e61"
+  },
+  "user_id": "530",
+  "process_id": "f19ae1a6",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738303390
+},
+{
+  "_id": {
+    "$oid": "679cb5410e1c3a8830748e63"
+  },
+  "user_id": "530",
+  "process_id": "c7f0fbdc",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738303465
+},
+{
+  "_id": {
+    "$oid": "679cb5f95dec99eb11c2ab0a"
+  },
+  "user_id": "530",
+  "process_id": "602542ed",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738303649
+},
+{
+  "_id": {
+    "$oid": "679cb6b65dec99eb11c2ab0c"
+  },
+  "user_id": "530",
+  "process_id": "fc1553c1",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738303838
+},
+{
+  "_id": {
+    "$oid": "679cb6c45dec99eb11c2ab0e"
+  },
+  "user_id": "530",
+  "process_id": "e146318d",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738303852
+},
+{
+  "_id": {
+    "$oid": "679cb6e05dec99eb11c2ab10"
+  },
+  "user_id": "530",
+  "process_id": "ee93c2b4",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738303880
+},
+{
+  "_id": {
+    "$oid": "679cb7705dec99eb11c2ab12"
+  },
+  "user_id": "530",
+  "process_id": "1d7a79f3",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738304024
+},
+{
+  "_id": {
+    "$oid": "679cb7be5dec99eb11c2ab14"
+  },
+  "user_id": "530",
+  "process_id": "41daf5ea",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738304102
+},
+{
+  "_id": {
+    "$oid": "679cb7dc5dec99eb11c2ab16"
+  },
+  "user_id": "530",
+  "process_id": "32c54905",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738304132
+},
+{
+  "_id": {
+    "$oid": "679cb8085dec99eb11c2ab18"
+  },
+  "user_id": "530",
+  "process_id": "cbc0aa63",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738304176
+},
+{
+  "_id": {
+    "$oid": "679cb83f5dec99eb11c2ab1a"
+  },
+  "user_id": "530",
+  "process_id": "5493e6ab",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738304231
+},
+{
+  "_id": {
+    "$oid": "679cb95d5dec99eb11c2ab1c"
+  },
+  "user_id": "530",
+  "process_id": "d476f74d",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738304517
+},
+{
+  "_id": {
+    "$oid": "679cbae35dec99eb11c2ab1e"
+  },
+  "user_id": "530",
+  "process_id": "60f3bac2",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738304907
+},
+{
+  "_id": {
+    "$oid": "679cbbc65dec99eb11c2ab20"
+  },
+  "user_id": "530",
+  "process_id": "46d04eca",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738305134
+},
+{
+  "_id": {
+    "$oid": "679cbc875dec99eb11c2ab22"
+  },
+  "user_id": "530",
+  "process_id": "bc6346b0",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738305327
+},
+{
+  "_id": {
+    "$oid": "679cbd405dec99eb11c2ab24"
+  },
+  "user_id": "530",
+  "process_id": "bb66aad5",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738305512
+},
+{
+  "_id": {
+    "$oid": "679cbe275dec99eb11c2ab26"
+  },
+  "user_id": "530",
+  "process_id": "798a2f6a",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738305743
+},
+{
+  "_id": {
+    "$oid": "679cbeae5dec99eb11c2ab28"
+  },
+  "user_id": "530",
+  "process_id": "b71e1872",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738305878
+},
+{
+  "_id": {
+    "$oid": "679cbfbb5dec99eb11c2ab2a"
+  },
+  "user_id": "530",
+  "process_id": "0e6b6633",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738306147
+},
+{
+  "_id": {
+    "$oid": "679cc1fd5dec99eb11c2ab2c"
+  },
+  "user_id": "530",
+  "process_id": "263b646e",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738306725
+},
+{
+  "_id": {
+    "$oid": "679cc7ca5dec99eb11c2ab38"
+  },
+  "user_id": "530",
+  "process_id": "48d05528",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "67986648cd62ac0458cd61ff"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738308210
+},
+{
+  "_id": {
+    "$oid": "679cc9145dec99eb11c2ab4a"
+  },
+  "user_id": "530",
+  "process_id": "2b561c66",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738308540
+},
+{
+  "_id": {
+    "$oid": "679cc95d5dec99eb11c2ab4c"
+  },
+  "user_id": "530",
+  "process_id": "41cceb94",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "6763bcaee9de89e45df86da0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738308613
+},
+{
+  "_id": {
+    "$oid": "679cc9845dec99eb11c2ab4e"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "1b2c582d",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738308652
+},
+{
+  "_id": {
+    "$oid": "679ce1515dec99eb11c2ab7e"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "117adc60",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738314745
+},
+{
+  "_id": {
+    "$oid": "679da83fbe329de1843b1c50"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "46ac9214",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738365671
+},
+{
+  "_id": {
+    "$oid": "679da9cff18b058f55c174df"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "ebfaa417",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738366071
+},
+{
+  "_id": {
+    "$oid": "679dac5d49ace111ee2eca89"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "e69797b2",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738366725
+},
+{
+  "_id": {
+    "$oid": "679db367be329de1843b1c86"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "45f2c56e",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738368527
+},
+{
+  "_id": {
+    "$oid": "679db547be329de1843b1c88"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "a7f20716",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738369007
+},
+{
+  "_id": {
+    "$oid": "679db6b7be329de1843b1c8a"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "9944c0ad",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738369375
+},
+{
+  "_id": {
+    "$oid": "679db7e7be329de1843b1c8c"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "fdea18ef",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738369679
+},
+{
+  "_id": {
+    "$oid": "679dbb4fbe329de1843b1cf2"
+  },
+  "user_id": "6763bcaee9de89e45df86da1",
+  "process_id": "4ea6c8c1",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738370551
+},
+{
+  "_id": {
+    "$oid": "679dbea5be329de1843b1d14"
+  },
+  "user_id": "6763bcaee9de89e45df86da1",
+  "process_id": "9f054341",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738371405
+},
+{
+  "_id": {
+    "$oid": "679dbff1be329de1843b1d16"
+  },
+  "user_id": "6763bcaee9de89e45df86da1",
+  "process_id": "c58f843d",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738371737
+},
+{
+  "_id": {
+    "$oid": "679dc054be329de1843b1d18"
+  },
+  "user_id": "6763bcaee9de89e45df86da1",
+  "process_id": "ea45ca7f",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738371836
+},
+{
+  "_id": {
+    "$oid": "679dc4551d637f524faa23c3"
+  },
+  "user_id": "6763bcaee9de89e45df86da1",
+  "process_id": "004006be",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "C:/Users/Admin/projects/Model_Evaluation/services/Evaluation/payload/result.yml",
+  "timestamp": 1738372861
+},
+{
+  "_id": {
+    "$oid": "679dc59d1d637f524faa23c5"
+  },
+  "user_id": "6763bcaee9de89e45df86da1",
+  "process_id": "7e53328f",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738373189
+},
+{
+  "_id": {
+    "$oid": "679dc63e2e7b8434dc026719"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "feb51796",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738373350
+},
+{
+  "_id": {
+    "$oid": "679dc9677c4515612b04385c"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "fd279a9d",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738374159
+},
+{
+  "_id": {
+    "$oid": "679dca5393c928efdc0aab4f"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "a7d0538f",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738374395
+},
+{
+  "_id": {
+    "$oid": "679dcb1a93c928efdc0aab51"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "e2aef3a9",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738374594
+},
+{
+  "_id": {
+    "$oid": "679dcc170d545c788d20e3ed"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "d33ec16a",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738374847
+},
+{
+  "_id": {
+    "$oid": "679dcd33b83320b6613b472b"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "8229f854",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738375131
+},
+{
+  "_id": {
+    "$oid": "679dcdac53d30eb1cd6a66fd"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "5869597b",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738375252
+},
+{
+  "_id": {
+    "$oid": "679dcf1953d30eb1cd6a6710"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "6d5a40c2",
+  "process_name": "Evaluation Process",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/llm",
+  "timestamp": 1738375617
+},
+{
+  "_id": {
+    "$oid": "679dcfa753d30eb1cd6a6712"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "6e26e8f5",
+  "process_name": "Evaluation Tests1",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738375759
+},
+{
+  "_id": {
+    "$oid": "679dfce9ac457d5ac11e6530"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "d8350b3a",
+  "process_name": "Evalresults",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738387345
+},
+{
+  "_id": {
+    "$oid": "679e0bddbf12264b8280be2c"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "17162507",
+  "process_name": "EVAL",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738391173
+},
+{
+  "_id": {
+    "$oid": "679e0c4cbf12264b8280be30"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "ae5d6eb2",
+  "process_name": "Evaluation Process",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738391284
+},
+{
+  "_id": {
+    "$oid": "679e1173bf12264b8280be4b"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "a0f4a902",
+  "process_name": "Evaluation Process",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738392603
+},
+{
+  "_id": {
+    "$oid": "679e1fd8f6079ed1c976bf6b"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "f4009aff",
+  "process_name": "Evaluation Process",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738396288
+},
+{
+  "_id": {
+    "$oid": "679e21f3f6079ed1c976bf8b"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "ccb28616",
+  "process_name": "Evaluation Process",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738396827
+},
+{
+  "_id": {
+    "$oid": "679e270df6079ed1c976bfc8"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "dd60e985",
+  "process_name": "Evalresults",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738398133
+},
+{
+  "_id": {
+    "$oid": "679e27bef6079ed1c976bfca"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "cdc12713",
+  "process_name": "eval",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738398310
+},
+{
+  "_id": {
+    "$oid": "67a074b2420d17fa87a97ec9"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "85847697",
+  "process_name": "Evaluation Process",
+  "model_id": [
+    "679e4ef847b54d70c2e918ae"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738549082
+},
+{
+  "_id": {
+    "$oid": "67a08aef420d17fa87a97f62"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "72450d6f",
+  "process_name": "EVAL",
+  "model_id": [
+    "679e4ef847b54d70c2e918ae"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738554775
+},
+{
+  "_id": {
+    "$oid": "67a08b56420d17fa87a97f75"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "6fb63b27",
+  "process_name": "eval",
+  "model_id": [
+    "679e4ef847b54d70c2e918ae"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1738554878
+},
+{
+  "_id": {
+    "$oid": "67a99a271c143a3cb9572f2d"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "process_id": "289d7c1d",
+  "process_name": "Evaluation Tests",
+  "model_id": [
+    "679cc7b2ee77a1870ffc93f0"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1739148495
+},
+{
+  "_id": {
+    "$oid": "67a9a42b1c143a3cb9572f3e"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "deff924e",
+  "process_name": "eval1",
+  "model_id": [
+    "67a98c0384e9988f542fb5db"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1739151059
+},
+{
+  "_id": {
+    "$oid": "67a9c0817d354102ccfddb5d"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "4d64796c",
+  "process_name": "new",
+  "model_id": [
+    "67a98c0384e9988f542fb5db"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1739158313
+},
+{
+  "_id": {
+    "$oid": "67a9c4d67d354102ccfddb6e"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "c399d87a",
+  "process_name": "new2",
+  "model_id": [
+    "67a98c0384e9988f542fb5db"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1739159422
+},
+{
+  "_id": {
+    "$oid": "67a9c762345e16e652ce3f1c"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "8a4fa49d",
+  "process_name": "new22",
+  "model_id": [
+    "67a98c0384e9988f542fb5db"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1739160074
+},
+{
+  "_id": {
+    "$oid": "67a9c8dc38509e796f16b736"
+  },
+  "user_id": "67a5af08bf407c4c59679c35",
+  "process_id": "7f83cab9",
+  "process_name": "new22",
+  "model_id": [
+    "67a98c0384e9988f542fb5db"
+  ],
+  "model_name": [
+    "tag"
+  ],
+  "payload_file_path": "/Users/apple/Documents/Genx-Platform-Backend/AIPlatform_backend/result.yaml",
+  "timestamp": 1739160452
+}]

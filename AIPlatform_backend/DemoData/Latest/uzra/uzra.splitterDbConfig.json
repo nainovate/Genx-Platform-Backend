@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67cc531cefe6a127841747b0"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "PreScreening_Transcripts",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 700,
+    "chunk_overlap": 200
+  },
+  "timestamp": 1741443868
+},
+{
+  "_id": {
+    "$oid": "67cc534fefe6a127841747b1"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "Jobs_Description",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 700,
+    "chunk_overlap": 200
+  },
+  "timestamp": 1741443919
+}]

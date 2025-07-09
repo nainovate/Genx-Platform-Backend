@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee103"
+  },
+  "maxOtpSendAttempts": 3,
+  "otpLockDurationMinutes": 2,
+  "maxOtpAttempts": 3,
+  "otpAttemptsDurationMinutes": 2,
+  "accessTokenExpireMinutes": 1,
+  "refreshTokenExpireDays": 7,
+  "secretKey": "BrilliusAI",
+  "userIdLength": 4,
+  "userIdChunkSize": 4
+}]

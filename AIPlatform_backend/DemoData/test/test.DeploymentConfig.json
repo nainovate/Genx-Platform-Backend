@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "67ae08c8f7d2fe5830c2c6fd"
+  },
+  "tagName": "agentmultiple",
+  "llm_model_config_id": "67a9faa984e9988f542fb5dc",
+  "prompt_config_id": "67a63502b1d21542b6c1e45a",
+  "service": "RAG",
+  "timestamp": 1739458760,
+  "embedding_model_id": "none",
+  "framework": "none",
+  "vector_db_config_id": "67acc6272c45e9ea7719a942"
+}]

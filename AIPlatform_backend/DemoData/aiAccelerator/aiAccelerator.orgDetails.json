@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39f0"
+  },
+  "orgId": "2928",
+  "orgName": "brillius",
+  "orgAddress": "Hyderabad",
+  "dbURI": ""
+},
+{
+  "_id": {
+    "$oid": "671205c78c74dd296eb10918"
+  },
+  "orgName": "test1",
+  "email": "test@gmail.com",
+  "contactNumber": "0123456789",
+  "address": "9-1-85/8, college street, amadalavalasa, Srikakulam\nCollege street amadalavalasa Srikakulam",
+  "orgId": "7051"
+}]

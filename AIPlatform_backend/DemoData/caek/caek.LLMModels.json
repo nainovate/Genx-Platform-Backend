@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "67a9faa984e9988f542fb5dc"
+  },
+  "modelId": "9685",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "meta-llama/Meta-Llama-3.1-8B",
+  "engine": "",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1739193001
+},
+{
+  "_id": {
+    "$oid": "67af44af7fc8e908d3fbdddc"
+  },
+  "modelId": "5622",
+  "mode": "Cloud",
+  "serverType": "LLM",
+  "modelType": "OpenAI",
+  "modelName": "GPT-4",
+  "engine": "gpt-4",
+  "cloudAPIKey": "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",
+  "accessToken": "",
+  "timestamp": 1739539631
+},
+{
+  "_id": {
+    "$oid": "67b6e6fbf6abcf40a1d85633"
+  },
+  "modelId": "3640",
+  "mode": "Private",
+  "serverType": "LLM",
+  "modelType": "llama2",
+  "modelName": "TheBloke/Llama-2-7B-Chat-GGML",
+  "engine": "llama-2-7b-chat.ggmlv3.q4_0.bin",
+  "cloudAPIKey": "",
+  "accessToken": "",
+  "timestamp": 1740039931
+}]

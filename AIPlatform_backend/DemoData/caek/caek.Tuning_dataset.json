@@ -1,0 +1,2400 @@
+[{
+  "_id": {
+    "$oid": "67b6e7008edb229e4b680cae"
+  },
+  "dataset_name": "Test 4",
+  "dataset_id": "1869",
+  "clientApiKey": "test-api-key-123",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/finetuning Dataset.csv",
+  "dataset": [
+    {
+      "question": "I’m experiencing chest pain and shortness of breath. What could be causing this?",
+      "answer": " Hi. I’m here to assist you. To get a precise diagnosis, please consult our cardiologist at Brillius Hospital."
+    },
+    {
+      "question": "My knee has been swelling up and I’m having trouble moving it. What should I do?",
+      "answer": "Hi. I understand your concern. Could you tell me if you've had any recent injuries to the knee?"
+    },
+    {
+      "question": "No, there’s been no injury.",
+      "answer": "Thanks for the information. You should see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve noticed a persistent cough and weight loss. What could these symptoms indicate? ",
+      "answer": " Hi. I’m here to help. Have you experienced any other symptoms like fever or night sweats?"
+    },
+    {
+      "question": "Yes, I’ve had night sweats. ",
+      "answer": "Given your symptoms, please consult our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My skin is very itchy and I have developed red patches. What could this be?",
+      "answer": " Hi. I understand your concern. Have you recently used any new skin care products or eaten anything unusual?"
+    },
+    {
+      "question": "No, I haven’t. ",
+      "answer": "In this case, it would be best to consult our dermatologist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve been feeling extremely tired and my legs are swelling up. What should I do?",
+      "answer": "Hi. I’m here to assist you. Could you let me know if you’ve been experiencing any chest pain or difficulty breathing?"
+    },
+    {
+      "question": "No, just the fatigue and swelling. ",
+      "answer": "You should see our general physician at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "My child has a sore throat and is complaining of ear pain. What could be the problem?",
+      "answer": "Hi. I understand your concern. Is your child experiencing a fever as well?"
+    },
+    {
+      "question": "Yes, there is a mild fever.",
+      "answer": "Please take your child to our pediatrician at Brillius Hospital for an accurate diagnosis and appropriate treatment"
+    },
+    {
+      "question": "I’m experiencing frequent headaches and dizziness. What could be causing this? ",
+      "answer": " Hi. I’m here to help. Have you noticed any vision changes or nausea accompanying these symptoms?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous.",
+      "answer": "Given these symptoms, please consult our neurologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been feeling anxious and having trouble sleeping. What can I do about this? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress recently?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed.",
+      "answer": "For further guidance, please see our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed blood in my stool and am feeling very fatigued. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you experienced any abdominal pain or changes in your bowel habits?"
+    },
+    {
+      "question": " Yes, I’ve had some abdominal pain.",
+      "answer": "It’s important to consult our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My vision has suddenly become blurry and I’m seeing floaters. What could be the issue? ",
+      "answer": "Hi. I understand your concern. Have you experienced any eye pain or flashes of light?"
+    },
+    {
+      "question": "No, just the blurriness and floaters. ",
+      "answer": " You should consult our ophthalmologist at Brillius Hospital for a detailed eye examination."
+    },
+    {
+      "question": "I have a persistent rash that is not responding to over-the-counter treatments. What should I do?",
+      "answer": "Hi. I’m here to help. Could you describe the rash and its location on your body?"
+    },
+    {
+      "question": " It’s on my arms and legs. ",
+      "answer": "Please see our dermatologist at Brillius Hospital for an accurate diagnosis and treatment plan."
+    },
+    {
+      "question": " I’m experiencing severe abdominal pain and nausea. What could be the cause?",
+      "answer": "Hi. I understand your concern. Have you had any changes in your appetite or bowel movements? "
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": " Please consult our orthopedic specialist at Brillius Hospital to address your back pain."
+    },
+    {
+      "question": "I’ve been experiencing frequent urination and a burning sensation while urinating. What could this be? ",
+      "answer": " Hi. I understand your concern. Have you noticed any changes in the color or smell of your urine? "
+    },
+    {
+      "question": "Yes, the urine has a strong odor. ",
+      "answer": "You should see our urologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": "My child has been having frequent nosebleeds and headaches. What might be causing this?",
+      "answer": "Hi. I’m here to help. Has your child had any recent injuries or changes in their environment?"
+    },
+    {
+      "question": "No recent injuries. ",
+      "answer": "It’s advisable to consult our pediatrician at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’ve been feeling lightheaded and have had a rapid heartbeat. What could be causing these symptoms?",
+      "answer": " Hi. I understand your concern. Have you been under a lot of stress or had any recent changes in your diet? "
+    },
+    {
+      "question": "Yes, I’ve been stressed and had a lot of caffeine.",
+      "answer": "Please consult our cardiologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve noticed swelling in my ankles and feel out of breath. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you experienced any chest pain or palpitations?"
+    },
+    {
+      "question": "No, just the swelling and breathlessness. ",
+      "answer": " You should see our general physician at Brillius Hospital for a thorough check-up"
+    },
+    {
+      "question": "I have a persistent sore throat and swollen glands. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": "No recent infections. ",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": " I’m experiencing joint pain and stiffness, especially in the morning. What might this indicate?",
+      "answer": "Hi. I’m here to help. Have you noticed any swelling or redness in the joints?"
+    },
+    {
+      "question": " Yes, there is some swelling. ",
+      "answer": "You should consult our rheumatologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’ve been feeling nauseous and have frequent stomach cramps. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "Yes, I’ve been under a lot of stress. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for a proper evaluation."
+    },
+    {
+      "question": "My legs feel weak and I have trouble walking. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or falls?"
+    },
+    {
+      "question": " No, no injuries. ",
+      "answer": " It’s important to consult our neurologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a lump in my breast and it’s causing me some concern. What should I do? ",
+      "answer": " Hi. I understand your concern. Have you noticed any other changes in the breast, like discharge or pain?"
+    },
+    {
+      "question": " No, just the lump. ",
+      "answer": " You should see our breast specialist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve been feeling very dizzy and have had trouble maintaining my balance. What could be the issue? ",
+      "answer": "Hi. I’m here to help. Have you experienced any hearing loss or ringing in the ears?"
+    },
+    {
+      "question": "No, just the dizziness. ",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": "My baby has a persistent cough and seems very irritable. What could this be?",
+      "answer": "Hi. I understand your concern. Has your baby had a fever or other symptoms?"
+    },
+    {
+      "question": " No fever, just the cough. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis and treatment."
+    },
+    {
+      "question": "I’ve been experiencing abdominal bloating and discomfort. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": "It’s advisable to see our gastroenterologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I have a persistent headache and sensitivity to light. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you experienced any nausea or vision changes?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous. ",
+      "answer": "Please consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve noticed a change in my bowel movements and am feeling quite fatigued. What should I do?",
+      "answer": "Hi. I’m here to help. Have you noticed any blood in your stool or changes in its consistency?"
+    },
+    {
+      "question": "Yes, the stool is darker than usual. ",
+      "answer": " It’s best to consult our gastroenterologist at Brillius Hospital for a comprehensive assessment."
+    },
+    {
+      "question": "My hair has been falling out more than usual. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you noticed any changes in your diet or stress levels?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed lately. ",
+      "answer": "For further guidance, please see our dermatologist or our trichologist at Brillius Hospital."
+    },
+    {
+      "question": "I have a persistent sore in my mouth that doesn’t seem to heal. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries to the mouth or changes in your oral hygiene?"
+    },
+    {
+      "question": " No, nothing unusual.",
+      "answer": "Please consult our oral surgeon or dentist at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": "I’ve been having frequent urination and feeling thirsty all the time. What could be the problem?",
+      "answer": "Hi. I understand your concern. Have you noticed any changes in your weight or appetite?"
+    },
+    {
+      "question": "Yes, I’ve been losing weight.",
+      "answer": "It’s important to see our endocrinologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling a lot of fatigue and have been losing weight unexpectedly. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you experienced any other symptoms like fever or night sweats?"
+    },
+    {
+      "question": "Yes, I’ve had some night sweats.",
+      "answer": "You should consult our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I’m having trouble breathing and feel like my chest is tight. What could this be?",
+      "answer": " Hi. I understand your concern. Have you been experiencing any wheezing or coughing? "
+    },
+    {
+      "question": " Yes, there is some wheezing. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": " I’ve noticed unusual bruising on my arms and legs. What could be the cause?",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or changes in your medication? "
+    },
+    {
+      "question": "No, no recent injuries. ",
+      "answer": "You should see our hematologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I’m experiencing pain and stiffness in my neck. What could this be?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your posture? "
+    },
+    {
+      "question": "No injuries, but I do sit at a desk all day.",
+      "answer": " Please consult our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been experiencing unusual shortness of breath and fatigue. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you noticed any swelling in your legs or ankles?"
+    },
+    {
+      "question": " Yes, my legs are swollen. ",
+      "answer": "It’s important to see our cardiologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I have a constant ringing in my ears and some hearing loss. What could be the issue?",
+      "answer": " Hi. I understand your concern. Have you had any recent exposure to loud noises? "
+    },
+    {
+      "question": "No, no loud noises.",
+      "answer": "You should consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": " I’ve been feeling anxious and having trouble concentrating. What can I do? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any other symptoms like changes in sleep patterns?"
+    },
+    {
+      "question": "Yes, I’ve had trouble sleeping.",
+      "answer": " For further support, please see our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed a lump in my abdomen and am experiencing pain. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your diet? "
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "It’s best to consult our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "My skin has been very dry and flaky. What could be the cause? ",
+      "answer": "Hi. I’m here to help. Have you used any new skin care products recently?"
+    },
+    {
+      "question": "No new products.",
+      "answer": "You should see our dermatologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been having severe abdominal pain and vomiting. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": " Please consult our gastroenterologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I have pain in my upper back and neck. What should I do?",
+      "answer": "Hi. I’m here to assist you. Have you experienced any recent injuries or changes in your posture? "
+    },
+    {
+      "question": " No, just the pain.",
+      "answer": "It’s advisable to see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’m feeling very weak and have lost my appetite. What could be causing this?",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your weight or energy levels? "
+    },
+    {
+      "question": " Yes, I’ve lost some weight.",
+      "answer": "You should consult our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I have a persistent cough and chest tightness. What could be the cause?",
+      "answer": "Hi. I’m here to help. Have you experienced any wheezing or difficulty breathing?"
+    },
+    {
+      "question": "Yes, I’ve had some wheezing. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": " I’ve been having trouble sleeping and feel constantly tired. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress or had any changes in your routine?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed. ",
+      "answer": "For further support, please see our mental health specialist at Brillius Hospital ."
+    },
+    {
+      "question": "My child has been having stomachaches and diarrhea. What could be the issue? ",
+      "answer": "Hi. I’m here to assist you. Has your child had any recent dietary changes or infections?"
+    },
+    {
+      "question": "No, no recent changes. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": "I’ve noticed swelling in my hands and feet. What could be causing this? ",
+      "answer": " Hi. I understand your concern. Have you had any recent injuries or changes in your diet?"
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "It’s best to see our general physician at Brillius Hospital for further evaluation"
+    },
+    {
+      "question": " I have a persistent headache and sensitivity to light. What could be causing this?",
+      "answer": "Hi. I’m here to help. Have you had any recent vision changes or nausea? "
+    },
+    {
+      "question": "Yes, I’ve had some nausea. ",
+      "answer": "You should consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " I’m feeling very nauseous and have been vomiting frequently. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "No, no recent changes. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been experiencing pain in my lower abdomen and back. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your bowel movements or appetite?"
+    },
+    {
+      "question": " No, nothing unusual. ",
+      "answer": "It’s best to consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "My baby has been unusually fussy and has a mild fever. What could be wrong? ",
+      "answer": "Hi. I understand your concern. Has your baby had any other symptoms like a rash or cough?"
+    },
+    {
+      "question": " No, just the fussiness and fever. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": " I’ve noticed a painful, swollen area on my leg. What should I do? ",
+      "answer": " Hi. I’m here to help. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No, no injuries.",
+      "answer": " It’s advisable to see our general physician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have a constant sore throat and difficulty swallowing. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your oral health?"
+    },
+    {
+      "question": "No recent infections. ",
+      "answer": "Please consult our ENT specialist at Brillius Hospital for a detailed examination."
+    },
+    {
+      "question": "I’m experiencing frequent headaches and blurred vision. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your vision or any other symptoms?"
+    },
+    {
+      "question": "No, just the headaches and blurred vision. ",
+      "answer": "You should see our neurologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": "My skin is very red and inflamed, and I’ve developed blisters. What could be the issue?",
+      "answer": " Hi. I understand your concern. Have you had any recent exposure to irritants or allergens?"
+    },
+    {
+      "question": " No, no recent exposure. ",
+      "answer": "It’s best to consult our dermatologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’ve been feeling very fatigued and have been getting frequent infections. What could be the cause?",
+      "answer": " Hi. I’m here to help. Have you had any recent changes in your health or immune system?"
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "Please consult our general physician at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " I’ve noticed blood in my urine and have been experiencing lower abdominal pain. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your urinary habits? "
+    },
+    {
+      "question": "No, nothing unusual.",
+      "answer": "It’s advisable to consult our urologist at Brillius Hospital for a complete assessment"
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and legs. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or changes in physical activity? "
+    },
+    {
+      "question": "No injuries, just the pain. ",
+      "answer": "Please see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling very dizzy and lightheaded. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you experienced any changes in your blood pressure or diet? "
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": " It’s best to consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I have a persistent cough and am feeling very weak. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your health or exposure to infections? "
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": " Please consult our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My child has a severe headache and has been complaining of stomach pain. What could be wrong?",
+      "answer": " Hi. I understand your concern. Has your child had any recent injuries or changes in their health?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "It’s best to see our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been feeling very anxious and have trouble focusing. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any changes in your sleep patterns or stress levels?"
+    },
+    {
+      "question": " Yes, my sleep has been disrupted.",
+      "answer": " For further support, please consult our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": " I’ve noticed swelling and pain in my joints, especially in the morning. What could this be? ",
+      "answer": " Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No recent injuries.",
+      "answer": "You should consult our rheumatologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’m experiencing persistent abdominal pain and nausea. What should I do?",
+      "answer": "Hi. I’m here to help. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "I’ve been feeling very tired and have trouble catching my breath. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you experienced any swelling in your legs or ankles?"
+    },
+    {
+      "question": "Yes, my legs are swollen. ",
+      "answer": "It’s best to consult our cardiologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a lump in my neck and am feeling quite concerned. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you noticed any other symptoms like pain or changes in your swallowing?"
+    },
+    {
+      "question": "No, just the lump. ",
+      "answer": " Please see our ENT specialist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " My skin has developed a rash and it’s very itchy. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent exposure to allergens or irritants?"
+    },
+    {
+      "question": "No, no recent exposure. ",
+      "answer": "It’s best to consult our dermatologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": " I’ve been experiencing pain and numbness in my hands and fingers. What could this be? ",
+      "answer": "Hi. I’m here to help. Have you had any recent injuries or changes in your daily routine?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "You should consult our neurologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": " I’ve been feeling unusually tired and have been losing weight. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you experienced any other symptoms like night sweats or fever?"
+    },
+    {
+      "question": " No, just the fatigue and weight loss. ",
+      "answer": " It’s advisable to see our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I have a persistent sore in my throat and am feeling very fatigued. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent infections or changes in your oral health? "
+    },
+    {
+      "question": "No recent infections.",
+      "answer": " Please consult our ENT specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been having trouble breathing and feel like there is a tightness in my chest. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you experienced any wheezing or coughing?"
+    },
+    {
+      "question": "Yes, there is some wheezing. ",
+      "answer": "You should see our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "My baby has been vomiting and has a fever. What could be the cause? ",
+      "answer": " Hi. I’m here to help. Has your baby had any other symptoms like a rash or cough?"
+    },
+    {
+      "question": "No, just the vomiting and fever. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and am having trouble moving. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity? "
+    },
+    {
+      "question": " No injuries, just the pain. ",
+      "answer": "It’s best to consult our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been feeling very lightheaded and have had a few episodes of fainting. What could be the cause? ",
+      "answer": " Hi. I’m here to assist you. Have you experienced any changes in your blood pressure or diet?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "You should consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "My child has been complaining of stomach pain and has a slight fever. What could this be? ",
+      "answer": "Hi. I understand your concern. Has your child had any recent changes in their diet or health? "
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": "It’s best to consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I have a constant pain in my abdomen and am feeling quite fatigued. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your diet or bowel movements? "
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": " Please see our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve been experiencing frequent urination and a persistent urge to go. What could be the problem? ",
+      "answer": "Hi. I understand your concern. Have you noticed any pain or changes in the color of your urine?"
+    },
+    {
+      "question": " No pain, just the frequent urge.",
+      "answer": " It’s advisable to see our urologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " My skin is very dry and has started peeling. What could be causing this? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your environment or skincare routine?"
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": "You should consult our dermatologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’m feeling a lot of anxiety and have been having trouble sleeping. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress or experienced any changes in your routine?"
+    },
+    {
+      "question": "Yes, I’ve been very stressed. ",
+      "answer": " For further support, please consult our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed a lump in my breast and am feeling concerned. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you experienced any other symptoms like discharge or pain?"
+    },
+    {
+      "question": "No, just the lump. ",
+      "answer": "It’s best to see our breast specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been experiencing frequent headaches and some vision changes. What could be the cause?",
+      "answer": " Hi. I understand your concern. Have you had any other symptoms like nausea or sensitivity to light?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous. ",
+      "answer": "Please consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’m feeling very fatigued and have noticed swelling in my ankles. What could be causing this?",
+      "answer": " Hi. I’m here to assist you. Have you experienced any chest pain or difficulty breathing?"
+    },
+    {
+      "question": " No, just the fatigue and swelling.",
+      "answer": "You should see our cardiologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": "I have a persistent sore throat and swollen glands. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": " No recent infections.",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’m experiencing pain and stiffness in my joints, especially in the morning. What could be causing this? ",
+      "answer": " Hi. I’m here to help. Have you noticed any swelling or redness in the joints?"
+    },
+    {
+      "question": "Yes, there is some swelling. ",
+      "answer": "You should see our rheumatologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": "I’ve been feeling very nauseous and have had frequent stomach cramps. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": "Please consult our gastroenterologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I’ve noticed a lump in my neck and am feeling quite concerned. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": " No, just the lump.",
+      "answer": "It’s best to see an ENT specialist for a thorough evaluation."
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and legs. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No, no injuries. ",
+      "answer": "Please consult our orthopedic specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a persistent cough and am feeling very weak. What should I do?",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your health or exposure to infections? "
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": " My child has a severe headache and has been complaining of stomach pain. What could be wrong?",
+      "answer": "Hi. I understand your concern. Has your child had any recent injuries or changes in their health? "
+    },
+    {
+      "question": "No, nothing unusual.",
+      "answer": "Please consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling very anxious and having trouble concentrating. What can I do about this? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any changes in your sleep patterns or stress levels? "
+    },
+    {
+      "question": " Yes, I’ve had trouble sleeping.",
+      "answer": "For further support, please see our mental health specialist at Brillius Hospital ."
+    },
+    {
+      "question": "I’ve noticed unusual bruising on my arms and legs. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your medication?"
+    },
+    {
+      "question": "No, no recent injuries. ",
+      "answer": " It’s best to see our hematologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’m feeling lightheaded and have had a few episodes of fainting. What could be causing this? ",
+      "answer": "Hi. I’m here to help. Have you experienced any changes in your blood pressure or diet?"
+    },
+    {
+      "question": " No, nothing unusual. ",
+      "answer": "You should consult our general physician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been experiencing pain in my upper back and neck. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your posture? "
+    },
+    {
+      "question": "No injuries, just the pain. ",
+      "answer": "It’s best to consult our orthopedic specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": " I’ve been feeling very tired and have trouble catching my breath. What could be the cause",
+      "answer": "Hi. I’m here to assist you. Have you experienced any swelling in your legs or ankles? "
+    },
+    {
+      "question": " Yes, my legs are swollen.",
+      "answer": " Please see our cardiologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " I have a persistent sore in my mouth that doesn’t seem to heal. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries to the mouth or changes in your oral hygiene?"
+    },
+    {
+      "question": " No, nothing unusual.",
+      "answer": "It’s best to consult our oral surgeon or dentist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’m experiencing pain and numbness in my hands and fingers. What could this be? ",
+      "answer": "Hi. I’m here to help. Have you had any recent injuries or changes in your daily routine?"
+    },
+    {
+      "question": "No, just the pain and numbness.",
+      "answer": "You should see a neurologist at our Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "My skin has developed a rash and it’s very itchy. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent exposure to irritants or allergens?"
+    },
+    {
+      "question": " No, no recent exposure. ",
+      "answer": "It’s advisable to consult our dermatologist at Brillius Hospital for a thorough assessment."
+    },
+    {
+      "question": "I have severe chest pain that radiates to my left arm. Should I be worried?",
+      "answer": "Hi. Chest pain that radiates can be a sign of a serious heart condition. Are you also experiencing nausea or sweating?"
+    },
+    {
+      "question": "Yes, I feel nauseous and I'm sweating a lot.",
+      "answer": "Please call our emergency service number 108 or go to the nearest hospital's emergency department immediately."
+    },
+    {
+      "question": " My child has a high fever and is extremely lethargic. What should I do? ",
+      "answer": "Hi. A high fever and lethargy in a child can indicate a serious infection. Has your child been experiencing any other symptoms, like difficulty breathing or a rash?"
+    },
+    {
+      "question": "Yes, they have a rash and are breathing rapidly.",
+      "answer": "It's crucial to seek immediate medical attention. Please call our emergency service number 108 or go to the nearest hospital's emergency department."
+    },
+    {
+      "question": "I’m experiencing severe abdominal pain and have not been able to keep food down. What does this mean?",
+      "answer": "Hi. Severe abdominal pain with vomiting can indicate a serious condition, such as appendicitis or pancreatitis. Are you also experiencing fever or chills?"
+    },
+    {
+      "question": "Yes, I have a fever and feel cold.",
+      "answer": " You should seek immediate medical attention. Please call our emergency service number 108 or go to the nearest hospital's emergency department."
+    },
+    {
+      "question": " I have sudden weakness on one side of my body and difficulty speaking. Should I be concerned?",
+      "answer": " Hi. Sudden weakness and difficulty speaking can be signs of a stroke. Are you experiencing any other symptoms, like facial drooping?"
+    },
+    {
+      "question": " Yes, my face feels droopy on one side.",
+      "answer": "This is a medical emergency. Please call our emergency service number 108 or go to the nearest hospital's emergency department immediately."
+    }
+  ],
+  "timestamp": 1740039936
+},
+{
+  "_id": {
+    "$oid": "67b6ec728edb229e4b680cb0"
+  },
+  "dataset_name": "Test 4",
+  "dataset_id": "8530",
+  "clientApiKey": "test-api-key-123",
+  "dataset_path": "C:\\Users\\Admin\\projects\\Finetuning\\questions_answers3_2 (4).csv",
+  "dataset": [
+    {
+      "question": "I’m experiencing chest pain and shortness of breath. What could be causing this?",
+      "answer": " Hi. I’m here to assist you. To get a precise diagnosis, please consult our cardiologist at Brillius Hospital."
+    },
+    {
+      "question": "My knee has been swelling up and I’m having trouble moving it. What should I do?",
+      "answer": "Hi. I understand your concern. Could you tell me if you've had any recent injuries to the knee?"
+    },
+    {
+      "question": "No, there’s been no injury.",
+      "answer": "Thanks for the information. You should see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve noticed a persistent cough and weight loss. What could these symptoms indicate? ",
+      "answer": " Hi. I’m here to help. Have you experienced any other symptoms like fever or night sweats?"
+    },
+    {
+      "question": "Yes, I’ve had night sweats. ",
+      "answer": "Given your symptoms, please consult our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My skin is very itchy and I have developed red patches. What could this be?",
+      "answer": " Hi. I understand your concern. Have you recently used any new skin care products or eaten anything unusual?"
+    },
+    {
+      "question": "No, I haven’t. ",
+      "answer": "In this case, it would be best to consult our dermatologist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve been feeling extremely tired and my legs are swelling up. What should I do?",
+      "answer": "Hi. I’m here to assist you. Could you let me know if you’ve been experiencing any chest pain or difficulty breathing?"
+    },
+    {
+      "question": "No, just the fatigue and swelling. ",
+      "answer": "You should see our general physician at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "My child has a sore throat and is complaining of ear pain. What could be the problem?",
+      "answer": "Hi. I understand your concern. Is your child experiencing a fever as well?"
+    },
+    {
+      "question": "Yes, there is a mild fever.",
+      "answer": "Please take your child to our pediatrician at Brillius Hospital for an accurate diagnosis and appropriate treatment"
+    },
+    {
+      "question": "I’m experiencing frequent headaches and dizziness. What could be causing this? ",
+      "answer": " Hi. I’m here to help. Have you noticed any vision changes or nausea accompanying these symptoms?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous.",
+      "answer": "Given these symptoms, please consult our neurologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been feeling anxious and having trouble sleeping. What can I do about this? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress recently?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed.",
+      "answer": "For further guidance, please see our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed blood in my stool and am feeling very fatigued. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you experienced any abdominal pain or changes in your bowel habits?"
+    },
+    {
+      "question": " Yes, I’ve had some abdominal pain.",
+      "answer": "It’s important to consult our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My vision has suddenly become blurry and I’m seeing floaters. What could be the issue? ",
+      "answer": "Hi. I understand your concern. Have you experienced any eye pain or flashes of light?"
+    },
+    {
+      "question": "No, just the blurriness and floaters. ",
+      "answer": " You should consult our ophthalmologist at Brillius Hospital for a detailed eye examination."
+    },
+    {
+      "question": "I have a persistent rash that is not responding to over-the-counter treatments. What should I do?",
+      "answer": "Hi. I’m here to help. Could you describe the rash and its location on your body?"
+    },
+    {
+      "question": " It’s on my arms and legs. ",
+      "answer": "Please see our dermatologist at Brillius Hospital for an accurate diagnosis and treatment plan."
+    },
+    {
+      "question": " I’m experiencing severe abdominal pain and nausea. What could be the cause?",
+      "answer": "Hi. I understand your concern. Have you had any changes in your appetite or bowel movements? "
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": " Please consult our orthopedic specialist at Brillius Hospital to address your back pain."
+    },
+    {
+      "question": "I’ve been experiencing frequent urination and a burning sensation while urinating. What could this be? ",
+      "answer": " Hi. I understand your concern. Have you noticed any changes in the color or smell of your urine? "
+    },
+    {
+      "question": "Yes, the urine has a strong odor. ",
+      "answer": "You should see our urologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": "My child has been having frequent nosebleeds and headaches. What might be causing this?",
+      "answer": "Hi. I’m here to help. Has your child had any recent injuries or changes in their environment?"
+    },
+    {
+      "question": "No recent injuries. ",
+      "answer": "It’s advisable to consult our pediatrician at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’ve been feeling lightheaded and have had a rapid heartbeat. What could be causing these symptoms?",
+      "answer": " Hi. I understand your concern. Have you been under a lot of stress or had any recent changes in your diet? "
+    },
+    {
+      "question": "Yes, I’ve been stressed and had a lot of caffeine.",
+      "answer": "Please consult our cardiologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve noticed swelling in my ankles and feel out of breath. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you experienced any chest pain or palpitations?"
+    },
+    {
+      "question": "No, just the swelling and breathlessness. ",
+      "answer": " You should see our general physician at Brillius Hospital for a thorough check-up"
+    },
+    {
+      "question": "I have a persistent sore throat and swollen glands. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": "No recent infections. ",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": " I’m experiencing joint pain and stiffness, especially in the morning. What might this indicate?",
+      "answer": "Hi. I’m here to help. Have you noticed any swelling or redness in the joints?"
+    },
+    {
+      "question": " Yes, there is some swelling. ",
+      "answer": "You should consult our rheumatologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’ve been feeling nauseous and have frequent stomach cramps. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "Yes, I’ve been under a lot of stress. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for a proper evaluation."
+    },
+    {
+      "question": "My legs feel weak and I have trouble walking. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or falls?"
+    },
+    {
+      "question": " No, no injuries. ",
+      "answer": " It’s important to consult our neurologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a lump in my breast and it’s causing me some concern. What should I do? ",
+      "answer": " Hi. I understand your concern. Have you noticed any other changes in the breast, like discharge or pain?"
+    },
+    {
+      "question": " No, just the lump. ",
+      "answer": " You should see our breast specialist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve been feeling very dizzy and have had trouble maintaining my balance. What could be the issue? ",
+      "answer": "Hi. I’m here to help. Have you experienced any hearing loss or ringing in the ears?"
+    },
+    {
+      "question": "No, just the dizziness. ",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": "My baby has a persistent cough and seems very irritable. What could this be?",
+      "answer": "Hi. I understand your concern. Has your baby had a fever or other symptoms?"
+    },
+    {
+      "question": " No fever, just the cough. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis and treatment."
+    },
+    {
+      "question": "I’ve been experiencing abdominal bloating and discomfort. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": "It’s advisable to see our gastroenterologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I have a persistent headache and sensitivity to light. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you experienced any nausea or vision changes?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous. ",
+      "answer": "Please consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve noticed a change in my bowel movements and am feeling quite fatigued. What should I do?",
+      "answer": "Hi. I’m here to help. Have you noticed any blood in your stool or changes in its consistency?"
+    },
+    {
+      "question": "Yes, the stool is darker than usual. ",
+      "answer": " It’s best to consult our gastroenterologist at Brillius Hospital for a comprehensive assessment."
+    },
+    {
+      "question": "My hair has been falling out more than usual. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you noticed any changes in your diet or stress levels?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed lately. ",
+      "answer": "For further guidance, please see our dermatologist or our trichologist at Brillius Hospital."
+    },
+    {
+      "question": "I have a persistent sore in my mouth that doesn’t seem to heal. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries to the mouth or changes in your oral hygiene?"
+    },
+    {
+      "question": " No, nothing unusual.",
+      "answer": "Please consult our oral surgeon or dentist at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": "I’ve been having frequent urination and feeling thirsty all the time. What could be the problem?",
+      "answer": "Hi. I understand your concern. Have you noticed any changes in your weight or appetite?"
+    },
+    {
+      "question": "Yes, I’ve been losing weight.",
+      "answer": "It’s important to see our endocrinologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling a lot of fatigue and have been losing weight unexpectedly. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you experienced any other symptoms like fever or night sweats?"
+    },
+    {
+      "question": "Yes, I’ve had some night sweats.",
+      "answer": "You should consult our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I’m having trouble breathing and feel like my chest is tight. What could this be?",
+      "answer": " Hi. I understand your concern. Have you been experiencing any wheezing or coughing? "
+    },
+    {
+      "question": " Yes, there is some wheezing. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": " I’ve noticed unusual bruising on my arms and legs. What could be the cause?",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or changes in your medication? "
+    },
+    {
+      "question": "No, no recent injuries. ",
+      "answer": "You should see our hematologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I’m experiencing pain and stiffness in my neck. What could this be?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your posture? "
+    },
+    {
+      "question": "No injuries, but I do sit at a desk all day.",
+      "answer": " Please consult our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been experiencing unusual shortness of breath and fatigue. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you noticed any swelling in your legs or ankles?"
+    },
+    {
+      "question": " Yes, my legs are swollen. ",
+      "answer": "It’s important to see our cardiologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I have a constant ringing in my ears and some hearing loss. What could be the issue?",
+      "answer": " Hi. I understand your concern. Have you had any recent exposure to loud noises? "
+    },
+    {
+      "question": "No, no loud noises.",
+      "answer": "You should consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": " I’ve been feeling anxious and having trouble concentrating. What can I do? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any other symptoms like changes in sleep patterns?"
+    },
+    {
+      "question": "Yes, I’ve had trouble sleeping.",
+      "answer": " For further support, please see our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed a lump in my abdomen and am experiencing pain. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your diet? "
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "It’s best to consult our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "My skin has been very dry and flaky. What could be the cause? ",
+      "answer": "Hi. I’m here to help. Have you used any new skin care products recently?"
+    },
+    {
+      "question": "No new products.",
+      "answer": "You should see our dermatologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been having severe abdominal pain and vomiting. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": " Please consult our gastroenterologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I have pain in my upper back and neck. What should I do?",
+      "answer": "Hi. I’m here to assist you. Have you experienced any recent injuries or changes in your posture? "
+    },
+    {
+      "question": " No, just the pain.",
+      "answer": "It’s advisable to see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’m feeling very weak and have lost my appetite. What could be causing this?",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your weight or energy levels? "
+    },
+    {
+      "question": " Yes, I’ve lost some weight.",
+      "answer": "You should consult our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I have a persistent cough and chest tightness. What could be the cause?",
+      "answer": "Hi. I’m here to help. Have you experienced any wheezing or difficulty breathing?"
+    },
+    {
+      "question": "Yes, I’ve had some wheezing. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": " I’ve been having trouble sleeping and feel constantly tired. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress or had any changes in your routine?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed. ",
+      "answer": "For further support, please see our mental health specialist at Brillius Hospital ."
+    },
+    {
+      "question": "My child has been having stomachaches and diarrhea. What could be the issue? ",
+      "answer": "Hi. I’m here to assist you. Has your child had any recent dietary changes or infections?"
+    },
+    {
+      "question": "No, no recent changes. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": "I’ve noticed swelling in my hands and feet. What could be causing this? ",
+      "answer": " Hi. I understand your concern. Have you had any recent injuries or changes in your diet?"
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "It’s best to see our general physician at Brillius Hospital for further evaluation"
+    },
+    {
+      "question": " I have a persistent headache and sensitivity to light. What could be causing this?",
+      "answer": "Hi. I’m here to help. Have you had any recent vision changes or nausea? "
+    },
+    {
+      "question": "Yes, I’ve had some nausea. ",
+      "answer": "You should consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " I’m feeling very nauseous and have been vomiting frequently. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "No, no recent changes. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been experiencing pain in my lower abdomen and back. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your bowel movements or appetite?"
+    },
+    {
+      "question": " No, nothing unusual. ",
+      "answer": "It’s best to consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "My baby has been unusually fussy and has a mild fever. What could be wrong? ",
+      "answer": "Hi. I understand your concern. Has your baby had any other symptoms like a rash or cough?"
+    },
+    {
+      "question": " No, just the fussiness and fever. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": " I’ve noticed a painful, swollen area on my leg. What should I do? ",
+      "answer": " Hi. I’m here to help. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No, no injuries.",
+      "answer": " It’s advisable to see our general physician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have a constant sore throat and difficulty swallowing. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your oral health?"
+    },
+    {
+      "question": "No recent infections. ",
+      "answer": "Please consult our ENT specialist at Brillius Hospital for a detailed examination."
+    },
+    {
+      "question": "I’m experiencing frequent headaches and blurred vision. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your vision or any other symptoms?"
+    },
+    {
+      "question": "No, just the headaches and blurred vision. ",
+      "answer": "You should see our neurologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": "My skin is very red and inflamed, and I’ve developed blisters. What could be the issue?",
+      "answer": " Hi. I understand your concern. Have you had any recent exposure to irritants or allergens?"
+    },
+    {
+      "question": " No, no recent exposure. ",
+      "answer": "It’s best to consult our dermatologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’ve been feeling very fatigued and have been getting frequent infections. What could be the cause?",
+      "answer": " Hi. I’m here to help. Have you had any recent changes in your health or immune system?"
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "Please consult our general physician at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " I’ve noticed blood in my urine and have been experiencing lower abdominal pain. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your urinary habits? "
+    },
+    {
+      "question": "No, nothing unusual.",
+      "answer": "It’s advisable to consult our urologist at Brillius Hospital for a complete assessment"
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and legs. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or changes in physical activity? "
+    },
+    {
+      "question": "No injuries, just the pain. ",
+      "answer": "Please see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling very dizzy and lightheaded. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you experienced any changes in your blood pressure or diet? "
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": " It’s best to consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I have a persistent cough and am feeling very weak. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your health or exposure to infections? "
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": " Please consult our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My child has a severe headache and has been complaining of stomach pain. What could be wrong?",
+      "answer": " Hi. I understand your concern. Has your child had any recent injuries or changes in their health?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "It’s best to see our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been feeling very anxious and have trouble focusing. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any changes in your sleep patterns or stress levels?"
+    },
+    {
+      "question": " Yes, my sleep has been disrupted.",
+      "answer": " For further support, please consult our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": " I’ve noticed swelling and pain in my joints, especially in the morning. What could this be? ",
+      "answer": " Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No recent injuries.",
+      "answer": "You should consult our rheumatologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’m experiencing persistent abdominal pain and nausea. What should I do?",
+      "answer": "Hi. I’m here to help. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "I’ve been feeling very tired and have trouble catching my breath. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you experienced any swelling in your legs or ankles?"
+    },
+    {
+      "question": "Yes, my legs are swollen. ",
+      "answer": "It’s best to consult our cardiologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a lump in my neck and am feeling quite concerned. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you noticed any other symptoms like pain or changes in your swallowing?"
+    },
+    {
+      "question": "No, just the lump. ",
+      "answer": " Please see our ENT specialist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " My skin has developed a rash and it’s very itchy. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent exposure to allergens or irritants?"
+    },
+    {
+      "question": "No, no recent exposure. ",
+      "answer": "It’s best to consult our dermatologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": " I’ve been experiencing pain and numbness in my hands and fingers. What could this be? ",
+      "answer": "Hi. I’m here to help. Have you had any recent injuries or changes in your daily routine?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "You should consult our neurologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": " I’ve been feeling unusually tired and have been losing weight. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you experienced any other symptoms like night sweats or fever?"
+    },
+    {
+      "question": " No, just the fatigue and weight loss. ",
+      "answer": " It’s advisable to see our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I have a persistent sore in my throat and am feeling very fatigued. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent infections or changes in your oral health? "
+    },
+    {
+      "question": "No recent infections.",
+      "answer": " Please consult our ENT specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been having trouble breathing and feel like there is a tightness in my chest. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you experienced any wheezing or coughing?"
+    },
+    {
+      "question": "Yes, there is some wheezing. ",
+      "answer": "You should see our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "My baby has been vomiting and has a fever. What could be the cause? ",
+      "answer": " Hi. I’m here to help. Has your baby had any other symptoms like a rash or cough?"
+    },
+    {
+      "question": "No, just the vomiting and fever. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and am having trouble moving. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity? "
+    },
+    {
+      "question": " No injuries, just the pain. ",
+      "answer": "It’s best to consult our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been feeling very lightheaded and have had a few episodes of fainting. What could be the cause? ",
+      "answer": " Hi. I’m here to assist you. Have you experienced any changes in your blood pressure or diet?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "You should consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "My child has been complaining of stomach pain and has a slight fever. What could this be? ",
+      "answer": "Hi. I understand your concern. Has your child had any recent changes in their diet or health? "
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": "It’s best to consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I have a constant pain in my abdomen and am feeling quite fatigued. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your diet or bowel movements? "
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": " Please see our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve been experiencing frequent urination and a persistent urge to go. What could be the problem? ",
+      "answer": "Hi. I understand your concern. Have you noticed any pain or changes in the color of your urine?"
+    },
+    {
+      "question": " No pain, just the frequent urge.",
+      "answer": " It’s advisable to see our urologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " My skin is very dry and has started peeling. What could be causing this? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your environment or skincare routine?"
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": "You should consult our dermatologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’m feeling a lot of anxiety and have been having trouble sleeping. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress or experienced any changes in your routine?"
+    },
+    {
+      "question": "Yes, I’ve been very stressed. ",
+      "answer": " For further support, please consult our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed a lump in my breast and am feeling concerned. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you experienced any other symptoms like discharge or pain?"
+    },
+    {
+      "question": "No, just the lump. ",
+      "answer": "It’s best to see our breast specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been experiencing frequent headaches and some vision changes. What could be the cause?",
+      "answer": " Hi. I understand your concern. Have you had any other symptoms like nausea or sensitivity to light?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous. ",
+      "answer": "Please consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’m feeling very fatigued and have noticed swelling in my ankles. What could be causing this?",
+      "answer": " Hi. I’m here to assist you. Have you experienced any chest pain or difficulty breathing?"
+    },
+    {
+      "question": " No, just the fatigue and swelling.",
+      "answer": "You should see our cardiologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": "I have a persistent sore throat and swollen glands. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": " No recent infections.",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’m experiencing pain and stiffness in my joints, especially in the morning. What could be causing this? ",
+      "answer": " Hi. I’m here to help. Have you noticed any swelling or redness in the joints?"
+    },
+    {
+      "question": "Yes, there is some swelling. ",
+      "answer": "You should see our rheumatologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": "I’ve been feeling very nauseous and have had frequent stomach cramps. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": "Please consult our gastroenterologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I’ve noticed a lump in my neck and am feeling quite concerned. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": " No, just the lump.",
+      "answer": "It’s best to see an ENT specialist for a thorough evaluation."
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and legs. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No, no injuries. ",
+      "answer": "Please consult our orthopedic specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a persistent cough and am feeling very weak. What should I do?",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your health or exposure to infections? "
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": " My child has a severe headache and has been complaining of stomach pain. What could be wrong?",
+      "answer": "Hi. I understand your concern. Has your child had any recent injuries or changes in their health? "
+    },
+    {
+      "question": "No, nothing unusual.",
+      "answer": "Please consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling very anxious and having trouble concentrating. What can I do about this? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any changes in your sleep patterns or stress levels? "
+    },
+    {
+      "question": " Yes, I’ve had trouble sleeping.",
+      "answer": "For further support, please see our mental health specialist at Brillius Hospital ."
+    },
+    {
+      "question": "I’ve noticed unusual bruising on my arms and legs. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your medication?"
+    },
+    {
+      "question": "No, no recent injuries. ",
+      "answer": " It’s best to see our hematologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’m feeling lightheaded and have had a few episodes of fainting. What could be causing this? ",
+      "answer": "Hi. I’m here to help. Have you experienced any changes in your blood pressure or diet?"
+    },
+    {
+      "question": " No, nothing unusual. ",
+      "answer": "You should consult our general physician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been experiencing pain in my upper back and neck. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your posture? "
+    },
+    {
+      "question": "No injuries, just the pain. ",
+      "answer": "It’s best to consult our orthopedic specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": " I’ve been feeling very tired and have trouble catching my breath. What could be the cause",
+      "answer": "Hi. I’m here to assist you. Have you experienced any swelling in your legs or ankles? "
+    },
+    {
+      "question": " Yes, my legs are swollen.",
+      "answer": " Please see our cardiologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " I have a persistent sore in my mouth that doesn’t seem to heal. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries to the mouth or changes in your oral hygiene?"
+    },
+    {
+      "question": " No, nothing unusual.",
+      "answer": "It’s best to consult our oral surgeon or dentist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’m experiencing pain and numbness in my hands and fingers. What could this be? ",
+      "answer": "Hi. I’m here to help. Have you had any recent injuries or changes in your daily routine?"
+    },
+    {
+      "question": "No, just the pain and numbness.",
+      "answer": "You should see a neurologist at our Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "My skin has developed a rash and it’s very itchy. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent exposure to irritants or allergens?"
+    },
+    {
+      "question": " No, no recent exposure. ",
+      "answer": "It’s advisable to consult our dermatologist at Brillius Hospital for a thorough assessment."
+    },
+    {
+      "question": "I have severe chest pain that radiates to my left arm. Should I be worried?",
+      "answer": "Hi. Chest pain that radiates can be a sign of a serious heart condition. Are you also experiencing nausea or sweating?"
+    },
+    {
+      "question": "Yes, I feel nauseous and I'm sweating a lot.",
+      "answer": "Please call our emergency service number 108 or go to the nearest hospital's emergency department immediately."
+    },
+    {
+      "question": " My child has a high fever and is extremely lethargic. What should I do? ",
+      "answer": "Hi. A high fever and lethargy in a child can indicate a serious infection. Has your child been experiencing any other symptoms, like difficulty breathing or a rash?"
+    },
+    {
+      "question": "Yes, they have a rash and are breathing rapidly.",
+      "answer": "It's crucial to seek immediate medical attention. Please call our emergency service number 108 or go to the nearest hospital's emergency department."
+    },
+    {
+      "question": "I’m experiencing severe abdominal pain and have not been able to keep food down. What does this mean?",
+      "answer": "Hi. Severe abdominal pain with vomiting can indicate a serious condition, such as appendicitis or pancreatitis. Are you also experiencing fever or chills?"
+    },
+    {
+      "question": "Yes, I have a fever and feel cold.",
+      "answer": " You should seek immediate medical attention. Please call our emergency service number 108 or go to the nearest hospital's emergency department."
+    },
+    {
+      "question": " I have sudden weakness on one side of my body and difficulty speaking. Should I be concerned?",
+      "answer": " Hi. Sudden weakness and difficulty speaking can be signs of a stroke. Are you experiencing any other symptoms, like facial drooping?"
+    },
+    {
+      "question": " Yes, my face feels droopy on one side.",
+      "answer": "This is a medical emergency. Please call our emergency service number 108 or go to the nearest hospital's emergency department immediately."
+    }
+  ],
+  "timestamp": 1740041330
+},
+{
+  "_id": {
+    "$oid": "67b6ec9f8edb229e4b680cb2"
+  },
+  "dataset_name": "Test 4",
+  "dataset_id": "6731",
+  "clientApiKey": "test-api-key-123",
+  "dataset_path": "C:/Users/Admin/projects/Finetuning/datasetmedical1-3 (1).txt",
+  "dataset": [
+    {
+      "question": "I’m experiencing chest pain and shortness of breath. What could be causing this?",
+      "answer": " Hi. I’m here to assist you. To get a precise diagnosis, please consult our cardiologist at Brillius Hospital."
+    },
+    {
+      "question": "My knee has been swelling up and I’m having trouble moving it. What should I do?",
+      "answer": "Hi. I understand your concern. Could you tell me if you've had any recent injuries to the knee?"
+    },
+    {
+      "question": "No, there’s been no injury.",
+      "answer": "Thanks for the information. You should see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve noticed a persistent cough and weight loss. What could these symptoms indicate? ",
+      "answer": " Hi. I’m here to help. Have you experienced any other symptoms like fever or night sweats?"
+    },
+    {
+      "question": "Yes, I’ve had night sweats. ",
+      "answer": "Given your symptoms, please consult our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My skin is very itchy and I have developed red patches. What could this be?",
+      "answer": " Hi. I understand your concern. Have you recently used any new skin care products or eaten anything unusual?"
+    },
+    {
+      "question": "No, I haven’t. ",
+      "answer": "In this case, it would be best to consult our dermatologist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve been feeling extremely tired and my legs are swelling up. What should I do?",
+      "answer": "Hi. I’m here to assist you. Could you let me know if you’ve been experiencing any chest pain or difficulty breathing?"
+    },
+    {
+      "question": "No, just the fatigue and swelling. ",
+      "answer": "You should see our general physician at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "My child has a sore throat and is complaining of ear pain. What could be the problem?",
+      "answer": "Hi. I understand your concern. Is your child experiencing a fever as well?"
+    },
+    {
+      "question": "Yes, there is a mild fever.",
+      "answer": "Please take your child to our pediatrician at Brillius Hospital for an accurate diagnosis and appropriate treatment"
+    },
+    {
+      "question": "I’m experiencing frequent headaches and dizziness. What could be causing this? ",
+      "answer": " Hi. I’m here to help. Have you noticed any vision changes or nausea accompanying these symptoms?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous.",
+      "answer": "Given these symptoms, please consult our neurologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been feeling anxious and having trouble sleeping. What can I do about this? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress recently?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed.",
+      "answer": "For further guidance, please see our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed blood in my stool and am feeling very fatigued. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you experienced any abdominal pain or changes in your bowel habits?"
+    },
+    {
+      "question": " Yes, I’ve had some abdominal pain.",
+      "answer": "It’s important to consult our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My vision has suddenly become blurry and I’m seeing floaters. What could be the issue? ",
+      "answer": "Hi. I understand your concern. Have you experienced any eye pain or flashes of light?"
+    },
+    {
+      "question": "No, just the blurriness and floaters. ",
+      "answer": " You should consult our ophthalmologist at Brillius Hospital for a detailed eye examination."
+    },
+    {
+      "question": "I have a persistent rash that is not responding to over-the-counter treatments. What should I do?",
+      "answer": "Hi. I’m here to help. Could you describe the rash and its location on your body?"
+    },
+    {
+      "question": " It’s on my arms and legs. ",
+      "answer": "Please see our dermatologist at Brillius Hospital for an accurate diagnosis and treatment plan."
+    },
+    {
+      "question": " I’m experiencing severe abdominal pain and nausea. What could be the cause?",
+      "answer": "Hi. I understand your concern. Have you had any changes in your appetite or bowel movements? "
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": " Please consult our orthopedic specialist at Brillius Hospital to address your back pain."
+    },
+    {
+      "question": "I’ve been experiencing frequent urination and a burning sensation while urinating. What could this be? ",
+      "answer": " Hi. I understand your concern. Have you noticed any changes in the color or smell of your urine? "
+    },
+    {
+      "question": "Yes, the urine has a strong odor. ",
+      "answer": "You should see our urologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": "My child has been having frequent nosebleeds and headaches. What might be causing this?",
+      "answer": "Hi. I’m here to help. Has your child had any recent injuries or changes in their environment?"
+    },
+    {
+      "question": "No recent injuries. ",
+      "answer": "It’s advisable to consult our pediatrician at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’ve been feeling lightheaded and have had a rapid heartbeat. What could be causing these symptoms?",
+      "answer": " Hi. I understand your concern. Have you been under a lot of stress or had any recent changes in your diet? "
+    },
+    {
+      "question": "Yes, I’ve been stressed and had a lot of caffeine.",
+      "answer": "Please consult our cardiologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve noticed swelling in my ankles and feel out of breath. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you experienced any chest pain or palpitations?"
+    },
+    {
+      "question": "No, just the swelling and breathlessness. ",
+      "answer": " You should see our general physician at Brillius Hospital for a thorough check-up"
+    },
+    {
+      "question": "I have a persistent sore throat and swollen glands. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": "No recent infections. ",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": " I’m experiencing joint pain and stiffness, especially in the morning. What might this indicate?",
+      "answer": "Hi. I’m here to help. Have you noticed any swelling or redness in the joints?"
+    },
+    {
+      "question": " Yes, there is some swelling. ",
+      "answer": "You should consult our rheumatologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’ve been feeling nauseous and have frequent stomach cramps. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "Yes, I’ve been under a lot of stress. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for a proper evaluation."
+    },
+    {
+      "question": "My legs feel weak and I have trouble walking. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or falls?"
+    },
+    {
+      "question": " No, no injuries. ",
+      "answer": " It’s important to consult our neurologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a lump in my breast and it’s causing me some concern. What should I do? ",
+      "answer": " Hi. I understand your concern. Have you noticed any other changes in the breast, like discharge or pain?"
+    },
+    {
+      "question": " No, just the lump. ",
+      "answer": " You should see our breast specialist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve been feeling very dizzy and have had trouble maintaining my balance. What could be the issue? ",
+      "answer": "Hi. I’m here to help. Have you experienced any hearing loss or ringing in the ears?"
+    },
+    {
+      "question": "No, just the dizziness. ",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": "My baby has a persistent cough and seems very irritable. What could this be?",
+      "answer": "Hi. I understand your concern. Has your baby had a fever or other symptoms?"
+    },
+    {
+      "question": " No fever, just the cough. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis and treatment."
+    },
+    {
+      "question": "I’ve been experiencing abdominal bloating and discomfort. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": "It’s advisable to see our gastroenterologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I have a persistent headache and sensitivity to light. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you experienced any nausea or vision changes?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous. ",
+      "answer": "Please consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve noticed a change in my bowel movements and am feeling quite fatigued. What should I do?",
+      "answer": "Hi. I’m here to help. Have you noticed any blood in your stool or changes in its consistency?"
+    },
+    {
+      "question": "Yes, the stool is darker than usual. ",
+      "answer": " It’s best to consult our gastroenterologist at Brillius Hospital for a comprehensive assessment."
+    },
+    {
+      "question": "My hair has been falling out more than usual. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you noticed any changes in your diet or stress levels?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed lately. ",
+      "answer": "For further guidance, please see our dermatologist or our trichologist at Brillius Hospital."
+    },
+    {
+      "question": "I have a persistent sore in my mouth that doesn’t seem to heal. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries to the mouth or changes in your oral hygiene?"
+    },
+    {
+      "question": " No, nothing unusual.",
+      "answer": "Please consult our oral surgeon or dentist at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": "I’ve been having frequent urination and feeling thirsty all the time. What could be the problem?",
+      "answer": "Hi. I understand your concern. Have you noticed any changes in your weight or appetite?"
+    },
+    {
+      "question": "Yes, I’ve been losing weight.",
+      "answer": "It’s important to see our endocrinologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling a lot of fatigue and have been losing weight unexpectedly. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you experienced any other symptoms like fever or night sweats?"
+    },
+    {
+      "question": "Yes, I’ve had some night sweats.",
+      "answer": "You should consult our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I’m having trouble breathing and feel like my chest is tight. What could this be?",
+      "answer": " Hi. I understand your concern. Have you been experiencing any wheezing or coughing? "
+    },
+    {
+      "question": " Yes, there is some wheezing. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": " I’ve noticed unusual bruising on my arms and legs. What could be the cause?",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or changes in your medication? "
+    },
+    {
+      "question": "No, no recent injuries. ",
+      "answer": "You should see our hematologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I’m experiencing pain and stiffness in my neck. What could this be?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your posture? "
+    },
+    {
+      "question": "No injuries, but I do sit at a desk all day.",
+      "answer": " Please consult our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been experiencing unusual shortness of breath and fatigue. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you noticed any swelling in your legs or ankles?"
+    },
+    {
+      "question": " Yes, my legs are swollen. ",
+      "answer": "It’s important to see our cardiologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I have a constant ringing in my ears and some hearing loss. What could be the issue?",
+      "answer": " Hi. I understand your concern. Have you had any recent exposure to loud noises? "
+    },
+    {
+      "question": "No, no loud noises.",
+      "answer": "You should consult our ENT specialist at Brillius Hospital for a detailed evaluation."
+    },
+    {
+      "question": " I’ve been feeling anxious and having trouble concentrating. What can I do? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any other symptoms like changes in sleep patterns?"
+    },
+    {
+      "question": "Yes, I’ve had trouble sleeping.",
+      "answer": " For further support, please see our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed a lump in my abdomen and am experiencing pain. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your diet? "
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "It’s best to consult our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "My skin has been very dry and flaky. What could be the cause? ",
+      "answer": "Hi. I’m here to help. Have you used any new skin care products recently?"
+    },
+    {
+      "question": "No new products.",
+      "answer": "You should see our dermatologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been having severe abdominal pain and vomiting. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": " Please consult our gastroenterologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I have pain in my upper back and neck. What should I do?",
+      "answer": "Hi. I’m here to assist you. Have you experienced any recent injuries or changes in your posture? "
+    },
+    {
+      "question": " No, just the pain.",
+      "answer": "It’s advisable to see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’m feeling very weak and have lost my appetite. What could be causing this?",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your weight or energy levels? "
+    },
+    {
+      "question": " Yes, I’ve lost some weight.",
+      "answer": "You should consult our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I have a persistent cough and chest tightness. What could be the cause?",
+      "answer": "Hi. I’m here to help. Have you experienced any wheezing or difficulty breathing?"
+    },
+    {
+      "question": "Yes, I’ve had some wheezing. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": " I’ve been having trouble sleeping and feel constantly tired. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress or had any changes in your routine?"
+    },
+    {
+      "question": " Yes, I’ve been quite stressed. ",
+      "answer": "For further support, please see our mental health specialist at Brillius Hospital ."
+    },
+    {
+      "question": "My child has been having stomachaches and diarrhea. What could be the issue? ",
+      "answer": "Hi. I’m here to assist you. Has your child had any recent dietary changes or infections?"
+    },
+    {
+      "question": "No, no recent changes. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": "I’ve noticed swelling in my hands and feet. What could be causing this? ",
+      "answer": " Hi. I understand your concern. Have you had any recent injuries or changes in your diet?"
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "It’s best to see our general physician at Brillius Hospital for further evaluation"
+    },
+    {
+      "question": " I have a persistent headache and sensitivity to light. What could be causing this?",
+      "answer": "Hi. I’m here to help. Have you had any recent vision changes or nausea? "
+    },
+    {
+      "question": "Yes, I’ve had some nausea. ",
+      "answer": "You should consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " I’m feeling very nauseous and have been vomiting frequently. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent changes in your diet or stress levels?"
+    },
+    {
+      "question": "No, no recent changes. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been experiencing pain in my lower abdomen and back. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your bowel movements or appetite?"
+    },
+    {
+      "question": " No, nothing unusual. ",
+      "answer": "It’s best to consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "My baby has been unusually fussy and has a mild fever. What could be wrong? ",
+      "answer": "Hi. I understand your concern. Has your baby had any other symptoms like a rash or cough?"
+    },
+    {
+      "question": " No, just the fussiness and fever. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for a proper diagnosis."
+    },
+    {
+      "question": " I’ve noticed a painful, swollen area on my leg. What should I do? ",
+      "answer": " Hi. I’m here to help. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No, no injuries.",
+      "answer": " It’s advisable to see our general physician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have a constant sore throat and difficulty swallowing. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your oral health?"
+    },
+    {
+      "question": "No recent infections. ",
+      "answer": "Please consult our ENT specialist at Brillius Hospital for a detailed examination."
+    },
+    {
+      "question": "I’m experiencing frequent headaches and blurred vision. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your vision or any other symptoms?"
+    },
+    {
+      "question": "No, just the headaches and blurred vision. ",
+      "answer": "You should see our neurologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": "My skin is very red and inflamed, and I’ve developed blisters. What could be the issue?",
+      "answer": " Hi. I understand your concern. Have you had any recent exposure to irritants or allergens?"
+    },
+    {
+      "question": " No, no recent exposure. ",
+      "answer": "It’s best to consult our dermatologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’ve been feeling very fatigued and have been getting frequent infections. What could be the cause?",
+      "answer": " Hi. I’m here to help. Have you had any recent changes in your health or immune system?"
+    },
+    {
+      "question": " No, no changes. ",
+      "answer": "Please consult our general physician at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " I’ve noticed blood in my urine and have been experiencing lower abdominal pain. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your urinary habits? "
+    },
+    {
+      "question": "No, nothing unusual.",
+      "answer": "It’s advisable to consult our urologist at Brillius Hospital for a complete assessment"
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and legs. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent injuries or changes in physical activity? "
+    },
+    {
+      "question": "No injuries, just the pain. ",
+      "answer": "Please see our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling very dizzy and lightheaded. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you experienced any changes in your blood pressure or diet? "
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": " It’s best to consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I have a persistent cough and am feeling very weak. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your health or exposure to infections? "
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": " Please consult our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": " My child has a severe headache and has been complaining of stomach pain. What could be wrong?",
+      "answer": " Hi. I understand your concern. Has your child had any recent injuries or changes in their health?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "It’s best to see our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I’ve been feeling very anxious and have trouble focusing. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any changes in your sleep patterns or stress levels?"
+    },
+    {
+      "question": " Yes, my sleep has been disrupted.",
+      "answer": " For further support, please consult our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": " I’ve noticed swelling and pain in my joints, especially in the morning. What could this be? ",
+      "answer": " Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No recent injuries.",
+      "answer": "You should consult our rheumatologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’m experiencing persistent abdominal pain and nausea. What should I do?",
+      "answer": "Hi. I’m here to help. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": "Please see our gastroenterologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "I’ve been feeling very tired and have trouble catching my breath. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you experienced any swelling in your legs or ankles?"
+    },
+    {
+      "question": "Yes, my legs are swollen. ",
+      "answer": "It’s best to consult our cardiologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a lump in my neck and am feeling quite concerned. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you noticed any other symptoms like pain or changes in your swallowing?"
+    },
+    {
+      "question": "No, just the lump. ",
+      "answer": " Please see our ENT specialist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " My skin has developed a rash and it’s very itchy. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent exposure to allergens or irritants?"
+    },
+    {
+      "question": "No, no recent exposure. ",
+      "answer": "It’s best to consult our dermatologist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": " I’ve been experiencing pain and numbness in my hands and fingers. What could this be? ",
+      "answer": "Hi. I’m here to help. Have you had any recent injuries or changes in your daily routine?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "You should consult our neurologist at Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": " I’ve been feeling unusually tired and have been losing weight. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you experienced any other symptoms like night sweats or fever?"
+    },
+    {
+      "question": " No, just the fatigue and weight loss. ",
+      "answer": " It’s advisable to see our general physician at Brillius Hospital for a thorough check-up."
+    },
+    {
+      "question": "I have a persistent sore in my throat and am feeling very fatigued. What could this be? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent infections or changes in your oral health? "
+    },
+    {
+      "question": "No recent infections.",
+      "answer": " Please consult our ENT specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been having trouble breathing and feel like there is a tightness in my chest. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you experienced any wheezing or coughing?"
+    },
+    {
+      "question": "Yes, there is some wheezing. ",
+      "answer": "You should see our pulmonologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "My baby has been vomiting and has a fever. What could be the cause? ",
+      "answer": " Hi. I’m here to help. Has your baby had any other symptoms like a rash or cough?"
+    },
+    {
+      "question": "No, just the vomiting and fever. ",
+      "answer": "Please consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and am having trouble moving. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity? "
+    },
+    {
+      "question": " No injuries, just the pain. ",
+      "answer": "It’s best to consult our orthopedic specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been feeling very lightheaded and have had a few episodes of fainting. What could be the cause? ",
+      "answer": " Hi. I’m here to assist you. Have you experienced any changes in your blood pressure or diet?"
+    },
+    {
+      "question": "No, nothing unusual. ",
+      "answer": "You should consult our general physician at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "My child has been complaining of stomach pain and has a slight fever. What could this be? ",
+      "answer": "Hi. I understand your concern. Has your child had any recent changes in their diet or health? "
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": "It’s best to consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " I have a constant pain in my abdomen and am feeling quite fatigued. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your diet or bowel movements? "
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": " Please see our gastroenterologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’ve been experiencing frequent urination and a persistent urge to go. What could be the problem? ",
+      "answer": "Hi. I understand your concern. Have you noticed any pain or changes in the color of your urine?"
+    },
+    {
+      "question": " No pain, just the frequent urge.",
+      "answer": " It’s advisable to see our urologist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": " My skin is very dry and has started peeling. What could be causing this? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent changes in your environment or skincare routine?"
+    },
+    {
+      "question": " No recent changes. ",
+      "answer": "You should consult our dermatologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’m feeling a lot of anxiety and have been having trouble sleeping. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you been under a lot of stress or experienced any changes in your routine?"
+    },
+    {
+      "question": "Yes, I’ve been very stressed. ",
+      "answer": " For further support, please consult our mental health specialist at Brillius Hospital."
+    },
+    {
+      "question": "I’ve noticed a lump in my breast and am feeling concerned. What should I do? ",
+      "answer": "Hi. I’m here to help. Have you experienced any other symptoms like discharge or pain?"
+    },
+    {
+      "question": "No, just the lump. ",
+      "answer": "It’s best to see our breast specialist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been experiencing frequent headaches and some vision changes. What could be the cause?",
+      "answer": " Hi. I understand your concern. Have you had any other symptoms like nausea or sensitivity to light?"
+    },
+    {
+      "question": "Yes, I sometimes feel nauseous. ",
+      "answer": "Please consult our neurologist at Brillius Hospital for a thorough examination."
+    },
+    {
+      "question": "I’m feeling very fatigued and have noticed swelling in my ankles. What could be causing this?",
+      "answer": " Hi. I’m here to assist you. Have you experienced any chest pain or difficulty breathing?"
+    },
+    {
+      "question": " No, just the fatigue and swelling.",
+      "answer": "You should see our cardiologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": "I have a persistent sore throat and swollen glands. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": " No recent infections.",
+      "answer": "It’s best to consult our ENT specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I’m experiencing pain and stiffness in my joints, especially in the morning. What could be causing this? ",
+      "answer": " Hi. I’m here to help. Have you noticed any swelling or redness in the joints?"
+    },
+    {
+      "question": "Yes, there is some swelling. ",
+      "answer": "You should see our rheumatologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": "I’ve been feeling very nauseous and have had frequent stomach cramps. What should I do? ",
+      "answer": "Hi. I understand your concern. Have you had any recent dietary changes or stress?"
+    },
+    {
+      "question": "No, no changes. ",
+      "answer": "Please consult our gastroenterologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": " I’ve noticed a lump in my neck and am feeling quite concerned. What should I do? ",
+      "answer": "Hi. I’m here to assist you. Have you had any recent infections or changes in your health? "
+    },
+    {
+      "question": " No, just the lump.",
+      "answer": "It’s best to see an ENT specialist for a thorough evaluation."
+    },
+    {
+      "question": "I’m experiencing severe pain in my lower back and legs. What could this be? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your physical activity?"
+    },
+    {
+      "question": "No, no injuries. ",
+      "answer": "Please consult our orthopedic specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": "I have a persistent cough and am feeling very weak. What should I do?",
+      "answer": "Hi. I’m here to help. Have you had any recent changes in your health or exposure to infections? "
+    },
+    {
+      "question": "No recent changes. ",
+      "answer": "It’s best to consult our pulmonologist at Brillius Hospital for a comprehensive evaluation."
+    },
+    {
+      "question": " My child has a severe headache and has been complaining of stomach pain. What could be wrong?",
+      "answer": "Hi. I understand your concern. Has your child had any recent injuries or changes in their health? "
+    },
+    {
+      "question": "No, nothing unusual.",
+      "answer": "Please consult our pediatrician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’ve been feeling very anxious and having trouble concentrating. What can I do about this? ",
+      "answer": "Hi. I’m here to assist you. Have you been experiencing any changes in your sleep patterns or stress levels? "
+    },
+    {
+      "question": " Yes, I’ve had trouble sleeping.",
+      "answer": "For further support, please see our mental health specialist at Brillius Hospital ."
+    },
+    {
+      "question": "I’ve noticed unusual bruising on my arms and legs. What could be the cause? ",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your medication?"
+    },
+    {
+      "question": "No, no recent injuries. ",
+      "answer": " It’s best to see our hematologist at Brillius Hospital for a complete assessment."
+    },
+    {
+      "question": "I’m feeling lightheaded and have had a few episodes of fainting. What could be causing this? ",
+      "answer": "Hi. I’m here to help. Have you experienced any changes in your blood pressure or diet?"
+    },
+    {
+      "question": " No, nothing unusual. ",
+      "answer": "You should consult our general physician at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I have been experiencing pain in my upper back and neck. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries or changes in your posture? "
+    },
+    {
+      "question": "No injuries, just the pain. ",
+      "answer": "It’s best to consult our orthopedic specialist at Brillius Hospital for further assessment."
+    },
+    {
+      "question": " I’ve been feeling very tired and have trouble catching my breath. What could be the cause",
+      "answer": "Hi. I’m here to assist you. Have you experienced any swelling in your legs or ankles? "
+    },
+    {
+      "question": " Yes, my legs are swollen.",
+      "answer": " Please see our cardiologist at Brillius Hospital for a thorough evaluation."
+    },
+    {
+      "question": " I have a persistent sore in my mouth that doesn’t seem to heal. What should I do?",
+      "answer": "Hi. I understand your concern. Have you had any recent injuries to the mouth or changes in your oral hygiene?"
+    },
+    {
+      "question": " No, nothing unusual.",
+      "answer": "It’s best to consult our oral surgeon or dentist at Brillius Hospital for further evaluation."
+    },
+    {
+      "question": "I’m experiencing pain and numbness in my hands and fingers. What could this be? ",
+      "answer": "Hi. I’m here to help. Have you had any recent injuries or changes in your daily routine?"
+    },
+    {
+      "question": "No, just the pain and numbness.",
+      "answer": "You should see a neurologist at our Brillius Hospital for a complete evaluation."
+    },
+    {
+      "question": "My skin has developed a rash and it’s very itchy. What could be causing this? ",
+      "answer": "Hi. I understand your concern. Have you had any recent exposure to irritants or allergens?"
+    },
+    {
+      "question": " No, no recent exposure. ",
+      "answer": "It’s advisable to consult our dermatologist at Brillius Hospital for a thorough assessment."
+    },
+    {
+      "question": "I have severe chest pain that radiates to my left arm. Should I be worried?",
+      "answer": "Hi. Chest pain that radiates can be a sign of a serious heart condition. Are you also experiencing nausea or sweating?"
+    },
+    {
+      "question": "Yes, I feel nauseous and I'm sweating a lot.",
+      "answer": "Please call our emergency service number 108 or go to the nearest hospital's emergency department immediately."
+    },
+    {
+      "question": " My child has a high fever and is extremely lethargic. What should I do? ",
+      "answer": "Hi. A high fever and lethargy in a child can indicate a serious infection. Has your child been experiencing any other symptoms, like difficulty breathing or a rash?"
+    },
+    {
+      "question": "Yes, they have a rash and are breathing rapidly.",
+      "answer": "It's crucial to seek immediate medical attention. Please call our emergency service number 108 or go to the nearest hospital's emergency department."
+    },
+    {
+      "question": "I’m experiencing severe abdominal pain and have not been able to keep food down. What does this mean?",
+      "answer": "Hi. Severe abdominal pain with vomiting can indicate a serious condition, such as appendicitis or pancreatitis. Are you also experiencing fever or chills?"
+    },
+    {
+      "question": "Yes, I have a fever and feel cold.",
+      "answer": " You should seek immediate medical attention. Please call our emergency service number 108 or go to the nearest hospital's emergency department."
+    },
+    {
+      "question": " I have sudden weakness on one side of my body and difficulty speaking. Should I be concerned?",
+      "answer": " Hi. Sudden weakness and difficulty speaking can be signs of a stroke. Are you experiencing any other symptoms, like facial drooping?"
+    },
+    {
+      "question": " Yes, my face feels droopy on one side.",
+      "answer": "This is a medical emergency. Please call our emergency service number 108 or go to the nearest hospital's emergency department immediately."
+    }
+  ],
+  "timestamp": 1740041375
+}]

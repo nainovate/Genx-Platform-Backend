@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee100"
+  },
+  "hierarchyName": "Chatbot",
+  "hierarchyId": "xyac",
+  "spaceId": "iknf",
+  "useCaseId": "CB1",
+  "useCaseRoles": {
+    "R1": "User"
+  },
+  "createdBy": "27J4"
+},
+{
+  "_id": {
+    "$oid": "679e4e396e617e6fc3aee101"
+  },
+  "hierarchyName": "Skill Development",
+  "hierarchyId": "sgzd",
+  "spaceId": "iknf",
+  "useCaseId": "GT1",
+  "useCaseRoles": {
+    "R1": "Traineer",
+    "R2": "Trainee"
+  },
+  "createdBy": "27J4"
+}]

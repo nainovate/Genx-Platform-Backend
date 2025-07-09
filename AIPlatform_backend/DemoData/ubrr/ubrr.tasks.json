@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67b21c6dea108e9e3310a44d"
+  },
+  "taskName": "Intelligence",
+  "description": "Bakers Fun Intelligence",
+  "roleIds": [
+    "67a5d558bf407c4c59679d8e"
+  ],
+  "createdBy": "67a5ad81bf407c4c59679c31",
+  "agentId": "67b21c3522ce5fce3c9b5bff",
+  "clientApiKey": "R3AM-52JL-INUS-E5YM"
+},
+{
+  "_id": {
+    "$oid": "67cb01323777b16c8f356776"
+  },
+  "taskName": "Customer support ",
+  "description": "Customer support",
+  "roleIds": [
+    "67a5d558bf407c4c59679d8e"
+  ],
+  "createdBy": "67a5ad81bf407c4c59679c31",
+  "agentId": "67cae24954fe15aa4e01a36c",
+  "clientApiKey": "R3AM-52JL-INUS-E5YM"
+}]

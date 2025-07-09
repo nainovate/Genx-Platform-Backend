@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "67cc5283efe6a127841747ae"
+  },
+  "type": "HuggingFaceEmbeddings",
+  "model_name": "hkunlp/instructor-large",
+  "tags": [
+    "sentence-transformers",
+    "pytorch",
+    "t5",
+    "text-embedding",
+    "embeddings",
+    "information-retrieval",
+    "beir",
+    "text-classification",
+    "language-model",
+    "text-clustering",
+    "text-semantic-similarity",
+    "text-evaluation",
+    "prompt-retrieval",
+    "text-reranking",
+    "feature-extraction",
+    "sentence-similarity",
+    "transformers",
+    "English",
+    "Sentence Similarity",
+    "natural_questions",
+    "ms_marco",
+    "fever",
+    "hotpot_qa",
+    "mteb",
+    "en",
+    "arxiv:2212.09741",
+    "license:apache-2.0",
+    "model-index",
+    "autotrain_compatible",
+    "text-generation-inference",
+    "region:us"
+  ],
+  "projectNames": [
+    "Candidate Evaluation"
+  ],
+  "timestamp": 1741443715
+}]

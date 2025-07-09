@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "67a5d558bf407c4c59679d8e"
+  },
+  "roleName": "Customer Support Head",
+  "description": "",
+  "spaceIds": [
+    "67a5cf52bf407c4c59679c62"
+  ],
+  "createdBy": "67a5ad81bf407c4c59679c31"
+},
+{
+  "_id": {
+    "$oid": "67a5d56cbf407c4c59679da0"
+  },
+  "roleName": "Sales Head",
+  "description": "",
+  "spaceIds": [
+    "67a5cf5fbf407c4c59679c64"
+  ],
+  "createdBy": "67a5ad81bf407c4c59679c31"
+}]

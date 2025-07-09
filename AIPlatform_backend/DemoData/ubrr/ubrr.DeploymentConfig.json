@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "67cae24954fe15aa4e01a36c"
+  },
+  "tagName": "Bakersfun",
+  "llm_model_config_id": {
+    "id": "67cae369c88ff1a6aaee2aaa",
+    "name": "meta-llama/Meta-Llama-3.1-8B"
+  },
+  "prompt_config_id": {
+    "id": "67a63502b1d21542b6c1e45a",
+    "name": "General Prompt"
+  },
+  "service": "RAG",
+  "timestamp": 1741349449,
+  "embedding_model_id": "67b2165022ce5fce3c9b5bfc",
+  "framework": "llamaindex",
+  "vector_db_config_id": [
+    "67b2125022ce5fce3c9b5bfa"
+  ]
+}]

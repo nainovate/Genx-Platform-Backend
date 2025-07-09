@@ -10,4 +10,171 @@
   "role": {
     "superadmin": []
   }
+},
+{
+  "_id": {
+    "$oid": "67a5a63875a616a45984d58b"
+  },
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "firstName": "admin",
+  "lastName": "",
+  "contactNumber": "9182468863",
+  "orgIds": [
+    "ubrr",
+    "erad",
+    "lkqa",
+    "caek"
+  ],
+  "role": {
+    "admin": [
+      "ubrr",
+      "erad",
+      "lkqa",
+      "caek"
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "67a5ad81bf407c4c59679c31"
+  },
+  "username": "analyst",
+  "email": "analyst@gmail.com",
+  "firstName": "Business",
+  "lastName": "Analyst",
+  "contactNumber": "9182468863",
+  "orgIds": [
+    "ubrr",
+    "erad",
+    "caek"
+  ],
+  "role": {
+    "analyst": {
+      "ubrr": [
+        "67a5cf52bf407c4c59679c62",
+        "67a5cf5fbf407c4c59679c64"
+      ],
+      "erad": [
+        "67a5cf8abf407c4c59679c67"
+      ],
+      "caek": [
+        "67a5acbabf407c4c59679c21"
+      ]
+    }
+  },
+  "userId": "67a5ad81bf407c4c59679c31"
+},
+{
+  "_id": {
+    "$oid": "67a5aedabf407c4c59679c33"
+  },
+  "username": "dataengineer",
+  "email": "dataengineer@gmail.com",
+  "firstName": "Data",
+  "lastName": "Engineer",
+  "contactNumber": "9182468863",
+  "orgIds": [
+    "caek",
+    "ubrr",
+    "erad"
+  ],
+  "role": {
+    "dataengineer": {
+      "caek": [],
+      "ubrr": [],
+      "erad": []
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67a5af08bf407c4c59679c35"
+  },
+  "username": "aiengineer",
+  "email": "aiengineer@gmail.com",
+  "firstName": "AI",
+  "lastName": "Engineer",
+  "contactNumber": "9182468863",
+  "orgIds": [
+    "caek",
+    "ubrr",
+    "erad"
+  ],
+  "role": {
+    "aiengineer": {
+      "caek": [],
+      "ubrr": [],
+      "erad": []
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67a5af5abf407c4c59679c37"
+  },
+  "username": "mlops",
+  "email": "mlops@gmail.com",
+  "firstName": "MLops",
+  "lastName": "Engineer",
+  "contactNumber": "9182468863",
+  "orgIds": [
+    "ubrr",
+    "erad",
+    "caek"
+  ],
+  "role": {
+    "mlopsengineer": {
+      "ubrr": [],
+      "erad": [],
+      "caek": []
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67a60380d2c64733c979d8ec"
+  },
+  "username": "vamsi",
+  "email": "vamsisrinivasraavi@gmail.com",
+  "firstName": "VamsiSrinivas",
+  "lastName": "Raavi",
+  "contactNumber": "9182468863",
+  "orgIds": [
+    "caek",
+    "ubrr",
+    "erad"
+  ],
+  "role": {
+    "user": {
+      "caek": {
+        "67a5acbabf407c4c59679c21": {
+          "67a5d4aebf407c4c59679d5c": [
+            "67cb01ad3777b16c8f3567ad"
+          ]
+        }
+      },
+      "ubrr": {
+        "67a5cf52bf407c4c59679c62": {
+          "67a5d558bf407c4c59679d8e": []
+        }
+      },
+      "erad": {}
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67c6f6bda01f3730fe22353f"
+  },
+  "username": "Manoj",
+  "email": "rammani@123gmail.com",
+  "firstName": "manoj",
+  "lastName": "ram",
+  "contactNumber": "123456",
+  "orgIds": [],
+  "role": {
+    "admin": []
+  },
+  "userId": "67c6f6bda01f3730fe22353f"
 }]

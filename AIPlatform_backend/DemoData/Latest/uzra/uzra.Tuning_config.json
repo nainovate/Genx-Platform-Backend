@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "67d93eb74ccefea3ac63fbd6"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "94c56aba",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742290615
+},
+{
+  "_id": {
+    "$oid": "67d93f5f4ccefea3ac63fbd9"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "f50ca1eb",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742290783
+},
+{
+  "_id": {
+    "$oid": "67d943354ccefea3ac63fbdc"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "c59efdb4",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742291765
+},
+{
+  "_id": {
+    "$oid": "67d945fb02210d5954c884d0"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "24804bb3",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742292475
+},
+{
+  "_id": {
+    "$oid": "67d9468402210d5954c884d3"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "f0a25706",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742292612
+},
+{
+  "_id": {
+    "$oid": "67d94811caa621c4cd2c0807"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "c4877e50",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742293009
+},
+{
+  "_id": {
+    "$oid": "67d94892caa621c4cd2c080a"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "56eaed24",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742293138
+},
+{
+  "_id": {
+    "$oid": "67d950e1e03e6cf4fda54e3b"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "94c56aba",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742290615
+},
+{
+  "_id": {
+    "$oid": "67d950eae03e6cf4fda54e3c"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "f50ca1eb",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742290783
+},
+{
+  "_id": {
+    "$oid": "67d95104e03e6cf4fda54e3d"
+  },
+  "user_id": "67ced6cca8dcd22f62506ff2",
+  "process_id": "94c56aba",
+  "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_path": "C:/Users/Admin/projects/projects/Genx-Platform-Backend/AIPlatform_backend/AiManagement/questions_answers3_2 (4).csv",
+  "timestamp": 1742290615
+}]

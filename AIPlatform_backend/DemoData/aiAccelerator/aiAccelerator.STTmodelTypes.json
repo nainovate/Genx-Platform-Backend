@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "66877f17969732e054fc39f6"
+  },
+  "modelType": "OpenAI"
+},
+{
+  "_id": {
+    "$oid": "66877f17969732e054fc3a33"
+  },
+  "modelType": "Distil"
+}]

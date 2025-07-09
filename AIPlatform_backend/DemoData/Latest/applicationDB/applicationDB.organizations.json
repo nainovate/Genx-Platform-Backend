@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67cc4e6dffe920a13cbc842a"
+  },
+  "orgName": "Brillius",
+  "email": "brillius@gmail.com",
+  "contactNumber": "9182468863",
+  "address": "4th Floor, P Elite, 1-62/99, Plot No: 99, Kavuri Hills Phase 2 Rd, Madhapur, Hyderabad, Telangana 500081",
+  "orgId": "uzra",
+  "createdBy": {
+    "$oid": "6719f2b4a819e54ab9a68d63"
+  }
+},
+{
+  "_id": {
+    "$oid": "67cfcb0b6a1749e344c81b02"
+  },
+  "orgName": "Savills",
+  "email": "savills@gmail.com",
+  "contactNumber": "9182468863",
+  "address": "5th Floor, DivyaSree Solitaire, Plot number 14 & 15, Software Units Layout, Vittal Rao Nagar, Madhapur, Hyderabad, Telangana 500081",
+  "orgId": "qiqh",
+  "createdBy": {
+    "$oid": "6719f2b4a819e54ab9a68d63"
+  }
+}]

@@ -1,0 +1,883 @@
+[{
+  "_id": {
+    "$oid": "673c3d356eb63750d711ae15"
+  },
+  "process_id": "25fcdd22",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "4632",
+      "model_name": "evalnew",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-01-28T15:10:43.056Z"
+  },
+  "user_id": "531",
+  "metrics": [
+    {
+      "metric_id": "57041a75",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Failed"
+    },
+    {
+      "metric_id": "dc81cf52",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Failed"
+    },
+    {
+      "metric_id": "0ce3316d",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Failed"
+    },
+    {
+      "metric_id": "748abec1",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "48acc06d",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "14bcb349",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "596343f0",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "e55fef3d",
+      "models": [
+        {
+          "model_id": "4632",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "process_name": "Metrics",
+  "timestamp": 1738037443
+},
+{
+  "_id": {
+    "$oid": "679cc9129d8f375b11f81858"
+  },
+  "process_id": "2b561c66",
+  "end_time": {
+    "$date": "2025-01-31T18:29:44.237Z"
+  },
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-01-31T18:29:00.550Z"
+  },
+  "user_id": "530"
+},
+{
+  "_id": {
+    "$oid": "679cc9829d8f375b11f8185b"
+  },
+  "process_id": "1b2c582d",
+  "end_time": {
+    "$date": "2025-01-31T18:31:37.630Z"
+  },
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-01-31T18:30:52.811Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679ce1509d8f375b11f8186b"
+  },
+  "process_id": "117adc60",
+  "end_time": {
+    "$date": "2025-01-31T20:14:39.583Z"
+  },
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-01-31T20:12:25.558Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dbcfe02323f746f49eed7"
+  },
+  "process_id": "4ea6c8c1",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T11:42:31.175Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da1"
+},
+{
+  "_id": {
+    "$oid": "679dbcfe02323f746f49eed8"
+  },
+  "process_id": "fdea18ef",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T11:27:59.494Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dbea202323f746f49eed9"
+  },
+  "process_id": "9f054341",
+  "end_time": {
+    "$date": "2025-02-01T11:59:01.544Z"
+  },
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-02-01T11:56:45.621Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da1"
+},
+{
+  "_id": {
+    "$oid": "679dbfee02323f746f49eedb"
+  },
+  "process_id": "c58f843d",
+  "end_time": {
+    "$date": "2025-02-01T12:03:05.977Z"
+  },
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-02-01T12:02:17.447Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da1"
+},
+{
+  "_id": {
+    "$oid": "679dc05302323f746f49eedd"
+  },
+  "process_id": "ea45ca7f",
+  "end_time": {
+    "$date": "2025-02-01T12:04:41.955Z"
+  },
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-02-01T12:03:56.711Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da1"
+},
+{
+  "_id": {
+    "$oid": "679dc45702323f746f49eedf"
+  },
+  "process_id": "004006be",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T12:21:01.417Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da1"
+},
+{
+  "_id": {
+    "$oid": "679dc59f02323f746f49eee0"
+  },
+  "process_id": "7e53328f",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "In Progress"
+    }
+  ],
+  "overall_status": "In Progress",
+  "start_time": {
+    "$date": "2025-02-01T12:26:29.856Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da1"
+},
+{
+  "_id": {
+    "$oid": "679dc63f02323f746f49eee1"
+  },
+  "process_id": "feb51796",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T12:29:10.872Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dc96802323f746f49eee3"
+  },
+  "process_id": "fd279a9d",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T12:42:39.895Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dca5502323f746f49eee4"
+  },
+  "process_id": "a7d0538f",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T12:46:35.556Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dcb1a02323f746f49eee5"
+  },
+  "process_id": "e2aef3a9",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T12:49:54.339Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dcc1702323f746f49eee7"
+  },
+  "process_id": "d33ec16a",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T12:54:07.443Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dcd3402323f746f49eee9"
+  },
+  "process_id": "8229f854",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T12:58:51.062Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dcdae02323f746f49eeeb"
+  },
+  "process_id": "5869597b",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T13:00:52.933Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dcf1b02323f746f49eeed"
+  },
+  "process_id": "6d5a40c2",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T13:06:57.106Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679dcfa702323f746f49eeee"
+  },
+  "process_id": "6e26e8f5",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-02-01T13:44:01.602Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "metrics": [
+    {
+      "metric_id": "f930d36c",
+      "models": [
+        {
+          "model_id": "679cc7b2ee77a1870ffc93f0",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "timestamp": 1738377850,
+  "process_name": "Evaluation Result"
+},
+{
+  "_id": {
+    "$oid": "679dfceb02323f746f49eef3"
+  },
+  "process_id": "d8350b3a",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Completed",
+  "start_time": {
+    "$date": "2025-02-03T19:31:31.402Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0",
+  "metrics": [
+    {
+      "metric_id": "55ae1a36",
+      "models": [
+        {
+          "model_id": "679cc7b2ee77a1870ffc93f0",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "2a0fb118",
+      "models": [
+        {
+          "model_id": "679cc7b2ee77a1870ffc93f0",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "7bdd2a9f",
+      "models": [
+        {
+          "model_id": "679cc7b2ee77a1870ffc93f0",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "29042b51",
+      "models": [
+        {
+          "model_id": "679cc7b2ee77a1870ffc93f0",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "c012125f",
+      "models": [
+        {
+          "model_id": "679cc7b2ee77a1870ffc93f0",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    },
+    {
+      "metric_id": "1505d002",
+      "models": [
+        {
+          "model_id": "679cc7b2ee77a1870ffc93f0",
+          "status": "Metrics Calculation Completed"
+        }
+      ],
+      "metric_overall_status": "Metrics Calculation Completed"
+    }
+  ],
+  "process_name": null,
+  "timestamp": 1738571491
+},
+{
+  "_id": {
+    "$oid": "679e0c4e02323f746f49eef6"
+  },
+  "process_id": "ae5d6eb2",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T17:28:04.962Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679e0c7802323f746f49eef8"
+  },
+  "process_id": "17162507",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T17:26:13.077Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679e117302323f746f49eefa"
+  },
+  "process_id": "a0f4a902",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Completed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T17:50:03.291Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679e1fd902323f746f49eefc"
+  },
+  "process_id": "f4009aff",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T18:51:28.236Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679e21f502323f746f49eefd"
+  },
+  "process_id": "ccb28616",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T19:00:27.576Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679e270f02323f746f49eefe"
+  },
+  "process_id": "dd60e985",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T19:22:13.115Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "679e27bf02323f746f49eeff"
+  },
+  "process_id": "cdc12713",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-01T19:25:10.778Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "67a074b8ef872c6e447ca2ec"
+  },
+  "process_id": "85847697",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679e4ef847b54d70c2e918ae",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-03T13:18:02.844Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "67a08af4ef872c6e447ca2ed"
+  },
+  "process_id": "72450d6f",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679e4ef847b54d70c2e918ae",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-03T14:52:55.229Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "67a08b5bef872c6e447ca2ee"
+  },
+  "process_id": "6fb63b27",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679e4ef847b54d70c2e918ae",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "start_time": {
+    "$date": "2025-02-03T14:54:38.031Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "67a99a29f6b4862125b1895c"
+  },
+  "process_id": "289d7c1d",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "679cc7b2ee77a1870ffc93f0",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "process_name": "Evaluation Tests",
+  "start_time": {
+    "$date": "2025-02-10T11:48:15.693Z"
+  },
+  "user_id": "6763bcaee9de89e45df86da0"
+},
+{
+  "_id": {
+    "$oid": "67a9a42bf6b4862125b1895d"
+  },
+  "process_id": "deff924e",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67a98c0384e9988f542fb5db",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "process_name": "eval1",
+  "start_time": {
+    "$date": "2025-02-10T12:30:59.038Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67a9c083f6b4862125b1895e"
+  },
+  "process_id": "4d64796c",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67a98c0384e9988f542fb5db",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "process_name": "new",
+  "start_time": {
+    "$date": "2025-02-10T14:31:53.489Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67a9c4d8f6b4862125b18960"
+  },
+  "process_id": "c399d87a",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67a98c0384e9988f542fb5db",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "process_name": "new2",
+  "start_time": {
+    "$date": "2025-02-10T14:50:22.774Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67a9c762f6b4862125b18961"
+  },
+  "process_id": "8a4fa49d",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67a98c0384e9988f542fb5db",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "process_name": "new22",
+  "start_time": {
+    "$date": "2025-02-10T15:01:14.244Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+},
+{
+  "_id": {
+    "$oid": "67a9c8def6b4862125b18962"
+  },
+  "process_id": "7f83cab9",
+  "end_time": null,
+  "models": [
+    {
+      "model_id": "67a98c0384e9988f542fb5db",
+      "model_name": "tag",
+      "status": "Failed"
+    }
+  ],
+  "overall_status": "Failed",
+  "process_name": "new22",
+  "start_time": {
+    "$date": "2025-02-10T15:07:32.345Z"
+  },
+  "user_id": "67a5af08bf407c4c59679c35"
+}]

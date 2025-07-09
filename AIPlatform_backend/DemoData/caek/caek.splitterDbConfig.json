@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "67acc6d22c45e9ea7719a943"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "PreScreening_Jobs",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 700,
+    "chunk_overlap": 70
+  },
+  "timestamp": 1739376338
+},
+{
+  "_id": {
+    "$oid": "67b0541c1612ec2e56a536a9"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "Bakers Fun",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 700,
+    "chunk_overlap": 198
+  },
+  "timestamp": 1739609116
+},
+{
+  "_id": {
+    "$oid": "67b08b561c3f9ef8a8971658"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "Database",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 700,
+    "chunk_overlap": 200
+  },
+  "timestamp": 1739623254
+},
+{
+  "_id": {
+    "$oid": "67c036641521310159b1db97"
+  },
+  "framework": "llamaindex",
+  "configuration_name": "Jobs_Resumes_Transcripts",
+  "splitter_type": "sentence",
+  "splitter_params": {
+    "chunk_size": 700,
+    "chunk_overlap": 199
+  },
+  "timestamp": 1740650084
+}]

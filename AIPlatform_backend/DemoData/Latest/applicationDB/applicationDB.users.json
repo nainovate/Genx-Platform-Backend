@@ -1,0 +1,154 @@
+[{
+  "_id": {
+    "$oid": "6719f2b4a819e54ab9a68d63"
+  },
+  "username": "superadmin",
+  "email": "superadmin@gmail.com",
+  "firstName": "admin",
+  "lastName": "test",
+  "contactNumber": "1234567890",
+  "role": {
+    "superadmin": []
+  }
+},
+{
+  "_id": {
+    "$oid": "67ced5aaa8dcd22f62506fe2"
+  },
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "firstName": "admin",
+  "lastName": "admin",
+  "contactNumber": "7234568799",
+  "orgIds": [
+    "uzra",
+    "qiqh"
+  ],
+  "role": {
+    "admin": [
+      "uzra",
+      "qiqh"
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "67ced658a8dcd22f62506fee"
+  },
+  "username": "analyst",
+  "email": "analyst@gmail.com",
+  "firstName": "Business",
+  "lastName": "Analyst",
+  "contactNumber": "7234568799",
+  "orgIds": [
+    "uzra",
+    "qiqh"
+  ],
+  "role": {
+    "analyst": {
+      "uzra": [
+        "67cc4fbcffe920a13cbc8437"
+      ],
+      "qiqh": [
+        "67cfcb376a1749e344c81b13"
+      ]
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67ced69ba8dcd22f62506ff0"
+  },
+  "username": "dataengineer",
+  "email": "dataengineer@gmail.com",
+  "firstName": "Data",
+  "lastName": "Engineer",
+  "contactNumber": "7234568799",
+  "orgIds": [
+    "uzra",
+    "qiqh"
+  ],
+  "role": {
+    "dataengineer": {
+      "uzra": [],
+      "qiqh": []
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67ced6cca8dcd22f62506ff2"
+  },
+  "username": "aiengineer",
+  "email": "aiengineer@gmail.com",
+  "firstName": "AI",
+  "lastName": "Engineer",
+  "contactNumber": "7234568799",
+  "orgIds": [
+    "uzra",
+    "qiqh"
+  ],
+  "role": {
+    "aiengineer": {
+      "uzra": [],
+      "qiqh": []
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67ced7efa8dcd22f62507017"
+  },
+  "username": "vamsi",
+  "email": "vamsi@gmail.com",
+  "firstName": "vamsi",
+  "lastName": "Srinivas",
+  "contactNumber": "7234568799",
+  "orgIds": [
+    "uzra",
+    "qiqh"
+  ],
+  "role": {
+    "user": {
+      "uzra": {
+        "67cc4fbcffe920a13cbc8437": {
+          "67cc5534ffe920a13cbc8481": [
+            "67cc55adffe920a13cbc848d"
+          ]
+        }
+      },
+      "qiqh": {
+        "67cfcb376a1749e344c81b13": {
+          "67d2e6129d9afc3e70a3a777": [
+            "67dd40785ccf67fcec36c55a",
+            "67d2f2b09d9afc3e70a3a80b"
+          ]
+        }
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "67d013326a1749e344c81c04"
+  },
+  "username": "mani",
+  "email": "mani@gmail.com",
+  "firstName": "mani",
+  "lastName": "",
+  "contactNumber": "9102468863",
+  "orgIds": [
+    "uzra"
+  ],
+  "role": {
+    "user": {
+      "uzra": {
+        "67cc4fbcffe920a13cbc8437": {
+          "67cc5534ffe920a13cbc8481": [
+            "67cc55adffe920a13cbc848d"
+          ]
+        }
+      }
+    }
+  }
+}]

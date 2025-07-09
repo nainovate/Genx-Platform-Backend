@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "67ae12acc8e9aea5abfbb3f7"
+  },
+  "configuration_name": "hello",
+  "vector_store_config": {
+    "store_type": "qdrant",
+    "params": {
+      "url": "https",
+      "api_key": "hello",
+      "collection_name": "collections1"
+    }
+  },
+  "timestamp": 1739461292,
+  "embedding_model": "none",
+  "framework": "none"
+}]
