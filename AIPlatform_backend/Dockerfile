@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y \
     libxkbcommon-x11-0 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Create log directory structure
+RUN mkdir -p /app/logs/backend && \
+    chmod -R 777 /app/logs
+
+
 # Install Python dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip \
